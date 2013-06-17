@@ -1,0 +1,33 @@
+http://www.rvl.io/colourgarden/simplifying-your-css-with-sass
+http://hugogiraudel.com/blog/less-to-sass.html
+http://css-tricks.com/sass-vs-less/
+https://gist.github.com/674726 (SASS/Less Comparison by Chris Epstein)
+http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
+http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
+http://metaskills.net/2012/02/27/too-less-should-you-be-using-sass/
+
+http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html Documentation
+
+https://github.com/jlong/sass-twitter-bootstrap Bootstrap, SASS-style
+
+http://ianstormtaylor.com/oocss-plus-sass-is-the-best-way-to-css/
+OOCSS & SASS
+
+
+	* Noel Tock's article on LESS with WordPress http://www.noeltock.com/web-design/wordpress/using-less-with-wordpress/
+	* wp-less project https://github.com/sanchothefat/wp-less
+	* LessPHP Parser Documentation http://leafo.net/lessphp/docs/
+
+DeveloperDrive tutorial series on LESS:
+http://www.developerdrive.com/2012/06/learning-less-divide-and-conquer/
+
+http://designshack.net/articles/css/30-amazing-resources-for-sass-lovers/ "30 awesome resources for SASS lovers"
+
+
+
+
+SUPPORT THREAD
+http://wordpress.org/support/topic/bones-theme-and-less
+
+BONES TUTORIALS WITH SCSS AND LESS RESOURCES
+http://wp.tutsplus.com/tutorials/theme-development/making-a-theme-with-bones-getting-started/

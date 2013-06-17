@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Slide</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/talks/css/normalize.css" media="screen">
+    <link rel="stylesheet" href="/talks/js/slide/slide.css" media="screen">
+    <link rel="stylesheet" href="hiless.css" media="screen">
+    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+    <style type="text/css">
+        pre {
+            font-size: 18px;
+        }
+        .center {
+            text-align: center;
+        }
+        img.center {
+            display: block;
+            margin: auto;
+        }
+        .slide {
+            padding-top: .25em;
+        }
+    </style>
+
+    <script id="touch-template" type="template">
+        <div id="touch">
+            <button id="start">start presentation</button>
+            <button id="done">done</button>
+            <button id="prev">prev</button>
+            <button id="next">next</button>
+        </div>
+    </script>
+</head>
+<body>
+
+<div id="wrapper">
+    <section class="slide">
+        <h1>Pre-Process All The Styles</h1>
+        <p class="center">K.Adam White</p>
+        <p class="center">adam@kadamwhite.com &bull; @kadamwhite</p>
+        <p class="center">Front-End Developer &bull; Boston WP Co-Organizer</p>
+    </section>
+    <section class="slide">
+        <h2>CSS3 Made Stylesheets Awesome</h2>
+        <img class="center" src="images/htmlcannot2.jpg" alt="HTML CAN NOT DO THAT!!!1!!" />
+        <p><small><a href="http://www.webmonkey.com/2012/09/like-css-wrap-your-head-around-cascading-attribute-sheets/">Image Source</a></small></p>
+    </section>
+    <section class="slide">
+        <h2>But You Deserve Better Than This</h2>
+        <pre style="font-size:10px;line-height:8px;"><code>
+.box_round {
+    -webkit-border-radius: 12px;
+            border-radius: 12px;
+
+
+    -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+.box_shadow {
+    -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+            box-shadow: 0px 0px 4px 0px #ffffff;
+}
+
+.box_gradient {
+    background-color: #444444;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999));
+    background-image: -webkit-linear-gradient(top, #444444, #999999);
+    background-image:    -moz-linear-gradient(top, #444444, #999999);
+    background-image:      -o-linear-gradient(top, #444444, #999999);
+    background-image:         linear-gradient(to bottom, #444444, #999999);
+}
+
+.box_rgba {
+    background-color: transparent;
+    background-color: rgba(180, 180, 144, 0.6);
+}
+
+.box_rotate {
+    -webkit-transform: rotate(7.5deg);
+       -moz-transform: rotate(7.5deg);
+        -ms-transform: rotate(7.5deg);
+         -o-transform: rotate(7.5deg);
+            transform: rotate(7.5deg);
+}
+
+.box_scale {
+    -webkit-transform: scale(0.8);
+       -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+         -o-transform: scale(0.8);
+            transform: scale(0.8);
+}
+
+.box_3dtransforms {
+    -webkit-perspective: 300px;
+       -moz-perspective: 300px;
+        -ms-perspective: 300px;
+            perspective: 300px;
+    -webkit-transform: rotateY(180deg);  -webkit-transform-style: preserve-3d;
+       -moz-transform: rotateY(180deg);     -moz-transform-style: preserve-3d;
+        -ms-transform: rotateY(180deg);      -ms-transform-style: preserve-3d;
+            transform: rotateY(180deg);          transform-style: preserve-3d;
+}
+
+
+.box_transition {
+    -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+         -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+}
+
+.box_textshadow {
+    text-shadow: 1px 1px 3px #888;
+}
+
+.box_opacity {
+    opacity: 0.9;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.box_bgsize {
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+}
+
+.box_columns {
+    -webkit-column-count: 2;  -webkit-column-gap: 15px; /* Chrome, Safari 3
+       -moz-column-count: 2;     -moz-column-gap: 15px; /* Firefox 3.5+
+            column-count: 2;          column-gap: 15px; /* Opera 11+
+}
+
+
+.box_animation:hover {
+    -webkit-animation: myanim 5s infinite;
+       -moz-animation: myanim 5s infinite;
+         -o-animation: myanim 5s infinite;
+            animation: myanim 5s infinite;
+}
+
+@-webkit-keyframes myanim {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+@-moz-keyframes myanim {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+@-o-keyframes myanim {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+@keyframes myanim {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+        </code></pre>
+        <p>Source: <a href="http://css3please.com/">CSS3Please.com</a></p>
+    </section>
+    <section class="slide">
+        <h1>What's a CSS Pre-Processor?</h1>
+    </section>
+    <section class="slide">
+        <h2>Compiles to CSS</h2>
+        <p>Write PHP &rarr; Renders as normal HTML</p>
+        <p>Write using a preprocessor &rarr; Renders as normal CSS</p>
+        <table style="width:100%;text-align:center;">
+            <tbody>
+                <tr>
+                    <td rowspan="2">
+                        <img src="images/less.png" alt="LESS Logo" />
+                    </td>
+                    <td>
+                        <img src="images/sass.gif" alt="SASS Logo" />
+                    </td>
+                    <td rowspan="2">
+                        <img src="images/stylus.png" alt="Stylus Logo" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images/compass.png" alt="Compass Logo" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide">
+          <h1>A Little History</h1>
+    </section>
+    <section class="slide">
+          <h2>SASS</h2>
+          <ul>
+              <li>&ldquo;Syntactically Awesome StyleSheets&rdquo;</li>
+              <li>Born from <a href="http://haml.info">Haml</a>, and written in Ruby</li>
+              <li>Stricter syntax than CSS:</li>
+          </ul>
+          <pre><code>
+          $blue: #3bbfce
+
+          .content-navigation
+            border-color: $blue
+            color: darken($blue, 9%)
+          </pre></code>
+    </section>
+    <section class="slide">
+        <h2>LESS</h2>
+        <ul>
+            <li>&ldquo;Meta-language&rdquo;: CSS is valid LESS by default</li>
+            <li>Originally in Ruby, now uses JavaScript: can run in the browser or on the command line with Node</li>
+            <li><a href="http://lesscss.org/">LESS Homepage</a></li>
+            <li><a href="https://github.com/cloudhead/less.js">LESS on Github</a></li>
+        </ul>
+        <pre><code>
+@blue: #3bbfce;
+
+.content-navigation {
+    border-color: @blue;
+    color: darken( @blue, 9% );
+}
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>SCSS</h2>
+        <ul>
+            <li>&ldquo;Sassy CSS&rdquo; (SCSS) syntax introduced in v3 to make syntax a meta-set of CSS</li>
+            <li><a href="http://sass-lang.com/">Sass Homepage</a></li>
+            <li><a href="https://github.com/nex3/sass">Sass on Github</a></li>
+        </ul>
+        <pre><code>
+$blue: #3bbfce;
+
+.content-navigation {
+    border-color: $blue;
+    color: darken( $blue, 9% );
+}
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>Stylus</h2>
+        <ul>
+            <li>Colons, semi-colons, brackets? <em>All optional</em></li>
+            <li>Also uses Node.js</li>
+            <li><a href="https://github.com/LearnBoost/stylus/blob/master/docs/compare.md">Stylus syntax comparison</a></li>
+            <li><a href="http://learnboost.github.com/stylus/">Stylus Homepage</a></li>
+            <li><a href="https://github.com/learnboost/stylus">Stylus on Github</a></li>
+        </ul>
+        <pre><code>
+blue = #3bbfce
+
+.content-navigation
+    border-color blue
+    color darken(blue, 30%)
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2 class="center">We're not going to talk about Stylus</h2>
+        <p class="center">(Sorry)</p>
+    </section>
+    <section class="slide">
+        <h1>What They Do</h1>
+    </section>
+    <section class="slide">
+        <h2>Gradients: CSS</h2>
+        <pre><code>
+.box_gradient {
+    background-color: #444444;
+    background-image: -webkit-gradient( linear, left top, left bottom, from( #444444 ), to( #999999 ) );
+    background-image: -webkit-linear-gradient( top, #444444, #999999 );
+    background-image:    -moz-linear-gradient( top, #444444, #999999 );
+    background-image:      -o-linear-gradient( top, #444444, #999999 );
+    background-image:         linear-gradient( to bottom, #444444, #999999 );
+}
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>Gradients: LESS &amp; SCSS</h2>
+        <p>LESS</p>
+        <pre><code>
+.widget {
+    .gradient( #444444, #999999 );
+}
+        </code></pre>
+        <p>SCSS with Compass</p>
+        <pre><code>
+.widget {
+    @include background( linear-gradient( top, #444444, #999999 ) );
+}
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>How? With "Mixins" (Functions)</h2>
+        <pre><code>
+.gradient( @from, @to ) {
+    background-color: @from;
+    background-image: -webkit-gradient( linear, left top, left bottom, from( @from ), to( @to ) );
+    background-image: -webkit-linear-gradient( top, @from, @to );
+    background-image:    -moz-linear-gradient( top, @from, @to );
+    background-image:      -o-linear-gradient( top, @from, @to );
+    background-image:         linear-gradient( to bottom, @from, @to );
+}
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>Also, Variables and Color Functions</h2>
+        <pre><code contenteditable="true">
+@primary-color: red;
+
+@link-color: @primary-color;
+@link-active: spin( @primary-color, 180 );
+@link-hover: darken( @link-color, 20% );
+@link-visited: greyscale( @link-color );
+
+@background-color: contrast( @color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%] );
+        </code></pre>
+        <p>Further reading:</p>
+        <ul>
+          <li><a href="http://steverydz.com/2012/02/13/colour-theory-with-less/">Colour Theory With LESS</a></li>
+          <li><a href="https://github.com/scottkellum/color-schemer">Color Schemer: A Robust Color Toolset for Sass</a></li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h2>But Wait, There's More!</h2>
+        <p>Nesting &amp; Inheritance</p>
+        <p>Functions &amp; Math</p>
+        <p>Better Importing &amp; Code Organization</p>
+    </section>
+    <section class="slide">
+        <h1>How You Use Them</h1>
+      </section>
+      <section class="slide">
+        <h2>Don't Fear the Command Line</h2>
+        <p>LESS runs in Node.js:</p>
+        <pre><code>
+npm install -g less
+lessc styles.less styles.css
+        </code></pre>
+        <p>Sass runs in Ruby:</p>
+        <pre><code>
+gem install sass
+mv style.css style.scss
+sass --watch style.scss:style.css
+        </code></pre>
+    </section>
+    <section class="slide">
+        <h2>(Aside: Grunt)</h2>
+        <img style="padding-right: 20px; width: 140px; float: left;" src="images/grunt-logo.png" alt="Grunt Logo" />
+        <p>Task-based build tool for Node</p>
+        <p>Works with every major pre-processor</p>
+        <p><em>Way</em> out-of-scope for this talk :)</p>
+    </section>
+    <section class="slide">
+        <h2>GUI Apps</h2>
+        <img src="images/codekit-window.png" style="width:800px;"/>
+        <p><a href="http://incident57.com/codekit/">Codekit</a></p>
+    </section>
+    <section class="slide">
+        <h2>Other GUI Apps</h2>
+        <p>LESS</p>
+        <ul>
+            <li><a href="http://crunchapp.net/">Crunch!</a> (Cross-Platform)</li>
+            <li><a href="http://wearekiss.com/simpless">SimpLESS</a> (Cross-Platform)</li>
+            <li><a href="http://incident57.com/less">LESS.app</a> (Mac)</li>
+            <li><a href="http://winless.org">WinLESS</a> (Windows)</li>
+        </ul>
+        <p>Sass &amp; Compass</p>
+        <ul>
+            <li><a href="http://mhs.github.com/scout-app/">Scout</a></li>
+            <li><a href="http://compass.handlino.com/">Compass.app</a></li>
+        </ul>
+    </section>
+    <section class="slide">
+          <h2>Jetpack</h2>
+          <p>Sass &amp; LESS support <a href="http://en.blog.wordpress.com/2012/12/21/css-sass-less/">added in December</a></p>
+          <p>Build on top of <a href="https://github.com/leafo/lessphp">lessphp</a> and <a href="https://github.com/leafo/scssphp">scssphp</a> ports</p>
+          <img src="images/preprocessor-chooser.png" />
+    </section>
+    <section class="slide">
+          <h2>Use Within Your Theme</h2>
+          <p>Use WordPress-specific wrappers for scssphp and lessphp to directly enqueue .scss or .less files</p>
+          <p>(My favorite workflow)</p>
+    </section>
+    <section class="slide">
+          <h1>So... Which One Should I Use?</h1>
+    </section>
+    <section class="slide">
+        <h2>&ldquo;Really short answer: Sass&rdquo;</h2>
+        <p>&ndash; Chris Coyier at CSS Tricks, in <a href="http://css-tricks.com/sass-vs-less/">Sass vs. LESS</a></p>
+        <p>Sass is more powerful and more extensible, with placeholder selectors, @extend, Compass</p>
+        <p>LESS also had a brief crisis of momentum where development stalled</p>
+    </section>
+    <section class="slide">
+        <h2>But Seriously, Just Pick One</h2>
+        <p><strong>&ldquo;The best CSS pre-processor is the one you have with you&rdquo;</strong></p>
+        <p>Neither LESS nor Sass are going anywhere</p>
+        <p>Either will make your life as a web designer better</p>
+    </section>
+    <section class="slide">
+        <h2>Other Comparisons</h2>
+        <p><a href="https://gist.github.com/chriseppstein/674726">Sass/LESS Comparison</a> by Sass creator Chris Eppstein</p>
+        <p><a href="http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/">Sass vs. LESS vs. Stylus: Preprocessor Shootout</a> at Net Tuts+</p>
+        <p><a href="http://metaskills.net/2012/02/27/too-less-should-you-be-using-sass/">Too LESS? Should You Be Using Sass?</a> by Ken Collins on metaskills.net</p>
+        <p><a href="http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/">An Introduction to LESS, and Comparison to Sass</a> by Jeremy Hixon for Smashing Mag</p>
+        <p><a href="http://hugogiraudel.com/2012/11/13/less-to-sass/">Why I Switched from LESS to Sass</a> by Hugo Giraudel</p>
+    </section>
+    <section class="slide">
+        <h2>Add-On Libraries</h2>
+        <p>Excellent resources are available to provide pre-packaged functionality and utilities to make writing CSS meta-languages like LESS and SCSS even easier:</p>
+        <p><a href="http://compass-style.org/">Compass</a> (Sass/SCSS)</p>
+        <p><a href="http://lesselements.com/">LESS Elements</a> (LESS)</p>
+        <p><a href="http://visionmedia.github.com/nib/">Nib</a> (Stylus)</p>
+    </section>
+    <section class="slide">
+        <h1>Best Practices &amp; "Gotcha's"</h1>
+    </section>
+    <section class="slide">
+        <h2>Nesting</h2>
+        <img src="images/nesting.jpg" />
+    </section>
+    <section class="slide">
+        <h2>Sample File Organization in LESS</h2>
+        <pre><code>
+@import "_normalize.less"; // Import Normalize
+@import "_mixins.less"; // MIXINS &amp; VARIABLES
+@import "_base.less"; // BASE (MOBILE) SIZE
+@media only screen and (min-width: 481px) {
+    @import "_481up.less"; // LARGER MOBILE DEVICES
+}
+@media only screen and (min-width: 768px) {
+    @import "_grid.less";
+    @import "_768up.less"; // TABLET &amp; SMALLER LAPTOPS
+}
+@media only screen and (min-width: 1030px) {
+    @import "_1030up.less"; // DESKTOP
+}
+@media only screen and (min-width: 1240px) {
+    @import "_1240up.less"; // LARGE VIEWING SIZE
+}
+        </code></pre>
+        <p>From the <a href="http://themble.com/bones/">&ldquo;Bones&rdquo;</a> WordPress Starter Theme</p>
+    </section>
+    <section class="slide">
+        <h2>Modular Code</h2>
+        <p>No More 10,000-Line CSS Files!</p>
+        <p><a href="http://tommcfarlin.com/using-less-in-wordpress/">Using LESS in WordPress</a> by Tom McFarlin</p>
+        <p><a href="http://tympanus.net/codrops/2012/01/27/modular-front-end-development-with-less/">Modular Front-End Development with LESS</a> by Delwin Campbell for Codrops</p>
+    </section>
+    <section class="slide">
+        <h2>OOCSS</h2>
+        <p>"Object Oriented CSS"</p>
+        <p>Strong approach to change the way you use classes for modularity and maintainability</p>
+        <p><a href="http://ianstormtaylor.com/oocss-plus-sass-is-the-best-way-to-css/">OOCSS + Sass = The best way to CSS</a>, by Ian Storm Taylor</p>
+        <p><a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">An Introduction To Object Oriented CSS (OOCSS)</a> by Louis Lazaris for Smashing Magazine</p>
+    </section>
+    <section class="slide">
+        <h1>And One More Thing...</h1>
+    </section>
+    <section class="slide">
+        <h2>Bones-LESS and Bones-SCSS</h2>
+        <p>Forks of the Bones starter theme, pre-integrated with wp-less and wp-sass</p>
+        <p>Launched today at <a href="http://bostonwp.github.com/bones-less/">bostonwp.github.com/bones-less</a> and <a href="http://bostonwp.github.com/bones-scss/">bostonwp.github.com/bones-scss</a></p>
+        <p><a href="http://wp.tutsplus.com/tutorials/theme-development/making-a-theme-with-bones-getting-started/">WP Tuts+ series on making a theme with Bones</a></p>
+    </section>
+    <section class="slide">
+        <h1>Thank You</h1>
+        <p>Slides: <a href="http://kadamwhite.github.io/talks/2013/preprocessors">kadamwhite.github.io/talks/2013/preprocessors</a></p>
+        <p>Find me <a href="https://twitter.com/kadamwhite">@kadamwhite</a> or at adam@kadamwhite.com</p>
+        <p>Questions?</p>
+    </section>
+</div>
+<script src="/talks/js/slide/lib/jquery-1.9.0.min.js"></script>
+<script src="/talks/js/slide/lib/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="/talks/js/slide/slide.js"></script>
+<script src="lib/hiless.js"></script>
+</body>
+<!-- JETPACK DEMO
+@primary-color: red;
+
+@link-color: @primary-color;
+@link-active: spin( @primary-color, 180 );
+@link-hover: darken( @link-color, 20% );
+@link-visited: desaturate( @link-color, 100% );
+
+a {
+    color: @link-color !important;
+
+    &:hover {
+      color: @link-hover !important;
+    }
+    &:active {
+        color: @link-active !important;
+    }
+    &:visited {
+      color: @link-visited !important;
+    }
+}
+-->
+</html>

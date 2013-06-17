@@ -1,0 +1,12 @@
+li {
+  color: #ff0000;
+}
+li:hover {
+  color: #990000;
+}
+li:active {
+  color: #00ffff;
+}
+li:visited {
+  color: #808080;
+}

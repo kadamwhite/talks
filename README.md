@@ -10,6 +10,7 @@ Each slide deck should be taken as representative of what I knew when I wrote th
 
 ## Presentations
 
+* [An Introduction to Stylesheet Pre-Processors](http://kadamwhite.github.io/talks/2013/preprocessors/), WordPress Providence Meetup, March 2013
 * [Backbone &amp; Underscore: jQuery's New Friends](http://kadamwhite.github.io/talks/2012/backbone-and-underscore/), WordCamp Boston, July 2012
 * [How *WE* can have nice things: The future of front-end tools (and what it means to WordPress developers)](http://kadamwhite.github.io/talks/2012/front-end-and-wp/), WordCamp Boston, July 2012
 * [Stepping Into Custom Post Types](http://www.slideshare.net/kadamwhite/stepping-into-custom-post-types), WordCamp Boston, July 2011</li>

@@ -1,0 +1,55 @@
+pre {
+  margin: 0;
+  text-shadow: 0 -1px 1px #262626;
+  margin-top: 20px;
+  background-color: #262626;
+  border: 0;
+  color: #ebefe7;
+  background-repeat: repeat;
+  padding: 15px;
+  border: 1px dashed #e6ebe0;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
+  font-family: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', 'Monaco', Courier, monospace !important;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+pre code .attribute,
+pre code .keyword {
+  color: #d9bf8c;
+}
+pre code .variable {
+  color: #738c73;
+}
+pre code .element {
+  color: #669991;
+}
+pre code .string,
+pre .regexp {
+  color: #bcd279;
+}
+pre code .class {
+  color: #c2a770;
+  font-weight: normal;
+}
+pre code .id {
+  color: #c2b470;
+  font-weight: normal;
+}
+pre code .comment {
+  color: rgba(255, 255, 255, 0.2);
+}
+pre code .number,
+pre .color {
+  color: #b35e4d;
+}
+pre code .class,
+pre code .mixin,
+pre .special {
+  color: #669199;
+}
+pre #time {
+  color: #aaaaaa;
+}

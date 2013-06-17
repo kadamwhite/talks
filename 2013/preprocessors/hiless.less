@@ -1,0 +1,52 @@
+@darkest:      hsl(20, 0%, 15%);
+@dark:         hsl(190, 20%, 30%);
+@medium:       hsl(10, 60%, 30%);
+@light:        hsl(90, 40%, 20%);
+@lightest:     hsl(90, 20%, 90%);
+@highlight:    hsl(80, 50%, 90%);
+
+.box-shadow (@x, @y, @blur, @alpha) {
+  @value: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow:         @value;
+  -moz-box-shadow:    @value;
+  -webkit-box-shadow: @value;
+}
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.code () {
+  font-family: 'Bitstream Vera Sans Mono',
+               'DejaVu Sans Mono',
+               'Monaco',
+               Courier,
+               monospace !important;
+}
+
+pre {
+  margin: 0;
+  text-shadow: 0 -1px 1px @darkest;
+  margin-top: 20px;
+  background-color: desaturate(@darkest, 8%);
+  border: 0;
+  color: lighten(@lightest, 2%);
+  background-repeat: repeat;
+  padding: 15px;
+  border: 1px dashed @lightest;
+  .box-shadow(0, 0px, 15px, 0.5);
+  .code;
+  .border-radius(2px);
+  code .attribute,
+  code .keyword { color: hsl(40, 50%, 70%) }
+  code .variable  { color: hsl(120, 10%, 50%) }
+  code .element   { color: hsl(170, 20%, 50%) }
+
+  code .string, .regexp { color: hsl(75, 50%, 65%) }
+  code .class { color: hsl(40, 40%, 60%); font-weight: normal }
+  code .id { color: hsl(50, 40%, 60%); font-weight: normal }
+  code .comment { color: rgba(255, 255, 255, 0.2) }
+  code .number, .color { color: hsl(10, 40%, 50%) }
+  code .class, code .mixin, .special { color: hsl(190, 20%, 50%) }
+  #time { color: #aaa }
+}

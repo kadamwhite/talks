@@ -1,0 +1,22 @@
+@primary-color: red;
+
+@link-color: @primary-color;
+@link-active: spin( @primary-color, 180 );
+@link-hover: darken( @link-color, 20% );
+@link-visited: greyscale( @link-color );
+
+li {
+	color: @link-color;
+
+	&:hover {
+		color: @link-hover;
+	}
+	&:active {
+		color: @link-active;
+	}
+	&:visited {
+		color: @link-visited;
+	}
+}
+
+//@background-color: contrast( @color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%] );
