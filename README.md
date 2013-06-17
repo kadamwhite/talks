@@ -6,9 +6,14 @@ I am a JavaScript developer at [Bocoup](http://bocoup.com), and a co-organizer o
 
 * Twitter: [@kadamwhite](http://twitter.com/kadamwhite)
 
-### Technical Disclaimer
+**Technical Disclaimer**
 
-Each slide deck should be taken as representative of what I knew when I wrote the presentation&mdash;older content may consequentially be out-of-date. If you see any technical errors or inaccuracies *vs* current libraries or evolving standards, please file an issue against this repository and I will update the content.
+Each slide deck should be taken as representative of what I knew when I wrote the presentation&mdash;older content may consequentially be out-of-date. If you see any technical errors or inaccuracies *vs* current libraries or evolving standards, please [file an issue](https://github.com/kadamwhite/talks/issues) against this repository and I will update the content.
+
+## Presentations
+
+* [How *WE* can have nice things: The future of front-end tools (and what it means to WordPress developers)](http://kadamwhite.github.io/talks/2012/front-end-and-wp/index.html), WordCamp Boston, July 2012
+* [Stepping Into Custom Post Types](http://www.slideshare.net/kadamwhite/stepping-into-custom-post-types), WordCamp Boston, July 2011</li>
 
 ## Technology
 

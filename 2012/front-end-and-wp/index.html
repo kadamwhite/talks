@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Front-End Development Tools and WordPress, from WordCamp Boston 2012</title>
+
+    <meta name="description" content="Presentation on integrating modern front-end development tools into your WordPress development toolkit, delivered at WordCamp Boston 2012">
+    <meta name="author" content="K.Adam White">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/talks/js/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/talks/css/brown.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="/talks/js/reveal/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        /**** Custom ****/
+        .column-holder {
+            margin: 0 -10%;
+        }
+        .column {
+            width: 50%;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+    <section>
+        <h2>How <u>WE</u> Can Have Nice&nbsp;Things: The Future of Front-End Dev Tools</h2>
+        <h4>(and what it means to WordPress developers)</h4>
+        <p><br />Delivered at <a href="http://2012.boston.wordcamp.org">WordCamp Boston 2012</a></p>
+        <p style="font-size:32px;">K.Adam White &bull; <a href="http://www.twitter.com/kadamwhite">@kadamwhite</a></p>
+    </section>
+
+    <section>
+        <h2>Where we are now</h2>
+        <h1>It is 2012, and our Things are pretty darn Nice</h1>
+    </section>
+
+    <section>
+        <h2>What is Front-End Development?</h2>
+        <p><a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">A Baseline for Front-End Developers</a><br />- Blog post by Rebecca Murphey</p>
+        <p>
+            <span class="fragment">HTML, CSS</span>
+            <span class="fragment">&bull; jQuery</span>
+            <span class="fragment">&bull; JavaScript</span>
+            <span class="fragment">&bull; CSS preprocessors (SASS, LESS)</span>
+            <span class="fragment">&bull; Client-side templating (Mustache)</span>
+            <span class="fragment">&bull; Source Control (Github)</span>
+            <span class="fragment">&bull; Modularity, dependency management, and production builds</span>
+            <span class="fragment">&bull; In-Browser Developer Tools</span>
+            <span class="fragment">&bull; The command line</span>
+            <span class="fragment">&bull; Testing</span>
+            <span class="fragment">&bull; Process automation</span>
+            <span class="fragment">&bull; Code quality</span>
+            <span class="fragment">&bull; Documentation</span>
+        </p>
+    </section>
+
+    <section>
+        <h1><br />The Good news is, developers are Lazy</h1>
+    </section>
+    <section>
+        <h2>If our job gets more complex, we will spent months (or years) creating tools to make it easier again</h2>
+    </section>
+
+    <section>
+        <ul>
+            <li>CSS3 is Awesome
+                <ul>
+                    <li>WCBOS 2011: Boaz Sender, <a href="http://wordpress.tv/2011/09/27/boaz-sender-exploding-your-wordpress-theme-with-css3/">Exploding Your WordPress Theme with CSS3 (video)</a>
+                    </li>
+                    <li>Tomorrow, 2pm: George Stephanis, <a href="http://2012.boston.wordcamp.org/session/old-new-borrowed-and-blue-updating-kubrick-to-css3html5/">Updating “Kubrick” to CSS3/HTML5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="fragment">CSS3 doesn't change the structure of CSS<br />&nbsp;</li>
+        </ul>
+        <div class="fragment">
+            <h2>Stylesheet Pre-Processors</h2>
+            <p>were created to help manage stylesheets</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>SASS</h2>
+        <ul>
+            <li>&ldquo;Syntactically Awesome StyleSheets&rdquo;</li>
+            <li>Born from <a href="http://haml.info">Haml</a>, and written in Ruby</li>
+            <li>Stricter syntax than CSS:</li>
+        </ul>
+        <pre><code>
+        $blue: #3bbfce
+
+        .content-navigation
+            border-color: $blue
+            color: darken($blue, 9%)
+        </pre></code>
+    </section>
+
+    <section>
+        <h2>LESS</h2>
+        <ul>
+            <li>&ldquo;Meta-language&rdquo;: CSS is valid LESS by default</li>
+            <li>Originally in Ruby, now uses JavaScript: can run in the browser or on the command line with Node</li>
+            <li><a href="http://lesscss.org/">LESS Homepage</a></li>
+            <li><a href="https://github.com/cloudhead/less.js">LESS on Github</a></li>
+        </ul>
+        <pre><code>
+        @blue: #3bbfce;
+
+        .content-navigation {
+            border-color: @blue;
+            color: darken(@blue, 9%);
+        }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>SCSS</h2>
+        <ul>
+            <li>&ldquo;Sassy CSS&rdquo; (SCSS) syntax introduced in v3 to make syntax a meta-set of CSS</li>
+            <li><a href="http://sass-lang.com/">Sass Homepage</a></li>
+            <li><a href="https://github.com/nex3/sass">Sass on Github</a></li>
+        </ul>
+        <pre><code>
+        $blue: #3bbfce;
+
+        .content-navigation {
+            border-color: $blue;
+            color: darken($blue, 9%);
+        }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Stylus</h2>
+        <ul>
+            <li>Colons, semi-colons, brackets? <em>All optional</em></li>
+            <li>Also uses Node.js</li>
+            <li><a href="https://github.com/LearnBoost/stylus/blob/master/docs/compare.md">Stylus syntax comparison</a></li>
+            <li><a href="http://learnboost.github.com/stylus/">Stylus Homepage</a></li>
+            <li><a href="https://github.com/learnboost/stylus">Stylus on Github</a></li>
+        </ul>
+        <pre><code>
+        blue = #3bbfce
+
+        .content-navigation
+            border-color blue
+            color darken(blue, 30%)
+        </code></pre>
+    </section>
+
+    <section>
+        <h1><br />I happen to use LESS</h1>
+        <h2>(<acronym title="your mileage may vary">YMMV</acronym>)</h2>
+    </section>
+
+    <section>
+        <h2>Nested Rules</h2>
+        <pre><code>            .widget {
+        span {
+        color: #14ff23;
+        font-style: italic;
+        }
+
+        a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+        }
+    }</code></pre>
+        <p>&ldquo;<code>&amp;</code>&rdquo; lets you reference the current selector:<br />
+        The <code>&amp;:hover</code> above means <code>.widget a:hover</code></p>
+    </section>
+
+    <section>
+        <h2>Math!</h2>
+        <p>Inline arithmetic within definitions</p>
+        <pre><code>
+        @text-size: 16px;
+
+        h1 {
+            <strong>font-size: @text-size * 2;</strong>
+        }
+        </code></pre>
+        <p>Rendered CSS:</p>
+        <pre><code>
+        h1 {
+            font-size: 32px;
+        }
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>&ldquo;Mixins&rdquo; (functions)</h2>
+        <div class="column-holder">
+            <div class="column">
+                <p>This...</p>
+                <pre><code>
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+#header {
+    <strong>.rounded-corners;</strong>
+}
+#footer {
+    <strong>.rounded-corners(10px);</strong>
+}
+                </code></pre>
+            </div>
+            <div class="column">
+                <p>...compiles to this:</p>
+                <pre><code>
+#header {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+#footer {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>@extend (SCSS only at present)</h2>
+        <p>Lets you intelligently specify rule inheritance, with less code than mixins</p>
+        <div class="column-holder">
+            <div class="column">
+                <pre><code>.widget {
+    background-color: #444;
+    color: #00ff00;
+    font-family: monospace;
+}
+.error-widget {
+    <strong>@extend .widget</strong>
+    color: #ff0000;
+}</code></pre>
+            </div>
+            <div class="column">
+                <pre><code>.widget,
+<strong>.error-widget</strong> {
+    background-color: #444;
+    color: #00ff00;
+    font-family: monospace;
+}
+.error-widget {
+    color: #ff0000;
+}</code></pre>
+            </div>
+        </div>
+        <p>(<strong>Note:</strong> If you want this in LESS—and I for one do—add a +1 to the <a href="https://github.com/cloudhead/less.js/pull/509">feature pull request on github</a>)</p>
+    </section>
+
+    <section>
+        <h2>SASS/LESS: Friends &amp; Family</h2>
+        <p><strong>SCSS:</strong>
+        <a href="http://compass-style.org/">Compass</a> framework &bull; <a href="http://thoughtbot.com/bourbon/">Bourbon</a> mixin library</p>
+
+        <p><strong>LESS:</strong>
+        <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> toolkit<br />
+        <a href="http://leafo.net/lessphp/">lessphp</a> PHP port of LESS—introduces ways to integrate with WordPress<br />
+        <a href="http://wordpress.org/extend/plugins/wp-less/">wp-less</a> by Thomas Parisot (<a href="http://twitter.com/CyneticMonkey">@CyneticMonkey</a>)<br />
+        <a href="http://www.baptistecaquot.fr/blog/utilisation-de-lessphp-et-integration-dans-wordpress/">Integrating LESSphp into WordPress (in French)</a> by Baptiste Caquot (<a href="http://twitter.com/baptwit">@baptwit</a>)<br />
+        <a href="http://www.dotlesscss.org/">dotless</a> .NET port of LESS, used in <a href="https://github.com/jetheredge/SquishIt">SquishIt</a> (by <a href="http://twitter.com/JustinEtheredge">@JustinEtheredge</a>)
+        </p>
+    </section>
+
+    <section>
+        <h2>So that's one Cool Thing</h2>
+        <ul>
+            <li class="fragment">Pre-processors let you make Even Cooler Things</li>
+            <li class="fragment">Front end has a build process, and it ain't &ldquo;reload!&rdquo;
+                <ul>
+                    <li class="fragment">Pre-processed</li>
+                    <li class="fragment">Minified</li>
+                    <li class="fragment">Concatenated</li>
+                    <li class="fragment">Inspected, detected, infected, neglected and selected</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <a href="http://xkcd.com/303/"><img style="height: 90%" src="images/xkcd-compiling.png" title="But if you're a front-end engineer, it doesn't take that long... so GET BACK TO WORK" /></a>
+        <img class="fragment" src="images/x.png" style="position: absolute; left: 50%; top:50%; margin-top: -200px; margin-left: -200px;height: 70%;border:0;background:transparent;box-shadow:none;" />
+    </section>
+
+    <section>
+        <a href="http://www.basement.org/2005/12/weird_naked_white_collar_guys.html" title="Google's #1 result for &ldquo;Extremely Complicated Flow-chart&rdquo;"><img src="images/extremely-complicated-flow-chart.gif" style="height: 90%" /></a>
+    </section>
+
+    <section>
+        <h2>Putting tools to use</h2>
+        <ul>
+            <li>Make pre-processors a part of your workflow:
+                <ul>
+                    <li class="fragment">Command-line, via Ruby or Node.js</li>
+                    <li class="fragment">Manually, via dedicated applications</li>
+                    <li class="fragment">Built-in to your text editor</li>
+                    <li class="fragment">Server-side via ports to PHP, .NET, etc</li>
+                    <li class="fragment">Browser-side via JavaScript (LESS only)</li>
+                    <li class="fragment">Pick and choose&mdash;the best tools are flexible!</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Want More?</h1>
+        <img class="fragment" src="images/octocat.png" style="height: 70%;border:0;background:transparent;box-shadow:none;"/>
+    </section>
+
+    <section>
+        <h2>Git</h2>
+        <p>WordPress uses SVN, but on the front-end<br /> <a href="http://github.com">Github</a> has won. Resistence is futile.</p>
+        <p>Learn the ropes with <a href="http://www.codeschool.com/courses/try-git">Try Git</a> on CodeSchool</p>
+        <p>Github has released <a href="http://mac.github.com/">Mac</a> and <a href="http://windows.github.com/">Windows</a> clients; other non-Github-specific GUIs exist</p>
+        <p>Even non-Git-based projects frequently have Github mirrors&mdash;Mark Jacquith established the official <a href="https://github.com/WordPress/WordPress">WordPress Github mirror</a></p>
+    </section>
+
+    <section>
+        <h1><br />Github is the JavaScript Community's Home</h1>
+    </section>
+
+    <section>
+        <h2>Code Review Tools</h2>
+        <img src="images/github-comments.png" style="width: 80%;" title="screenshot of Node.js commit diff" />
+    </section>
+
+    <section>
+        <h2>Forking/Pull Requests</h2>
+        <img src="images/github-pull-req.png" style="width: 90%;" />
+        <p>Github article on <a href="https://github.com/blog/1124-how-we-use-pull-requests-to-build-github">how they use Pull Requests</a> for internal development</p>
+    </section>
+
+    <section>
+        <h2>&nbsp;</h2>
+        <p>Public Bug Tracker</p>
+        <p class="fragment">Wiki</p>
+        <p class="fragment">Gists (for short code/one-off demos)</p>
+        <p class="fragment">README.md</p>
+    </section>
+
+    <section>
+        <h2>Community Concerns</h2>
+        <ul>
+            <li>&ldquo;What is this thing?&rdquo;: Documentation
+            <ul class="fragment">
+                <li>Code comments</li>
+                <li>API Reference</li>
+                <li>Getting started tutorials/examples</li>
+            </ul></li>
+            <li class="fragment">&ldquo;Tabs vs Spaces&rdquo;: Style Guides FTW</li>
+            <li class="fragment">&ldquo;Did I break it?&rdquo;: Unit Tests</li>
+            <li class="fragment">Most importantly, be excited about what you create: dream big, involve the rest of us</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>A parting thought</h2>
+        <img src="images/tag-cloud.jpg" style="width: 90%;" />
+    </section>
+
+    <section>
+        <h1>Thank You</h1>
+        <p>Slides: <a href="http://bit.ly/kadam-wcbos12">bit.ly/kadam-wcbos12</a></p>
+        <p>adam&#64;kadamwhite.com</p>
+        <hr style="width: 50%;" />
+        <p style="font-size:24px;">Slides created with <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a><br />Typefaces by <a href="http://www.theleagueofmoveabletype.com/">The League of Movable Type</a></p>
+        <hr style="width: 50%;" />
+        <p style="font-size:24px;">Continue right for Unit Testing and Style Guide resources &rarr;</p>
+    </section>
+
+    <section>
+        <h1><br />Resources</h1>
+    </section>
+
+    <section>
+        <h2>Style Guides</h2>
+        <blockquote><p>&hellip;the more readable our source code is, the easier it is to maintain.</p></blockquote>
+        <p style="font-size: 28px;">- Addy Osmani, <a href="http://addyosmani.com/blog/javascript-style-guides-and-beautifiers/">JavaScript Style Guides and Beautifiers</a></p>
+        <hr />
+        <ul>
+            <li><a href="https://github.com/rwldrn/idiomatic.js">Idiomatic.js</a>: A useful (if opinionated) community-maintained style guide</li>
+            <li><a href="http://docs.jquery.com/JQuery_Core_Style_Guidelines">jQuery Core style guide</a></li>
+            <li><a href="https://github.com/styleguide/css/">Github's (S)CSS Style Guide</a></li>
+            <li>WordPress Core coding standards for <a href="http://codex.wordpress.org/WordPress_Coding_Standards">PHP</a> and <a href="http://codex.wordpress.org/CSS_Coding_Standards">CSS (Draft)</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Unit Testing</h2>
+        <ul>
+            <li><a href="http://www.adequatelygood.com/2010/7/Writing-Testable-JavaScript">An article from Ben Cherry</a> on how to write your code in a testable way</li>
+            <li><a href="https://github.com/rwldrn/idiomatic.js/#test-facility">Recommended testing libraries</a>, from Idiomatic.js</li>
+            <li><a href="http://qunitjs.com/">QUnit framework website</a>, with demos and a &ldquo;cookbook&rdquo;</li>
+            <li>Smashing Magazine <a href="http://coding.smashingmagazine.com/2012/06/27/introduction-to-javascript-unit-testing/">Tutorial on unit testing</a>, helping explain what a &ldquo;unit&rdquo; is</li>
+            <li>A Chapter of Addy Osmani's Backbone Fundamentals about <a href="Addy Osmani">unit testing Backbone.js applications</a></li>
+        </ul>
+    </section>
+
+</div><!-- .slides -->
+
+</div><!-- .reveal -->
+<script src="/talks/js/reveal/lib/js/head.min.js"></script>
+<script src="/talks/js/reveal/js/reveal.min.js"></script>
+
+<script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: '/talks/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: '/talks/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '/talks/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '/talks/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: '/talks/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: '/talks/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '/talks/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '/talks/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+</body>
+</html>
