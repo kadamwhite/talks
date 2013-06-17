@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Backbone &amp; Underscore: jQuery's New Friends</title>
+
+    <meta name="description" content="Presentation on using Backbone.js and Underscore.js within WordPress, delivered at WordCamp Providence 2012">
+    <meta name="author" content="K.Adam White">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/talks/js/reveal/css/reveal.css">
+    <link rel="stylesheet" href="/talks/css/brown.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="/talks/js/reveal/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+    <section>
+        <h1>
+            Backbone and Underscore: jQuery's New Friends
+        </h1>
+        <h3>
+            K.Adam White &bull; <a href="http://twitter.com/kadamwhite">@kadamwhite</a>
+        </h3>
+
+        <aside class="notes">
+            Introduction, Welcome, thanks to organizers. Disclaimer.<br />I am lead front-end dev at Grand Circle Corporation, where we do not use WP, but I'm a long-time fan: first installed in December, 2005 (almost 7 years ago)
+        </aside>
+    </section>
+
+    <!-- <section>
+        <h2><br /><br />Disclaimer</h2>
+        <p>
+            I have been an observer of the developments around 3.5 and the new Media workflow, not an active participant. If I get something wrong, please correct me!
+        </p>
+    </section> -->
+
+    <section>
+        <h2>WordPress &amp; JavaScript</h2>
+        <p>
+            <img src="images/wp-hearts-js.png" alt="WP &hearts; JS">
+        </p>
+        <p>
+            <i><small>UpperCamelCase 4lyf!</small></i>
+        </p>
+
+        <aside class="notes">
+            This talk is about the relationship between WP &amp; JS
+        </aside>
+    </section>
+
+    <section>
+        <p>
+            <img src="images/js-logo.png" alt="JavaScript Logo">
+        </p>
+        <p>
+            <i><small><a href="https://github.com/voodootikigod/logo.js" title="logo.js on Github">logo.js</a> community logo by Chris Williams</small></i>
+        </p>
+
+        <aside class="notes">
+            Generally, when we talk about JavaScript in the context of WordPress, we're talking about...
+        </aside>
+    </section>
+
+    <section>
+        <section>
+            <h1 class="middle-align">
+                <img src="images/jquery-inverted.png" alt="jQuery Logo" />
+            </h1>
+
+            <aside class="notes">
+                ...jQuery. And that's not just limited to WP: (turn) jQuery is Everywhere
+            </aside>
+        </section>
+
+        <section>
+            <h2>jQuery is Everywhere</h2>
+            <div class="fragment">
+                <p style="float: right;"><img src="images/top-js-technology.png" alt="Excerpt of builtwith.com report on JavaScript usage" /></p>
+                <p style="text-align: right;"><br /><br /><br />Used on 55% of the top 10,000 websites</p>
+                <p style="text-align: right;" class="fragment">
+                    <i>7 of the top 20</i> most-used libraries are jQuery plugins&mdash;jQuery UI is in spot #4
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="middle-align">Why jQuery?</h2>
+
+            <aside class="notes">
+                You might be asking yourself "Why jQuery?" What's so special that it became so popular? Well, there are a couple things that is does better than anybody else:
+            </aside>
+        </section>
+
+        <section>
+            <h2>Finding Things</h2>
+            <p>
+                jQuery's CSS selector-based query syntax makes finding elements on your page easy!
+            </p>
+            <pre><code contenteditable>
+  $('.class div', '#li') // div children of .class, within #li
+    .find('a') // all link elements undernead those divs
+      .is(':visible') // Exclude any hidden links
+      .nextAll('input[type="text"]') // All following siblings,
+                                     // limited to text inputs
+      .first(); // The first of those inputs, like :first-child
+            </code></pre>
+
+            <p class="fragment">
+                The ability to "chain" selector commands is the core strength of jQuery's <acronym title="Application Programming Interface">API</acronym>
+            </p>
+            <p class="fragment">
+                <small>Aside: There's a <a href="http://wordpress.tv/2011/09/19/john-resig-jquery-performance-and-new-features/">great talk from John Resig on jQuery selector performance</a> up on WordCamp.tv&mdash;If you use jQuery regularly, check it out!</small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Finding Things</h2>
+            <p>
+                Don't repeat yourself! Save references to important objects so you can return to them later
+            </p>
+            <pre><code contenteditable class="javascript">
+  var $lastWidget = $('.widget').last();
+  // ...
+  $lastWidget.addClass('most-awesome-widget');
+  // ...
+  $lastWidget.find('.widget-title').text('I am beautiful');
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Changing Things</h2>
+            <p>Add or remove classes...</p>
+            <pre><code contenteditable class="javascript">
+  // Rotate and re-color a button using existing CSS classes
+  $('.btn').addClass('rotated green').removeClass('blue');
+            </code></pre>
+            <p>Show or hide content...</p>
+            <pre><code contenteditable class="javascript">
+  // Hide the "Continue Reading" link
+  $('.read-more-link').hide();
+  // Reveal the expanded content
+  $('.full-content').slideDown();
+            </code></pre>
+            <p>
+                Once you have a reference to the object (once you've found it), you can do almost anything
+            </p>
+        </section>
+
+        <section>
+            <h2>Events</h2>
+            <p>
+                Interact with your site visitors!
+            </p>
+            <pre><code contenteditable class="javascript">
+  // Whenever the .trigger button is clicked,
+  // toggle the visibility of that post's content
+  $('.post').on('click', 'a', function(event) {
+    event.preventDefault();
+    $(this).parents('.post').find('.content').slideToggle();
+  });
+  // When the user hovers over a link, make it red
+  $('a').hover(function() {
+    $(this).addClass('red'); // mouse over
+  }, function() {
+    $(this).removeClass('red'); // mouse out
+  });
+            </code></pre>
+            <p>
+                Your site can react to keypress events, mouse clicks or movement, buttons, forms, scrollbars, and more
+            </p>
+        </section>
+
+        <section>
+            <h2>Retrieving Things</h2>
+            <p>
+                jQuery also comes with a strong set of <acronym title="Asynchronous JavaScript and XML, though these days we usually use JSON instead of XML!">AJAX</acronym> methods for retrieving data and files from your server
+            </p>
+            <pre><code contenteditable class="javascript">
+  // Load the contents of 'content.html' into the last widget
+  $lastWidget.load('ajax/content.html');
+
+  // Load a script used only on one page of your site
+  $.getScript('/talks/js/jquery.ui.min.js', function callback() {
+    $.dialog();
+  });
+
+  // Get arbitrary data from the server
+  $.ajax('some/data/you/want', function(data, status) {
+    /* Use loaded data */
+  });
+            </code></pre>
+            <p>
+                <small>Note: Due to browser security restrictions on JavaScript, you usually can't<br />retrieve content or data from third-party servers</small>
+            </p>
+        </section>
+
+        <section>
+            <h2>And Look Good Doing It</h2>
+            <p>
+                Reacting to events, finding objects within the <acronym title="Document Object Model">DOM</acronym> (the structure of your webpage), changing content, getting data via AJAX... these things are all harder to do without jQuery because of these:
+            </p>
+            <p class="fragment">
+                <img src="images/browser_logos-128.png" alt="Logos for five common desktop web browsers" />
+            </p>
+            <p class="fragment">
+                jQuery behaves the same way in all browsers, "normalizing" events, selectors, errors, and more
+            </p>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h1 class="middle-align">History</h1>
+        </section>
+
+        <section>
+            <h2>In the beginning...</h2>
+            <img class="fragment" src="images/prototypejs_org_02.png" alt="Prototype.js Logo" />
+            <p class="fragment">Prototype did a lot of what jQuery does (It even used '$')</p>
+            <p class="fragment">It works by modifying JavaScript's native prototypes</p>
+            <p class="fragment">Eventually, Prototype just didn't scale</p>
+        </section>
+
+        <section>
+            <h2>@since 2.2.0</h2>
+            <p>
+                jQuery was <a href="http://core.trac.wordpress.org/changeset/4816/">added to WordPress</a> on January 27, 2007 by Matt Mullenweg:
+            </p>
+            <img src="images/changeset-4816.png" alt="Changeset 4816" />
+            <p>
+                <small>Soon followed by a <a href="http://core.trac.wordpress.org/ticket/3824">trac ticket</a> to switch from Prototype to jQuery in the Admin</small>
+            </p>
+        </section>
+
+        <section>
+            <h2>The Whole Family</h2>
+            <p>Prototype is still there (script-loader.php L108):</p>
+            <pre><code contenteditable class="javascript">
+// WordPress no longer uses or bundles Prototype or
+// script.aculo.us. These are now pulled from an external source.
+$scripts->add( 'prototype',
+  '//ajax.googleapis.com/[...]prototype.js',
+  array(), '1.7.1'
+);
+            </code></pre>
+            <p>However, of the 134 scripts loaded in script-loader.php, 87 scripts (over 60%) relate to jQuery</p>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h2>Limitations</h2>
+            <p>jQuery's focus is one of its chief strengths. jQuery.org lists the four things jQuery is designed to do:<br />&nbsp;</p>
+            <p class="fragment grow">HTML document traversing</p>
+            <p class="fragment grow">Animating</p>
+            <p class="fragment grow">Event handling</p>
+            <p class="fragment grow">Ajax interaction</p>
+            <p class="fragment">
+                <small><br />If it ain't on that list, jQuery might not be the best tool</small>
+            </p>
+
+            <aside class="notes">jQuery does all of that very well, but it doesn't provide ORGANIZATION or STRUCTURE. Additionally, you have to "roll your own" code or use plugins to make things like synchronizing easy.</aside>
+        </section>
+
+        <section>
+            <h2><br /><br />jQuery does not tell you how to organize your code</h2>
+        </section>
+
+        <section>
+            <h2>Callback Soup</h2>
+            <p>
+                The deeper the nesting, the harder to maintain
+            </p>
+            <pre><code contenteditable class="javascript">
+$.ajax({ url: "/some/data.json",
+    success: function( data ) {
+        $.ajax({ url: "/api/get_post/?post_id=" + data.id,
+            success: function( d ) {
+                data = d; // ...
+            }
+        });
+    }
+});
+            </code></pre>
+            <p>
+                When your callbacks have callbacks, it might be time to question your code's structure
+            </p>
+            <p>
+                <small><i>Antipattern example adapted from Julian Aubourg's presentation <a href="http://www.youtube.com/watch?v=29w0fFKAEtw&feature=youtu.be" title="Video Recording of From Callback Soup to Deferreds">From Callback Soup to Deferreds</a></i></small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Huge, Disorganized Files</h2>
+            <p>
+                As you add functionality jQuery files tend to get unwieldy, because jQuery does not give you any real guidance on how to <em>organize</em> your code
+            </p>
+            <table style="margin: auto;">
+                <tbody><tr>
+                    <td style="vertical-align: middle;"><img width="300" src="images/jquery-simple.png" alt="Simple jQuery code" /></td>
+                    <td style="vertical-align: middle;"><span class="right"></span></td>
+                    <td style="vertical-align: middle;"><img data-src="images/jquery-aaaaaa.gif" alt="HUGE SPAGHETTI-CODE MONSTROSITY" /></td>
+                </tr></tbody>
+            </table>
+            <p>
+                Easy to write yourself an unmaintainable thousands-of-lines monstrosity, difficult to maintain it later!
+            </p>
+        </section>
+
+        <section>
+            <h2>Beyond jQuery</h2>
+            <p>
+                <a href="http://core.trac.wordpress.org/ticket/21170" title="Ticket 21170 (JavaScript Actions &amp; Filters) on WordPress Trac">21170</a>: JavaScript Actions &amp; Filters
+            </p>
+            <blockquote><b>Why not use custom jQuery events?</b><br />
+            Custom jQuery events are great when we need to trigger actions on a DOM element. Triggering plain events on the body element (or any other hidden element) is not performant — every jQuery event normalizes an DOM Event object, which we then completely ignore.</blockquote>
+            <p><small>- <a href="http://twitter.com/koop">@koop</a></small></p>
+
+            <aside class="notes">New tools will be needed going forward</aside>
+        </section>
+
+        <section>
+            <h2>Beyond jQuery</h2>
+            <p>
+                <a href="http://core.trac.wordpress.org/ticket/21390" title="Ticket 21390 (Upload/Insert media revamp) on WordPress Trac">21390</a>: Upload/Insert media revamp
+            </p>
+            <div class="fragment">
+                <blockquote>...backbone's models, collections, and views are pretty much exactly what we need to be able to make media work as awesome as we're aiming for</blockquote>
+                <p><small>nacin, <a href="https://irclogs.wordpress.org/chanlog.php?channel=wordpress-dev&day=2012-08-22&sort=asc#m442360">WordPress dev chat, 8/22/12</a></small></p>
+                <aside class="notes"></aside>
+            </dev>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h2><br />Backbone.js</h2>
+            <p>
+                <img src="images/backbone.png" alt="Backbone.js Logo" />
+            </p>
+        </section>
+        <section>
+            <h2>Backbone</h2>
+            <blockquote>
+                <span>Backbone.js gives structure to web applications</span> by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.
+            </blockquote>
+            <p class="fragment">
+                <a href="https://www.destroyallsoftware.com/talks/wat" title="Destroy All Software lightning talk: WAT">WAT</a>
+            </p>
+        </section>
+        <section>
+            <h2><br /><br /><br />MVC</h2>
+            <p class="fragment">
+                Model, View, Controller
+            </p>
+        </section>
+        <section>
+            <h2>Separation of Concerns<br />&nbsp;</h2>
+            <pre><code contenteditable class="html">
+&lt;h1 id="heading" style="font-weight:normal; text-align: center; font-size:150px; line-height:1em; margin: 50px; font-family:papyrus,comic-sans,monospace; color: lightPink;"&gt;TITLE&lt;/h1&gt;
+&lt;a href="javascript:;" style="display: block; text-align: center;" onclick="document.getElementById('heading').innerHTML = 'NEW TITLE'"&gt;Click Me to do stuff&lt;/a&gt;
+            </code></pre>
+            <p>Have you ever written this code?</p>
+            <p>Have you ever tried to modify it later?</p>
+        </section>
+        <section>
+            <h2>Solution</h2>
+            <p>HTML for content, CSS for appearance, JavaScript for interaction</p>
+            <p class="fragment"><br />In MVC, Models hold your data (content)</p>
+            <p class="fragment">Views describe how it appears (appearance)</p>
+            <p class="fragment">Controllers coordinate between the two (interaction)</p>
+        </section>
+        <section>
+            <h2>Backbone</h2>
+            <h3 class="fragment"><br /><br />Not classic MVC</h3>
+            <p class="fragment">Model, View, <i>Collection</i> (a group of models)</p>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h1><br />Models</h1>
+            <pre class="fragment"><code contenteditable class="javascript">
+          var myApp.myModel = Backbone.Model.extend({});
+            </code></pre>
+        </section>
+        <section>
+            <h2>Getting data for your models</h2>
+            <p>The data for a front-end application has to come from somewhere</p>
+            <p>You can "bootstrap" it onto the page, or you can use AJAX to load it directly</p>
+        </section>
+        <section>
+            <h2>JSON</h2>
+            <p>JavaScript Object Notation</p>
+            <p>Easy, lightweight format</p>
+            <p><small>Smaller than XML, better than XML, sexier than XML!</small></p>
+            <p><a href="http://wordpress.org/extend/plugins/json-api/">WordPress JSON API</a> plugin</p>
+            <div class="fragment">
+                <blockquote>JSON is the twinkies of APIs</blockquote>
+                <p><small><i>-<a href="http://www.wplatenight.com">WP Late Night podcast</a></i></small></p>
+            </div>
+        </section>
+        <section>
+            <h2>REST</h2>
+            <p>"Relational state transfer"</p>
+            <p>Essentially, a way to use verbs and nouns to describe the data you need</p>
+            <p>So what? We're running WordPress, not Node.js on some NoSQL nonsense...</p>
+        </section>
+        <section>
+            <h2>Jetpack 1.9 Released Yesterday</h2>
+            <img src="images/new-jetpack.png" alt="ma.tt post on new jetpack" />
+            <p><small>-Matt Mullenweg's <a href="http://ma.tt/2012/10/new-jetpack/">announcement post</small></a>
+        </section>
+        <section>
+            <h2>WordPress.com REST API</h2>
+            <img src="images/wp-rest-api.png" />
+        </section>
+        <section>
+            <h2>REST API Resources<br />&nbsp;</h2>
+            <ul>
+                <li><a href="http://developer.wordpress.com/docs/api/">Official API documentation</a></li>
+                <li><a href="http://developer.wordpress.com/2012/04/11/explore-the-rest-api/">Explore the REST API</a> on Developer.WordPress.com</li>
+                <li class="fragment"><i>This list will grow</i>, these are early days yet</li>
+            </ul>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h1><br />Views</h1>
+        </section>
+        <section>
+            <h2>Rendering Your Data</h2>
+            <p>This is another thing jQuery isn't super good at</p>
+            <pre><code contenteditable class="javascript">
+$('.post').html('&lt;h2&gt;' + title + '&lt;/h2&gt;&lt;p&gt;' + content + '&lt;/p&gt;');
+            </code></pre>
+            <p>Can be slow</p>
+            <p>Again, difficult to maintain</p>
+            <p class="fragment"><i>Don't mix HTML into your JS</i></p>
+        </section>
+        <section>
+            <h2>JavaScript Templating</h2>
+            <p>Render views without conflating HTML and JavaScript!</p>
+            <p>HTML with placeholders
+            <pre><code contenteditable>
+
+    &lt;li&gt;&lt;a href="&lt;%= address %&gt;"&gt;&lt;%= content %&gt;&lt;/a&gt;&lt;/li&gt;
+
+            </code></pre>
+        </section>
+        <section>
+            <h2>Templating Demo</h2>
+            <pre><code contenteditable class="javascript">
+var tmpl = null;
+
+jQuery.ajax({
+  url: '/wp/wp-content/plugins/wcpvd-backbone-demo/template.html',
+  dataType: 'html',
+  success: function(data) {
+    tmpl = _.template(data);
+    console.log('Template is ready');
+  }
+});
+            </code></pre>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h1><br />Collections</h1>
+        </section>
+        <section>
+            <h2><br /><br />I don't actually have any slides about collections</h2>
+        </section>
+    </section>
+
+    <section>
+        <h1><br />Underscore.js Playtime!</h1>
+    </section>
+
+    <section>
+        <h2>Further Reading: Backbone</h2>
+        <ul>
+            <li><a href="http://backbonejs.org/">Backbone.js Documentation</a></li>
+            <li><a href="http://www.rvl.io/mindelusions/backbonejs">A more in-depth overview of Backbone.js</a></li>
+            <li><a href="http://www.meetup.com/backbonejs/">Boston Backbone.js Meetup</li>
+            <li><a href="http://www.noelrappin.com/">Mastering Space & Time With JavaScript Volume III: Backbone.js</a> (in Beta)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Further Reading: Underscore</h2>
+        <ul>
+            <li><a href="http://underscorejs.org/">Underscore.js Documentation</a></li>
+            <li><a href="http://lodash.com/">Lodash (an alternative to Underscore)</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>More Information Than Your Body Has Room For</h2>
+        <ul>
+            <li><a href="http://javascriptweekly.com/">JavaScript Weekly</a></li>
+            <li><a href="http://snip.it/collections/28051-A-Periodic-Table-of-Web-Developments">Web Development links collection</a></li>
+            <li><a href="https://twitter.com/kadamwhite/js">A (small, highly-incomplete) list of web developers</a> on twitter</li>
+            <li>TODO: Add more links</li>
+    </section>
+
+    <section>
+        <h1>THANK YOU</h1>
+        <h3><br /><a href="http://talks.kadamwhite.com/wcpvd12">talks.kadamwhite.com/wcpvd12</a></h3>
+        <h3><br />K.Adam White / <a href="http://www.kadamwhite.com">kadamwhite.com</a></h3>
+        <p>Slides made with <a href="http://lab.hakim.se/reveal-js/#/">Reveal.js</a></p>
+    </section>
+
+</div><!-- .slides -->
+
+</div><!-- .reveal -->
+
+<script src="/talks/js/reveal/lib/js/head.min.js"></script>
+<script src="/talks/js/reveal/js/reveal.min.js"></script>
+<script src="/talks/js/jquery-1.10.1.min.js"></script>
+
+<script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: '/talks/js/reveal/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+            { src: '/talks/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: '/talks/js/reveal/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '/talks/js/reveal/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '/talks/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: '/talks/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+    $('img[data-src]').attr('src', function() {
+        return $(this).attr('data-src');
+    });
+</script>
+
+</body>
+</html>

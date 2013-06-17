@@ -1,0 +1,13 @@
+h1 {
+    color: #83af91;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-size: 150px;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 50px;
+    text-align: center;
+}
+a {
+    display: block;
+    text-align: center;
+}
