@@ -24,3 +24,5 @@ These presentations, with limited exceptions, all use in-browser HTML5 slide dec
 ## Attribution
 
 The [Microphone](http://thenounproject.com/noun/microphone/#icon-No171) I am using as a favicon is from The Noun Project
+
+<img src="http://kadamwhite.github.io/talks/apple-touch-icon-precomposed.png" alt="Microphone" />
