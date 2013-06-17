@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    K.Adam White -- Author -- @kadamwhite
+
+# THANKS
+
+    WordPress Boston, especially Kurt Eng, for bullying me into giving my first talk, and for believing in me ever since
+    Hakim El Hattab, for the inimitable Reveal.js
+    Greg Smith, for slide.js
+
+# TECHNOLOGY COLOPHON
+
+    HTML5 Boilerplate
+    Normalize.css
+    jQuery
+    Reveal.js -- https://github.com/hakimel/reveal.js
+    Slide -- https://github.com/incompl/slide
