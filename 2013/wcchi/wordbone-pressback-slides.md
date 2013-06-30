@@ -536,14 +536,11 @@ The code for this demo is [available on Github](https://github.com/kadamwhite/wc
 
 Backbone is a useful way to structure JS code&mdash;
 
-and you can use as much or as little as you want
+and you can use as little as you want
 
 
 
-## Demo: To-Do List Theme
-
-
-[Get the demo code on Github](https://github.com/kadamwhite/wordbone-pressback/tree/master/TodoMVC)
+Or, you can go a bit crazy :)
 
 
 
@@ -829,18 +826,27 @@ Access your blog using the WordPress.com REST API
 
 
 
-## Thank You
+# Thank You
 
-Slides at [kadamwhite.github.io/talks/2013/wcchi/](http://kadamwhite.github.io/talks/2013/wcchi)
+<br />
 
-Artwork by [Emily Garfield](http://www.emilygarfield.com) and [Judith Klausner](http://jgklausner.com/)
+Slides: [kadamwhite.github.io/talks/2013/wcchi/](http://kadamwhite.github.io/talks/2013/wcchi)
+
+Code: [github.com/kadamwhite/wordbone-pressback/](https://github.com/kadamwhite/wordbone-pressback/#readme)
+
+<br />
+
+*Artwork by [Emily Garfield](http://www.emilygarfield.com) and [Judith Klausner](http://jgklausner.com/)*
 
 <hr />
 
-<small>[Reveal.js](http://lab.hakim.se/reveal-js/) &bull; [Grunt](http://gruntjs.com/) &bull; [Grunt-WP-Theme](https://github.com/10up/grunt-wp-theme)</small>
+<small>Technology: [Reveal.js](http://lab.hakim.se/reveal-js/) &bull; [Grunt](http://gruntjs.com/) &bull; [Grunt-WP-Theme](https://github.com/10up/grunt-wp-theme)</small>
+
+<small>*PS: I have Backbone, Grunt, JS, and Bocoup stickers!*</small>
 
 
 
 ## Resources & Further Reading
 
 * [WP Tuts+ tutorial on Backbone and WordPress](http://wp.tutsplus.com/tutorials/creative-coding/using-backbone-within-the-wordpress-admin-the-back-end/)
+* TODO: Add more resources!
