@@ -94,7 +94,44 @@ textarea {
    ========================================================================== */
 
 
+html {
+    background: url('/talks/img/tweed.png');
+}
 
+body {
+    margin: 1em auto;
+    padding: 1em 2em;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    width: 90%;
+    max-width: 700px;
+    background: white;
+}
+a {
+    color: #900000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+ul {
+    padding-right: 40px;
+}
+li {
+    list-style-type: none;
+    padding: 0.75em;
+    border-bottom: 1px solid #dadada;
+}
+li a {
+    font-size: 1.25em;
+    display: block;
+}
+li span {
+    font-style: italic;
+}
+li span:before {
+    content: '\2192\a0';
+}
 
 
 
