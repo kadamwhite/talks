@@ -10,7 +10,7 @@ Each slide deck should be taken as representative of what I knew when I wrote th
 
 ## Presentations
 
-* [Writing Apps with JavaScript, Backbone and WordPress](http://kadamwhite.github.io/talks/2013/backpress-wordbone/), WordCamp Chicago, June 2013
+* [Writing Apps with JavaScript, Backbone and WordPress](http://kadamwhite.github.io/talks/2013/wcchi/), WordCamp Chicago, June 2013
 * [Git Going: Version Your Code Like It's 2013](http://kadamwhite.github.io/talks/2013/git-going/), Boston WordPress Meetup, April 2013
 * [An Introduction to Stylesheet Pre-Processors](http://kadamwhite.github.io/talks/2013/preprocessors/), WordPress Providence Meetup, March 2013
 * [Backbone &amp; Underscore: jQuery's New Friends](http://kadamwhite.github.io/talks/2012/backbone-and-underscore/), WordCamp Boston, July 2012

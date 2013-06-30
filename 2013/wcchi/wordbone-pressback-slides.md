@@ -10,8 +10,6 @@ JS engineer at [Bocoup](http://bocoup.com/)
 
 ![Bob (Bocoup Logo)](images/bocoup-vertical-676.png)
 
-JS engineer at [Bocoup](http://www.bocoup.com/)
-
 
 
 ![Boston WordPress Logo](images/bostonwp.png)
@@ -64,7 +62,7 @@ I'm on your side!
 
 ![Changeset 4816](images/changeset-4816.png)
 
-*<small>jQuery [added to WordPress](http://core.trac.wordpress.org/changeset/4816/) in January '07 by Matt Mullenweg</small>*
+<small>*jQuery [added to WordPress](http://core.trac.wordpress.org/changeset/4816/) in January '07 by Matt Mullenweg*</small>
 
 
 
@@ -125,6 +123,7 @@ jQuery files can get unwieldy
 
 
 ## JS Needs within WordPress
+## Are Changing
 
 
 
@@ -138,7 +137,7 @@ Like WP's actions, but on the front-end
 >
 > ...Triggering plain events on the body element (or any other hidden element) is not performant — every jQuery event normalizes a DOM Event object, which we then completely ignore.
 
-<small>~ [@koop](http://twitter.com/koop), discussing [Ticket 21170: JavaScript Actions &amp; Filters](http://core.trac.wordpress.org/ticket/21170)</small>
+<small>*~ [@koop](http://twitter.com/koop), discussing [Ticket 21170: JavaScript Actions &amp; Filters](http://core.trac.wordpress.org/ticket/21170)*</small>
 
 
 ## Where's that ticket at, anyway?
@@ -164,9 +163,13 @@ jQuery eventing for pub/sub works just fine for many apps, but jQuery is tied to
 
 
 
-## Beyond jQuery:
+# Beyond jQuery
 
-![Welcome Underscore and Backbone to core](images/welcome-underscore-backbone.png)
+
+
+![Underscore.js logo](images/underscore.png)
+
+![Backbone.js logo](images/backbone.png)
 
 
 
@@ -211,7 +214,8 @@ Thanks to 3.5, Backbone and Underscore<br />are now **shipped in Core** along wi
 ## What Is Underscore?
 
 > Underscore is a **utility-belt library** for JavaScript that provides functional programming support without extending any of the built-in JavaScript objects.
-> *<small><br />~ Adapted from [underscorejs.org](http://underscorejs.org)</small>*
+>
+> <small>*~ Adapted from [underscorejs.org](http://underscorejs.org)*</small>
 
 
 
@@ -231,7 +235,7 @@ You've got an array or an object of objects, and want to transform it, investiga
 
 
 
-## Encourages functional programming
+## Functional programming style
 
 Transform objects and collections to make new ones,
 
@@ -259,7 +263,9 @@ Determine if an object `_.has` a given key...
 
 ## Other Utilities
 
-Escaping/Unescaping strings, generating Unique IDs or random numbers, chaining other `_` methods &ldquo;jQuery-style&rdquo;: Underscore [does all this, too](http://underscorejs.org/#utility)
+Escaping/Unescaping strings, generating Unique IDs or random numbers, chaining `_.` methods &ldquo;jQuery-style&rdquo;:
+
+Underscore [does all this, too](http://underscorejs.org/#utility)
 
 
 
@@ -307,7 +313,12 @@ return __p};
 
 
 
-## (Underscore is the backbone of Backbone.js)
+## (Underscore is the
+## backbone of Backbone.js)
+
+
+
+# SO
 
 
 
@@ -318,7 +329,8 @@ return __p};
 ## What is Backbone?
 
 > Backbone.js gives structure to web applications by providing **models** with key-value binding and custom events, **collections** [to group and manipulate those models], **views** with declarative event handling...
-> *<small><br />~ Adapted from [backbonejs.org](http://backbonejs.org); emphasis added</small>*
+>
+> <small>*~ Adapted from [backbonejs.org](http://backbonejs.org); emphasis added*</small>
 
 
 
@@ -381,7 +393,7 @@ The corresponding View can listen for the model's change event, and re-render au
 
 ![Harder, Better, Faster, Stronger](images/harder-better-faster-stronger.png)
 
-*<small>Image by [JopaoxD](http://jopaoxd.deviantart.com/art/Harder-Better-Faster-Stronger-304045878)</small>*
+<small>*Image by [JopaoxD](http://jopaoxd.deviantart.com/art/Harder-Better-Faster-Stronger-304045878)*</small>
 
 
 
@@ -531,7 +543,7 @@ and you can use as much or as little as you want
 ## Demo: To-Do List Theme
 
 
-[Get the demo code on Github](https://github.com/kadamwhite/backpress-wordbone/tree/master/TodoMVC)
+[Get the demo code on Github](https://github.com/kadamwhite/wordbone-pressback/tree/master/TodoMVC)
 
 
 
@@ -551,7 +563,8 @@ and you can use as much or as little as you want
 
 
 
-# Get Your Data from WP to JS
+# Get Your Data
+# from WP to JS
 
 
 
@@ -559,7 +572,7 @@ and you can use as much or as little as you want
 
 WordPress serves your data
 
-Backbone fetches that data, and does stuff with it
+Backbone fetches that data, does stuff with it
 
 
 
@@ -788,6 +801,21 @@ Access your blog using the WordPress.com REST API
 # Blog Viewer
 
 
+### We are going to build this with
+# BUZZWORDS
+
+
+## BOOTSTRAP
+
+*and*
+
+## BACKBONE
+
+*and*
+
+## STRANGELY ABSENT VOWELS
+
+
 
 ## Where do we go from here?
 
@@ -803,7 +831,7 @@ Access your blog using the WordPress.com REST API
 
 ## Thank You
 
-Slides at [kadamwhite.github.io/talks/2013/backpress-wordbone/](http://kadamwhite.github.io/talks/2013/backpress-wordbone)
+Slides at [kadamwhite.github.io/talks/2013/wcchi/](http://kadamwhite.github.io/talks/2013/wcchi)
 
 Artwork by [Emily Garfield](http://www.emilygarfield.com) and [Judith Klausner](http://jgklausner.com/)
 
