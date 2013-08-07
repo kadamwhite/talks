@@ -1,10 +1,14 @@
 # Writing Apps with JavaScript, Backbone and WordPress
 
-WordCamp Chicago, April 2013
+WordCamp Chicago, June 2013
 
 K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 JS engineer at [Bocoup](http://bocoup.com/)
+
+
+
+*At any time, hit "escape" to get an overview of all slides. This is a two-dimensional slide deck; Many slides have code examples available if you press "down."*
 
 
 
@@ -20,7 +24,7 @@ JS engineer at [Bocoup](http://bocoup.com/)
 
 ![Chicago Flag in my living room](images/chicago.jpg)
 
-I'm on your side!
+I was on your side during the Bruins/'Hawks finals!
 
 
 

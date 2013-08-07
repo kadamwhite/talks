@@ -46,15 +46,24 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
 
-            <section data-markdown="wordbone-pressback-slides.md"
-                             data-separator="^\n\n\n"
-                             data-vertical="^\n\n">
+            <section id="slides-element"
+                     data-markdown="wcchi-slides.md"
+                     data-separator="^\n\n\n"
+                     data-vertical="^\n\n">
             </section>
 
         </div>
 
     </div>
 
+    <script>
+        // We could be redirected here from WCCHI or PVD, so load the right slide file
+        var slidesToLoad = localStorage.getItem('backboneSlidesToLoad');
+        var slidesElement = document.getElementById('slides-element');
+        if ( slidesToLoad ) {
+            slidesElement.setAttribute( 'data-markdown', slidesToLoad + '.md' );
+        }
+    </script>
     <script src="/talks/js/reveal/lib/js/head.min.js"></script>
     <script src="/talks/js/reveal/js/reveal.min.js"></script>
 
