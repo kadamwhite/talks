@@ -44,10 +44,9 @@
     <div class="reveal">
 
         <!-- Any section element inside of this container is displayed as a slide -->
-        <div class="slides">
+        <div class="slides" id="slides-element">
 
-            <section id="slides-element"
-                     data-markdown="wcchi-slides.md"
+            <section data-markdown="wcchi-slides.md"
                      data-separator="^\n\n\n"
                      data-vertical="^\n\n">
             </section>
@@ -57,12 +56,16 @@
     </div>
 
     <script>
+    (function() {
+        var slidesToLoad, slidesElement;
         // We could be redirected here from WCCHI or PVD, so load the right slide file
-        var slidesToLoad = localStorage.getItem('backboneSlidesToLoad');
-        var slidesElement = document.getElementById('slides-element');
+        slidesToLoad = localStorage.getItem('backboneSlidesToLoad');
+
         if ( slidesToLoad ) {
+            slidesElement = document.getElementById('slides-element').children[0];
             slidesElement.setAttribute( 'data-markdown', slidesToLoad + '.md' );
         }
+    })();
     </script>
     <script src="/talks/js/reveal/lib/js/head.min.js"></script>
     <script src="/talks/js/reveal/js/reveal.min.js"></script>
