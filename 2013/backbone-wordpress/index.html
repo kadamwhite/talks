@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="custom.css" id="theme-overrides">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="/talks/js/reveal/lib/css/zenburn.css">
+    <link rel="stylesheet" href="/talks/css/xcode.css">
 
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
@@ -46,7 +46,7 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides" id="slides-element">
 
-            <section data-markdown="wcchi-slides.md"
+            <section data-markdown="wcpvd-slides.md"
                      data-separator="^\n\n\n"
                      data-vertical="^\n\n">
             </section>
@@ -55,18 +55,6 @@
 
     </div>
 
-    <script>
-    (function() {
-        var slidesToLoad, slidesElement;
-        // We could be redirected here from WCCHI or PVD, so load the right slide file
-        slidesToLoad = localStorage.getItem('backboneSlidesToLoad');
-
-        if ( slidesToLoad ) {
-            slidesElement = document.getElementById('slides-element').children[0];
-            slidesElement.setAttribute( 'data-markdown', slidesToLoad + '.md' );
-        }
-    })();
-    </script>
     <script src="/talks/js/reveal/lib/js/head.min.js"></script>
     <script src="/talks/js/reveal/js/reveal.min.js"></script>
 
@@ -81,7 +69,7 @@
             center: true,
 
             theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+            transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
             // Optional libraries used to extend on reveal.js
             dependencies: [

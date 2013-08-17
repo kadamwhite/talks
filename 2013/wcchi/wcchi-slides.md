@@ -12,17 +12,17 @@ JS engineer at [Bocoup](http://bocoup.com/)
 
 
 
-![Bob (Bocoup Logo)](images/bocoup-vertical-676.png)
+![Bob (Bocoup Logo)](../backbone-wordpress/images/bocoup-vertical-676.png)
 
 
 
-![Boston WordPress Logo](images/bostonwp.png)
+![Boston WordPress Logo](../backbone-wordpress/images/bostonwp.png)
 
 [BostonWP](http://www.bostonwp.org) Co-Organizer
 
 
 
-![Chicago Flag in my living room](images/chicago.jpg)
+![Chicago Flag in my living room](../backbone-wordpress/images/chicago.jpg)
 
 I was on your side during the Bruins/'Hawks finals!
 
@@ -34,15 +34,15 @@ I was on your side during the Bruins/'Hawks finals!
 
 ## WordPress & JavaScript
 
-![wp heart](images/wp-hearts-js.png)
+![wp heart](../backbone-wordpress/images/wp-hearts-js.png)
 
 
 
-![JS Logo](images/js-logo.png)
+![JS Logo](../backbone-wordpress/images/js-logo.png)
 
 
 
-![jQuery](images/jquery.png)
+![jQuery](../backbone-wordpress/images/jquery.png)
 
 
 
@@ -54,7 +54,7 @@ I was on your side during the Bruins/'Hawks finals!
 
 
 
-![Prototype.js logo](images/prototypejs_org_02.png)
+![Prototype.js logo](../backbone-wordpress/images/prototypejs_org_02.png)
 
 * Did a lot of what jQuery does (even uses `$`)
 * Works by modifying native JS prototypes (messy)
@@ -64,7 +64,7 @@ I was on your side during the Bruins/'Hawks finals!
 
 ## jQuery: @since 2.2.0
 
-![Changeset 4816](images/changeset-4816.png)
+![Changeset 4816](../backbone-wordpress/images/changeset-4816.png)
 
 <small>*jQuery [added to WordPress](http://core.trac.wordpress.org/changeset/4816/) in January '07 by Matt Mullenweg*</small>
 
@@ -103,7 +103,7 @@ Designed to [do specific things really well](http://jquery.com/#home-content):
 
 ## Really good at this problem:
 
-![Browser Logos](images/browser_logos-128.png)
+![Browser Logos](../backbone-wordpress/images/browser_logos-128.png)
 
 
 
@@ -111,7 +111,7 @@ Designed to [do specific things really well](http://jquery.com/#home-content):
 
 
 
-![Bowl of Spaghetti, from WikiMedia Commons](images/spaghetti.png)
+![Bowl of Spaghetti, from WikiMedia Commons](../backbone-wordpress/images/spaghetti.png)
 
 jQuery files can get unwieldy
 
@@ -171,19 +171,19 @@ jQuery eventing for pub/sub works just fine for many apps, but jQuery is tied to
 
 
 
-![Underscore.js logo](images/underscore.png)
+![Underscore.js logo](../backbone-wordpress/images/underscore.png)
 
-![Backbone.js logo](images/backbone.png)
+![Backbone.js logo](../backbone-wordpress/images/backbone.png)
 
 
 
 ## Evolution, Not Revolution:
 
-![Backbone uses jQuery](images/backbone-uses-jquery.png)
+![Backbone uses jQuery](../backbone-wordpress/images/backbone-uses-jquery.png)
 
 
 
-![The relationship between Backbone (for structure), Underscore (for utilities such as templating and functional programming constructs), and jQuery (for DOM manipulation and AJAX)](images/bb-underscore-jquery-trifecta.png)
+![The relationship between Backbone (for structure), Underscore (for utilities such as templating and functional programming constructs), and jQuery (for DOM manipulation and AJAX)](../backbone-wordpress/images/bb-underscore-jquery-trifecta.png)
 
 
 
@@ -211,7 +211,7 @@ Thanks to 3.5, Backbone and Underscore<br />are now **shipped in Core** along wi
 
 
 
-![Underscore.js logo](images/underscore.png)
+![Underscore.js logo](../backbone-wordpress/images/underscore.png)
 
 
 
@@ -311,7 +311,7 @@ return __p};
 
 
 
-![Underscore.js logo](images/underscore.png)
+![Underscore.js logo](../backbone-wordpress/images/underscore.png)
 
 ## That's one fine utility belt
 
@@ -326,7 +326,7 @@ return __p};
 
 
 
-![Backbone.js logo](images/backbone.png)
+![Backbone.js logo](../backbone-wordpress/images/backbone.png)
 
 
 
@@ -395,7 +395,7 @@ The corresponding View can listen for the model's change event, and re-render au
 
 ## Your Data,
 
-![Harder, Better, Faster, Stronger](images/harder-better-faster-stronger.png)
+![Harder, Better, Faster, Stronger](../backbone-wordpress/images/harder-better-faster-stronger.png)
 
 <small>*Image by [JopaoxD](http://jopaoxd.deviantart.com/art/Harder-Better-Faster-Stronger-304045878)*</small>
 
@@ -464,7 +464,7 @@ and re-factor it to be awesome
 
 ### Demo Technology Colophon
 
-![Grunt logo](images/grunt-logo.png)
+![Grunt logo](../backbone-wordpress/images/grunt-logo.png)
 
 with 10up's [grunt-wp-theme](https://github.com/10up/grunt-wp-theme) template
 
@@ -472,7 +472,7 @@ with 10up's [grunt-wp-theme](https://github.com/10up/grunt-wp-theme) template
 
 ## Homepage Image Gallery
 
-![Image Gallery screenshot](images/gallery-demo.png)
+![Image Gallery screenshot](../backbone-wordpress/images/gallery-demo.png)
 
 
 [Gallery Code](https://github.com/kadamwhite/wcchi-demo/commit/330093256e7efccbf315cf76d062bae2aa033b5f)
@@ -657,13 +657,13 @@ Fetch posts from your blog (using the [JSON API](http://wordpress.org/plugins/js
 
 ## Jetpack JSON API
 
-![Jetpack JSON API announcement post](images/new-jetpack.png)
+![Jetpack JSON API announcement post](../backbone-wordpress/images/new-jetpack.png)
 
 
 
 Access your blog using the WordPress.com REST API
 
-![WordPress.com REST API documentation](images/wp-rest-api.png)
+![WordPress.com REST API documentation](../backbone-wordpress/images/wp-rest-api.png)
 
 
 
