@@ -1,0 +1,13 @@
+.reveal blockquote {
+  border-left: 10px solid #666;
+  border-left: 10px solid rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  padding-left: 0.5em;
+  text-align: left;
+}
+.reveal pre code {
+  padding: 20px;
+}
+.nocap {
+    text-transform: none;
+}
