@@ -95,9 +95,9 @@
         ga('send', 'pageview');
 
         Reveal.addEventListener( 'slidechanged', function( event ) {
-            var current = [ revealEvent.indexh + 1 ];
-            if ( revealEvent.indexv ) {
-                current.push(revealEvent.indexv);
+            var current = [ event.indexh + 1 ];
+            if ( event.indexv ) {
+                current.push(event.indexv);
             }
             ga( 'send', 'event', 'slide', 'change', current.join('/') );
         } );

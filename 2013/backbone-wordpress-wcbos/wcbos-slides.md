@@ -89,10 +89,6 @@ Engineer at [Bocoup](http://bocoup.com/)
 
 
 
-![Underscore.js logo](../backbone-wordpress/images/underscore.png)
-
-
-
 ## What Is Underscore?
 
 > Underscore is a **utility-belt library** for JavaScript that provides functional programming support without extending any of the built-in JavaScript objects.
@@ -166,10 +162,6 @@ Engineer at [Bocoup](http://bocoup.com/)
 
 ## Underscore is the
 ## backbone of Backbone.js
-
-
-
-![Backbone.js logo](../backbone-wordpress/images/backbone.png)
 
 
 
