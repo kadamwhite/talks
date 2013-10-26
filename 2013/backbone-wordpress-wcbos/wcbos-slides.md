@@ -24,9 +24,7 @@ Engineer at [Bocoup](http://bocoup.com/)
 
 
 
-# ![Chicago White Sox Logo](images/chicago-white-sox.jpg)
-
-
+I'm originally from Chicago
 
 ![Boston WordPress Logo](../backbone-wordpress/images/bostonwp.png)
 
