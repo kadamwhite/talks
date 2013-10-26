@@ -94,28 +94,20 @@
         ga('create', 'UA-43640953-1', 'kadamwhite.github.io');
         ga('send', 'pageview');
 
-        var getSlidePath = function( revealEvent ) {
-            var page = window.location.protocol +
-                '//' + window.location.hostname +
-                window.location.pathname +
-                window.location.search;
-            var current = [revealEvent.indexh + 1];
+        Reveal.addEventListener( 'slidechanged', function( event ) {
+            var current = [ revealEvent.indexh + 1 ];
             if ( revealEvent.indexv ) {
                 current.push(revealEvent.indexv);
             }
-            return page + current.join('/');
-        };
-
-        Reveal.addEventListener( 'slidechanged', function( event ) {
-            // Log a pageview if we're not on the overview
-            if ( !Reveal.isOverview() ) {
-                ga('send', 'pageview', getSlidePath( event ));
-                // console.log(getSlidePath( event ));
-            }
+            ga( 'send', 'event', 'slide', 'change', current.join('/') );
         } );
+
         Reveal.addEventListener( 'overviewhidden', function( event ) {
-            ga('send', 'pageview', getSlidePath( event ));
-            // console.log(getSlidePath( event ));
+            ga( 'send', 'event', 'slide', 'overview', 'hide' );
+        } );
+
+        Reveal.addEventListener( 'overviewhidden', function( event ) {
+            ga( 'send', 'event', 'slide', 'overview', 'show' );
         } );
     </script>
 </body>
