@@ -24,12 +24,13 @@ Engineer at [Bocoup](http://bocoup.com/)
 
 
 
+# ![Chicago White Sox Logo](images/chicago-white-sox.jpg)
+
+
+
 ![Boston WordPress Logo](../backbone-wordpress/images/bostonwp.png)
 
 [BostonWP](http://www.bostonwp.org) Co-Organizer
-
-
-# ![Chicago White Sox Logo](images/chicago-white-sox.jpg)
 
 
 
@@ -56,7 +57,7 @@ Engineer at [Bocoup](http://bocoup.com/)
 
 
 
-> “[3.5] actually signifies a shift from PHP land to JavaScript land for pretty much everything we’re going to do in the future”
+> “[3.5] signifies a shift from PHP land to JavaScript land for pretty much everything we’re going to do in the future”
 >
 > <small>~ WP 3.5 Lead Developer Andrew Nacin, [on WPCandy, Feb 4 2013](http://wpcandy.com/reports/a-shift-from-php-land-to-javascript-land/)</small>
 
@@ -308,6 +309,130 @@ and re-factor it to be awesome
 
 
 
+### Mostly PHP
+```php
+<?php
+if ( is_front_page() ) :
+  $args = array(
+    'post_type' => 'ag_artwork_item',
+    'posts_per_page' => 6
+  );
+  $artwork_items = new WP_Query($args);
+
+  if($artwork_items->have_posts()) :
+?>
+<div class="artwork-header-gallery">
+  <?php
+    while( $artwork_items->have_posts() ) : $artwork_items->the_post();
+      $permalink_title = esc_attr( sprintf( __( 'Permalink to %s', 'artwork' ), the_title_attribute( 'echo=0' ) ) );
+  ?>
+  <div class="artwork-featured" style="display: none;">
+    <a class="artwork-image"
+       href="<?php the_permalink(); ?>"
+       title="<?php echo $permalink_title; ?>"
+       rel="bookmark">
+      <?php the_post_thumbnail( 'large' ); ?>
+    </a>
+    <div class="artwork-information">
+      <h3>
+        <a href="<?php the_permalink(); ?>"
+           title="<?php echo $permalink_title; ?>"
+           rel="bookmark">
+          <?php the_title(); ?>
+        </a>
+      </h3>
+      <?php
+        // Using `get_the_content` to opt out of the post type plugin's custom formatting in `the_content` filter
+        echo wpautop( get_the_content() );
+
+        // Get taxonomies
+        $dimensions = get_the_term_list(
+          $post->ID,
+          'ag_artwork_dimensions',
+          'Dimensions: ',
+          ', ',
+          ''
+        );
+
+        $media = get_the_term_list(
+          $post->ID,
+          'ag_artwork_media',
+          'Media: ',
+          ', ',
+          ''
+        );
+      ?>
+      <div class="entry-meta">
+        <p><?php the_author(); ?></p>
+        <p><?php echo $dimensions; ?></p>
+        <p><?php echo $media; ?></p>
+      </div> <!-- .entry-meta -->
+    </div> <!-- .artwork-information -->
+  </div> <!-- .artwork-featured -->
+  <?php endwhile; ?>
+  <div class="artwork-thumbnails">
+    <?php
+      rewind_posts(); // Second verse, same as the first
+      while( $artwork_items->have_posts() ) : $artwork_items->the_post();
+        // (Render the trigger links and images for each thumbnail)
+    ?>
+
+    <a href="<?php the_permalink(); ?>"
+       title="<?php echo esc_attr(sprintf( __( '%s', 'artwork' ), the_title_attribute( 'echo=0' ) ) ); ?>">
+      <?php the_post_thumbnail( 'thumbnail' ); ?>
+    </a>
+
+    <?php endwhile; ?>
+  </div> <!-- .artwork-thumbnails -->
+  <?php endif; // have_posts() ?>
+</div> <!-- .artwork-header-gallery -->
+<?php endif; // is_front_page() ?>
+```
+
+
+
+### Not much JS:
+
+```javascript
+  $(document).ready(function() {
+    var $headerGallery, $thumbnails, $featuredArtwork;
+
+    $headerGallery = $('.artwork-header-gallery');
+    $thumbnails = $headerGallery.find('.artwork-thumbnails');
+    $featuredArtwork = $headerGallery.find('.artwork-featured');
+
+    // Catch any clicks on the image thumbnails
+    $thumbnails.on('click', 'a', function( evt ) {
+      var index, $selectedItem, $visibleItems;
+
+      evt.preventDefault();
+
+      // If we clicked the same image that's showing, do nothing
+      if ( $visibleItems.index() === index ) {
+        return;
+      }
+
+      if ( $visibleItems.length ) {
+        $featuredArtwork.filter(':visible').hide();
+        $featuredArtwork.eq( $(this).index() ).show();
+      } else {
+        $('#branding').children('a').slideUp();
+        $selectedItem.slideDown();
+      }
+    });
+  });
+```
+
+
+
+Basically,
+
+## Render Everything,
+
+### Hide & Show as needed
+
+
+
 ### Verdict:
 
 ![Screenshot showing page weight with naive PHP solution](../backbone-wordpress/images/page-weight-heavy.png)
@@ -321,10 +446,76 @@ and re-factor it to be awesome
 Get the hidden Div's out of that DOM
 
 
-![Screenshot showing reduced page weight](../backbone-wordpress/images/page-weight-light.png)
-
-
 [Code for Step 1](https://github.com/kadamwhite/backbone-wordpress-demo/pull/8)
+
+
+
+### Loop once, just render thumbnails
+```php
+<?php
+if ( is_front_page() ) :
+  $args = array(
+    'post_type' => 'ag_artwork_item',
+    'posts_per_page' => 6
+  );
+  $artwork_items = new WP_Query($args);
+
+  if($artwork_items->have_posts()) :
+?>
+<div class="artwork-header-gallery">
+  <div class="artwork-featured" style="display: none;"></div>
+  <div class="artwork-thumbnails">
+
+    <a href="<?php the_permalink(); ?>"
+       data-title="<?php the_title_attribute(); ?>"
+       data-artist="<?php the_author(); ?>"
+       data-id="<?php echo $post->ID; ?>"
+       data-image="<?php echo esc_attr( $image ); ?>"
+       data-content="<?php echo esc_attr( wpautop( get_the_content() ) ); ?>"
+       data-dimensions="<?php echo esc_attr( $dimensions ); ?>"
+       data-permalink="<?php echo esc_attr( $permalink_title ); ?>"
+       data-url="<?php echo the_permalink(); ?>"
+       data-media="<?php echo esc_attr( $media ); ?>"
+       title="<?php echo esc_attr(sprintf( __( '%s', 'artwork' ), the_title_attribute( 'echo=0' ) ) ); ?>">
+      <?php the_post_thumbnail( 'thumbnail' ); ?>
+    </a>
+
+    <?php endwhile; ?>
+  </div> <!-- .artwork-thumbnails -->
+  <?php endif; // have_posts() ?>
+</div> <!-- .artwork-header-gallery -->
+```
+
+
+
+### Read that in with jQuery
+```javascript
+    // Get the featured image data from the link we clicked
+    data = $( this ).data();
+
+    // If we clicked the same image that's showing, do nothing
+    if ( data.id === $featuredArtwork.data('id') ) {
+      return;
+    }
+
+    // If the gallery is open, just switch the image
+    if ( $featuredArtwork.is(':visible') ) {
+      $featuredArtwork
+        .html( render( data ) )
+        // Set the ID so we can do that convenient comparison up above
+        .data( 'id', data.id );
+    } else {
+      // If the gallery is not yet open, slide it open and hide the banner
+      $('#branding').children('a').slideUp();
+      $featuredArtwork.html( render( data ) ).slideDown();
+      $thumbnails.addClass('open'); // For styling only
+    }
+```
+
+
+
+#### Fewer Downloads == Faster Page Load
+![Screenshot showing reduced page weight](../backbone-wordpress/images/page-weight-light.png)
 
 
 
@@ -338,6 +529,33 @@ and into a JavaScript template
 [Step 2, Part 1: From jQuery to a Template](https://github.com/kadamwhite/backbone-wordpress-demo/pull/9)
 
 [Step 2, Part 2: Pre-Compile the Template with Grunt](https://github.com/kadamwhite/backbone-wordpress-demo/pull/10)
+
+
+
+## Because this isn't maintainable
+```javascript
+function renderContent( data ) {
+    // Concatenate the HTML and the data into a JavaScript string
+    return [
+      '<a class="artwork-image" href="', data.url, '" title="', data.permalink, '" rel="bookmark">',
+        data.image,
+      '</a>',
+      '<div class="artwork-information">',
+        '<h3>',
+          '<a href="', data.url, '" title="', data.permalink, '" rel="bookmark">',
+            data.title,
+          '</a>',
+        '</h3>',
+        data.content,
+        '<div class="entry-meta">',
+          '<p>', data.author, '</p>',
+          '<p>', data.dimensions, '</p>',
+          '<p>', data.media, '</p>',
+        '</div>',
+      '</div>'
+    ].join('');
+  };
+```
 
 
 
@@ -375,9 +593,43 @@ Quick warning: If you render templates from PHP,
 with PHP's `asp_tags` (~5% of servers)
 
 
+
 **MUCH** faster than building DOM nodes with jQuery
 
 *(And easier to read, too!)*
+
+
+
+### So we make a template
+```html
+<a class="artwork-image" href="<%= url %>" title="<%= permalink %>" rel="bookmark">
+  <%= image %>
+</a>
+<div class="artwork-information">
+  <h3>
+    <a href="<%= url %>" title="<%= permalink %>" rel="bookmark">
+      <%= title %>
+    </a>
+  </h3>
+  <% if ( content ) { %><%= content %><% } %>
+  <div class="entry-meta">
+    <p><%= artist %></p>
+    <% if ( dimensions ) { %><p><%= dimensions %></p><% } %>
+    <% if ( media ) {      %><p><%= media      %></p><% } %>
+  </div>
+</div>
+```
+
+
+
+## and use that to render the markup
+```javascript
+renderGallery = window.artgallery['assets/js/templates/gallery_featured_image.tmpl'];
+
+// ...
+
+$featuredArtwork.html( renderGallery(data) );
+```
 
 
 
@@ -390,12 +642,78 @@ Structure our featured image code with Backbone
 
 
 
+## One Model
+
+`var Artwork = Backbone.Model.extend({});`
+
+
+
+## One View
+```javascript
+var FeaturedArtwork = Backbone.View.extend({
+    el: '.artwork-featured',
+
+    // Pull in our cached template
+    template: window.artgallery['assets/js/templates/gallery_featured_image.tmpl'],
+
+    render: function() {
+      this.$el.html( this.template( this.model.attributes ) );
+      // Always return `this`, to enable chaining
+      return this;
+    },
+
+    show: function() {
+      this.$el.slideDown();
+    },
+
+    initialize: function( options ) {
+      // Automatically update when the data changes. `listenTo` and
+      // `listenToOnce` are part of Backbone 1.0, so you must manually
+      // re-register the latest Backbone.js (or be running WP 3.6). On the
+      // version of Backbone in 3.5, you may use this syntax instead:
+      //     var render = _.bind( this.render, this );
+      //     this.model.on( 'change', render );
+      this.listenTo( this.model, 'change', this.render );
+      this.listenToOnce( this.model, 'change', this.show );
+    }
+  });
+```
+
+
+
+## Link them together
+```javascript
+var artwork = new Artwork();
+var featuredArtwork = new FeaturedArtwork({
+    model: artwork
+});
+```
+
+
+
+## Call `set` and view
+# Renders Itself!
+
+`artwork.set( data );`
+
+<br>No longer need to directly call "render" in your event handler
+
+
+
 # Step 4
 
 Reorganize our .js files, for sanity and profit
 
 
 [Code for Step 4](https://github.com/kadamwhite/backbone-wordpress-demo/pull/12)
+
+
+
+## More files === Less code per file
+
+* **models.js**: declare model constructors
+* **views.js**: declare view constructors
+* **gallery.js**: instantiate models & bind events
 
 
 
@@ -408,12 +726,88 @@ Use Backbone for all the things!
 
 
 
+## Banner View
+Hide self the first time model is set
+```javascript
+  views.Banner = Backbone.View.extend({
+    initialize: function() {
+      this.listenToOnce( this.model, 'change', this.hide );
+    },
+
+    show: function() {
+      this.$el.slideDown();
+    },
+
+    hide: function() {
+      this.$el.slideUp();
+    }
+  });
+```
+
+
+
+## Thumbnail View
+Listen for click events, read HTML, and set model
+```javascript
+  views.Thumbnails = Backbone.View.extend({
+    // Backbone gives us a convenient syntax for defining
+    // all of our view's delegated jQuery events:
+    events: {
+      'click a': 'select'
+    },
+
+    select: function( evt ) {
+      // Have to go through evt.target: `this` is bound to the View object
+      var imageData = $( evt.target ).parent('a').data();
+
+      evt.preventDefault();
+
+      if ( this.model.id !== imageData.id ) {
+        this.model.set( imageData );
+      }
+    },
+
+    initialize: function() {
+      this.listenToOnce( this.model, 'change', function() {
+        this.$el.addClass('open');
+      });
+    }
+  });
+```
+
+
+
+## main.js is now officially tiny!
+```javascript
+  var artwork, featuredArtwork, banner, thumbnails;
+
+  artwork = new models.Artwork();
+
+  featuredArtwork = new views.FeaturedArtwork({
+    model: artwork
+  });
+
+  banner = new views.Banner({
+    el: '#branding > a',
+    model: artwork
+  });
+
+  thumbnails = new views.Thumbnails({
+    el: '.artwork-thumbnails',
+    model: artwork
+  });
+
+```
+
+
+
+
 The code for this demo is [available on Github](https://github.com/kadamwhite/backbone-wordpress-demo)
 
 ![Each step of the demo is broken down in a Pull Request, with appropriate comments](../backbone-wordpress/images/pr-demo-walkthrough.png)
 
-and video is
-[online at WordPress.tv](http://wordpress.tv/2013/09/05/k-adam-white-evolving-your-javascript-with-backbone-js/)
+(and video from Providence is<br>
+[online at WordPress.tv](http://wordpress.tv/2013/09/05/k-adam-white-evolving-your-javascript-with-backbone-js/))
 
 
 ### Demo Technology Colophon
@@ -428,11 +822,7 @@ with 10up's [grunt-wp-theme](https://github.com/10up/grunt-wp-theme) template
 
 Backbone is a useful way to structure JS code&mdash;
 
-and you can use as little as you want
-
-
-
-Or, as much as you want!
+and you can use as little (or as much) as you want
 
 
 
