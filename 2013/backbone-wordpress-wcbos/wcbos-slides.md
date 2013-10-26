@@ -832,20 +832,11 @@ and you can use as little (or as much) as you want
 
 
 
-# Get Your Data
-# from WP to JS
-
-
-
 ## WordPress as an API
 
 WordPress serves your data
 
 Backbone fetches that data, does stuff with it
-
-
-
-# WordPress serves your data...
 
 
 
@@ -1282,9 +1273,16 @@ headlines for a WordPress blog
 
 
 
-### Write websites
+### Write better websites
 
 Embrace Backbone to add better structure and more dynamic interaction to your website interfaces
+
+
+
+### Write Apps
+
+Build awesome tools that use WP as a backend
+
 
 
 ### Enhance Core
@@ -1391,7 +1389,7 @@ Me: [@kadamwhite](http://twitter.com/kadamwhite) &bull; [kadamwhite.com](http://
 
 <br />
 
-*Artwork by [Emily Garfield](http://twitter.com/emilygarfield), [emilygarfield.com](http://www.emilygarfield.com)*
+*Artwork by [Emily Garfield](http://www.emilygarfield.com)*
 
 <hr />
 
