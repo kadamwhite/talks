@@ -461,7 +461,7 @@ Render can be called in response to changes within a model
 ![Image Gallery screenshot](../../2013/backbone-wordpress-wcbos/images/gallery-demo.png)
 
 
-[Gallery Code](https://github.com/kadamwhi../../2013/backbone-wordpress-demo/pull/7)
+[Gallery Code](https://github.com/kadamwhite/backbone-wordpress-demo)
 
 
 
@@ -557,7 +557,7 @@ var featuredArtwork = new FeaturedArtwork({
 
 
 
-The code for this demo is [available on Github](https://github.com/kadamwhi../../2013/backbone-wordpress-demo)
+The code for this demo is [available on Github](https://github.com/kadamwhite/backbone-wordpress-demo)
 
 ![Each step of the demo is broken down in a Pull Request, with appropriate comments](../../2013/backbone-wordpress/images/pr-demo-walkthrough.png)
 
@@ -587,8 +587,6 @@ Backbone fetches that data, does stuff with it
 -------
 
 Older plugin, by the MoMA team
-
-Updated this Summer!
 
 Useful [*implicit mode*](http://wordpress.org/plugins/json-api/other_notes/#1.1.-Requests)
 
@@ -648,9 +646,13 @@ Useful [*implicit mode*](http://wordpress.org/plugins/json-api/other_notes/#1.1.
 
 -------
 
-Google Summer of Code project by Ryan McCue
+Began as a Google Summer of Code project by Ryan McCue
 
 Works as a plugin, or as a core drop-in
+
+May be a candidate for WordPress Core: EXTREMELY exciting possibility!
+
+https://github.com/WP-API/WP-API
 
 
 ```javascript
@@ -963,14 +965,6 @@ Use the WP.com API on self-hosted WordPress sites
 
 
 
-## WP-API Plugin
-
-A native REST API for WordPress, envisioned as a potential candidate for WordPress Core
-
-https://github.com/WP-API/WP-API
-
-
-
 ## Demo:
 # Blog Viewer
 
@@ -1073,7 +1067,7 @@ Many of these frameworks are great, but
 
 
 
-## Backbone is the right
+## Backbone is a good
 ## choice for WordPress
 
 
@@ -1112,8 +1106,6 @@ Me: [@kadamwhite](http://twitter.com/kadamwhite) &bull; [kadamwhite.com](http://
 
 <small>Technology: [Reveal.js](http://lab.hakim.se/reveal-js/) &bull; [Grunt](http://gruntjs.com/) &bull; [Grunt-WP-Theme](https://github.com/10up/grunt-wp-theme)</small>
 
-<small>*PS: I have Backbone, Grunt, JS, and Bocoup stickers!*</small>
-
 
 
 ## Resources & Further Reading
@@ -1126,5 +1118,3 @@ Me: [@kadamwhite](http://twitter.com/kadamwhite) &bull; [kadamwhite.com](http://
 * Also potentially Useful:
   * [WP Tuts+ tutorial on Backbone and WordPress](http://wp.tutsplus.com/tutorials/creative-coding/using-backbone-within-the-wordpress-admin-the-back-end/)
   * Function Programming/Currying: [Functional Programming in 5 Minutes](http://slid.es/gsklee/functional-programming-in-5-minutes)
-* Completely un-vetted:
-  * [Backbone.js Tips And Patterns](http://coding.smashingmagazine.com/2013/08/09/backbone-js-tips-patterns/)
