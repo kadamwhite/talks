@@ -1,0 +1,23 @@
+.reveal blockquote {
+  border-left: 10px solid #666;
+  border-left: 10px solid rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  padding-left: 0.5em;
+  text-align: left;
+}
+.reveal pre code {
+  padding: 20px;
+}
+
+/*.dark {
+  background: #666457;
+  background: -moz-radial-gradient(center, circle cover, white 0%, #666457 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #666457));
+  background: -webkit-radial-gradient(center, circle cover, white 0%, #666457 100%);
+  background: -o-radial-gradient(center, circle cover, white 0%, #666457 100%);
+  background: -ms-radial-gradient(center, circle cover, white 0%, #666457 100%);
+  background: radial-gradient(center, circle cover, white 0%, #666457 100%);
+}*/
+.dark h1 {
+  color: #ffffff;
+}
