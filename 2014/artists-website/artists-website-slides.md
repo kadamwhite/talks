@@ -70,6 +70,7 @@ Use Photoshop's "Save for Web" or equivalent <!-- .element: class="fragment" -->
 Avoid uploading images larger than ~1000px on a side <!-- .element: class="fragment" -->
 
 
+
 ## Video: Optimizing Your Images
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/sfEjC92jABo" frameborder="0" allowfullscreen></iframe>
@@ -354,6 +355,8 @@ Change the look & feel of your site
 WordPress.com [Theme Directory](http://theme.wordpress.com/)
 
 ![WordPress.com Theme Directory](images/wordpress-com-themes.png)
+
+(press "down" for recommended themes)
 
 
 [![widely](images/themes/widely.png)](http://theme.wordpress.com/themes/widely/)
