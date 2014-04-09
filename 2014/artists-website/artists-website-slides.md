@@ -402,19 +402,19 @@ WordPress.com [Theme Directory](http://theme.wordpress.com/)
 (scroll down for others)
 
 
-[![ComicPress](images/themes/comicpress.png)](http://wordpress.org/themes/comicpress)
+[![ComicPress](images/themes/ComicPress.png)](http://wordpress.org/themes/comicpress)
 
 
-[![Lensa](images/themes/lensa.png)](http://demo.colorlabsproject.com/?theme=lensa)
+[![Lensa](images/themes/Lensa.png)](http://demo.colorlabsproject.com/?theme=lensa)
 
 
-[![Kin](images/themes/kin.png)](http://themes.themegoods.com/kin_wp/)
+[![Kin](images/themes/Kin.png)](http://themes.themegoods.com/kin_wp/)
 
 
-[![Capture](images/themes/capture.png)](http://wordpress.org/themes/capture)
+[![Capture](images/themes/Capture.png)](http://wordpress.org/themes/capture)
 
 
-[![F8](images/themes/f8.png)](http://graphpaperpress.com/themes/f8/)
+[![F8](images/themes/F8.png)](http://graphpaperpress.com/themes/f8/)
 
 
 
