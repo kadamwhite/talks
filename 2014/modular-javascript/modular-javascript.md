@@ -524,7 +524,52 @@ return jQuery;
 
 
 
-# AMD in WP
+## Why would you do that?
+
+(Adds a ton of HTTP overhead)
+
+
+
+*If You Build It...*
+
+![Require.JS build process with Grunt](images/require-build-process.png)
+
+
+
+## Why would you do that?
+
+(What benefit does this have over lots of concatenated scripts?)
+
+
+
+## Hierarchy
+
+* jquery
+* app config
+* app init
+* module 1
+* dependency util for module 2
+* module 2
+
+
+
+## Hierarchy with AMD
+
+* amd config
+    - app
+        + module 1
+            * submodule a
+            * submodule b
+                - jquery
+            * common utility I
+        + module 2
+            * jquery
+            * common utility I
+        + common utility II
+
+
+
+# AMD &amp; WP
 
 
 
