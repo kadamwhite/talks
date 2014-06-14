@@ -93,12 +93,122 @@ wp_register_script(
 
 
 
+## Basic Module
+
+```javascript
+MYAPP.utilities.array = (function () {
+    return {
+        inArray: function (needle, haystack) {
+            // ...
+        },
+        isArray: function (a) {
+            // ...
+        }
+    };
+}());
+
+```
+<small>*from __JavaScript Patterns__, by Stoyan Stefanov*</small>
+
+
+
+## Revealing Module pattern
+
+```javascript
+MYAPP.utilities.array = (function() {
+
+    // private properties
+    var array_string = "[object Array]",
+    ops = Object.prototype.toString,
+
+    // private methods
+    inArray = function( haystack, needle ) {
+        for (var i = 0, max = haystack.length; i < max; i += 1) {
+            if ( haystack[ i ] === needle ) {
+                return i;
+            }
+        }
+        return −1;
+    },
+    isArray = function( a ) {
+        return ops.call( a ) === array_string;
+    };
+    // end var
+
+    // revealing public API
+    return {
+        isArray: isArray,
+        indexOf: inArray
+    };
+}());
+```
+<small>*from __JavaScript Patterns__, by Stoyan Stefanov*</small>
+
+
+
+## Module with Global Dependencies
+
+```javascript
+MYAPP.utilities.module = (function( app, global ) {
+    // references to the global object
+    // and to the global `app` namespace object
+    // are now localized
+}( MYAPP, this ));
+```
+<small>*from __JavaScript Patterns__, by Stoyan Stefanov*</small>
+
+
+
+## Module augmenting a global namespace
+```javascript
+window.wp = window.wp || {};
+
+(function($){
+    var Attachment, Attachments, Query, PostImage, compare, l10n, media;
+
+    /**
+     * wp.media( attributes )
+     *
+     * @param  {object} attributes The properties passed to the main media controller.
+     * @return {wp.media.view.MediaFrame} A media workflow.
+     */
+    media = wp.media = function( attributes ) {
+        // ..
+    };
+
+    // ...
+}(jQuery));
+```
+<small>*from WP's media-models.js*</small>
+
+
+
 ## Resources
 
 ![Stoyan Stefanov - JavaScript Patterns](images/stefanov-js-patterns.gif)
 ![Addy Osmani - JS Design Patterns](images/osmani-js-design-patterns.gif)
 
 <small>(Addy's book is [available online for free](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript))
+
+
+
+## 1/2 of the way there
+
+
+
+## Module *Authoring*
+
+Patterns give us a consistent and repeatable way
+
+of declaring modular intent...
+
+
+
+## Module *Transport*
+
+But how does a request for a module in a JavaScript
+
+file get connected to a filesystem call?
 
 
 
@@ -111,10 +221,11 @@ wp_register_script(
 
 
 # CommonJS
-## (Node)
+## (Node is a variant)
 
 
 
+## Node's require() &amp; module.exports
 ```javascript
 var globule = require('globule');
 var findup = require('findup-sync');
@@ -132,6 +243,8 @@ var matchdep = module.exports = {};
 # AMD
 
 
+
+## require()
 ```javascript
 require([ 'cart', 'store', 'store/util' ],
 function(  cart,   store,   util ) {
@@ -142,20 +255,76 @@ function(  cart,   store,   util ) {
 
 
 
-*or*
+## define()
 ```javascript
-define(function(require, exports, module) {
+define([
+    './cart',
+    './inventory'
+], function( cart, inventory ) {
+    // return an object to define the module
+    return {
+        color: 'blue',
+        size: 'large',
+        addToCart: function() {/* ... */}
+    }
+});
+```
+
+
+
+*Simplified CommonJS Wrapper*
+```javascript
+define(function( require, exports, module ) {
   'use strict';
 
-  var Grammar = require('./grammar');
-  var Tokenizer = require('./tokenizer');
-  var Tree = require('./tree');
-  var Compiler = require('./compiler');
+  var Grammar = require( './grammar' );
+  var Tokenizer = require( './tokenizer' );
+  var Tree = require( './tree' );
+  var Compiler = require( './compiler' );
   // ...
   module.exports = Combyne;
 });
 ```
 <small>*from [Combyne.js](https://github.com/tbranyen/combyne), by Tim Branyen*</small>
+
+
+
+## A brief glimpse of
+# the future
+
+
+
+## ES6 Modules
+
+The next version of JavaScript will have native modules...
+
+...but they won't be in browsers for a while yet.
+
+
+
+## Transpiling ES6
+
+You can use ES6 modules now if you use a "transpiler"
+
+like Square's [es6-module-transpiler](https://github.com/square/es6-module-transpiler), like [Ember App Kit](http://iamstef.net/ember-app-kit/guides/using-modules.html) does:
+```javascript
+var IndexRoute = Ember.Route.extend({
+  model: function() {
+    return ['red', 'yellow', 'blue'];
+  }
+});
+
+// Ought to look something like this:
+export default IndexRoute;
+```
+
+
+
+## We're going to focus on AMD
+
+because it's designed for the browser
+
+<small><br>*but we'll return to the rest later*</small>
 
 
 
@@ -376,18 +545,38 @@ should pull in any non-bundled plugins, libraries, utilities, wrappers, template
 
 
 
-## Easy Mocks
-
-```javascript
-TODO: Mocking demo
-```
-
-
-
 ## Demo:
 # JS Plugin Boilerplate
 
 [View on Github](https://github.com/kadamwhite/js-plugin-boilerplate)
+
+
+
+## More to come!
+
+Code Coverage, dependency graphs, *etc*
+
+
+Resources I'm exploring to add/comment upon:
+
+* [Madge](https://www.npmjs.org/package/madge)
+* [Blanket.js](http://blanketjs.org/)
+* [Dependo](http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/)
+* [Universal Module Definition (UMD)](https://github.com/umdjs/umd)
+
+
+
+## Resources
+
+**If you know of good, beginner-friendly resources, please share!**
+
+[Using RequireJS In WordPress](http://kaidez.com/requirejs-wordpress/), by Kai Gittens
+
+[Blog articles]() and [presentations](http://unscriptable.com/code/Using-AMD-loaders) by John Hann ([@unscriptable](https://twitter.com/unscriptable))
+
+[Understanding Require.js](http://www.sitepoint.com/understanding-requirejs-for-effective-javascript-module-loading/), on SitePoint
+
+[Require.js API documentation](http://requirejs.org/docs/api.html)
 
 
 
