@@ -20,7 +20,7 @@ K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 
-> A seld-contained piece of code defining a set of related functionality
+> A self-contained piece of code defining a set of related functionality
 
 
 
@@ -58,6 +58,11 @@ No Dependencies
 
 
 
+## What is a Module?, v2
+> A self-contained piece of code defining a set of related functionality **and any required dependencies**
+
+
+
 ## The WordPress JS Module System
 
 
@@ -84,12 +89,35 @@ wp_register_script(
 
 
 
-### now for an extremely relevant
-# Digression
+## Code in JS, deps in PHP? :(
+<br>
+```php
+wp_enqueue_script( /*...*/, array( 'jquery' ), /*...*/);
+```
+<br>
+> [A Module is] a **self-contained piece of code**...
+
+
+
+
+## Code can be contained on
+# many levels
+
+
+
+### Digression:
 
 
 
 # Module Patterns
+
+
+
+## Patterns
+
+Module Patterns are ways to structure code within a
+
+JavaScript file, and to aid in structuring an application
 
 
 
@@ -209,6 +237,18 @@ of declaring modular intent...
 But how does a request for a module in a JavaScript
 
 file get connected to a filesystem call?
+
+
+
+Still fighting huge files
+
+
+
+We need to be able to
+## Author modules
+as separate files, then
+## release modules
+as enqueue'able, built scripts
 
 
 
@@ -450,7 +490,7 @@ return jQuery;
 
 
 
-## Using jQuery via Require.js
+## Loading AMD modules with Require.js
 
 <pre><code>
 &#60;!doctype html&#62;
@@ -533,6 +573,13 @@ should pull in any non-bundled plugins, libraries, utilities, wrappers, template
 
 
 
+## How This Can Work:
+# AMD WP Plugin Boilerplate
+
+[View on Github](https://github.com/kadamwhite/js-plugin-boilerplate)
+
+
+
 # Testing
 
 
@@ -542,13 +589,6 @@ should pull in any non-bundled plugins, libraries, utilities, wrappers, template
 > [module systems] makes dependencies explicit, and unit tests benefit from this property just as much as any application code.
 
 [Effective Unit Testing with AMD](http://bocoup.com/weblog/effective-unit-testing-with-amd/), by Mike Pennisi
-
-
-
-## Demo:
-# JS Plugin Boilerplate
-
-[View on Github](https://github.com/kadamwhite/js-plugin-boilerplate)
 
 
 
@@ -563,6 +603,15 @@ Resources I'm exploring to add/comment upon:
 * [Blanket.js](http://blanketjs.org/)
 * [Dependo](http://kenneth.io/blog/2013/04/01/visualize-your-javaScript-dependencies-with-dependo/)
 * [Universal Module Definition (UMD)](https://github.com/umdjs/umd)
+
+
+
+## What is a
+# Module?
+
+
+
+> A piece of code that can depend on something and/or return something else
 
 
 
