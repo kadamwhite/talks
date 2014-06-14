@@ -15,6 +15,150 @@ K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 
+## What is a
+# Module?
+
+
+
+> A seld-contained piece of code defining a set of related functionality
+
+
+
+## The Most Basic JS Module System
+
+
+
+<pre><code>
+&#60;script type="text/javascript" src="lib/jquery.min.js">&#60;/script>
+&#60;script type="text/javascript" src="lib/plugin.js">&#60;/script>
+&#60;script type="text/javascript" src="lib/horrible-image-slider.js">&#60;/script>
+&#60;script type="text/javascript" src="my-app.js">&#60;/script>
+
+</code></pre>
+
+
+
+## We're Done!
+
+
+
+## :(
+
+No Dependencies
+
+
+
+## We've all been here
+![reference error: $ is not defined](images/reference-error.png)
+<pre><code>
+&#60;script type="text/javascript" src="my-app.js">&#60;/script>
+&#60;script type="text/javascript" src="lib/jquery.min.js">&#60;/script>
+
+</code></pre>
+
+
+
+## The WordPress JS Module System
+
+
+
+## Dependencies!
+```php
+wp_register_script(
+    'my-plugin-script',
+    plugin_dir_url( __FILE__ ) . 'js/awesome-plugin.js',
+    array( 'jquery' ),
+    '9000.0.1',
+    true
+);
+```
+
+
+
+## File size... not so much
+<br>
+`wp_enqueue_script` &rarr; `<script/>`
+
+<br>
+*mo' HTTP Requests, mo' problems*
+
+
+
+### now for an extremely relevant
+# Digression
+
+
+
+# Module Patterns
+
+
+
+## Resources
+
+![Stoyan Stefanov - JavaScript Patterns](images/stefanov-js-patterns.gif)
+![Addy Osmani - JS Design Patterns](images/osmani-js-design-patterns.gif)
+
+<small>(Addy's book is [available online for free](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript))
+
+
+
+# Module Systems
+
+
+
+## AMD vs CommonJS
+
+
+
+# CommonJS
+## (Node)
+
+
+
+```javascript
+var globule = require('globule');
+var findup = require('findup-sync');
+var resolve = require('resolve').sync;
+var stackTrace = require('stack-trace');
+var path = require('path');
+
+// export object
+var matchdep = module.exports = {};
+```
+<small>*from [node-matchdep](https://github.com/tkellen/node-matchdep), by Tyler Kellen*</small>
+
+
+
+# AMD
+
+
+```javascript
+require([ 'cart', 'store', 'store/util' ],
+function(  cart,   store,   util ) {
+    //use the modules as usual.
+});
+```
+<small>*from the Require.js [API docs](http://requirejs.org/docs/api.html#jsfiles)*</small>
+
+
+
+*or*
+```javascript
+define(function(require, exports, module) {
+  'use strict';
+
+  var Grammar = require('./grammar');
+  var Tokenizer = require('./tokenizer');
+  var Tree = require('./tree');
+  var Compiler = require('./compiler');
+  // ...
+  module.exports = Combyne;
+});
+```
+<small>*from [Combyne.js](https://github.com/tbranyen/combyne), by Tim Branyen*</small>
+
+
+
 ## AMD Structure in jQuery
 
 jQuery's main `jquery.js` file:
@@ -170,6 +314,80 @@ return jQuery;
 </code></pre>
 
 
+
+# AMD in WP
+
+
+
+## Internal <small>vs</small> External
+# Dependencies
+
+
+
+### Registered Scripts
+WordPress already contains a lot of built-in scripts:
+```php
+    // jQuery
+    $scripts->add( 'jquery', false, array( 'jquery-core', 'jquery-migrate' ), '1.11.1' );
+    $scripts->add( 'jquery-core', '/wp-includes/js/jquery/jquery.js', array(), '1.11.1' );
+    $scripts->add( 'jquery-migrate', "/wp-includes/js/jquery/jquery-migrate$suffix.js", array(), '1.2.1' );
+
+    // full jQuery UI
+    $scripts->add( 'jquery-ui-core', '/wp-includes/js/jquery/ui/jquery.ui.core.min.js', array('jquery'), '1.10.4', 1 );
+    $scripts->add( 'jquery-effects-core', '/wp-includes/js/jquery/ui/jquery.ui.effect.min.js', array('jquery'), '1.10.4', 1 );
+
+    $scripts->add( 'jquery-effects-blind', '/wp-includes/js/jquery/ui/jquery.ui.effect-blind.min.js', array('jquery-effects-core'), '1.10.4', 1 );
+    $scripts->add( 'jquery-effects-bounce', '/wp-includes/js/jquery/ui/jquery.ui.effect-bounce.min.js', array('jquery-effects-core'), '1.10.4', 1 );
+    $scripts->add( 'jquery-effects-clip', '/wp-includes/js/jquery/ui/jquery.ui.effect-clip.min.js', array('jquery-effects-core'), '1.10.4', 1 );
+    $scripts->add( 'jquery-effects-drop', '/wp-includes/js/jquery/ui/jquery.ui.effect-drop.min.js', array('jquery-effects-core'), '1.10.4', 1 );
+    $scripts->add( 'jquery-effects-explode', '/wp-includes/js/jquery/ui/jquery.ui.effect-explode.min.js', array('jquery-effects-core'), '1.10.4', 1 );
+    // And so on... you get the idea
+```
+
+
+
+If we included these in our require process,
+
+stuff would probably break
+
+
+
+## WordPress
+
+should be used to enqueue built-in scripts
+
+
+
+## Your module system
+
+should pull in any non-bundled plugins, libraries, utilities, wrappers, templates, *etc*
+
+
+
+# Testing
+
+
+
+## Why care about Modules in tests?
+
+> [module systems] makes dependencies explicit, and unit tests benefit from this property just as much as any application code.
+
+[Effective Unit Testing with AMD](http://bocoup.com/weblog/effective-unit-testing-with-amd/), by Mike Pennisi
+
+
+
+## Easy Mocks
+
+```javascript
+TODO: Mocking demo
+```
+
+
+
+## Demo:
+# JS Plugin Boilerplate
+
+[View on Github](https://github.com/kadamwhite/js-plugin-boilerplate)
 
 
 
