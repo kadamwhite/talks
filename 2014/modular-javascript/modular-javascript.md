@@ -569,7 +569,28 @@ return jQuery;
 
 
 
+AMD hierarchy means
+## Obvious Relationships
+
+* Which modules are needed by which other?
+* Which modules are commonly used across the app?
+* Are poorly-structured relationships?
+
+
+
+This knowledge of your system can easily be  
+lost with a traditional, linear/concat-based  
+module inclusion model
+
+
+
 # AMD &amp; WP
+
+
+
+AMD cannot be the be-all and end-all in WP:  
+It has to exist within the existing
+## plugin/script ecosystem
 
 
 
@@ -623,6 +644,9 @@ should pull in any non-bundled plugins, libraries, utilities, wrappers, template
 
 [View on Github](https://github.com/kadamwhite/js-plugin-boilerplate)
 
+*This is a work-in-progress, and may break things!*
+*<br>use for learning, not production*
+
 
 
 # Testing
@@ -666,7 +690,9 @@ Resources I'm exploring to add/comment upon:
 
 [Using RequireJS In WordPress](http://kaidez.com/requirejs-wordpress/), by Kai Gittens
 
-[Blog articles]() and [presentations](http://unscriptable.com/code/Using-AMD-loaders) by John Hann ([@unscriptable](https://twitter.com/unscriptable))
+[Writing Modular JavaScript](http://addyosmani.com/writing-modular-js/), by Addy Osmani
+
+[Blog articles](http://unscriptable.com) and [presentations](http://unscriptable.com/code/Using-AMD-loaders) by John Hann ([@unscriptable](https://twitter.com/unscriptable))
 
 [Understanding Require.js](http://www.sitepoint.com/understanding-requirejs-for-effective-javascript-module-loading/), on SitePoint
 
