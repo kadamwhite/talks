@@ -83,6 +83,12 @@ Note: There are over 400 functions defined in media-views.js, and over 50 differ
 
 
 
+Bad Granularity
+
+Note: We're still trying to buy a coke with a $50
+
+
+
 No Dependencies
 
 
@@ -94,12 +100,6 @@ No Dependencies
 &#60;script type="text/javascript" src="lib/jquery.min.js">&#60;/script>
 
 </code></pre>
-
-
-
-Bad Granularity
-
-Note: We're still trying to buy a coke with a $50
 
 
 
@@ -158,7 +158,7 @@ as enqueue'able, built scripts
 
 
 # CommonJS
-## (Node is a variant)
+**(Node is a variant)**
 
 
 
@@ -181,14 +181,9 @@ var matchdep = module.exports = {};
 
 
 
-## require()
-```javascript
-require([ 'cart', 'store', 'store/util' ],
-function(  cart,   store,   util ) {
-    //use the modules as usual.
-});
-```
-<small>*from the Require.js [API docs](http://requirejs.org/docs/api.html#jsfiles)*</small>
+Practically speaking,
+
+**AMD &#8776; Require**
 
 
 
@@ -206,34 +201,15 @@ define([
     }
 });
 ```
+Require has [many ways to `define` a module](http://requirejs.org/docs/api.html#define):  
+this is the most common
 
 
 
-*Simplified CommonJS Wrapper*
-```javascript
-define(function( require, exports, module ) {
-  'use strict';
+## The Future:
+#ES6 Modules
 
-  var Grammar = require( './grammar' );
-  var Tokenizer = require( './tokenizer' );
-  var Tree = require( './tree' );
-  var Compiler = require( './compiler' );
-  // ...
-  module.exports = Combyne;
-});
-```
-<small>*from [Combyne.js](https://github.com/tbranyen/combyne), by Tim Branyen*</small>
-
-
-
-## A brief glimpse of
-# the future
-
-
-
-## ES6 Modules
-
-The next version of JavaScript will have native modules!
+Note: The next version of JavaScript will have native modules!
 
 
 
@@ -257,7 +233,7 @@ The next version of JavaScript will have native modules!
 
 
 
-...but they won't be in browsers for a while yet.
+...but they won't be in browsers for a while.
 
 
 
@@ -273,7 +249,7 @@ Choose Your Own Granularity
 
 ## AMD Structure in jQuery
 
-jQuery's main `jquery.js` file:
+`jquery.js`:
 ```javascript
 define([
     "./core",
@@ -316,85 +292,7 @@ return jQuery;
 
 
 
-## "./core",
-First dependency creates jQuery object,  
-adds core functionality, returns `jQuery`
-```javascript
-define([
-    "./var/arr",
-    "./var/slice",
-    "./var/concat",
-    "./var/push",
-    "./var/indexOf",
-    "./var/class2type",
-    "./var/toString",
-    "./var/hasOwn",
-    "./var/support"
-], function( arr, slice, concat, push, indexOf, class2type, toString, hasOwn, support ) {
-
-var
-    // Use the correct document accordingly with window argument (sandbox)
-    document = window.document,
-
-    version = "@VERSION",
-
-    // Define a local copy of jQuery
-    jQuery = function( selector, context ) {
-        // The jQuery object is actually just the init constructor 'enhanced'
-        // Need init if jQuery is called (just allow error to be thrown if not included)
-        return new jQuery.fn.init( selector, context );
-    },
-
-    // ...Define jQuery.fn, jQuery.extend, etcetera
-    // ...
-    // ...
-
-return jQuery;
-});
-```
-
-
-
-## "./data"
-Require core, extend it with data methods
-```javascript
-define([
-    "./core",
-    "./var/rnotwhite",
-    "./core/access",
-    "./data/var/data_priv",
-    "./data/var/data_user"
-], function( jQuery, rnotwhite, access, data_priv, data_user ) {
-
-var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
-    rmultiDash = /([A-Z])/g;
-
-function dataAttr( elem, key, data ) { /* ... */ },
-
-jQuery.extend({
-    hasData: function( elem ) { /* ... */ },
-
-    data: function( elem, name, data ) { /* ... */ },
-
-    removeData: function( elem, name ) { /* ... */ },
-
-    // ...
-});
-
-jQuery.fn.extend({
-    data: function( key, value ) { /* ... */ },
-
-    removeData: function( key ) { /* ... */ },
-});
-
-return jQuery;
-});
-```
-
-
-
 ## Loading AMD modules with Require.js
-
 <pre><code>
 &#60;!doctype html&#62;
 &#60;html&#62;
@@ -417,7 +315,7 @@ return jQuery;
   &#60;h1 id="title"&#62;&#60;/h1&#62;
 
   &#60;script type="text/javascript"&#62;
-    require(["jQuery"], function($) {
+    require(['jQuery'], function($) {
       $('#title').text('Title!');
     });
   &#60;/script&#62;
@@ -433,11 +331,22 @@ return jQuery;
 
 
 
-*If You Build It...*
+No Sourcemaps! Reload to "recompile!"
 
 
 
-## AMD > Concatenation
+and *If You Build It...*
+
+
+
+<pre><code>
+                 &#60;script src="js/jquery.min.js"&#62;&#60;/script&#62;
+
+</code></pre>
+
+
+
+## AMD beats Concatenation
 
 
 
@@ -454,15 +363,15 @@ return jQuery;
 
 ## Hierarchy with AMD
 
-* amd config
+* AMD config
     - app
         + module 1
             * submodule a
             * submodule b
-                - jquery
+                - jQuery
             * common utility 1
         + module 2
-            * jquery
+            * jQuery
             * common utility 1
         + common utility 2
 
@@ -496,8 +405,12 @@ Note: This knowledge of your system can easily be lost with a traditional, linea
 
 
 
+# AMD <small>vs</small> WP
+
+
+
 ### WP has an existing
-# plugin/script ecosystem
+# plugin / script ecosystem
 
 
 
@@ -532,12 +445,6 @@ WordPress already contains a lot of built-in scripts:
 
 
 
-### Do Not Touch,
-
-or stuff will break
-
-
-
 ## WordPress
 
 should be used to enqueue built-in scripts,
@@ -567,6 +474,11 @@ utilities, wrappers, templates, *etc*
 
 
 
+## how it works
+
+
+
+WordPress kicks things off
 ```php
 // plugin.php
 // ----------
@@ -588,6 +500,7 @@ wp_register_script(
 
 
 
+Tell Require where to find the scripts
 ```javascript
 // require-config.js
 // -----------------
@@ -609,6 +522,18 @@ wp_localize_script( 'js-plugin-boilerplate',
 
 
 
+## Roll your own shims
+*for other enqueued scripts*
+```javascript
+                           define(function() {
+                             return window.jQuery;
+                           });
+```
+<small>(Even for AMD-compatible libraries like jQuery!)</small>
+
+
+
+Then it's AMD all the way down
 ```javascript
 // app.js
 // ------
@@ -625,7 +550,6 @@ define([
 
     $('.entry-title').text('Demo Loaded!');
 });
-
 ```
 
 
@@ -640,19 +564,16 @@ and will not play nice with some libraries
 
 
 
-## Backbone, for example...
+## For example, Backbone
 
 ![Backbone error when loaded outside of Require](images/backbone-amd-error.png)
-
-
-Further Reading: [Universal Module Definition (UMD)](https://github.com/umdjs/umd)
 
 
 
 
 ### From the Require docs:
 
-> Be sure to load all scripts that call define() via the RequireJS API. Do not manually code script tags in HTML to load scripts that have define() calls in them.
+> Be sure to load all scripts that call define() via the RequireJS API. Do not manually code script tags in HTML to load scripts that have define() calls
 
 
 
@@ -696,6 +617,8 @@ Modules &rarr; Require.js optimizer &rarr; AMDClean &rarr; App.js
 ![Signs requesting small bills/exact change](images/AJSchuster-Desperation.jpg)
 
 <small>*[AJ Schuster, "Desperation"](https://www.flickr.com/photos/ajschu/2581316304)*</small>
+
+Note: Modules are like *always* having exact change
 
 
 
