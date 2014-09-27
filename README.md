@@ -10,6 +10,13 @@ Each slide deck should be taken as representative of what I knew when I wrote th
 
 ## Presentations
 
+* [Modular JavaScript](http://kadamwhite.github.io/talks/2014/modular-javascript-pvd/), WordCamp Providence, September 2014
+* [Modular JavaScript](http://kadamwhite.github.io/talks/2014/modular-javascript/), WordCamp Chicago, June 2014
+* [Make Your Own Artist Website](http://kadamwhite.github.io/talks/2014/artists-website/), Somerville Open Studios, March 2014
+* [Backbone.js for WordPress Developers](http://kadamwhite.github.io/talks/2014/backbone-wordpress-wpsessions/), WPSessions, January 2014
+* [Evolving Your JavaScript with Backbone.js II](http://kadamwhite.github.io/talks/2013/backbone-wordpress-wcbos/), WordCamp Boston, October 2013
+* [Common Issues in Unit Testing AngularJS Directives](http://kadamwhite.github.io/talks/2013/angular-directive-testing/), AngularJS Boston, September 2013 (lightning talk)
+* [Evolving Your JavaScript with Backbone.js](http://kadamwhite.github.io/talks/2013/backbone-wordpress/), WordCamp Providence, August 2013
 * [Writing Apps with JavaScript, Backbone and WordPress](http://kadamwhite.github.io/talks/2013/wcchi/), WordCamp Chicago, June 2013
 * [Git Going: Version Your Code Like It's 2013](http://kadamwhite.github.io/talks/2013/git-going/), Boston WordPress Meetup, April 2013
 * [An Introduction to Stylesheet Pre-Processors](http://kadamwhite.github.io/talks/2013/preprocessors/), WordPress Providence Meetup, March 2013
