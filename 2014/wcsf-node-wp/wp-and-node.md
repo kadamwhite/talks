@@ -15,11 +15,15 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [@Boco
 <!-- .slide: data-background="images/sf-clouds.jpg" -->
 ## The Problem
 
+Note: This talk is about a solution to a problem, but the problem is not new. In January my team started building an application for a new business unit for a fortune-50 company. As it was a new business unit, it was a fresh build: there would be no integration with the parent company's existing systems. How do you pick your technology for a green-field project?
 
 
-![Node.js logo](images/node-logo.png)![Postgresql Logo](images/postgresql-logo.png)
 
-Note: In January my team started building an application for a new business unit for a fortune-50 company. As it was a new business unit, it was a fresh build: there would be no integration with the parent company's existing systems. We chose node and Postgres, because we have experience with them and know Node to be a flexible tool for structuring sites with various components
+![Node.js logo](images/node-logo.png)
+
+![Postgresql Logo](images/postgresql-logo.png)
+
+Note: We chose node and Postgres, because we have experience with them and know Node to be a flexible tool for structuring sites with various components
 
 
 
@@ -92,63 +96,15 @@ Note: we can pick-and-choose what we use
 
 
 
-## The Node ecosystem
+# Node
 
-has routing and templating solutions
+### provides *Routing* and *Templating*
 
-
-
-## Routing: Express
-
-```javascript
-    router.get( '/', require( './index' ) );
-    router.get( '/search', require( './search' ) );
-    router.get( '/:year/:month', require( './archive-year-month' ) );
-    router.get( '/:year/:month/:slug', require( './single' ) );
-    router.get( '/tags/:slug', require( './tags' ) );
-    router.get( '/categories/:slug', require( './categories' ) );
-```
+Note: We can use Express and Handlebars (or any templating option) on the Node side
 
 
 
-## Templating: Handlebars
-
-<code><pre>
-    <h1>{{{post.title}}}</h1>
-    <p class="light secondary byline no-margin">
-      <span class="pencil-icon"></span>
-      by <a href="/library/author/{{post.author.username}}">
-        {{post.author.name}}
-      </a> on {{formatArticleDate post.date}}
-    </p>
-</pre></code>
-<small>*or [Combyne](https://github.com/tbranyen/combyne), or [Nunjucks](http://mozilla.github.io/nunjucks)...*</small>
-
-
-
-## Easy to integrate into Express
-```javascript
-    // Handlebars
-    var expressHbars  = require('server/setup/exphbs');
-    app.engine('hbs', expressHbars.engine);
-    app.set('view engine', 'hbs');
-
-    // Combyne
-    app.engine( 'tmpl', combynExpress() );
-    app.set( 'view engine', 'tmpl' );
-```
-
-
-
-### WordPress:
-Data Store, Editing Interface
-<br><br>
-### Node:
-Routing, Templating
-
-
-
-## Something's missing:
+## Something's Missing:
 
 route &rarr; **data** &rarr; template
 
@@ -184,7 +140,7 @@ Note: We wrote and released an NPM package that consumes the API. There are othe
 
 
 
-## A Simple Route:
+## Putting It Together:
 ```javascript
     router.get( '/posts/:slug', function( req, res, next ) {
       // Search for the post with this slug
@@ -201,6 +157,21 @@ Note: We wrote and released an NPM package that consumes the API. There are othe
     });
 ```
 Note: IDs have no meaning outside of WP: slugs are more meaningful.
+
+
+
+## Rendering
+
+<code><pre>
+    <h1>{{{post.title}}}</h1>
+    <p class="light secondary byline no-margin">
+      <span class="pencil-icon"></span>
+      by <a href="/library/author/{{post.author.username}}">
+        {{post.author.name}}
+      </a> on {{formatArticleDate post.date}}
+    </p>
+</pre></code>
+<small>*[Handlebars](http://handlebarsjs.com/), or [Combyne](https://github.com/tbranyen/combyne), or [Nunjucks](http://mozilla.github.io/nunjucks)...*</small>
 
 
 
