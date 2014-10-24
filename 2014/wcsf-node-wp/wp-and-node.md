@@ -325,6 +325,7 @@ Note: The WP and Node codebases had to be highly synchronized: migrating back to
 
 
 
+<!-- .slide: data-background="images/sf-clouds.jpg" -->
 # Yes
 
 
@@ -347,19 +348,15 @@ Note: When this hits core, we will get 2 things:
 
 
 
-### Plugin interfaces can change forever
+### Plugin interfaces can evolve
 
-
-
-Plugins used to be built on top of WP:
-
-Now they can live within *or* alongside it
+to live within *or* alongside WP
 
 Note: Plugins will range from the traditional model, all the way to a single-page app served in an iframe within the admin that uses the API for all of its data, or even an external service that uses the plugin to customize its communication with your WP install. Custom interfaces for every need are possible.
 
 
 
-### WP can change forever
+## WordPress can evolve
 
 
 
@@ -384,7 +381,7 @@ Note: but why stop there? Rather than one monolithic dashboard, we could have a 
 
 
 
-## We'd do it again
+## We'd do it again.
 
 Note: The project is a success, and works as a proof-of-concept: For some use cases, WP is an excellent solution for node. And whether or not the future plays out the way we see it, the API makes WP a relevant contender in tons of different environments, and we're excited to see what everybody else does in their own languages and environments of choice.
 
@@ -396,9 +393,13 @@ Note: The project is a success, and works as a proof-of-concept: For some use ca
 &nbsp;
 
 Slides: [talks.kadamwhite.com/wcsf](http://kadamwhite.github.io/talks/2014/wcsf-node-wp)
+
 Demo: [github.com/kadamwhite/expresspress](https://github.com/kadamwhite/expresspress)
+
 API Client: [npmjs.org/package/wordpress-rest-api](https://www.npmjs.org/package/wordpress-rest-api)
+
+---------
 
 Me: [kadamwhite.com](http://kadamwhite.com) &bull; [@kadamwhite](http://twitter.com/kadamwhite)
 
-Us: [Bocoup](http://bocoup.com) &bull; [@bocoup](http://twitter.com/bocoup)
+Us: [Bocoup.com](http://bocoup.com) &bull; [@bocoup](http://twitter.com/bocoup)
