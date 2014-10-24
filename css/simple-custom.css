@@ -1,0 +1,37 @@
+/* Typography */
+.reveal {
+  font-family: "Junction", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  /*font-family: 'Junction', Arial, sans-serif;*/
+  /*font-family: ChunkFive;*/
+  font-family: 'League Gothic';
+  /*font-family: Palatino;*/
+  /*font-family: 'League Spartan';*/
+  /*font-weight: bold;*/
+  /*font-weight: light;*/
+  line-height: 1.4;
+  /*letter-spacing: -0.05em;*/
+}
+.reveal h1 {
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.reveal code {
+  /*font-family: 'Source Sans Pro', monospace;*/
+  /*font-size: 1.3em;*/
+  /*line-height: 1.2;*/
+  /*letter-spacing: 0.04em;*/
+}
+
+.reveal pre code {
+  padding: 20px 5px;
+}
