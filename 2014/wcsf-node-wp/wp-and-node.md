@@ -2,7 +2,7 @@
 # Weird Places,
 *or*
 
-"How to Content Manage a Node App with PHP"
+&ldquo;How to Content Manage a Node App with PHP&rdquo;
 <br><br>
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [@Bocoup](http://bocoup.com)
 
