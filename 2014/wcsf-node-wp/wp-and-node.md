@@ -13,7 +13,8 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [@Boco
 
 
 <!-- .slide: data-background="images/sf-clouds.jpg" -->
-## The Problem
+### Unorthodox Solution,
+## Common Problem
 
 Note: This talk is about a solution to a problem, but the problem is not new. In January my team started building an application for a new business unit for a fortune-50 company. As it was a new business unit, it was a fresh build: there would be no integration with the parent company's existing systems. How do you pick your technology for a green-field project?
 
@@ -23,47 +24,30 @@ Note: This talk is about a solution to a problem, but the problem is not new. In
 
 ![Postgresql Logo](images/postgresql-logo.png)
 
-Note: We chose node and Postgres, because we have experience with them and know Node to be a flexible tool for structuring sites with various components
+Note: We chose node and Postgres, because we have experience with them and know Node to be a flexible tool
 
 
 
 ## What is the best Node.js CMS?
 
-Note: A site needs a good CMS. But what are the options in Node?
+Note: A site needs a good CMS. But what are our options in Node?
 
 
 
 
 ![Mario Kart 64 item selection spinner](images/mario-kart-item-spinner.gif)
 
-Note: We evaluated a lot of existing options, looking for something that would provide the editing interface, usability, and data structures we needed
-
-
-![Mario Ghost](images/mario-ghost.png)
-
-
-![WordPress logo](images/wordpress-logo-simplified-rgb.png)
-
-
-![Mario Ghost](images/mario-ghost.png)
-
-
-![WordPress logo](images/wordpress-logo-simplified-rgb.png)
-
-
-![Mario Ghost](images/mario-ghost.png)
-
-
-![WordPress logo](images/wordpress-logo-simplified-rgb.png)
+Note: We evaluated a lot of existing choices, looking for something that would provide the editing interface, usability, and data structures we needed
 
 
 
 ![WordPress logo](images/wordpress-logo-simplified-rgb.png)
 
-Note: We ended up chosing WordPress
+Note: We ended up choosing WordPress
 
 
 
+How?
 # WP-API Project
 
 
@@ -98,7 +82,7 @@ Note: we can pick-and-choose what we use
 
 # Node
 
-### provides *Routing* and *Templating*
+### provides the *Routing* and *Templating*
 
 Note: We can use Express and Handlebars (or any templating option) on the Node side
 
@@ -128,7 +112,7 @@ Note: We wrote and released an NPM package that consumes the API. There are othe
     var WPClient = require( 'wordpress-rest-api' );
     var wp = new WPClient({ endpoint: 'http://mysite.com/wp-json' });
 
-    wp.posts().get(function( err, posts ) {
+    wp.posts().then(function( posts ) {
         console.log( posts );
     });
 
@@ -162,6 +146,7 @@ Note: IDs have no meaning outside of WP: slugs are more meaningful.
 
 ## Rendering
 
+*Not that different from `<?php the_title(); ?>`*
 <code><pre>
     <h1>{{{post.title}}}</h1>
     <p class="light secondary byline no-margin">
@@ -175,7 +160,8 @@ Note: IDs have no meaning outside of WP: slugs are more meaningful.
 
 
 
-### Sample Implementation: ExpressPress
+### Sample Implementation:
+## &ldquo;ExpressPress&rdquo;
 
 [github.com/kadamwhite/expresspress](https://github.com/kadamwhite/expresspress)
 
@@ -204,9 +190,9 @@ Note: WP provides a great way to upload and manage media, integrated right into 
 
 
 
-## Not Public-Facing
+## &ldquo;Private&rdquo;
 
-Note: Images are the only way you'd know our CMS exists, but if we uploaded them to S3, WP would be entirely invisible to the outside world. You could even have WP running within a local network.
+Note: I mean this as opposed to public-facing: Image URLs are the only way you'd know our CMS server exists, as a site visitor. If we uploaded them to S3, WP would be entirely invisible to the outside world. You could even have WP running within a local network.
 
 
 
@@ -215,21 +201,21 @@ Note: Images are the only way you'd know our CMS exists, but if we uploaded them
 
 
 
-## All the programming languages?
+## PHP !== JS
 
-Note: We have a PHP CMS, an Ember.js internal tool, an express public app, and a ruby on rails API for other parts of the backend, all in one project: good luck hiring for that.
+Note: We have a PHP CMS, an Ember.js internal tool, an express public app, and another external API in Ruby on Rails, all in one project: good luck hiring for that.
 
 
 
-### It could have been worse
+### It Would Have Been Worse
 
-With a different CMS
+with a different CMS
 
 Note: training new developers would have been additional overhead. WP is widely known, and stable, unlike younger Node CMS options. Also, managed WP hosts saved us a lot of devops time. S3, etc would improve even more
 
 
 
-## External dependency?
+## External Point of Failure
 
 Note: A CMS as an API introduces another point of failure: WP is one more thing to load-balance and failover; but this is mitigated by the stability of the platform 
 
@@ -237,18 +223,13 @@ Note: A CMS as an API introduces another point of failure: WP is one more thing 
 
 ### Cache That Content
 
-and use a managed host
+(and   use a managed host)
 
 Note: an intelligent caching layer saves some of the burden on the CMS, and it could be even more robust: imagine caching everything in one go, then using a plugin in WP that calls out to your application whenever content changes, to invalidate the cached versions. The duplication of content in two DBs pales in comparison to the simplicity of using WP as a self-contained admin console.
 
 
 
-# Rough Edges,
-## API Edition
-
-
-
-## Growing Pains
+## API Growing Pains
 
 *0.9 is a pretty lonely number, too...*
 
@@ -256,24 +237,15 @@ Note: We began our build before 1.0: we had to track the project as it evolves. 
 
 
 
-## Authentication
-
-Basic Auth is too simplistic,  
-and OAuth is complex
-
-Note: we worked around this by filtering existing data and making custom endpoints to serve "private" content, but that only worked because we were read-only from WP. Where things get interesting is when you read-write.
-
-
-
-## Pagination
+## Authentication & Pagination
 
 Works, but unsatisfying
 
-Note: Not available for some types of queries, e.g. WP_User_Query doesn't permit pagination, and the way in which it is exposed needs some love
+Note: Basic Auth is too simplistic, and OAuth is complex. We worked around this by filtering existing data and making custom endpoints to serve "private" content, but that only worked because we were read-only from WP. Where things get interesting is when you read-write. Pagination, on the other hand, is just not available for some types of queries: e.g. WP_User_Query doesn't permit pagination, and the way in which it is exposed needs some love
 
 
 
-## That "best UI"...
+## That &ldquo;Best UI&rdquo;...
 
 !["View Post" link: one of many](images/view-post-link.png)
 
@@ -292,7 +264,7 @@ Note: The WP and Node codebases had to be highly synchronized: migrating back to
 
 
 <!-- .slide: data-background="images/sf-clouds.jpg" -->
-## Was it worth it?
+## Was It Worth It?
 
 
 
@@ -352,7 +324,8 @@ Note: but why stop there? Rather than one monolithic dashboard, we could have a 
 
 
 
-## We'd do it again.
+# Let's see what
+# we can build!
 
 Note: The project is a success, and works as a proof-of-concept: For some use cases, WP is an excellent solution for node. And whether or not the future plays out the way we see it, the API makes WP a relevant contender in tons of different environments, and we're excited to see what everybody else does in their own languages and environments of choice.
 
