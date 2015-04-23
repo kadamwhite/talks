@@ -361,6 +361,59 @@ We're a consulting company, so if we're on a project we may use that time to bui
 
 ---
 
+# Projects
+## *Within Projects*
+
+??? We're so engrained in this highly parallel, asynchronous project mentality that we use it in our consulting work, too:
+
+---
+
+```
++-----------+--------------------------------------+-----------+
+| Research  |  Implementation                      | Delivery  |
++-----------+--------------------------------------+-----------+
+
+```
+
+??? this past year I was leading a project to build a complex web app for a client, and we had a free-wheeling research phase at the start to prove out the tools we wanted to use.
+
+---
+
+```
++-----------+--------------------------------------+-----------+
+| Research  |  Implementation                      | Delivery  |
++-----------+--------------------------------------+-----------+
+               ^ new research task
+
+```
+
+??? When a new requirement came up after that phase, however, we wanted to find a way to find a solution without disrupting our existing work
+
+---
+
+```
++-----------+--------------------------------------+-----------+
+| Research  |  Implementation                      | Delivery  |
++-----------+--------------------------------------+-----------+
+              v                    ^
+              +--------------------+
+              | "Side Project" POC |
+              +--------------------+
+```
+
+??? By spinning that proof of concept, a WordPress-backed node application, out into a "side project" alongside our main repository, we kept the research from impacting our project, then rolled it all back in when we were done.
+
+---
+<!-- .slide: data-background="url('images/projects/kaw-wp-rest-api.png')" -->
+
+<div class="highlight">
+*Released* [wordpress-rest-api](https://www.npmjs.com/package/wordpress-rest-api) (npm package)
+
+*and* [expresspress](https://github.com/kadamwhite/expresspress) (demo project)
+</div>
+??? and since the work was already extracted from the main repository, it made it easy to release the fruit of our labor as an open source package, too: we can ride this feedback cycle from project to project, getting better all the time.
+---
+
 # You \*are\* what you make time for
 
 <small>*~ [@femmebot, Sep 4 2014](https://twitter.com/femmebot/status/507613717232508928)*</small>
