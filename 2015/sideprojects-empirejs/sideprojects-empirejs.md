@@ -80,7 +80,7 @@ Slides: [talks.kadamwhite.com/side-projects-empirejs](talks.kadamwhite.com/side-
 ---
 <!-- .slide: data-background="url('images/projects/melchoyce-redradar.png')" -->
 
-<span>Mel Choyce, [rdrdr WordPress Themes](http://https://themes.redradar.net)</span> <!-- .element: class="caption" -->
+<span>Mel Choyce, [rdrdr WordPress Themes](https://themes.redradar.net)</span> <!-- .element: class="caption" -->
 
 ??? Mel Choyce, a UX designer at Automattic, makes WP themes with Kelly Dwan in her spare time and releases them as RedRadar.
 
@@ -331,11 +331,11 @@ and decide which ones to keep for next time
 
 # Open Source Time
 
-??? Every employee gets a percentage of their time to maintain, contribute to and explore open-source web technology (or culture).
+??? Every employee gets a percentage of our time to maintain, contribute to and explore open-source web technology (or culture).
 
-This can be everything from maintaining Grunt, to writing a twitter bot while exploring how Node.js works.
+This can be anything from building and releasing a general-purpose library, to writing a twitter bot while exploring how Node.js works.
 
-We're a consulting company, so if we're on a client project we may use that time to build part of their application in a reusable, modular way that we can then work with them to open-source.
+We're a consulting company, so if we're on a project we may use that time to build part of their application in a reusable, modular way that we can then work with the client to open-source.
 
 ---
 
@@ -361,15 +361,73 @@ We're a consulting company, so if we're on a client project we may use that time
 
 ---
 
-## A Brief Digression
+# You \*are\* what you make time for
 
-![@femmebot's tweet saying "you are what you make time for"](images/femmebot-are-what-you-make.png)
+<small>*~ [@femmebot, Sep 4 2014](https://twitter.com/femmebot/status/507613717232508928)*</small>
 
 ??? These systems are important to us, because how we spend our time defines what type of company we are. Phoebe E (@femmebot) said it well in this tweet:
 
 ---
+<!-- .slide: data-background="url('images/projects/femmebot-25x52.png')" -->
 
+<span>[@femmebot](https://twitter.com/femmebot), [25x52](http://25x52.com/)</span> <!-- .element: class="caption" -->
 
+??? We can also learn a lot from her own side project effort, 25x52, an initiative to launch 25 projects in a year.
+
+---
+<!-- .slide: data-background="url('images/projects/femmebot-typography-1.jpg')" -->
+
+<span>[@femmebot](https://twitter.com/femmebot), [Google Fonts Typography](http://femmebot.github.io/google-type/)</span> <!-- .element: class="caption" -->
+
+??? She describes 25x52 as a personal initiative, starting in August of last year, and the length of the project was a deliberate choice:
+
+---
+<!-- .slide: data-background="url('images/projects/femmebot-typography-2.jpg')" -->
+
+> I wanted to set a timeline that was **long enough to compel a behavior change** &hellip; I needed to establish a long-term **habit** of launching projects.
+> 
+> <small>*~ [25x52 About Page](http://femmebot.github.io/about/) (emphasis added)*</small>
+
+??? The About page for the project contains two main takeaways, for us: **repetition builds habits**, and **milestones are important.** To quote her site again, "Shipping Products is Better than Getting Tasks Done".
+
+---
+
+# Milestones
+
+??? This concept of milestones, or MVPs, is a recurring theme I hear when I discuss SPs within our community.
+
+---
+<!-- .slide: data-background="url('images/projects/ericandrewlewis-cool-text-converter.png')" -->
+
+<br>
+
+> I purposefully made **minimum viable products** along the way, so I would get quick wins and not get burnt out.
+>
+> <small>*~ [Eric Andrew Lewis](https://twitter.com/ericandrewlewis) (emphasis added)*</small>
+
+??? Eric Lewis, a developer at the Times here in NY, built a "cool text converter" to do unicode glyph substitution on text strings, treating each new dialect he added as a new "release."
+
+---
+<!-- .slide: data-background="url('images/projects/marikokosaka-knittingmachine.jpg')" -->
+
+<br>
+
+> Submitting to conferences and meetups shaped &ldquo;just some doodling code&rdquo; to &ldquo;a project&rdquo;.
+> 
+> <small>*~ [Mariko Kosaka](https://twitter.com/kosamari)*</small>
+
+??? Mariko Kosaka, who spoke earlier today, shared how the deadlines we impose on ourselves by presenting our work gives us impetus to "finish".
+
+---
+<!-- .slide: data-background="url('images/projects/ajpiano-whosaiditbest.png')" -->
+
+<br>
+
+> I carved out just enough time to make a working prototype before my talk.
+> 
+> <small>*~ [Adam Sontag](https://twitter.com/ajpiano)*</small>
+
+??? Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk.
 
 ---
 
