@@ -102,5 +102,130 @@ Slides: [talks.kadamwhite.com/side-projects-empirejs](talks.kadamwhite.com/side-
 
 ??? My Boston subway tracking application MBTAwesome let me learn some new tools, but it also gave me a chance to reevaluate the ones I'd used before
 
+---
+
+Start with one set of tools,
+
+<br>
+
+### Express
+### Backbone
+### *Nunjucks*
+### *Browserify*
+
+??? A benefit to projects that use a combination of old and new skills is that you can continue incrementally switching out technology as you explore different solutions to a problem
+
+---
+
+and decide which ones to keep for next time
+
+<br>
+
+### Express
+### *Ampersand*
+### *Combyne*
+### Browserify
+
+??? For MBTAwesome, for example, I learned I enjoyed using Browserify to build my application, and that's lead me to consider Ampersand for my next project.
+
+---
+
+## Practice Makes Perfect?
+
+??? The more you solve the same problem, the more practiced you are at working through it&mdash;you build muscle memory.
+
+---
+
+## Practice reveals
+# pain points
+
+??? As you repeat a task, you often find yourself encountering the same challenges over and over and over again
+
+---
+
+## `hundreds of jQuery plugins`
+# `+`
+### `repetitive gruntwork to release/maintain them all`
+# `= ?`
+
+??? that can lead to a new, completely separate project designed to solve those problems: side projects as problem-solving sandbox
+
+---
+<!-- .slide: data-background="url('images/projects/benalman-gruntjs.png')" -->
+
+<span>Ben Alman & the Grunt Team, [Grunt](http://gruntjs.com)</span> <!-- .element: class="caption" -->
+
+??? I always wondered how libraries like Grunt were created, and it's a very straightforward type of problem solving.
+
+---
+
+```
+                  _____
+               _.'_____`._
+             .'.-'  12 `-.`.
+            /,' 11      1 `.\
+           // 10      /   2 \\               How
+          ;;         /       ::                Do
+          || 9  ----O      3 ||                  You
+          ::                 ;;                    Make
+           \\ 8           4 //                       Time?
+            \`. 7       5 ,'/
+             '.`-.__6__.-'.'
+              ((-._____.-))
+              _))       ((_
+             '--'SSt    '--'
+```
+<small>*clock from [ascii.co.uk](http://ascii.co.uk/art/clock)*</small>
+
+??? To say something's straightforward, though, doesn't mean it's easy: projects take time, sometimes a lot of it
+
+---
+
+## &ldquo;When do you work?&rdquo;
+
+> Mostly weekends. Especially Sunday afternoon &ndash; night.
+
+<small>*~ Mariko Kosaka*</small>
+
+> It started in a Saturday night at home.
+
+<small>*~ Leonardo Balter*</small>
+
+> Nights and weekends.
+
+<small>*~ Too many to mention by name*</small>
+
+??? In the responses to my survey the most common phrase was "nights and weekends," and if you look around Github I suspect you'll see a lot of late-night or Sunday-afternoon commits.
+
+---
+
+> Mostly nights, mostly the time I had intended to use to build the application that [prompted my side project] in the first place. I still have not finished that application now...
+
+<small>*~ Calvin Spealman*</small>
+
+> It was pretty much the only thing I did for a long, long time.
+
+<small>*~ Ben Alman*</small>
+
+??? But there's only so many nights and weekends to go around, especially if you have other things you want to use those nights and weekends to do
+
+---
+
+> If you do it like I did it, you pretty much lose your social life. I recommend a slightly more balanced approach&hellip;
+
+<small>*~ Ben Alman*</small>
+
+>  I rarely had the time for [make8bitart]. Even today I struggle to find the time to work on it.
+
+<small>*~ Jenn Schiffer*</small>
+
+> It will never be &ldquo;done&rdquo;.
+
+<small>*~ Greg Smith*</small>
+
+??? A quick survey of my colleagues reveals some major concerns about the time needed, and the costs of that time
+
+---
+
 # *Thank You!*
 
