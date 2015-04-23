@@ -138,7 +138,7 @@ Start with one set of tools,
 
 ---
 
-and decide which ones to keep for next time
+and decide which to keep for next time
 
 <br>
 
@@ -428,6 +428,103 @@ We're a consulting company, so if we're on a project we may use that time to bui
 > <small>*~ [Adam Sontag](https://twitter.com/ajpiano)*</small>
 
 ??? Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk.
+
+---
+
+# Regularity
+## and
+# Repetition
+
+??? Deadlines are only half the story, though: in my mind, regularity and repetition are the most important hallmarks of a successful side project.
+
+---
+
+## Write Code Every Day
+
+<br>
+
+> 1. I must write code every day.
+> 2. It must be useful code.
+> 3. All code must be written before midnight.
+> 4. The code must be Open Source and up on Github.
+
+<small>*~ John Resig, [Write Code Every Day, April 2014](http://ejohn.org/blog/write-code-every-day/)*</small>
+
+??? John Resig wrote an article on this topic that really stuck with me, entitled "write code every day". He outlined a few rules for himself to keep things on track, but the title speaks for itself
+
+---
+<br>
+
+<br>
+
+## Go Into Your Studio
+# Every Day
+#### *even if it's just to wash your brushes.*
+
+<small>*~ Jay Stuckey, artist*</small>
+
+??? My art professor in college outlined a similar rule he uses for himself: go into the studio every day. Even if all you do is wash your brushes, it builds a habit, and a practice.
+
+---
+
+# Make the Time
+## *and make it regular*
+
+??? It's a truism that you can never have time if you don't *make* time. As individuals and companies, we owe it to ourselves to learn, to grow, and to have fun.
+
+---
+
+> These passion projects are essential outlets &hellip; and are **absolutely necessary** for staying happy, feeling trusted, and remaining free to experiment &hellip;
+> 
+> Without them, you will certainly be unhappy in the long-term.
+
+<small>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
+
+??? As we established with the show of hands, I don't need to convince you of this. But if you need the language to help convince colleagues or management, here's some options:
+
+---
+
+## Freedom Up,
+# Turnover Down
+
+??? Employees who have the freedom to explore, and get support for that exploration, don't
+
+---
+
+## Another kind of
+# &ldquo;Professional Development&rdquo;
+
+??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable
+
+---
+<!-- .slide: data-background="url('images/emilygarfield-sketchbook-pages.jpg')" -->
+
+<br>
+
+<div class="highlight">
+
+## Github is not your
+## portfolio, but it *can be* a
+# sketchbook
+
+</div>
+<br>
+
+<small>*~ Sketchbook by [Emily Garfield](http://www.emilygarfield.com)*</small>
+
+??? To extend the art studio metaphore, it's almost self-evident that an artist, for example, keeps a sketchbook. It's part of their art practice. We work in a creative field, and it's bizarre to me that we don't make more time within our jobs to sketch, to practice, and to grow.
+
+---
+
+<br>
+
+## Take the time. Always.
+## Even if no one ever sees
+## your work.
+
+<small>*~ [Andrew Norcross](https://twitter.com/norcross)*</small>
+
+??? But we know how to make the time, and I think we should.
 
 ---
 
