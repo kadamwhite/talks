@@ -39,6 +39,16 @@ Slides: [talks.kadamwhite.com/side-projects-empirejs](talks.kadamwhite.com/side-
 
 ---
 
+## Why
+
+## When
+
+## How
+
+??? We're going to focus today on the benefits that side projects bring us, as individuals and organizations; how we can integrate regular creative exploration into our work; and how we can take some basic steps to give ourselves the best chance of success in our projects.
+
+---
+
 # Why?
 
 ??? Why is it that we all have these projects kicking around? What are we trying to do when we start a side project?
@@ -550,24 +560,6 @@ We're a consulting company, so if we're on a project we may use that time to bui
 ??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable
 
 ---
-<!-- .slide: data-background="url('images/emilygarfield-sketchbook-pages.jpg')" -->
-
-<br>
-
-<div class="highlight">
-
-## Github is not your
-## portfolio, but it *can be* a
-# sketchbook
-
-</div>
-<br>
-
-<small>*~ Sketchbook by [Emily Garfield](http://www.emilygarfield.com)*</small>
-
-??? To extend the art studio metaphore, it's almost self-evident that an artist, for example, keeps a sketchbook. It's part of their art practice. We work in a creative field, and it's bizarre to me that we don't make more time within our jobs to sketch, to practice, and to grow.
-
----
 
 <br>
 
@@ -578,6 +570,24 @@ We're a consulting company, so if we're on a project we may use that time to bui
 <small>*~ [Andrew Norcross](https://twitter.com/norcross)*</small>
 
 ??? But we know how to make the time, and I think we should.
+
+---
+<!-- .slide: data-background="url('images/emilygarfield-sketchbook-pages.jpg')" -->
+
+<br>
+
+<div class="highlight">
+
+## Side Projects are not your
+## portfolio, but they *can be*
+# <small>a</small> sketchbook
+
+</div>
+<br>
+
+<small>*Sketchbook pages by [Emily Garfield](http://www.emilygarfield.com)*</small>
+
+??? To extend the art studio metaphore, it's almost self-evident that an artist, for example, keeps a sketchbook. It's part of their art practice. We work in a creative field, and it's bizarre to me that we don't make more time within our jobs to sketch, to practice, and to grow.
 
 ---
 
