@@ -94,6 +94,11 @@ body {
   text-transform: initial;
 }
 
+blockquote {
+  background-color: rgba(255,255,255,0.6) !important;
+  overflow: hidden;
+}
+
 blockquote * {
   line-height: 1.6 !important;
 }
@@ -105,5 +110,10 @@ blockquote * {
   top: 0 !important;
   right: 0 !important;
   padding: 5px !important;
-  background: rgba(255,255,255,0.85) !important;
+  background-color: rgba(255,255,255,0.85) !important;
+}
+
+.highlight {
+  padding: 0.5em 0.25em !important;
+  background-color: rgba(255,255,255,0.9) !important;
 }

@@ -132,7 +132,7 @@ and decide which ones to keep for next time
 
 ## Practice Makes Perfect?
 
-??? The more you solve the same problem, the more practiced you are at working through it&mdash;you build muscle memory.
+??? The more you solve the same problem, the more practiced you are at working through it&mdash;you build muscle memory, and maybe you develop a boilerplate, or a set of configurations to re-use later.
 
 ---
 
@@ -248,25 +248,107 @@ and decide which ones to keep for next time
 
 <small>*~ Wired.com, ["20% Time Will Never Die", 8/21/13](http://www.wired.com/2013/08/20-percent-time-will-never-die/)*</small>
 
-??? Google became famous for allowing engineers a percentage of their time to explore passion projects and new ideas, leading to products like Gmail.
+??? Google became famous for allowing engineers a percentage of their time to explore passion projects and new ideas, leading to products like Gmail. This is not a new idea,
 
 ---
 
 ## &ldquo;Bootlegging&rdquo;
 
-> This unwritten rule of 15 percent dream time is so ingrained at **3M** that "you can feel it right down to your toes"
+> Research in which motivated individuals secretly organize the innovation process
 
-<small>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
+<small>*~ Wikipedia, ["Bootlegging (Business)"](http://en.wikipedia.org/wiki/Bootlegging_%28business%29)*</small>
 
-??? This is not a new idea, and it's not a Silicon Valley idea: it goes back decades, and was dubbed "bootlegging" by in the late 60's (see Knight, K., 1967, *A Descriptive Model of the Intra-Firm Innovation Process*)
+??? and it's not a Silicon Valley idea: it goes back decades, and was dubbed "bootlegging" in the late 60's (see Knight, K., 1967, *A Descriptive Model of the Intra-Firm Innovation Process*)
 
 ---
+<!-- .slide: data-background="url('images/henrikpalm-redo-for-test.jpg')" -->
 
 > **The 15 percent rule works** &hellip; the best-known success story is scientist Art Fry's **creation of Post-its** while trying to create bookmarks that would stay put in the church choir's hymnals.
 
 <small>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
+<small><small>*[Photo by Henrik Palm](https://www.flickr.com/photos/henrikpalm/5565633783), used under a [CC Attribution 2.0 Generic](https://creativecommons.org/licenses/by/2.0/) license*</small></small>
 
-??? the post-its we use for Scrum boards actually came out of 3M's unofficial "permitted bootlegging" policy, which evolved eventually to "15 percent time" (see http://en.wikipedia.org/wiki/Post-it_note)
+??? the post-its we use for our Scrum boards actually came out of 3M's unofficial "permitted bootlegging" policy, which evolved eventually to "15 percent time" (see http://en.wikipedia.org/wiki/Post-it_note)
+
+---
+
+## Hackathons
+
+??? Hackathons take that idea, time-box it, and make it a group activity. What you lose in autonomy, the thinking goes, you gain in collaboration.
+
+---
+
+## Hackathons
+
+<br>
+
+### *Community*
+### *Teamwork* <!-- .element class="fragment" -->
+### *Competition* <!-- .element class="fragment" -->
+
+??? These become as much (or more) about teambuilding and community as they do about passion projects -- but they can be an easier sell than bootlegging, or a nice complement to independent exploration
+
+---
+
+## Project Nights
+
+<br>
+
+### *Hardware,*
+### *Art, Design*
+### *You Name It*
+
+??? hack days are implicitly at the organization level; Project Nights are a little different, in that (in my experience) they're employee-organized. One point-of-sale software company had a hack day to build vacancy indicators for their restrooms, giving software engineers and non-technical employees a chance to try soldering and to learn about the hardware side of their business&mdash;but the event organization was all ad-hoc. We've had art nights at Bocoup, just to blow off steam; they're different in their focus, but the same type of event.
+
+---
+
+# *Our Approach*
+
+??? I think the way we balance these options at Bocoup is pretty effective, so I want to share how it works:
+
+---
+
+# Open Source Time
+
+??? Every employee gets a percentage of their time to maintain, contribute to and explore open-source web technology (or culture).
+
+This can be everything from maintaining Grunt, to writing a twitter bot while exploring how Node.js works.
+
+We're a consulting company, so if we're on a client project we may use that time to build part of their application in a reusable, modular way that we can then work with them to open-source.
+
+---
+
+## Open Source Time
+
+> I’ve always taken this kind of time in all the jobs I could&mdash;even when it wasn’t officially offered. When you do officially offer it, then I don’t have to feel guilty!
+
+<small>*~ Jim Vallandingham*</small>
+
+??? Supporting the web as an open platform is part of our mission, of course, but this time also codifies what we know would be happening anyway, to avoid making us feel guilty or conflicted in our explorations
+
+---
+
+# Perch Time
+
+??? This is our equivalent of bootlegging and hackathons, in a way: in downtime between projects, my coworkers collaborate on building and maintaining the tools we use to keep Bocoup running. These projects are managed through a Tech Ops organization, and run like any other engineering project.
+
+---
+
+# Bocoupfest
+
+??? Bocoupfest, on the other hand, is our company week: anything goes. We've built nodebots, we've learned to make spray-paint stencils; my coworker Carl lead a group to make a game for the Pebble watch last month. This is when we can "blow off steam".
+
+---
+
+## A Brief Digression
+
+![@femmebot's tweet saying "you are what you make time for"](images/femmebot-are-what-you-make.png)
+
+??? These systems are important to us, because how we spend our time defines what type of company we are. Phoebe E (@femmebot) said it well in this tweet:
+
+---
+
+
 
 ---
 
