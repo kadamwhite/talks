@@ -17,13 +17,14 @@
 
 /* Custom light BG */
 body {
-  background: #fffce8;
+  /*background: #fffce8;
   background: -moz-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #fffce8));
   background: -webkit-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
   background: -o-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
   background: -ms-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
-  background: radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+  background: radial-gradient(center, circle cover, white 0%, #fffce8 100%);*/
+  background: url('images/concrete_seamless.png') center center;
 }
 
 /*.dark {
@@ -46,7 +47,12 @@ body {
 }
 
 .slide-background {
+  background-position: center center !important;
   background-size: cover !important;
+}
+
+.reveal .slide-background.present {
+  opacity: 0.5;
 }
 
 /* Element overrides */
@@ -77,4 +83,18 @@ body {
   /*font-family: Fanwood;*/
   text-shadow: none;
   text-transform: initial;
+}
+
+blockquote * {
+  line-height: 1.6 !important;
+}
+
+/* Captions */
+
+.caption {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  padding: 5px !important;
+  background: rgba(255,255,255,0.85) !important;
 }
