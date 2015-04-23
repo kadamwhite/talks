@@ -5,7 +5,7 @@
 
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
-Slides: [talks.kadamwhite.com/side-projects-empirejs](talks.kadamwhite.com/side-projects-empirejs)
+Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com/sideprojects-empirejs)
 
 ---
 
