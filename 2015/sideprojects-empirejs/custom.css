@@ -15,6 +15,17 @@
   box-shadow: none;
 }
 
+/* Custom light BG */
+body {
+  background: #fffce8;
+  background: -moz-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #fffce8));
+  background: -webkit-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+  background: -o-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+  background: -ms-radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+  background: radial-gradient(center, circle cover, white 0%, #fffce8 100%);
+}
+
 /*.dark {
   background: #666457;
   background: -moz-radial-gradient(center, circle cover, white 0%, #666457 100%);
@@ -36,4 +47,34 @@
 
 .slide-background {
   background-size: cover !important;
+}
+
+/* Element overrides */
+
+.lowercase {
+  text-transform: lowercase !important;
+}
+
+.basic-sans {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+}
+
+.basic-monospace {
+  font-family: monospace !important;
+  letter-spacing: -1em;
+}
+
+/* Fonts */
+
+.reveal {
+  font-family: Junction;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  /*font-family: "League Spartan";*/
+  font-family: Raleway;
+  font-weight: 600;
+  /*font-family: Fanwood;*/
+  text-shadow: none;
+  text-transform: initial;
 }
