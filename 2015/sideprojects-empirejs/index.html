@@ -15,6 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/talks/js/reveal/css/reveal.min.css">
   <link rel="stylesheet" href="/talks/js/reveal/css/theme/beige.css" id="theme">
   <link rel="stylesheet" href="custom.css" id="theme-overrides">
@@ -49,6 +50,17 @@
 
   </div>
 
+  <div id="footer">
+    <div class="bg"></div>
+    <p>
+      <a href="https://twitter.com/kadamwhite">@kadamwhite</a>
+      | #EmpireJS
+      <span class="non-mobile">
+        | <a href="http://talks.kadamwhite.com/sideprojects-empirejs">talks.kadamwhite.com/sideprojects-empirejs</a>
+      </span>
+    </p>
+  </div>
+
   <script src="/talks/js/reveal/lib/js/head.min.js"></script>
   <script src="/talks/js/reveal/js/reveal.min.js"></script>
   <script src="/talks/js/jquery-1.10.1.min.js"></script>
@@ -59,10 +71,10 @@
     // Full list of configuration options available here:
     // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
-      controls: true,
+      controls: false,
       progress: true,
       history: true,
-      center: true,
+      center: false,
 
       hideAddressBar: true,
       mouseWheel: false,
