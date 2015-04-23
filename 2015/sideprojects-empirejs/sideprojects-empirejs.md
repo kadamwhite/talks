@@ -70,12 +70,33 @@ Slides: [talks.kadamwhite.com/side-projects-empirejs](talks.kadamwhite.com/side-
 
 <small>*~ Matt Mullenweg, [The Blogging Software Dilemma](http://ma.tt/2003/01/the-blogging-software-dilemma/), 2003 (emphasis added)*</small>
 
-??? You can plan for that, but you can't make it happen -- and it's rarely where the idea starts. Most things start small.
+??? You can plan for that, but it's rarely where the idea starts. Most things start small.
+---
+
+# Side Projects are *fun!*
+
+??? So why do we *really* work on SPs? There's a reason we call them "passion projects": we take time to work on side projects because we enjoy them. I've heard it called "scratching an itch," I've heard it described as "blowing off steam": we take on work we find interesting, that differs in some way from what we do normally.
+
+---
+<!-- .slide: data-background="url('images/projects/melchoyce-redradar.png')" -->
+
+<span>Mel Choyce, [rdrdr WordPress Themes](http://https://themes.redradar.net)</span> <!-- .element: class="caption" -->
+
+??? Mel Choyce, a UX designer at Automattic, makes WP themes with Kelly Dwan in her spare time and releases them as RedRadar.
+
+---
+<!-- .slide: data-background="url('images/projects/melchoyce-umbra-preview-post.png')" -->
+
+> I get to work on what I want to work on, with no external restrictions or limitations. It's a time to let my creativity run wild and do what I want to do.
+<small>*~ [Mel Choyce](https://twitter.com/melchoyce)*</small>
+
+??? and sees it as an opportunity to exercise creativity without constraint. This is something I heard a lot when soliciting opinions for this talk.
+
 ---
 
 ## `+= 'new skills'`
 
-??? So why do we *really* work on SPs? The most common reason is naturally to learn new skills. I head this described as "me +=" in one blog...
+??? I think enjoyment is the most important reason, but a lot of us naturally start SPs to learn new skills. I head this described as "me += skill" in one blog...
 
 ---
 <!-- .slide: data-background="url('images/projects/jennschiffer-make8bitart.png')" -->
@@ -227,7 +248,7 @@ and decide which ones to keep for next time
 
 ---
 
-# Bring Your Project to Work Day
+# Bring Your Projects to Work Day
 
 ??? For reasons we'll get to later, I think making time for side projects is a critical part of our professional growth&mdash;and part of that growth can happen *within* our jobs, not alongside it
 
