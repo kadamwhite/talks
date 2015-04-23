@@ -81,6 +81,10 @@ body {
   font-family: Junction;
 }
 
+.reveal h1 {
+  line-height: 1.2 !important;
+}
+
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   /*font-family: "League Spartan";*/
   font-family: Raleway;

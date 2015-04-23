@@ -227,5 +227,48 @@ and decide which ones to keep for next time
 
 ---
 
+# Bring Your Project to Work Day
+
+??? For reasons we'll get to later, I think making time for side projects is a critical part of our professional growth&mdash;and part of that growth can happen *within* our jobs, not alongside it
+
+---
+
+## &ldquo;X%&rdquo; Time
+## Hackathons <!-- .element: class="fragment" -->
+## Project Nights <!-- .element: class="fragment" -->
+## Game James <!-- .element: class="fragment" -->
+
+??? There's actually a host of ways that this idea's already been embraced by companies around the world
+
+---
+
+## &ldquo;20% Time&rdquo;
+
+> Google didn’t invent the idea of giving employees time to experiment with their own ideas, nor will it have the final word on how best to bestow such time.
+
+<small>*~ Wired.com, ["20% Time Will Never Die", 8/21/13](http://www.wired.com/2013/08/20-percent-time-will-never-die/)*</small>
+
+??? Google became famous for allowing engineers a percentage of their time to explore passion projects and new ideas, leading to products like Gmail.
+
+---
+
+## &ldquo;Bootlegging&rdquo;
+
+> This unwritten rule of 15 percent dream time is so ingrained at **3M** that "you can feel it right down to your toes"
+
+<small>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
+
+??? This is not a new idea, and it's not a Silicon Valley idea: it goes back decades, and was dubbed "bootlegging" by in the late 60's (see Knight, K., 1967, *A Descriptive Model of the Intra-Firm Innovation Process*)
+
+---
+
+> **The 15 percent rule works** &hellip; the best-known success story is scientist Art Fry's **creation of Post-its** while trying to create bookmarks that would stay put in the church choir's hymnals.
+
+<small>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
+
+??? the post-its we use for Scrum boards actually came out of 3M's unofficial "permitted bootlegging" policy, which evolved eventually to "15 percent time" (see http://en.wikipedia.org/wiki/Post-it_note)
+
+---
+
 # *Thank You!*
 
