@@ -455,50 +455,11 @@ We're a consulting company, so if we're on a project we may use that time to bui
 
 ---
 
-# Milestones
-
-??? This concept of milestones, or MVPs, is a recurring theme I hear when I discuss SPs within our community.
-
----
-<!-- .slide: data-background="url('images/projects/ericandrewlewis-cool-text-converter.png')" -->
-
-<br>
-
-> I purposefully made **minimum viable products** along the way, so I would get quick wins and not get burnt out.
->
-> <small>*~ [Eric Andrew Lewis](https://twitter.com/ericandrewlewis) (emphasis added)*</small>
-
-??? Eric Lewis, a developer at the Times here in NY, built a "cool text converter" to do unicode glyph substitution on text strings, treating each new dialect he added as a new "release."
-
----
-<!-- .slide: data-background="url('images/projects/marikokosaka-knittingmachine.jpg')" -->
-
-<br>
-
-> Submitting to conferences and meetups shaped &ldquo;just some doodling code&rdquo; to &ldquo;a project&rdquo;.
-> 
-> <small>*~ [Mariko Kosaka](https://twitter.com/kosamari)*</small>
-
-??? Mariko Kosaka, who spoke earlier today, shared how the deadlines we impose on ourselves by presenting our work gives us impetus to "finish".
-
----
-<!-- .slide: data-background="url('images/projects/ajpiano-whosaiditbest.png')" -->
-
-<br>
-
-> I carved out just enough time to make a working prototype before my talk.
-> 
-> <small>*~ [Adam Sontag](https://twitter.com/ajpiano)*</small>
-
-??? Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk.
-
----
-
 # Regularity
 ## and
 # Repetition
 
-??? Deadlines are only half the story, though: in my mind, regularity and repetition are the most important hallmarks of a successful side project.
+??? Let's look at repetition, and regularity.
 
 ---
 
@@ -530,18 +491,85 @@ We're a consulting company, so if we're on a project we may use that time to bui
 
 ---
 
-# Make the Time
-## *and make it regular*
+# Deadlines
 
-??? It's a truism that you can never have time if you don't *make* time. As individuals and companies, we owe it to ourselves to learn, to grow, and to have fun.
+??? Personal projects can drag on, since we're the only ones who can tell ourselves that it's "done." Imposing deadlines on yourself helps: when will you have this presentable, when will you release it, or when will you move on?
+
+---
+<!-- .slide: data-background="url('images/projects/marikokosaka-knittingmachine.jpg')" -->
+
+<br>
+
+> Submitting to conferences and meetups shaped &ldquo;just some doodling code&rdquo; to &ldquo;a project&rdquo;.
+> 
+> <small>*~ [Mariko Kosaka](https://twitter.com/kosamari)*</small>
+
+??? Mariko Kosaka, who spoke earlier today, shared that the deadlines she takes on by presenting her work publicly help her form up her work into something that can be "finished". Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk, "carving out just enough time" to get it presentable.
+
+---
+
+## Managing Project Scope
+
+```js
+function() {
+  var projectScope;
+
+  function () {
+    function() {
+      function() {
+        function() { 'what am I even working on?'; }
+      }
+    }
+  }
+}
+```
+
+??? What does it mean to "ship"? We may not release anything -- I think of it as coming to a logical stopping point. Small increments are just as important on side projects as they are in other contexts: without a well-scoped goal, a project gets frustrating
+---
+<!-- .slide: data-background="url('images/projects/ericandrewlewis-cool-text-converter.png')" -->
+
+<br>
+
+> I purposefully made **minimum viable products** along the way, so I would get quick wins and not get burnt out.
+>
+> <small>*~ [Eric Andrew Lewis](https://twitter.com/ericandrewlewis) (emphasis added)*</small>
+
+??? Eric Lewis, a developer at the Times here in NY, built a "cool text converter" to do unicode glyph substitution on text strings, treating each new dialect he added as a new "release."
+
+---
+
+## Managing Project Scope
+```js
+function() {
+  var projectScope;
+
+  function () {
+    projectScope.feature1 = done;
+  }
+  function () {
+    projectScope.feature2 = done;
+  }
+  function (cb) {
+    setTimeout(function() {
+      projectScope.feature3 = cb();
+    }, whenever_you_get_around_to_it );
+  }
+}
+```
+
+??? Especially if you're working with open source time or only working on code periodically, set well-scoped, achievable goals and the progress will be more reliable and satisfying.
+
+---
+
+## Work *Regularly*
+## Work *Incrementally*
+## Work *Towards a Deadline*
 
 ---
 
 > These passion projects are essential outlets &hellip; and are **absolutely necessary** for staying happy, feeling trusted, and remaining free to experiment &hellip;
 > 
-> Without them, you will certainly be unhappy in the long-term.
-
-<small>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
+> <small>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
 
 ??? As we established with the show of hands, I don't need to convince you of this. But if you need the language to help convince colleagues or management, here's some options:
 
