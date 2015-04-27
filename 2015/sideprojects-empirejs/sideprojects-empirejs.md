@@ -1,12 +1,6 @@
 # Side Projects
 ## Front &amp; Center
 
-<br>
-
-K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
-
-Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com/sideprojects-empirejs)
-
 ---
 
 ## What is a Side Project?
@@ -26,7 +20,8 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 ??? I asked around on twitter for what sorts of projects we're working on within this community, and I got everything from a JS HTML parser..
 
 ---
-<!-- .slide: data-background="url('images/projects/jjj-shower.jpg')" -->
+<!-- .slide: data-background="url('images/projects/jessicamerz-yep-shower-works.jpg')" -->
+<!-- Photo: Jessica Merz, https://www.flickr.com/photos/jessicafm/198074980 (used under CC license) -->
 <span>[John James Jacoby](http://jaco.by/), Bathroom Shower (WIP)</span> <!-- .element: class="caption" -->
 
 ??? to a home shower remodeling project. For this conversation that we're not limited to the web, or to code.
@@ -39,11 +34,11 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 
 ---
 
-## Why
+# Why
 
-## When
+# When
 
-## How
+# How
 
 ??? We're going to focus today on the benefits that side projects bring us, as individuals and organizations; how we can integrate regular creative exploration into our work; and how we can take some basic steps to give ourselves the best chance of success in our projects.
 
@@ -54,9 +49,14 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 ??? Why is it that we all have these projects kicking around? What are we trying to do when we start a side project?
 
 ---
-## Fame & Fortune
+## Fame &amp; Fortune!
 
 ??? I think I speak for most of us when I say that I'm in it mainly for the fame. After all, some of the most prevalent pieces of software in the world began as side projects!
+
+---
+<!-- .slide: data-background="url('images/wp-runs-23-pct-of-web.png')" -->
+
+??? Start a project like WP, capture over 60% of the overall CMS market share (per [w3techs.com](http://w3techs.com/)), and 23% of the whole web&mdash;right?!
 
 ---
 
@@ -64,23 +64,18 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 > 
 > b2/cafelog is GPL, which means that I could use the existing codebase to create a fork &hellip;
 
-<small>*~ Matt Mullenweg, [The Blogging Software Dilemma](http://ma.tt/2003/01/the-blogging-software-dilemma/), 2003*</small>
+<small><br>*~ Matt Mullenweg, [The Blogging Software Dilemma](http://ma.tt/2003/01/the-blogging-software-dilemma/), 2003*</small>
 
-??? but of course WP, for example, started out very simply: the maintainer of Matt Mullenweg's existing tool got busy, and he wanted to keep using it.
-
----
-<!-- .slide: data-background="url('images/wp-runs-23-pct-of-web.png')" -->
-
-??? That WP now has over 60% of the overall CMS market share (per [w3techs.com](http://w3techs.com/)) is a testament to open source licensing and a dedicated community.
+??? but of course WP started out very simply: the maintainer of Matt Mullenweg's existing tool got busy, and he wanted to keep using it.
 
 ---
 
 > it would be nice to have the flexibility of MovableType, the parsing of TextPattern, the hackability of b2, and the ease of setup of Blogger.
 > ## Someday, right?
 
-<small>*~ Matt Mullenweg, [The Blogging Software Dilemma](http://ma.tt/2003/01/the-blogging-software-dilemma/), 2003 (emphasis added)*</small>
+<small><br>*~ Matt Mullenweg, [The Blogging Software Dilemma](http://ma.tt/2003/01/the-blogging-software-dilemma/), 2003 (emphasis added)*</small>
 
-??? You can plan for that, but it's rarely where the idea starts. Most things start small.
+??? You can plan for success, but it's rarely where the idea starts. At the time, what WP has become seemed like a pipe dream -- Most things start small.
 ---
 
 # Side Projects are *fun!*
@@ -88,19 +83,16 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 ??? So why do we *really* work on SPs? There's a reason we call them "passion projects": we take time to work on side projects because we enjoy them. I've heard it called "scratching an itch," I've heard it described as "blowing off steam": we take on work we find interesting, that differs in some way from what we do normally.
 
 ---
-<!-- .slide: data-background="url('images/projects/melchoyce-redradar.png')" -->
+<!-- .slide: data-background="url('images/projects/melchoyce-umbra-preview-post.png')" -->
 
 <span>Mel Choyce, [rdrdr WordPress Themes](https://themes.redradar.net)</span> <!-- .element: class="caption" -->
 
-??? Mel Choyce, a UX designer at Automattic, makes WP themes with Kelly Dwan in her spare time and releases them as RedRadar.
-
----
-<!-- .slide: data-background="url('images/projects/melchoyce-umbra-preview-post.png')" -->
+<br><br>
 
 > I get to work on what I want to work on, with no external restrictions or limitations. It's a time to let my creativity run wild and do what I want to do.
-<small>*~ [Mel Choyce](https://twitter.com/melchoyce)*</small>
+<small><br>*~ [Mel Choyce](https://twitter.com/melchoyce)*</small>
 
-??? and sees it as an opportunity to exercise creativity without constraint. This is something I heard a lot when soliciting opinions for this talk.
+???  Mel Choyce, a UX designer at Automattic, makes WP themes in her spare time and releases them as RedRadar—she sees it as an opportunity to exercise creativity without constraint. This is something I heard a lot when soliciting opinions for this talk.
 
 ---
 
@@ -113,12 +105,23 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 
 <span>Jenn Schiffer, [make8bitart.com](http://make8bitart.com)</span> <!-- .element: class="caption" -->
 
+<br><br>
+
+> Side projects are a good motivator to learn something new outside of your everyday job. [They] can help you delve into other realms of development.
+<small><br>*~ [Jenn Schiffer](https://twitter.com/jennschiffer)*</small>
+
 ??? My colleague (and speaker at last year's EmpireJS) Jenn Schiffer, for example, made the awesome make8bitart.com in order to learn JS and Canvas
 
 ---
+<!-- .slide: class="overlay" data-background="url('images/projects/jonchretien-shakeshack.png')" -->
 
-> Side projects are a good motivator to learn something new outside of your everyday job. [They] can help you delve into other realms of development.
-<small>*~ [Jenn Schiffer](https://twitter.com/jennschiffer)*</small>
+## Interest + Learning Objective = Project
+
+> I try and approach side projects by combining a new skill set I want to learn (maybe a new programming language) with one of my hobbies
+
+<small><br>*~ [Jon Cretien](https://github.com/jonchretien), describing [Custard Cluster](http://projects.jonchretien.com/custard/) and other projects*</small>
+
+??? John Cretien from Spotify
 
 ---
 
@@ -131,33 +134,48 @@ Slides: [talks.kadamwhite.com/sideprojects-empirejs](http://talks.kadamwhite.com
 
 <span>K Adam White, [mbtawesome.com](http://mbtawesome.com)</span> <!-- .element: class="caption" -->
 
-??? My Boston subway tracking application MBTAwesome let me learn some new tools, but it also gave me a chance to reevaluate the ones I'd used before
+<br>
+<br>
 
----
+<div class="highlight">
 
-Start with one set of tools,
+<p>Use a combination of new and old tools,</p>
 
 <br>
 
-### Express
-### Backbone
-### *Nunjucks*
-### *Browserify*
+<h3>Express</h3>
+<h3>Backbone</h3>
+<h3>*Nunjucks*</h3>
+<h3>*Browserify*</h3>
 
-??? A benefit to projects that use a combination of old and new skills is that you can continue incrementally switching out technology as you explore different solutions to a problem
+</div>
+
+??? My Boston subway tracking application MBTAwesome let me learn some new tools, but it also gave me a chance to reevaluate the ones I'd used before:
+
+Use a combination of new and old tools, so you can incrementally upgrade your toolset,
 
 ---
+<!-- .slide: data-background="url('images/projects/kaw-mbtawesome.png')" -->
 
-and decide which to keep for next time
+<span>K Adam White, [mbtawesome.com](http://mbtawesome.com)</span> <!-- .element: class="caption" -->
+
+<br>
+<br>
+
+<div class="highlight">
+
+<p>and decide which to keep for next time</p>
 
 <br>
 
-### Express
-### *Ampersand*
-### *Combyne*
-### Browserify
+<h3>Express</h3>
+<h3>*Ampersand*</h3>
+<h3>*Combyne*</h3>
+<h3>Browserify</h3>
 
-??? For MBTAwesome, for example, I learned I enjoyed using Browserify to build my application, and that's lead me to consider Ampersand for my next project.
+</div>
+
+??? For MBTAwesome, for example, I learned I enjoyed using Browserify to build my application, and that's lead me to consider Ampersand for my next project. (Ampersand also has runtime type checking, which is appealing)
 
 ---
 
@@ -190,6 +208,30 @@ and decide which to keep for next time
 
 ---
 
+# Challenges
+
+??? These are the reasons&mdash;from the show of hands earlier I can see that little of this so far is new. So let's look at the other side: What keeps a side project from succeeding? What are the costs?
+
+---
+
+![Joke mockup of an extremely troll-y Github issue](images/joke-bad-github-issue.png)
+
+> I always try to tease out what the actual problem is, but it can be emotionally exhausting to do so when people don't communicate respectfully.
+
+<small><br>*~ [Tyler Kellen](https://github.com/tkellen)*</small>
+
+??? Empathy's also a challenge. It can also be hard to deal with the community, especially when somebody puts their worst foot foward.
+
+---
+
+> If someone contributes good code to your project, give them commit access immediately. I promise you'll be amazed by how well it goes.
+
+<small><br>*~ [Tyler Kellen](https://github.com/tkellen)*</small>
+
+??? The antidote to this, of course, is to trust in the benevolence of the community. Tyler Kellen, from who I borrowed the previous quote, is a huge advocate of giving people the commit bit early&mdash;it almost always pays off, and it can extend your projects' life once your own interest in it fades
+
+---
+
 ```
                   _____
                _.'_____`._
@@ -206,9 +248,9 @@ and decide which to keep for next time
               _))       ((_
              '--'SSt    '--'
 ```
-<small>*clock from [ascii.co.uk](http://ascii.co.uk/art/clock)*</small>
+<small><br>*clock from [ascii.co.uk](http://ascii.co.uk/art/clock)*</small>
 
-??? To say something's straightforward, though, doesn't mean it's easy: projects take time, sometimes a lot of it
+??? Let's also look at the *time* that these projects can take.
 
 ---
 
@@ -216,15 +258,15 @@ and decide which to keep for next time
 
 > Mostly weekends. Especially Sunday afternoon &ndash; night.
 
-<small>*~ Mariko Kosaka*</small>
+<small><br>*~ Mariko Kosaka*</small>
 
 > It started in a Saturday night at home.
 
-<small>*~ Leonardo Balter*</small>
+<small><br>*~ Leonardo Balter*</small>
 
 > Nights and weekends.
 
-<small>*~ Too many to mention by name*</small>
+<small><br>*~ Too many to mention by name*</small>
 
 ??? In the responses to my survey the most common phrase was "nights and weekends," and if you look around Github I suspect you'll see a lot of late-night or Sunday-afternoon commits.
 
@@ -232,11 +274,11 @@ and decide which to keep for next time
 
 > Mostly nights, mostly the time I had intended to use to build the application that [prompted my side project] in the first place. I still have not finished that application now...
 
-<small>*~ Calvin Spealman*</small>
+<small><br>*~ Calvin Spealman*</small>
 
 > It was pretty much the only thing I did for a long, long time.
 
-<small>*~ Ben Alman*</small>
+<small><br>*~ Ben Alman*</small>
 
 ??? But there's only so many nights and weekends to go around, especially if you have other things you want to use those nights and weekends to do
 
@@ -244,17 +286,157 @@ and decide which to keep for next time
 
 > If you do it like I did it, you pretty much lose your social life. I recommend a slightly more balanced approach&hellip;
 
-<small>*~ Ben Alman*</small>
+<small><br>*~ Ben Alman*</small>
 
 >  I rarely had the time for [make8bitart]. Even today I struggle to find the time to work on it.
 
-<small>*~ Jenn Schiffer*</small>
+<small><br>*~ Jenn Schiffer*</small>
 
 > It will never be &ldquo;done&rdquo;.
 
-<small>*~ Greg Smith*</small>
+<small><br>*~ Greg Smith*</small>
 
 ??? A quick survey of my colleagues reveals some major concerns about the time needed, and the costs of that time
+
+---
+
+# You \*are\* what you make time for
+
+<small><br>*~ [@femmebot, Sep 4 2014](https://twitter.com/femmebot/status/507613717232508928)*</small>
+
+??? These systems are important to us, because how we spend our time defines what type of company we are. Phoebe E (@femmebot) said it well in this tweet:
+
+---
+<!-- .slide: data-background="url('images/projects/femmebot-typography-1.jpg')" -->
+
+<span>[@femmebot](https://twitter.com/femmebot), [25x52](http://25x52.com/)</span> <!-- .element: class="caption" -->
+
+??? Her own side project effort, 25x52, is a meta-initiative to launch 25 projects in a year. (This one's a Google Fonts Typography showcase, launched last august.)
+
+---
+<!-- .slide: data-background="url('images/projects/femmebot-typography-2.jpg')" -->
+
+> I wanted to set a timeline that was **long enough to compel a behavior change** &hellip; I needed to establish a long-term **habit** of launching projects.
+
+<small><br>*~ [25x52 About Page](http://femmebot.github.io/about/) (emphasis added)*</small>
+
+??? 25x52: each project should take about two weeks. The About page for the project contains two main takeaways, for us: **repetition builds habits**, and **milestones are important.**
+
+---
+
+# Regularity
+## and
+# Repetition
+
+??? Let's look at repetition, and regularity.
+
+---
+<!-- .slide: class="overlay" data-background="url('images/emilygarfield-studio-table.jpg')" -->
+<!-- (Photo by Emily Garfield, http://www.emilygarfield.com/2015/new-york-mini-residency/) -->
+
+<br>
+
+## Go Into Your Studio
+# Every Day
+#### *even if it's just to wash your brushes.*
+
+<small><br>*~ Jay Stuckey, artist*</small>
+
+??? My art professor in college outlined a similar rule he uses for himself: go into the studio every day. Even if all you do is wash your brushes, it builds a habit, and a practice.
+
+---
+<!-- .slide: class="overlay" data-background="url('images/jeresig-gh-contributions.png')" -->
+
+## Write Code Every Day
+
+<br>
+
+> 1. I must write code every day.
+> 2. It must be useful code.
+> 3. All code must be written before midnight.
+> 4. The code must be Open Source and up on Github.
+
+<small><br>*~ John Resig, [Write Code Every Day, April 2014](http://ejohn.org/blog/write-code-every-day/)*</small>
+
+??? John Resig wrote an article on this topic that really stuck with me, entitled "write code every day". He outlined a few rules for himself to keep things on track, but the title speaks for itself&mdash;as does his github contribution graph
+
+---
+<!-- .slide: class="overlay" data-background="url('images/projects/marikokosaka-knittingmachine.jpg')" -->
+
+# Deadlines
+
+> Submitting to conferences and meetups shaped &ldquo;just some doodling code&rdquo; to &ldquo;a project&rdquo;.
+
+<small><br>*~ [Mariko Kosaka](https://twitter.com/kosamari)*</small>
+
+<br>
+
+??? Personal projects can drag on, since we're the only ones who can tell ourselves that it's "done." Imposing deadlines on yourself helps: when will you have this presentable, when will you release it, or when will you move on?
+
+Mariko Kosaka, who spoke earlier today, shared that the deadlines she takes on by presenting her work publicly help her form up her work into something that can be "finished". Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk, "carving out just enough time" to get it presentable.
+
+---
+
+## Managing Project Scope
+
+```js
+function() {
+  var projectScope;
+
+  function () {
+    function() {
+      function() {
+        function() { 'what am I even working on?'; }
+      }
+    }
+  }
+}
+```
+
+??? What does it mean to "ship"? We may not release anything -- I think of it as coming to a logical stopping point. Small increments are just as important on side projects as they are in other contexts: without a well-scoped goal, a project gets frustrating
+---
+<!-- .slide: data-background="url('images/projects/ericandrewlewis-cool-text-converter.png')" -->
+
+<br>
+
+> I purposefully made **minimum viable products** along the way, so I would get quick wins and not get burnt out.
+
+<small><br>*~ [Eric Andrew Lewis](https://twitter.com/ericandrewlewis) (emphasis added)*</small>
+
+??? Eric Lewis, a developer at the Times here in NY, built a "cool text converter" to do unicode glyph substitution on text strings, treating each new dialect he added as a new "release."
+
+---
+
+## Managing Project Scope
+```js
+function() {
+  var projectScope;
+
+  function () {
+    projectScope.feature1 = done;
+  }
+  function () {
+    projectScope.feature2 = done;
+  }
+  function (cb) {
+    setTimeout(function() {
+      projectScope.feature3 = cb();
+    }, whenever_you_get_around_to_it );
+  }
+}
+```
+
+??? Especially if you're working with open source time or only working on code periodically, set well-scoped, achievable goals and the progress will be more reliable and satisfying.
+
+---
+
+<br>
+
+## Work *Regularly*
+## Work *Incrementally*
+## Work *Towards a Deadline*
+
+<br>
 
 ---
 
@@ -265,9 +447,9 @@ and decide which to keep for next time
 ---
 
 ## &ldquo;X%&rdquo; Time
-## Hackathons <!-- .element: class="fragment" -->
-## Project Nights <!-- .element: class="fragment" -->
-## Game James <!-- .element: class="fragment" -->
+## Hackathons
+## Project Nights
+## Game James
 
 ??? There's actually a host of ways that this idea's already been embraced by companies around the world
 
@@ -277,7 +459,7 @@ and decide which to keep for next time
 
 > Google didn’t invent the idea of giving employees time to experiment with their own ideas, nor will it have the final word on how best to bestow such time.
 
-<small>*~ Wired.com, ["20% Time Will Never Die", 8/21/13](http://www.wired.com/2013/08/20-percent-time-will-never-die/)*</small>
+<small><br>*~ Wired.com, ["20% Time Will Never Die", 8/21/13](http://www.wired.com/2013/08/20-percent-time-will-never-die/)*</small>
 
 ??? Google became famous for allowing engineers a percentage of their time to explore passion projects and new ideas, leading to products like Gmail. This is not a new idea,
 
@@ -287,7 +469,7 @@ and decide which to keep for next time
 
 > Research in which motivated individuals secretly organize the innovation process
 
-<small>*~ Wikipedia, ["Bootlegging (Business)"](http://en.wikipedia.org/wiki/Bootlegging_%28business%29)*</small>
+<small><br>*~ Wikipedia, ["Bootlegging (Business)"](http://en.wikipedia.org/wiki/Bootlegging_%28business%29)*</small>
 
 ??? and it's not a Silicon Valley idea: it goes back decades, and was dubbed "bootlegging" in the late 60's (see Knight, K., 1967, *A Descriptive Model of the Intra-Firm Innovation Process*)
 
@@ -296,16 +478,10 @@ and decide which to keep for next time
 
 > **The 15 percent rule works** &hellip; the best-known success story is scientist Art Fry's **creation of Post-its** while trying to create bookmarks that would stay put in the church choir's hymnals.
 
-<small>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
-<small><small>*[Photo by Henrik Palm](https://www.flickr.com/photos/henrikpalm/5565633783), used under a [CC Attribution 2.0 Generic](https://creativecommons.org/licenses/by/2.0/) license*</small></small>
+<small><br>*~ Wired Magazine, ["The 15% Solution", 1/23/1998](http://archive.wired.com/techbiz/media/news/1998/01/9858) (emphasis added)*</small>
+<small><small><br>*[Photo by Henrik Palm](https://www.flickr.com/photos/henrikpalm/5565633783), used under a [CC Attribution 2.0 Generic](https://creativecommons.org/licenses/by/2.0/) license*</small></small>
 
 ??? the post-its we use for our Scrum boards actually came out of 3M's unofficial "permitted bootlegging" policy, which evolved eventually to "15 percent time" (see http://en.wikipedia.org/wiki/Post-it_note)
-
----
-
-## Hackathons
-
-??? Hackathons take that idea, time-box it, and make it a group activity. What you lose in autonomy, the thinking goes, you gain in collaboration.
 
 ---
 
@@ -314,10 +490,10 @@ and decide which to keep for next time
 <br>
 
 ### *Community*
-### *Teamwork* <!-- .element class="fragment" -->
-### *Competition* <!-- .element class="fragment" -->
+### *Teamwork*
+### *Competition*
 
-??? These become as much (or more) about teambuilding and community as they do about passion projects -- but they can be an easier sell than bootlegging, or a nice complement to independent exploration
+??? Hackathons take that idea, time-box it, and make it a group activity. What you lose in autonomy, the thinking goes, you gain in collaboration, teambuilding... they can be an easier sell than bootlegging, or a complement to independent exploration.
 
 ---
 
@@ -353,9 +529,11 @@ We're a consulting company, so if we're on a project we may use that time to bui
 
 > I’ve always taken this kind of time in all the jobs I could&mdash;even when it wasn’t officially offered. When you do officially offer it, then I don’t have to feel guilty!
 
-<small>*~ Jim Vallandingham*</small>
+<small><br>*~ Jim Vallandingham*</small>
 
-??? Supporting the web as an open platform is part of our mission, of course, but this time also codifies what we know would be happening anyway, to avoid making us feel guilty or conflicted in our explorations
+??? Our "open source time" presupposes that we will be experimenting and building exploratory projects, but it also makes time for us to do the due diligence needed to work with clients to open-source relevant pieces of our collaborations.
+
+Supporting the web as an open platform is part of our mission, of course, but this time also codifies what we know would be happening anyway, to avoid making us feel guilty or conflicted in our explorations
 
 ---
 
@@ -368,6 +546,10 @@ We're a consulting company, so if we're on a project we may use that time to bui
 # Bocoupfest
 
 ??? Bocoupfest, on the other hand, is our company week: anything goes. We've built nodebots, we've learned to make spray-paint stencils; my coworker Carl lead a group to make a game for the Pebble watch last month. This is when we can "blow off steam".
+
+---
+
+??? I share these because these practices benefit us, and keep our team engaged, interested and in the lead. And what we do, I think, can be generalized: it's not specific to us.
 
 ---
 
@@ -422,156 +604,40 @@ We're a consulting company, so if we're on a project we may use that time to bui
 *and* [expresspress](https://github.com/kadamwhite/expresspress) (demo project)
 </div>
 ??? and since the work was already extracted from the main repository, it made it easy to release the fruit of our labor as an open source package, too: we can ride this feedback cycle from project to project, getting better all the time.
----
-
-# You \*are\* what you make time for
-
-<small>*~ [@femmebot, Sep 4 2014](https://twitter.com/femmebot/status/507613717232508928)*</small>
-
-??? These systems are important to us, because how we spend our time defines what type of company we are. Phoebe E (@femmebot) said it well in this tweet:
-
----
-<!-- .slide: data-background="url('images/projects/femmebot-25x52.png')" -->
-
-<span>[@femmebot](https://twitter.com/femmebot), [25x52](http://25x52.com/)</span> <!-- .element: class="caption" -->
-
-??? We can also learn a lot from her own side project effort, 25x52, an initiative to launch 25 projects in a year.
-
----
-<!-- .slide: data-background="url('images/projects/femmebot-typography-1.jpg')" -->
-
-<span>[@femmebot](https://twitter.com/femmebot), [Google Fonts Typography](http://femmebot.github.io/google-type/)</span> <!-- .element: class="caption" -->
-
-??? She describes 25x52 as a personal initiative, starting in August of last year, and the length of the project was a deliberate choice:
-
----
-<!-- .slide: data-background="url('images/projects/femmebot-typography-2.jpg')" -->
-
-> I wanted to set a timeline that was **long enough to compel a behavior change** &hellip; I needed to establish a long-term **habit** of launching projects.
-> 
-> <small>*~ [25x52 About Page](http://femmebot.github.io/about/) (emphasis added)*</small>
-
-??? The About page for the project contains two main takeaways, for us: **repetition builds habits**, and **milestones are important.** To quote her site again, "Shipping Products is Better than Getting Tasks Done".
-
----
-
-# Regularity
-## and
-# Repetition
-
-??? Let's look at repetition, and regularity.
-
----
-
-## Write Code Every Day
-
-<br>
-
-> 1. I must write code every day.
-> 2. It must be useful code.
-> 3. All code must be written before midnight.
-> 4. The code must be Open Source and up on Github.
-
-<small>*~ John Resig, [Write Code Every Day, April 2014](http://ejohn.org/blog/write-code-every-day/)*</small>
-
-??? John Resig wrote an article on this topic that really stuck with me, entitled "write code every day". He outlined a few rules for himself to keep things on track, but the title speaks for itself
-
----
-<br>
-
-<br>
-
-## Go Into Your Studio
-# Every Day
-#### *even if it's just to wash your brushes.*
-
-<small>*~ Jay Stuckey, artist*</small>
-
-??? My art professor in college outlined a similar rule he uses for himself: go into the studio every day. Even if all you do is wash your brushes, it builds a habit, and a practice.
-
----
-
-# Deadlines
-
-??? Personal projects can drag on, since we're the only ones who can tell ourselves that it's "done." Imposing deadlines on yourself helps: when will you have this presentable, when will you release it, or when will you move on?
-
----
-<!-- .slide: data-background="url('images/projects/marikokosaka-knittingmachine.jpg')" -->
-
-<br>
-
-> Submitting to conferences and meetups shaped &ldquo;just some doodling code&rdquo; to &ldquo;a project&rdquo;.
-> 
-> <small>*~ [Mariko Kosaka](https://twitter.com/kosamari)*</small>
-
-??? Mariko Kosaka, who spoke earlier today, shared that the deadlines she takes on by presenting her work publicly help her form up her work into something that can be "finished". Our MC Adam Sontag had the same experience when he build a Web Audio Speech demo for a QueensJS talk, "carving out just enough time" to get it presentable.
-
----
-
-## Managing Project Scope
-
-```js
-function() {
-  var projectScope;
-
-  function () {
-    function() {
-      function() {
-        function() { 'what am I even working on?'; }
-      }
-    }
-  }
-}
-```
-
-??? What does it mean to "ship"? We may not release anything -- I think of it as coming to a logical stopping point. Small increments are just as important on side projects as they are in other contexts: without a well-scoped goal, a project gets frustrating
----
-<!-- .slide: data-background="url('images/projects/ericandrewlewis-cool-text-converter.png')" -->
-
-<br>
-
-> I purposefully made **minimum viable products** along the way, so I would get quick wins and not get burnt out.
->
-> <small>*~ [Eric Andrew Lewis](https://twitter.com/ericandrewlewis) (emphasis added)*</small>
-
-??? Eric Lewis, a developer at the Times here in NY, built a "cool text converter" to do unicode glyph substitution on text strings, treating each new dialect he added as a new "release."
-
----
-
-## Managing Project Scope
-```js
-function() {
-  var projectScope;
-
-  function () {
-    projectScope.feature1 = done;
-  }
-  function () {
-    projectScope.feature2 = done;
-  }
-  function (cb) {
-    setTimeout(function() {
-      projectScope.feature3 = cb();
-    }, whenever_you_get_around_to_it );
-  }
-}
-```
-
-??? Especially if you're working with open source time or only working on code periodically, set well-scoped, achievable goals and the progress will be more reliable and satisfying.
-
----
-
-## Work *Regularly*
-## Work *Incrementally*
-## Work *Towards a Deadline*
 
 ---
 
 > These passion projects are essential outlets &hellip; and are **absolutely necessary** for staying happy, feeling trusted, and remaining free to experiment &hellip;
-> 
-> <small>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
 
-??? As we established with the show of hands, I don't need to convince you of this. But if you need the language to help convince colleagues or management, here's some options:
+<small><br>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
+
+??? As we established with the show of hands, I don't need to convince you that passion projects are important. But if you need the language to help convince colleagues or management, here's some options:
+
+---
+
+![Slack Logo](images/glitch-logo.png)
+
+??? The tools we build to support our "main" work can be more valuable in the long run than the projects they were built to support. How many of you recognize this logo?
+
+---
+
+![Slack Logo](images/slack-logo.png)
+
+??? How about this one?
+
+---
+
+![Glitch to Slack](images/glitch-to-slack.png)
+
+??? Slack was an internal tool made by the company Tiny Speck while they were working on their MMO game "Glitch." When they abandoned Glitch, they pivoted; and have subsequently raised approximately *all* the money.
+
+---
+
+![Tim Holman's Tumblr "T" mouse-over easter egg](tumblr-t-hover.gif)
+
+<small><br>*~ [Tim Holman](https://twitter.com/twholman)*</small>
+
+??? Tim Holman built this hover-over easter egg at Tumblr, which maybe didn't win them millions in funding, but it does improve the experience on the site. (Also, he says to watch this space: that "t" has great things ahead of it.)
 
 ---
 
@@ -585,19 +651,7 @@ function() {
 ## Another kind of
 # &ldquo;Professional Development&rdquo;
 
-??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable
-
----
-
-<br>
-
-## Take the time. Always.
-## Even if no one ever sees
-## your work.
-
-<small>*~ [Andrew Norcross](https://twitter.com/norcross)*</small>
-
-??? But we know how to make the time, and I think we should.
+??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable.
 
 ---
 <!-- .slide: data-background="url('images/emilygarfield-sketchbook-pages.jpg')" -->
@@ -613,9 +667,13 @@ function() {
 </div>
 <br>
 
-<small>*Sketchbook pages by [Emily Garfield](http://www.emilygarfield.com)*</small>
+<small><br>*Sketchbook pages by [Emily Garfield](http://www.emilygarfield.com)*</small>
 
-??? To extend the art studio metaphore, it's almost self-evident that an artist, for example, keeps a sketchbook. It's part of their art practice. We work in a creative field, and it's bizarre to me that we don't make more time within our jobs to sketch, to practice, and to grow.
+??? To extend the art studio metaphore, it's almost self-evident that an artist, for example, keeps a sketchbook. It's part of their art practice. It's part of their *job*.
+
+We work in a creative field, and it's bizarre to me that we don't make more time within our jobs to sketch, to practice, and to grow.
+
+We can do so without compromising our "day jobs" -- and the work we do will make our companies, and our community, stronger.
 
 ---
 
