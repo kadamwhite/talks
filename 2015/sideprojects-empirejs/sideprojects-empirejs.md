@@ -99,15 +99,6 @@ We're going to focus instead on the benefits that side projects bring us, as ind
 ??? So why do we *really* work on SPs? There's a reason we call them "passion projects": we take time to work on side projects because we enjoy them. I've heard it called "scratching an itch," I've heard it described as "blowing off steam": we take on work we find interesting, that differs in some way from what we do normally.
 
 ---
-<!-- .slide: class="overlay" data-background="url('images/projects/melchoyce-umbra-preview-post.png')" -->
-
-> I get to work on what I want to work on, with no external restrictions or limitations. It's a time to let my creativity run wild and do what I want to do.
-
-<small><br>*~ [Mel Choyce](https://twitter.com/melchoyce), describing [rdrdr WordPress Themes](https://themes.redradar.net)*</small>
-
-???  Mel Choyce, a UX designer at Automattic, makes WP themes in her spare time and releases them as RedRadar—she sees it as an opportunity to exercise creativity without constraint. This is something I heard a lot when soliciting opinions for this talk.
-
----
 
 ![Venn Diagram showing "work problems" and "fun problems" largely overlapping, with "fun" being a much larger circle than "work"](images/work-problems-v-fun-problems.png)
 
@@ -134,7 +125,7 @@ And it doesn't mean we wouldn't learn work-useful skills in doing so.
 
 <small><br>*~ [Jenn Schiffer](https://twitter.com/jennschiffer), describing [make8bitart.com](http://make8bitart.com)</span>*</small>
 
-??? My colleague (and speaker at last year's EmpireJS) Jenn Schiffer, for example, made the awesome make8bitart.com in order to learn JS and Canvas
+??? My colleague (and speaker at last year's EmpireJS) Jenn Schiffer, for example, made the awesome make8bitart.com to learn JS and Canvas
 
 ---
 <!-- .slide: class="overlay" data-background="url('images/projects/jonchretien-shakeshack.png')" -->
@@ -439,13 +430,13 @@ function() {
 function() {
   var projectScope;
 
-  function () {
+  function task1() {
     projectScope.feature1 = done;
   }
-  function () {
+  function task2() {
     projectScope.feature2 = done;
   }
-  function (cb) {
+  function task3(cb) {
     setTimeout(function() {
       projectScope.feature3 = cb();
     }, whenever_you_get_around_to_it );
@@ -469,7 +460,7 @@ function() {
 
 # Bring Your Projects to Work Day
 
-??? For reasons we'll get to later, I think making time for side projects is a critical part of our professional growth&mdash;and part of that growth can happen *within* our jobs, not alongside it
+??? I think making time for side projects is a critical part of our professional growth&mdash;and part of that growth can happen *within* our jobs, not alongside it
 
 ---
 
@@ -729,3 +720,12 @@ We can do so without compromising our "day jobs" -- and the work we do will make
 
 # *Thank You!*
 
+---
+
+# *Thank You!*
+
+<small>*Thank you to everybody who shared their projects for this talk*</small>
+
+<small>
+Adam J. Sontag - [Who Said It Best](http://whosaiditbest.website/) (Web Audio demo) &bull; Alec Perkins - [Active Markdown](http://activemarkdown.org/) (Markdown-based syntax for authoring reactive documents) &bull; Andrew Norcross - [WordPress Plugins](https://profiles.wordpress.org/norcross/#content-plugins) &bull; Aria Stewart - [html5 parser](http://github.com/aredridel/html5) &bull; Ben Alman - [Grunt](http://gruntjs.com/) &bull; Calvin Spealman - [PlasmidDB](http://www.ironfroggy.com/) (offline browser-side database with a synchonizing service) &bull; Eric Andrew Lewis - [Cool Text Converter](http://ericandrewlewis.github.io/cool-text-converter) & [Unicode Hacker Bench](http://ericandrewlewis.github.io/unicode-hacker-bench/) (Text decorator) &bull; [@femmebot](https://twitter.com/femmebot) - [25x52](http://25x52.com) (Meta-project), [Google Fonts Typography Project](http://femmebot.github.io/google-type/) & others &bull; Gary Pendergast - [PonyEdit](http://ponyedit.com/) &bull; Greg Smith - ["91"](http://startcontinue.com) (Role-Playing Game) &bull; Jenn Schiffer - [make8bitart.com](http://make8bitart.com/) &bull; Jim Vallandingham - [Captain Z](http://captainzbook.com/) (Children's Book) &bull; [John James Jacoby](http://twitter.com/jjj) - Bathroom shower &bull; Jon Chretien - [Visualization of Shake Shack’s monthly custard calendar](http://projects.jonchretien.com/custard/) &bull; [Kassandra Perch](https://twitter.com/nodebotanist) - LED panel, node open-pixel-control, j5-driven internet-connected dino-vest &bull; Leonardo Balter - [Goiabada](https://github.com/leobalter/goiabada) (unit tests framework written in ES6) &bull; Mariko Kosaka - [program to hack into electric knitting machine](https://github.com/kosamari), knitting, paper folding, data vis dashboards, and more &bull; Mel Choyce & Kelly Dwan - [rdrdr ("red radar") WordPress themes](https://themes.redradar.net/) &bull; [Michael Beckwith](https://twitter.com/tw2113) In-progress self-hosted Whisky tasting tracking application &bull; Stefan Judis & Marco Biedermann - [perf-tooling.today](http://perf-tooling.today/), [grunt-phantomas](https://www.npmjs.com/package/grunt-phantomas) & others &bull; Tab Atkins - [Bikeshed](https://github.com/tabatkins/bikeshed) (Spec preprocessor for the W3C) &bull; Todd Kennedy - [make your project into a custom REPL](https://github.com/toddself/repl-it) &bull; Tyler Kellen - [Endpoints](https://github.com/endpoints/endpoints) &bull; Will Duffy - [Sorta](http://www.sortalist.com/) (a site to create lists of TV shows, movies, books and rank them)
+</small>
