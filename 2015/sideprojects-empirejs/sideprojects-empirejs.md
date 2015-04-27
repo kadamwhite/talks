@@ -515,41 +515,59 @@ function() {
 
 ---
 
-# Open Source Time
+# Perch Time
 
-??? Every employee gets a percentage of our time to maintain, contribute to and explore open-source web technology (or culture).
+??? This is our equivalent of bootlegging and hackathons, in a way: we're a consulting company, so in downtime between projects, my coworkers collaborate on building and maintaining the tools we use to keep Bocoup running. These projects are managed through a Tech Ops organization, and run like any other engineering project.
 
-This can be anything from building and releasing a general-purpose library, to writing a twitter bot while exploring how Node.js works.
+---
+<!-- .slide: data-background="url('images/bocoupfest-artshow.jpg')" -->
 
-We're a consulting company, so if we're on a project we may use that time to build part of their application in a reusable, modular way that we can then work with the client to open-source.
+# Bocoupfest
+
+??? Bocoupfest, on the other hand, is our company week: anything goes. We've built nodebots, we've had an art show, we've learned to make spray-paint stencils; my coworker Carl lead a group to make a game for the Pebble watch last month, and Adam lead a team to make an easter egg on Bocoup.com. This is when we can "blow off steam".
 
 ---
 
 ## Open Source Time
 
+<br>
+
+<div>
+
 > I’ve always taken this kind of time in all the jobs I could&mdash;even when it wasn’t officially offered. When you do officially offer it, then I don’t have to feel guilty!
 
 <small><br>*~ Jim Vallandingham*</small>
 
-??? Our "open source time" presupposes that we will be experimenting and building exploratory projects, but it also makes time for us to do the due diligence needed to work with clients to open-source relevant pieces of our collaborations.
+</div> <!-- .element: class="fragment" -->
 
-Supporting the web as an open platform is part of our mission, of course, but this time also codifies what we know would be happening anyway, to avoid making us feel guilty or conflicted in our explorations
+??? Every employee also gets a percentage of our time to maintain, contribute to and explore open-source web technology (or culture).
+
+This can be anything from building and releasing a general-purpose library, to writing a twitter bot while exploring how Node.js works.
+
+We're a consulting company, so if we're on a project we may use that time to build part of their application in a reusable, modular way that we can then work with the client to open-source.
+
+Supporting the web as an open platform is part of our mission, of course, but this time codifies what we know would be happening anyway, to avoid making us feel guilty or conflicted in our explorations
+
+---
+
+## We are not Unique
+
+??? 
 
 ---
 
-# Perch Time
-
-??? This is our equivalent of bootlegging and hackathons, in a way: in downtime between projects, my coworkers collaborate on building and maintaining the tools we use to keep Bocoup running. These projects are managed through a Tech Ops organization, and run like any other engineering project.
-
----
-
-# Bocoupfest
-
-??? Bocoupfest, on the other hand, is our company week: anything goes. We've built nodebots, we've learned to make spray-paint stencils; my coworker Carl lead a group to make a game for the Pebble watch last month. This is when we can "blow off steam".
-
----
+# Trust
 
 ??? I share these because these practices benefit us, and keep our team engaged, interested and in the lead. And what we do, I think, can be generalized: it's not specific to us.
+
+Employees who have the freedom to explore, and get support for that exploration, don't leave as regularly
+
+---
+
+## Another kind of
+# &ldquo;Professional Development&rdquo;
+
+??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable.
 
 ---
 
@@ -607,17 +625,9 @@ Supporting the web as an open platform is part of our mission, of course, but th
 
 ---
 
-> These passion projects are essential outlets &hellip; and are **absolutely necessary** for staying happy, feeling trusted, and remaining free to experiment &hellip;
-
-<small><br>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
-
-??? As we established with the show of hands, I don't need to convince you that passion projects are important. But if you need the language to help convince colleagues or management, here's some options:
-
----
-
 ![Slack Logo](images/glitch-logo.png)
 
-??? The tools we build to support our "main" work can be more valuable in the long run than the projects they were built to support. How many of you recognize this logo?
+??? These tools we build to support our "main" work can be more valuable in the long run than the projects they were built to support. How many of you recognize this logo?
 
 ---
 
@@ -633,7 +643,7 @@ Supporting the web as an open platform is part of our mission, of course, but th
 
 ---
 
-![Tim Holman's Tumblr "T" mouse-over easter egg](tumblr-t-hover.gif)
+![Tim Holman's Tumblr "T" mouse-over easter egg](images/tumblr-t-hover.gif)
 
 <small><br>*~ [Tim Holman](https://twitter.com/twholman)*</small>
 
@@ -641,17 +651,15 @@ Supporting the web as an open platform is part of our mission, of course, but th
 
 ---
 
-## Freedom Up,
-# Turnover Down
+> These passion projects are essential outlets &hellip; and are **absolutely necessary** for staying happy, feeling trusted, and remaining free to experiment &hellip;
 
-??? Employees who have the freedom to explore, and get support for that exploration, don't
+<small><br>*~ [John James Jacoby](https://twitter.com/jjj)*</small>
 
----
+> It is a priority for Bocoup team members have a regular opportunity to explore
 
-## Another kind of
-# &ldquo;Professional Development&rdquo;
+<small><br>*~ Bocoup Employee Handbook*</small>
 
-??? Many companies are fine sending us to conferences for days at a time, and paying for airfare and lodging&mdash;regular open source time is arguably less impactful to a project, and can be even more valuable.
+??? As we established with the show of hands, I don't need to convince you that passion projects are important. But we feel that this meets our business goals, and that we can work in parallel to satisfy our own desire for exploration while moving our business forward.
 
 ---
 <!-- .slide: data-background="url('images/emilygarfield-sketchbook-pages.jpg')" -->
