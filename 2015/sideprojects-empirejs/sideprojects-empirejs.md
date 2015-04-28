@@ -134,9 +134,9 @@ And it doesn't mean we wouldn't learn work-useful skills in doing so.
 
 > I try and approach side projects by combining a new skill set I want to learn (maybe a new programming language) with one of my hobbies
 
-<small><br>*~ [Jon Cretien](https://github.com/jonchretien), describing [Custard Cluster](http://projects.jonchretien.com/custard/) and other projects*</small>
+<small><br>*~ [Jon Chretien](https://github.com/jonchretien), describing [Custard Cluster](http://projects.jonchretien.com/custard/) and other projects*</small>
 
-??? John Cretien from Spotify
+??? Jon Chretien from Spotify described this approach very succinctly:
 
 ---
 
