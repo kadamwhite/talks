@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Pay no attention to that WordPress behind your application (Day of REST 2016)</title>
+
+  <meta name="description" content="A talk on how client interfaces can combine with the WP REST API to enable new and exciting uses of WordPress">
+  <meta name="author" content="K.Adam White">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/talks/js/reveal/css/reveal.min.css">
+  <link rel="stylesheet" href="/talks/js/reveal/css/theme/beige.css" id="theme">
+  <link rel="stylesheet" href="custom.css" id="theme-overrides">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="/talks/css/xcode.css">
+
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+    document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides" id="slides-element">
+
+          <section data-markdown="wp-node-feelingrestful.md"
+                   data-separator="^---"
+                   data-vertical="^--"
+                   data-notes="^\?\?\?">
+          </section>
+
+      </div>
+
+  </div>
+
+  <div id="footer">
+    <div class="bg"></div>
+    <p>
+      <a href="https://twitter.com/kadamwhite">@kadamwhite</a>
+      | #FeelingRestful
+      <span class="non-mobile">
+        | <a href="http://talks.kadamwhite.com/wp-node-feelingrestful">talks.kadamwhite.com/wp-node-feelingrestful</a>
+      </span>
+    </p>
+  </div>
+
+  <script src="/talks/js/reveal/lib/js/head.min.js"></script>
+  <script src="/talks/js/reveal/js/reveal.min.js"></script>
+  <script src="/talks/js/jquery-1.10.1.min.js"></script>
+  <script src="/talks/js/lodash.min.js"></script>
+
+  <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: false,
+      progress: true,
+      history: true,
+      center: false,
+
+      hideAddressBar: true,
+      mouseWheel: false,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        {
+          src: '/talks/js/reveal/lib/js/classList.js',
+          condition: function() { return !document.body.classList; }
+        },
+        {
+          src: '/talks/js/reveal/plugin/markdown/marked.js',
+          condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+        },
+        {
+          src: '/talks/js/reveal/plugin/markdown/markdown.js',
+          condition: function() { return !!document.querySelector( '[data-markdown]' ); }
+        },
+        {
+          src: '/talks/js/reveal/plugin/highlight/highlight.js',
+          async: true,
+          callback: function() { hljs.initHighlightingOnLoad(); }
+        },
+        // {
+        //   src: '/talks/js/reveal/plugin/zoom-js/zoom.js', async: true,
+        //   condition: function() { return !!document.body.classList; }
+        // },
+        // {
+        //   src: '/talks/js/reveal/plugin/search/search.js',
+        //   async: true,
+        //   condition: function() { return !!document.body.classList; }
+        // },
+        // {
+        //   src: '/talks/js/reveal/plugin/remotes/remotes.js',
+        //   async: true,
+        //   condition: function() { return !!document.body.classList; }
+        // },
+        {
+          src: '/talks/js/reveal/plugin/notes/notes.js', async: true,
+          condition: function() { return !!document.body.classList; }
+        }
+      ]
+    });
+
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-43640953-1', 'kadamwhite.github.io');
+    ga('send', 'pageview');
+
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+      var current = [ event.indexh + 1 ];
+      if ( event.indexv ) {
+        current.push(event.indexv);
+      }
+      ga( 'send', 'event', 'slide', 'change', current.join('/') );
+    } );
+
+    Reveal.addEventListener( 'overviewhidden', function( event ) {
+        ga( 'send', 'event', 'slide', 'overview', 'hide' );
+    } );
+
+    Reveal.addEventListener( 'overviewhidden', function( event ) {
+        ga( 'send', 'event', 'slide', 'overview', 'show' );
+    } );
+  </script>
+</body>
+</html>
