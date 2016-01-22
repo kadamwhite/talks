@@ -38,8 +38,22 @@ blockquote * {
   background-size: cover !important;
 }
 
+.solid-bg .slide-background,
+.semi-solid-bg .slide-background {
+  -webkit-filter: initial;
+  filter: initial;
+}
+
 .reveal .slide-background.present {
   opacity: 0.5;
+}
+
+.solid-bg .slide-background.present {
+  opacity: 1;
+}
+
+.semi-solid-bg .slide-background.present {
+  opacity: 0.7;
 }
 
 /* Element overrides */

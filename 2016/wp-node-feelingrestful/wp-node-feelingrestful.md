@@ -12,136 +12,870 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 [![Bocoup logo](../../common/images/bocoup-vertical-676.png)](https://www.bocoup.com)
 
-??? I work at Bocoup. We are
+??? I work at Bocoup. We are an
 
-- Tech/Design co, based in Boston/NYC
-- We're a JS consultancy
-- Everything from audits to full implementations
-- honor of working on the official JS test suite
+- open design & tech consultancy w/ offices in Boston & NYC
+- Our mission is to develop and entrench open technologies in the markets we serve, and to do so in a way that fosters inclusivity, open access, education, and diversity.
+- (We're a JS consultancy)
+- Everything from audits to full implementations; front-end performance to multi-server deployment infrastructure.
+- honor of working on the official JS test suite Test-262
 - education/workshops/conferences
 
-I'm here today to share part case study, part call to arms.
+---
+
+## &ldquo;The best Node.js CMS?&rdquo;
+
+??? I'm here today because a few years back we encountered a challenge on a complex node project: we needed a CMStook a chance on the WP API to solve a need we had with a large client project.
+
+Unfortunately I can't share the specific details of that client, but Bocoup were responsible for the entire system, from server infrastructure to CSS, even helping them design their tech team.
 
 ---
-<!-- .slide: data-background="url('../../2015/mbtawesome-boston-node/images/bliss-windows-xp.jpg')" -->
-
-??? Exactly two years ago I was sitting in a room with my coworkers, planning the tech stack for a green-field project.
-
----
-<!-- .slide: data-background="url('../../2015/mbtawesome-boston-node/images/bliss-windows-xp.jpg')" -->
 
 ![Node.js logo](images/nodejs-light.png)
 
-??? We knew there would be a traditional server-side blog & marketing site, an API-driven front-end SPA, and a whole lot of integration with 3rd-party services.
+??? We were working on a complex Node application: server-rendered marketing site, multiple interrelated single page apps, and our own APIs, all tied together with a whole lot of 3rd-party services.
 
-We settled on using Node for the server, as it was a flexible tool  because it was something we all had some experience with -- historically we try to avoid learning an entire tech stack each project!
-
----
-<!-- .slide: data-background="url('../../2015/mbtawesome-boston-node/images/bliss-windows-xp.jpg')" -->
-
-<br>
-## Express.js Server
-
-??? We could build a server in Express that satisfied most of our requirements.
+We'd designed a system that satisfied most of our requirements. But the editorial control our client needed exceeded the capabilities of any Node CMS we could find (this was early 2014). We weren't about to write our own CMS; the scope was big enough as-is!
 
 ---
+<!-- .slide: data-background="url('images/2014-project-architecture.svg')" data-state="solid-bg" -->
 
-## What is the best
-# Node CMS?
+??? Bocoup hadn't historically done much with WP, but we've always been heavily involved with JS libraries like Backbone, and I'd experimented with the API when it was released in that context.
 
-??? But the editorial control they wanted exceeded the capabilities of any Node.js CMS we could find (this was early 2014). We weren't about to write our own CMS, the scope was big enough as-is.
+Made a PoC, it worked, and we moved forward with API (v0.9) for all editorial.
+
+This is our infra: WP initially ran on a managed host, Pressable, and our AWS infra talked to it through HTTP requests.
+
+I shared some takeaways from this project at WCSF '14:
 
 ---
 
-*back in August '13,*
+## Takeaways
 
-[![Screenshot of semi-prophetic WCPVD slide](images/wp-api-prediction-wcpvd-summer-2013.png)](http://kadamwhite.github.io/talks/2013/backbone-wordpress/#/67)
+<hr>
 
-*<small>Slide from WordCamp Providence 2013</small>*
+**Working with a v0.9 API is not easy,**
 
-??? I've been following the development of the API plugin from just about the beginning, as I was speaking a lot in 2013 about Backbone.
+*but it's worth it to be involved*
 
-Backbone really loves a Restful interface, and -- tangent, Ryan, I called it, this plugin _was_ a good one to keep an eye on!
+??? It wasn't entirely a smooth process -- The API was in significant flux when we started, and many things were not supported yet. I do not see that as a downside; if there hadn't been sufficient functionality to execute our proof of concept, we'd have gone a different route.
 
----
-
-![Project Architecture Diagram](images/2014-project-architecture.png)
-
-??? We made a PoC, it worked, and we took a chance on the API -- only at v0.9 when we started -- to use WordPress as our datastore for a WP application.
-
-WP initially ran on a managed host, Pressable, and our AWS infra talked to it through HTTP requests -- the approach I came to recommend was to push images to AWS, so the WP server did not need to be public at all.
+Instead, it gave us an opportunity to be part of the group that felt out the limits of the 0.9 API, and identified changes we wanted to see in 1.0 and beyond.
 
 ---
 
-### Express Routing
+## Takeaways
 
-```js
-function handleRoute( req, res, next ) {
-  // Determine what to send back to the user
-}
+<hr>
+**Cache Your Content**
 
-router.get( '/:year/:month/:slug', handleRoute );
-```
+*in case WP goes down*
 
----
+??? We ran into all the usual problems with remote data: we were only caching the retrieved content in an short-expiry LRU cache and weren't saving it to the DB on the node side, so when our managed host went through some growing pains and our WP site went down, it ripped that content out of our entire application.
 
-### Express Routing, cont'd
-
-```js
-function getSinglePost( req, res, next ) {
-
-  var post = wp.posts().filter({
-    monthnum: req.params.month,
-    year: req.params.year,
-    name: req.params.slug
-  }).then(function( posts ) {
-    return _.first( posts );
-  });
-
-  // ...
-}
-router.get( '/:year/:month/:slug', getSinglePost );
-```
+We moved to AWS and strengthened our caching.
 
 ---
 
-At [<abbr title="WordCamp San Francisco">WCSF</abbr> 2014](http://wordpress.tv/2014/11/03/k-adam-white-wordpress-in-weird-places-content-management-for-node-using-rest/),
+## Takeaways
+
+<hr>
+![WP-Admin screenshot showing "View" link](../../2014/wcsf-node-wp/images/view-post-link.png)
+
+**WP-Admin**
+
+*will fight you*
+
+??? Even as we gained unprecedented flexibility with how we used WP's data, the Admin interface -- the very thing we were using WP for -- put up a good fight.
+
+As Jack Lenox and I have both mentioned in past talks, making the admin feel "right" in a non-WP-served site takes a lot of tedious extra legwork, because links that assume WP owns your rendering are practically everywhere in wp-admin.
+
+---
+
+## Takeaways
+
+<hr>
+**Custom Code is needed**
+
+*on both sides of the API*
+
+??? The project also required not just a Node client to receive the data, but also some fairly complex WP plugins to define our data types and craft our API responses (things like embedding meta into posts responses).
+
+I'll revisit this point later.
+
+---
+
+## Takeaways
+
+<hr>
+**Slugs are meaningful**
+
+*in an external context; IDs? Less so.*
+
+??? One point of commonality I've seen in many of the WP-API experiments out there is that the majority do their querying by ID. IDs are key within a WordPress context, and they're the only reliable way to repeatably access a specific piece of content.
+
+But an ID doesn't have any meaning OUTSIDE of WordPress, while a slug provides a human-readable pointer to a post or term that can be used by an external system without alteration. We found that all of our querying was slug-based.
+
+Finding the right balance between depending on IDs for accuracy vs slugs for ease of use and query efficiency is one of many things we're slowly figuring out as a community.
+
+I'm pleased to announce that persistently agitating for a "slug" collection query parameter for over a year has finally paid off with Beta 11 ;)
+
+---
+
+## Takeaways
+
+<hr>
+**Reinventing Wheels**
+
+*is all part of the process*
+
+??? And finally by only using WordPress for its API, we did have to create
+
+- our own router
+- our own templating layer
+- our own caching, media storage...
+
+Primary benefit is _integration_: if we hadn't been using Node to begin with, what we built could have been considered duplicative or overkill.
+
+But the API lets you use WordPress in an _additive_ way.
+
+---
+
+## ExpressPress
+
+[github.com/kadamwhite/expresspress](https://github.com/kadamwhite/expresspress)
+
+Sample Express server w/ WP Backend
+
+??? To illustrate the fundamentals of our approach, I created a standalone repository called ExpressPress. ExpressPress runs on the v1 of the API, and I shared it as a demo at WordCamp San Francisco 2014.
+
+---
+
+[![Screenshot of my talk on the WCSF site](images/wcsf-talk.png)](http://wordpress.tv/2014/11/03/k-adam-white-wordpress-in-weird-places-content-management-for-node-using-rest/)
+
+*"Weird" is relative* <!-- .element: class="fragment" -->
+
+<small><abbr title="WordCamp San Francisco">WCSF</abbr> 2014</small>
+
+??? I shared the results at WCSF 2014 under the title "WordPress in Weird Places;" what constitutes "weird" has changed a bit over the intervening years!
+
+While the node + wp combo is perhaps _uncommon_, as we've seen today it's definitely not unheard of.
+
+---
 
 > **What if** the dashboard was built on top of the WP REST API?
 
-??? These were heady, early days: at WCSF I asked the question,
+??? The API as a whole may not yet be a part of core, but our community's coming around to "API thinking". At WCSF I asked a lot of "what if?" questions...
 
 ---
 <!-- .slide: data-background="url('images/calypso-site-screenshot.png')" -->
 
 > [Calypso](https://developer.wordpress.com/calypso/) is the new WordPress.com front-end – a beautiful redesign of the WordPress dashboard using a single-page web application, powered by the WordPress.com REST API.
+> 
+> *<small>- [github.com/Automattic/wp-calypso](https://github.com/Automattic/wp-calypso)</small>*
 
-??? Now it's 2016, and we have Calypso: it uses the .com API, but as we saw this morning, this isn't hypothetical anymore.
+2016
 
----
-
-![Screenshot of my talk on the WCSF site](images/wcsf-talk.png)
-
-"Weird places" is relative
-
-??? It's still perhaps uncommon to use WordPress with Node, but as we've seen today, it's happening, and it's going well.
+??? Now it's 2016, and we have Calypso: it uses the .com API, but as we saw in the last session these applications aren't hypothetical anymore.
 
 ---
 
-## Application
-## Programming
+&nbsp;
+
+# 88.2%
+## JavaScript
+
+??? Calypso's repository is 88.2% JavaScript.
+
+We used to talk about WP as a "platform", something to build on top of: it has become a component, something to build _with_.
+
+I was asked here today to provide a case study, but I've already shared our takeaways from 2014. I'd like to take this time instead to look forward, & suggest how we should think about APIs and interfaces for this new component mentality.
+
+---
+&nbsp;
+
+#### Application
+### Programming
 # Interface
 
-??? The first video game I remember playing was Myst. The game's primary conceit was that a civilization had developed the ability to write books so descriptive that they would actually create a physical portal between your world, and the "age" described in the book.
+??? To do so, I think it's important to dig a bit into what "API" actually means. We've talked about applications, we've talked about programming -- let's dive into what we mean by "interface." Because it's a loaded term.
+
+We talk about "the API," and think about APIs as purely the bridge between one application than another. But every level of our interactions with software occur through interfaces.
 
 ---
 
-English language is like JS
+(image of a book)
 
-??? No really
+??? By way of a metaphor, we've been talking about APIs as if they are books. A book transports information between an author's world and a reader; it's a transport mechanism. It has a defined interface. That interface is generic enough that we even have e-readers, which abstract the transport to be relevant to a large variety of data sources.
+
+But the book is only the top level of interface that's at play.
 
 ---
 
-> English doesn't borrow from other languages.
+(image of words)
+
+??? The next layer of the interface is the writing itself -- this is what makes some books "easier" than others. We talk about "difficult" or "challenging" books: _Finnegan's Wake_ isn't physically unwieldy or tries to fight its way out of your hands, it's "hard to read."
+
+---
+
+> English doesn't "borrow" from other languages,
 > 
-> English follows other languages down dark alleys, knocks them over, and rummages through their pockets for loose grammar.
+> English chases other languages down dark alleys and mugs them for loose vocabulary.
+
+*<small>Paraphrased from [James Nicoll](https://en.wikipedia.org/wiki/James_Nicoll#.22The_Purity_of_the_English_Language.22)</small>*
+
+??? Even "simple" books presuppose a familiarity with the language in which they are written. And some languages are easier than others. English is notoriously irregular; I say this as an American standing in the middle of London. Our two countries have, each in our own way, inflicted a fascinating but undeniably flawed language on far more of the world's population than really ought to have had to deal with it in the first place.
+
+---
+
+Sound familiar?
+
+![JavaScript: Good Parts vs. The Rest, by Nathan Smith, used under CC-By 2.0 licence](images/flickr-nathansmith-js-good-parts.jpg)
+<!-- Link to image: https://www.flickr.com/photos/nathansmith/4704268314 -->
+
+**Syntax** from C; **Semantics & Design** from Self & Scheme
+
+*<small>[ES4 Language Overview](http://www.ecmascript.org/es4/spec/overview.pdf)</small>*
+
+??? For better or worse, JavaScript is very much like English. It rose to prominence because we were told to use it, not because we chose it; it's widely derided; it uses the syntax of one language with the paradigms of others; and naming it after Java has confused corporate recruiters _for all time_.
+
+---
+
+## &ldquo;Bad&rdquo; APIs
+
+XMLHttpRequest,
+
+Document Object Model (DOM),
+
+Node Streams,
+
+*and lots,* lots *more :)*
+
+??? JavaScript is capable of elegance, but most of the APIs it has historically depended upon are terrible. By terrible, I mean hard to learn, easy to mis-use... these are very powerful, and there is value in understanding how they work, but it's the equivalent of working through the language in a difficult book. The reward can be great, but the investment is high too.
+
+---
+
+Fetch a URL with **XMLHttpRequest**
+```js
+var request = new XMLHttpRequest();
+request.open('GET', '/my/url', true);
+
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+    var data = JSON.parse(request.responseText);
+    // Success!
+  } else {
+    // We reached our target server, but it returned an error
+  }
+};
+
+request.onerror = function() { /* Error occurred */ };
+
+request.send();
+```
+
+*<small>[youmightnotneedjquery.com](http://youmightnotneedjquery.com/)</small>*
+
+??? Low level APIs give you lots of control, at the expense of having to do more yourself. This is an example of how to make an HTTP request with the browser's built-in XMLHttpRequest API, taken from "you might not need jquery."
+
+---
+
+Fetch a URL with **jQuery**
+```js
+$.getJSON('/my/url', function(data) {
+  // Success!
+});
+```
+*<small>[youmightnotneedjquery.com](http://youmightnotneedjquery.com/)</small>*
+
+You might *not* "not need jQuery"...
+
+??? It's true, you might not! Spoiler, jQuery (and Backbone, React, Angular, Ember, etc) are all just JavaScript; anything you can do with them, you can write yourself. But libraries lower the barrier to entry.
+
+jQuery was created to solve a problem, but it became a populist library: raise your hand if your first JavaScript was through jQuery.
+
+You might not need it. But by making APIs for our APIs, we make them accessible to a wider audience. We lower the amount of technical chops needed to do amazing things.
+
+By all means learn JS deeply, but pick your battles.
+
+---
+
+[Johnny-Five.io](http://johnny-five.io/)
+
+[![Johnny-Five "here's johnny" logo](images/heres-johnny.png)](http://johnny-five.io/)
+
+??? At Bocoup we care about this kind of "developer accessibility" as much as we care about accessibility in the traditional sense.
+
+My colleagues' project Johnny Five, for example, is making strides towards democratizing robotics programming -- you can do things in Johnny Five much more concisely than with native Arduino code. Democratic tools are powerful tools.
+
+I believe it was Nikolay who used the term "developer user experience;" rather than being a luxury, DUX is critical to the learning process. If your tools aren't easy to use, nobody will use them.
+
+---
+
+#### `npmjs.com/package/wordpress-rest-api`
+
+```
+/wp-json/wp/v2/posts?filter[author_name]=kadam&filter[tag]=art+digital-art&filter[year]=2014&search=Chelsea
+```
+
+```js
+site.posts()
+    .author( 'kadam' )
+    .year( 2014 )
+    .search( 'Chelsea' )
+    .tags([ 'art', 'digital-art' ]);
+```
+
+??? Meanwhile, back in WordPress...
+
+We wanted the majority of our work on that WP API client project to be focused on using the data, not finding it -- and the URL of a wp-api resource can get gnarly with filtering. So I wrote a library, a query-builder for the API.
+
+---
+
+[Published on NPM](https://www.npmjs.com/package/wordpress-rest-api)
+
+```sh
+npm install --save wordpress-rest-api
+```
+
+```js
+var WP = require( 'wordpress-rest-api' );
+var site = new WP({
+    endpoint: 'http://your-domain.com/wp-json'
+});
+
+// Build query for post #991, with all embedded data
+var postsRequest = site.posts().id( 991 ).embed();
+```
+
+??? The package is published via NPM, and can be used in Node.js applications, or in client applications via Browserify.
+
+---
+
+Promise Interface
+
+```js
+postsRequest.get().then(function( post ) {
+    // Log the post title
+    console.log( post.title.rendered );
+    // Log the name of the embedded author
+    console.log( post._embedded.author[ 0 ].name );
+});
+```
+
+Callback Interface
+
+```js
+postsRequest.get(function( err, post ) {
+    // Log the post title
+    console.log( post.title.rendered );
+    // Log the name of the embedded author
+    console.log( post._embedded.author[ 0 ].name );
+});
+```
+
+??? HTTP communication is built in via superagent, and exposed to users of the library through a promise-based interface (my preference) or a more traditional-node-style callback interface
+
+---
+
+**In action within an [Express.js](http://expressjs.com/) route:**
+
+```js
+router.get( '/:y/:m/:slug', function( req, res, next ) {
+
+  var postPromise = wp.posts()
+    .filter({
+      monthnum: req.params.m,
+      year: req.params.y,
+      name: req.params.slug
+    })
+    .then(function( posts ) {
+      return _.first( posts );
+    });
+
+  RSVP.hash({
+    // Primary page content
+    post: postPromise,
+    // Use that same promise to derive the <title>
+    title: postPromise.then(function( post ) {
+        return pageTitle( post && post.title );
+    })
+  }).then(function( context ) {
+    if ( ! context.post ) { /* 404 */ return next(); }
+
+    res.render( 'single', context );
+  }).catch( next );
+
+});
+```
+<!-- .element class="stretch" -->
+
+??? This library was a little more up-front, but it let us focus on the needs of our application, rather than on the nuances of API query structure -- that was all abstracted away.
+
+This is how the API plugin plays inside an Express route. If you're unfamiliar with express, the way it works is that you define a route, and specify what will happen when a user hits that route.
+
+---
+
+**`single.tmpl`**
+```html
+{%extend layouts/main as content%}
+<div class="container single post">
+  {%partial partials/global-header . %}
+
+  {%if post.featured_image|get-image 'large' 'url'%}
+  <div class="row">
+    <div class="col-md-12">
+      {%partial partials/page-banner post.featured_image|get-image %}
+    </div>
+  </div>
+  {%endif%}
+
+  <div class="row">
+    <div class="col-md-8 col-md-push-4">
+      <h1>{{{post.title}}}</h1>
+
+      <p class="text-muted">by {{post.author.name}}</p>
+
+      <div class="content">
+        {{{post.content}}}
+      </div>
+    </div>{%-- .col-md-8 --%}
+    <div id="sidebar" class="col-md-4 col-md-pull-8">
+      {%partial partials/sidebar sidebar %}
+    </div>{%-- .col-md-4 --%}
+  </div>{%-- .row --%}
+</div>
+
+{%partial partials/footer%}
+
+{%endextend%}
+```
+<!-- .element class="stretch" -->
+
+??? On the last page we rendered our context into "single.tmpl"; this is what that looks like in ExpressPress. Express works with just about any JavaScript templating language; here I'm using one called Combine.
+
+A router, and templates... these are basic components, but that does illustrate the "big flaw" in this approach.
+
+---
+
+### Node Servers are
+# Very D.I.Y.
+
+??? Node servers give you a huge amount of control, but you get very little for free. Routing, Templating -- these are all "solved problems" you have to solve all over again.
+
+The ExpressPress approach only makes good sense if you're trying to get WordPress content into an existing Node application. If you're just trying to display WordPress content in traditional site format, just use core directly -- Kathleen is going to dive into this calculus more in the next session.
+
+---
+
+## We're using WP as a
+# Component.
+
+*What else can we use for its parts?*
+
+??? If we're using WP for its data, maybe we can crib part of this equation from some other project. For my first demo, let's try to use someone else's theme layer!
+
+---
+<!-- .slide data-background="images/ghost-repo-readme-graphic.jpg" data-state="solid-bg" -->
+<!-- .slide: data-background="url('images/ghost-repo-readme-graphic.jpg')" -->
+
+![Ghost logo](images/ghost-logo.png)
+
+??? Who's familiar with the JavaScript CMS "Ghost"?
+
+Ghost happens to have an express-based server, and uses a well-documented theming system inspired by WordPress's, but implemented using the JavaScript templating library "Handlebars."  Ghost uses its express server to bridge the gap between a static site generator and a dynamic server-side CMS.
+
+Let's see how easy it is to "steal" the themeing layer of Ghost, so we can use it to render our WordPress data.
+
+---
+
+### Configure our Express server
+
+```js
+var ghostThemeDir = path.join( __dirname, 'themes', config.theme );
+
+// view engine setup:
+app.engine( 'hbs', hbs.express4({
+  defaultLayout: path.join( ghostThemeDir, 'default.hbs' ),
+  partialsDir: [
+    path.join( ghostThemeDir, '/partials' )
+  ]
+}) );
+app.set( 'view engine', 'hbs' );
+app.set( 'views', ghostThemeDir );
+```
+
+---
+
+### Adapt Ghost's [helpers](https://github.com/TryGhost/Ghost/tree/master/core/server/helpers)
+
+![A screenshot of GhostPress's helpers dir](images/ghost-helpers.png)
+
+??? The Handlebars templating system lets you define helpers, which work like template tags do in WordPress.
+
+Ghost ships with a set of about 30 theme helpers; we have to either copy or replace roughly half of those in order for (most of) their themes to work with our application.
+
+---
+
+### Understand Ghost's Context
+
+[![Ghost Context table](images/ghost-context-table.png)](http://themes.ghost.org/docs/context-overview)
+
+---
+
+### Define our [routes](https://github.com/kadamwhite/ghostpress/blob/master/server/routes.js)
+
+```js
+router.get( '/', function homepageRoute( req, res, next ) {
+  var postsPromise = wp.posts().perPage( 10 ).embed();
+  bluebird.props({
+    meta_title: pageTitle(),
+    posts: postsPromise,
+    pagination: postsPromise.then( getPaginationObj ),
+    context: [ 'index', 'home' ],
+    body_class: 'home-template'
+  }).then(function( context ) {
+    context.posts = context.posts.map( decease.post );
+    res.render( 'index', context );
+  }).catch( next );
+});
+```
+
+??? The context documentation is very specific about what properties are available in Ghost templates, so our router becomes very easy to define: We simply need to provide the template with a context object exposing all of that template's relevant properties.
+
+---
+
+### Make Ghost-Posts
+
+```js
+decease.posts = function( wpPost ) {
+    // ... Some code remove for brevity
+    return {
+        slug: wpPost.slug,
+        id: wpPost.id,
+        title: wpPost.title.rendered,
+        excerpt: wpPost.excerpt.rendered,
+        content: content,
+        created_at: wpPost.date,
+        author: author,
+        tags: categories,
+        // ...
+    };
+};
+```
+<!-- .element slide="content" -->
+
+??? Converting our WordPress content to their ghostly equivalents is as simple as defining a function to map their properties, as we do here.
+
+---
+
+## [Demo](https://github.com/kadamwhite/ghostpress)
+
+---
+
+## [Deploy Static Site](https://github.com/kadamwhite/ghostpress/tree/master/scripts/deploy-site.js)
+
+&nbsp;
+
+1. Fetch every public WP post to build a list of all URLs
+2. Run the "GhostPress" express server
+3. Systematically save each valid URL to a static HTML file
+4. Copy the theme's assets into the output directory
+
+&nbsp;
+
+**Ghost + WordPress + Node = Static Site Generator**
+
+??? Ghost itself has a heavy caching layer over its express server, so as to straddle the line between a static site generator 
+
+---
+
+So, that handles reading. What about
+
+## Creating Posts?
+
+??? If anybody wants to tackle making Ghost's authoring UI work with WordPress as well, get in touch. But I'll share a simpler example of a way the API can be used to bulk-create posts.
+
+---
+
+## Bulk Load from CSV
+
+(Disclaimer: **Uses the v1 WP-API!**)
+
+```js
+// Read the CSV file,
+csv.read( './data/data.csv' ).then(function( allRecords ) {
+
+  // Upload records 30 at a time
+  _.chunk( allRecords, 30 ).reduce(function( ready, chunk ) {
+    // don't start next chunk until previous is done
+    return ready.then(function() {
+
+      // "bluebird.all" method takes an array of promises
+      return bluebird.all( records.map( upload ) );
+    });
+  }, Promise.resolve() );
+});
+```
+
+??? We recently completed a data dashboard project built on top of WordPress, where one of our clients can log in and see metrics and reports about the efficiency of various teams within their organization.
+
+We needed to bulk-load this data into our WP site; the API gave us a very fast solution. Or, the v1 API did. Post meta handling's still a pain point with the WP-API.
+
+---
+
+For each post, we call `upload`:
+
+```js
+function upload( record ) {
+  return wp.posts()
+    .type( 'our_cpt' )
+    .namespace().version().auth()
+    .post( makeCPTObject( record ) );
+}
+```
+
+---
+
+`upload` uses `makeCPTObject` to turn "record" into something we can POST to the WP-API
+
+```js
+function makeCPTObject( record ) {
+  return {
+    date: renderDate( record.date ),
+    status: 'private',
+    type: 'our_cpt',
+    // title and content_raw are required
+    title: _.uniqueId( 'prefix_' ),
+    content_raw: '',
+    // Post Meta is what we care about
+    post_meta: _.chain( record )
+      .omit( [ 'date', 'id' ] )
+      .map(function( value, key ) {
+        return { key: 'prefix-' + key, value: value };
+      })
+      .value()
+  };
+}
+```
+
+---
+
+### `wordpress-rest-api`
+## Roadmap
+
+<hr>
+
+**Full support for v2 beta endpoints**
+
+**Endpoint discovery**
+
+**Better Authentication**
+
+??? This library's a work in progress. Support for the latest and greatest v2 betas is almost complete, and I'm hoping to improve that at the hack day tomorrow. We're also looking to build in some degree of auto-discovery support; and currently only nonce-based and basic-auth authentication are supported, so we need to improve that situation.
+
+---
+
+**`require( 'room' ).elephant();`**
+## Node is *Not*
+## Beginner-Friendly
+
+??? But those two examples call out an elephant in this room: it's a little hypocritical for me to stand up here and say I care about making learnable interfaces, if I'm releasing this software through (and for) Node. Node is not beginner-friendly. It's not _hard_, but it took me a long time to get comfortable writing server-side software, and the majority of the work we do with the API is going to be on a more traditional, client-side playing field.
+
+It does require using some Node-based tooling, but let's look at how we can use this plugin within a client-side JS script.
+
+---
+
+### Picard theme [router](https://github.com/Automattic/Picard/blob/master/components/router/router.jsx)
+```js
+var request = require( 'superagent' );
+
+page( '/', function ( ctx ) {
+  var data,
+    slug = ctx.params.slug,
+    url = '/wp-json/wp/v2/posts';
+
+  request
+    .get( url )
+    .end( function( err, res ) {
+      data = JSON.parse( res.text );
+      self.setState({
+        component: <Content data={ data } bodyClass="index" />
+      });
+    });
+});
+```
+<!-- .element class="stretch" -->
+
+??? Jack Lenox spoke earlier about his experiences building REST API-powered WordPress themes, and mentioned his theme Picard. This is how Picard got the data from its urls -- it's a client-side theme, but the core "this data when you hit that url" router methodology is the same as what I showed in Express.
+
+---
+
+### Picard theme router redux
+```js
+page( '/', function ( ctx ) {
+  wp.posts().then(function( posts ) {
+    self.setState({
+      component: <Content data={ posts } bodyClass="index" />
+    });
+  });
+});
+```
+
+??? There's nothing our library does that the picard theme didn't, but depending on how complex your query needs are, it can be a bit easier to manage them this way than by writing your own request handling each time.
+
+---
+
+### Client-Side Use w/ [browserify](http://browserify.org)
+```sh
+browserify vis-post-length.js --ignore superagent -o bundle.js
+```
+```js
+var d3 = require( 'd3' );
+var WP = require( 'wordpress-rest-api' );
+var site = new WP({ endpoint: '/wp-json' });
+// Injected via wp_localize_script
+var page = ARCHIVE_INFO.page;
+
+// Use the WP API client plugin _purely_ to generate a URL
+var archiveQuery = site.posts().page( page )._renderURI();
+
+d3.json( archiveQuery, function( result ) {
+  // Visualize "result"
+});
+```
+
+??? You don't even need to use the AJAX component: D3 is a data visualization framework that has its own AJAX functionality built-in, and it's possible right now to use the api client package to build an application that uses D3, or jQuery, or whatever library you already have for AJAX.
+
+This all depends on Browserify or Webpack right now, but...
+
+---
+
+### `wordpress-rest-api`
+## Roadmap
+
+<hr>
+
+**Client-Side Build**
+
+**Standalone Query-Builder Build**
+
+??? We're investigating providing the query builder as a standalone, so that you can use the library but use D3 or jQuery or whatever you've got for your HTTP handling. I also want to make an optimized client-oriented build that you can drop in to any front-end application.
+
+---
+
+### `wordpress-rest-api`
+## Roadmap
+
+<hr>
+
+[github.com/kadamwhite/wordpress-rest-api/issues](https://github.com/kadamwhite/wordpress-rest-api/issues)
+
+Help us improve&mdash;let us know what doesn't work!
+
+??? I invite you to experiment with the wordpress-rest-api package, and of course with the WP-API beta itself, and to open an issue on either if you encounter things that don't work as you expect. Our documentation needs a lot of love, and bad documentation or unintuitive interfaces should be treated as a bug.
+
+---
+
+```js
+// How many posts are there?
+wp.posts().perPage( 1 )
+  .then(function( posts ) {
+    var postCount = posts._paging.total;
+
+    // Get the last page of posts
+    return wp.posts()
+      .perPage( 10 )
+      .page( Math.ceil( postCount / 10 ) )
+  })
+  .then(function( finalSlides ) {
+    present( finalSlides );
+  });
+```
+
+??? Home stretch. Where does all this leave us?
+
+---
+
+### API Projects can be
+
+## Generic & Broad,
+
+??? We saw today how we could build a calypso-like admin for a generic WordPress install; this is an example of what I term a broad or generic application, which depends mostly on the built-in API functionality.
+
+Calpyso works with any .com or jetpack-enabled site, with no further customization needed.
+
+---
+
+### or API Projects can be
+
+## Custom & Specific
+
+??? and as I just described, Bocoup's first foray into the API went the opposite direction by creating plugins and a client that could only work with one another.
+
+Generic clients have broad applicability, but fewer capabilities; specific clients have very narrow applicability, and limitless capabilities
+
+---
+
+### A Prediction:
+
+## High-profile projects
+
+built with the WP API will
+
+### define their own endpoints
+
+??? Custom endpoints mean you can reduce boilerplate code on both the API client and the API server; your responses will be custom tailored to your needs.
+
+But then you're beholden to maintain them, too.
+
+---
+
+### A Prediction:
+
+## The majority
+
+of WP API-driven projects
+
+### will use it out of the box
+
+??? However, the actual majority of API projects -- we're not talking Wired, or the NY Times, or Automattic's VIP customers, or a project we might execute at Bocoup, but one of those "generic, broad" projects -- will probably be written against the out-of-the-box API.
+
+This is where my interest lies, because it does the most good for the most people.
+
+---
+
+## The People's API?
+
+> **What You Can Use WordPress For**
+> 
+> WordPress is limited only by your imagination. (And tech chops.)
+
+*<small>From [wordpress.org/about](https://wordpress.org/about/)</small>*
+
+---
+
+# Let's lower
+### that barrier to entry
+
+??? Let's build interfaces and tools for working with this API that lower that barrier to entry as much as we can.
+
+---
+
+## *Thank You*
+
+<hr>
+
+Slides: [talks.kadamwhite.com/wp-node-feelingrestful](http://talks.kadamwhite.com/wp-node-feelingrestful)
+
+Me: [@kadamwhite](https://twitter.com/kadamwhite)
+
+Us: [bocoup.com](https://bocoup.com)
+
+Demos:
+
+[github.com/kadamwhite/wordpress-rest-api](https://github.com/kadamwhite/wordpress-rest-api)
+
+[github.com/kadamwhite/ghostpress](https://github.com/kadamwhite/ghostpress)
+
+[github.com/kadamwhite/vis-post-length](https://github.com/kadamwhite/vis-post-length)
+
