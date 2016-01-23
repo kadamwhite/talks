@@ -115,12 +115,15 @@ a:hover {
     text-decoration: underline;
 }
 ul {
-    padding-right: 40px;
+    padding: 0;
 }
 li {
     list-style-type: none;
-    padding: 0.75em;
+    padding: 0.75em 0;
     border-bottom: 1px solid #dadada;
+}
+li.year:not(:first-child) {
+    margin-top: 2em;
 }
 li a {
     font-size: 1.25em;

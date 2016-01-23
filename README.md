@@ -10,6 +10,9 @@ Each slide deck should be taken as representative of what I knew when I wrote th
 
 ## Presentations
 
+* [Side Projects, Front &amp; Center](http://kadamwhite.github.io/talks/2015/sideprojects-empirejs/), EmpireJS, April 2015
+* [Building MBTAwesome](http://kadamwhite.github.io/talks/2015/mbtawesome-boston-node/), Boston Node.js Meetup, April 2015
+* [Modular JavaScript](http://kadamwhite.github.io/talks/2014/wcsf-node-wp/), WordCamp San Francisco, October 2014
 * [Modular JavaScript](http://kadamwhite.github.io/talks/2014/modular-javascript-pvd/), WordCamp Providence, September 2014
 * [Modular JavaScript](http://kadamwhite.github.io/talks/2014/modular-javascript/), WordCamp Chicago, June 2014
 * [Make Your Own Artist Website](http://kadamwhite.github.io/talks/2014/artists-website/), Somerville Open Studios, March 2014
