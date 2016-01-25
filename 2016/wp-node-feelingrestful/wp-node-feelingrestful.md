@@ -44,9 +44,30 @@ We'd designed a system that satisfied most of our requirements. But the editoria
 
 Made a PoC, it worked, and we moved forward with API (v0.9) for all editorial.
 
-This is our infra: WP initially ran on a managed host, Pressable, and our AWS infra talked to it through HTTP requests.
+This is our infra: WP initially ran on a managed host, and our AWS infra talked to it through HTTP requests (over SSL!).
 
-I shared some takeaways from this project at WCSF '14:
+---
+<!-- .slide: data-background="url('images/2014-project-wp-data-flow.svg')" data-state="solid-bg" -->
+
+??? This let us flow editorial content into any part of our application we liked: staff profiles, blog entries, marketing copy, and media were all served from WordPress.
+
+That data fit seamlessly into our existing site templates, and their writers and editor loved the flexibility of the WP Admin UI.
+
+It took a little while to set up, but we spent much less time iterating on this architecture than we did on the rest of our integrations!
+
+---
+
+## Takeaways
+
+<hr>
+
+&star;
+
+&star; _**It Worked!**_ &star;
+
+&star;
+
+??? I shared some takeaways from this project at WCSF '14: there were definitely some stumbling blocks, but I am very pleased with the degree to which the API let us utilize WordPress content within our own application.
 
 ---
 
@@ -80,21 +101,6 @@ We moved to AWS and strengthened our caching.
 ## Takeaways
 
 <hr>
-![WP-Admin screenshot showing "View" link](../../2014/wcsf-node-wp/images/view-post-link.png)
-
-**WP-Admin**
-
-*will fight you*
-
-??? Even as we gained unprecedented flexibility with how we used WP's data, the Admin interface -- the very thing we were using WP for -- put up a good fight.
-
-As Jack Lenox and I have both mentioned in past talks, making the admin feel "right" in a non-WP-served site takes a lot of tedious extra legwork, because links that assume WP owns your rendering are practically everywhere in wp-admin.
-
----
-
-## Takeaways
-
-<hr>
 **Custom Code is needed**
 
 *on both sides of the API*
@@ -112,6 +118,8 @@ I'll revisit this point later.
 
 *in an external context; IDs? Less so.*
 
+(Thank you Version 2.0 Beta 11 for `?slug=`!)
+
 ??? One point of commonality I've seen in many of the WP-API experiments out there is that the majority do their querying by ID. IDs are key within a WordPress context, and they're the only reliable way to repeatably access a specific piece of content.
 
 But an ID doesn't have any meaning OUTSIDE of WordPress, while a slug provides a human-readable pointer to a post or term that can be used by an external system without alteration. We found that all of our querying was slug-based.
@@ -119,6 +127,21 @@ But an ID doesn't have any meaning OUTSIDE of WordPress, while a slug provides a
 Finding the right balance between depending on IDs for accuracy vs slugs for ease of use and query efficiency is one of many things we're slowly figuring out as a community.
 
 I'm pleased to announce that persistently agitating for a "slug" collection query parameter for over a year has finally paid off with Beta 11 ;)
+
+---
+
+## Takeaways
+
+<hr>
+![WP-Admin screenshot showing "View" link](../../2014/wcsf-node-wp/images/view-post-link.png)
+
+**WP-Admin**
+
+*will fight you*
+
+??? Even as we gained unprecedented flexibility with how we used WP's data, the Admin interface -- the very thing we were using WP for -- put up a good fight.
+
+As Jack Lenox and I have both mentioned in past talks, making the admin feel "right" in a non-WP-served site takes a lot of tedious extra legwork, because links that assume WP owns your rendering are practically everywhere in wp-admin.
 
 ---
 
@@ -153,7 +176,7 @@ Sample Express server w/ WP Backend
 
 [![Screenshot of my talk on the WCSF site](images/wcsf-talk.png)](http://wordpress.tv/2014/11/03/k-adam-white-wordpress-in-weird-places-content-management-for-node-using-rest/)
 
-*"Weird" is relative* <!-- .element: class="fragment" -->
+*"Weird" is relative*
 
 <small><abbr title="WordCamp San Francisco">WCSF</abbr> 2014</small>
 
@@ -203,16 +226,16 @@ I was asked here today to provide a case study, but I've already shared our take
 We talk about "the API," and think about APIs as purely the bridge between one application than another. But every level of our interactions with software occur through interfaces.
 
 ---
-
-(image of a book)
+<!-- .slide: data-background="url('images/books.jpg')" data-state="solid-bg" -->
+<!-- Photo by K. Adam White CC BY 2.0 -->
 
 ??? By way of a metaphor, we've been talking about APIs as if they are books. A book transports information between an author's world and a reader; it's a transport mechanism. It has a defined interface. That interface is generic enough that we even have e-readers, which abstract the transport to be relevant to a large variety of data sources.
 
 But the book is only the top level of interface that's at play.
 
 ---
-
-(image of words)
+<!-- .slide: data-background="url('images/grace-hopper-information-age-kurt-beyer.jpg')" data-state="solid-bg" -->
+<!-- Photo by K. Adam White CC BY 2.0 -->
 
 ??? The next layer of the interface is the writing itself -- this is what makes some books "easier" than others. We talk about "difficult" or "challenging" books: _Finnegan's Wake_ isn't physically unwieldy or tries to fight its way out of your hands, it's "hard to read."
 
@@ -276,7 +299,7 @@ request.send();
 
 *<small>[youmightnotneedjquery.com](http://youmightnotneedjquery.com/)</small>*
 
-??? Low level APIs give you lots of control, at the expense of having to do more yourself. This is an example of how to make an HTTP request with the browser's built-in XMLHttpRequest API, taken from "you might not need jquery."
+??? Low level APIs give you lots of control, at the expense of having to do more yourself. This is an example of how to make an HTTP request with the browser's built-in XMLHttpRequest API, taken from "you might not need jQuery."
 
 ---
 
@@ -296,19 +319,15 @@ jQuery was created to solve a problem, but it became a populist library: raise y
 
 You might not need it. But by making APIs for our APIs, we make them accessible to a wider audience. We lower the amount of technical chops needed to do amazing things.
 
-By all means learn JS deeply, but pick your battles.
-
 ---
 
-[Johnny-Five.io](http://johnny-five.io/)
+## Learn JS Deeply
 
-[![Johnny-Five "here's johnny" logo](images/heres-johnny.png)](http://johnny-five.io/)
+_**but pick your battles**_
 
-??? At Bocoup we care about this kind of "developer accessibility" as much as we care about accessibility in the traditional sense.
+??? By all means learn JS deeply, but pick your battles. At Bocoup we care a lot about this kind of "developer accessibility" as much as we care about accessibility in the traditional sense; Nikolay's called it Developer User Experience. DUX is critical to the learning process. If your tools aren't easy to use, nobody will use them.
 
-My colleagues' project Johnny Five, for example, is making strides towards democratizing robotics programming -- you can do things in Johnny Five much more concisely than with native Arduino code. Democratic tools are powerful tools.
-
-I believe it was Nikolay who used the term "developer user experience;" rather than being a luxury, DUX is critical to the learning process. If your tools aren't easy to use, nobody will use them.
+If it adds a few k to your bundle to use a utility library, but makes it easier for a new team member to join the project, in ALMOST ALL cases that is the right trade to make.
 
 ---
 
@@ -326,7 +345,7 @@ site.posts()
     .tags([ 'art', 'digital-art' ]);
 ```
 
-??? Meanwhile, back in WordPress...
+??? It was in this spirit that I abstracted the query builder logic from our project and released our API client it as a JS library.
 
 We wanted the majority of our work on that WP API client project to be focused on using the data, not finding it -- and the URL of a wp-api resource can get gnarly with filtering. So I wrote a library, a query-builder for the API.
 
@@ -593,7 +612,23 @@ So, that handles reading. What about
 
 ## Creating Posts?
 
-??? If anybody wants to tackle making Ghost's authoring UI work with WordPress as well, get in touch. But I'll share a simpler example of a way the API can be used to bulk-create posts.
+
+<div class="fragment">
+<hr>
+
+<p>**Custom Interfaces**</p>
+
+<p>**Content Migration**</p>
+
+<p>**Bulk Data Entry**</p>
+
+</div>
+
+??? So far I've focused mostly on reading data out of WP via the API. But a REST API provides more than read capabilities.
+
+The WP REST API also lets you push data back into WordPress.
+
+If anybody wants to tackle wiring up Ghost's authoring UI to work with WP, get in touch. But I'll share a example of a way the API can be used to migrate posts from an external system, into WordPress's DB.
 
 ---
 
@@ -676,10 +711,17 @@ function makeCPTObject( record ) {
 ---
 
 **`require( 'room' ).elephant();`**
-## Node is *Not*
-## Beginner-Friendly
+## Node & NPM
+### can be overwhelming
+<div class="fragment">
+<hr>
+<p>Node itself is a modular and multi-purpose ecosystem.</p>
+<p>Use what you like; learn incrementally</p>
+</div>
 
-??? But those two examples call out an elephant in this room: it's a little hypocritical for me to stand up here and say I care about making learnable interfaces, if I'm releasing this software through (and for) Node. Node is not beginner-friendly. It's not _hard_, but it took me a long time to get comfortable writing server-side software, and the majority of the work we do with the API is going to be on a more traditional, client-side playing field.
+??? Those two examples do call out an elephant you may see in this room: I'm standing up here saying I care about making democratic tools, then I'm releasing this software through (and for) Node. Node's pretty new to most WP developers, and it can be intimidating. It's not _hard_, but it took me a long time to get comfortable writing server-side software, not to mention actual servers.
+
+But we can use Node's tooling for client-side development, and the majority of the work we do with the API is going to be on a more traditional, client-side playing field. Most of us won't be needing to make standalone apps.
 
 It does require using some Node-based tooling, but let's look at how we can use this plugin within a client-side JS script.
 
@@ -712,20 +754,25 @@ page( '/', function ( ctx ) {
 
 ### Picard theme router redux
 ```js
+var wp = require( 'wordpress-rest-api' ).site( '/wp-json' );
+
 page( '/', function ( ctx ) {
   wp.posts().then(function( posts ) {
+
     self.setState({
       component: <Content data={ posts } bodyClass="index" />
     });
+
   });
 });
 ```
 
-??? There's nothing our library does that the picard theme didn't, but depending on how complex your query needs are, it can be a bit easier to manage them this way than by writing your own request handling each time.
+??? Picard uses an NPM-based build system called Browserify, so we can directly drop in our `wordpress-rest-api` library to simplify the theme's router code. There's nothing our library does that the Picard router code didn't, but depending on how complex your query needs are, it can be a bit easier to manage them this way than by writing your own request handling each time.
 
 ---
 
-### Client-Side Use w/ [browserify](http://browserify.org)
+### [Post Length Visualization](https://github.com/kadamwhite/vis-post-length)
+using [D3](http://d3js.org/) and [Browserify](http://browserify.org)
 ```sh
 browserify vis-post-length.js --ignore superagent -o bundle.js
 ```
@@ -739,12 +786,12 @@ var page = ARCHIVE_INFO.page;
 // Use the WP API client plugin _purely_ to generate a URL
 var archiveQuery = site.posts().page( page )._renderURI();
 
-d3.json( archiveQuery, function( result ) {
-  // Visualize "result"
+d3.json( archiveQuery, function( posts ) {
+  // Visualize "posts"
 });
 ```
 
-??? You don't even need to use the AJAX component: D3 is a data visualization framework that has its own AJAX functionality built-in, and it's possible right now to use the api client package to build an application that uses D3, or jQuery, or whatever library you already have for AJAX.
+??? You don't even need to use the AJAX component: D3 is a data visualization framework that has its own AJAX functionality built-in, and it's possible right now to use the API client package to build an application that uses D3, or jQuery, or whatever library you already have for AJAX.
 
 This all depends on Browserify or Webpack right now, but...
 
@@ -755,7 +802,7 @@ This all depends on Browserify or Webpack right now, but...
 
 <hr>
 
-**Client-Side Build**
+**Client-Side Library Bundle**
 
 **Standalone Query-Builder Build**
 
@@ -772,47 +819,47 @@ This all depends on Browserify or Webpack right now, but...
 
 Help us improve&mdash;let us know what doesn't work!
 
-??? I invite you to experiment with the wordpress-rest-api package, and of course with the WP-API beta itself, and to open an issue on either if you encounter things that don't work as you expect. Our documentation needs a lot of love, and bad documentation or unintuitive interfaces should be treated as a bug.
+??? I invite you to experiment with the `wordpress-rest-api` package, and of course with the WP-API beta itself, and to open an issue on either if you encounter things that don't work as you expect. Our documentation needs a lot of love, and bad documentation or unintuitive interfaces should be treated as a bug.
 
 ---
 
 ```js
-// How many posts are there?
-wp.posts().perPage( 1 )
-  .then(function( posts ) {
-    var postCount = posts._paging.total;
+    // Get & present the last group of slides
+    wp.posts().perPage( 1 )
+      .then(function( posts ) {
+        var postCount = posts._paging.total;
 
-    // Get the last page of posts
-    return wp.posts()
-      .perPage( 10 )
-      .page( Math.ceil( postCount / 10 ) )
-  })
-  .then(function( finalSlides ) {
-    present( finalSlides );
-  });
+        return wp.posts()
+          .perPage( 7 )
+          .page( Math.ceil( postCount / 7 ) )
+      })
+      .then( presentSlides );
 ```
+<small>A contrived pagination-handling example to indicate we're close to the end</small>
 
 ??? Home stretch. Where does all this leave us?
+
+It's January, so there's been a lot of "2016 predictions" posts flying around.
+
+To make some of my own, I think we'll see two major categories of WP API-driven applications as we move forward.
 
 ---
 
 ### API Projects can be
 
-## Generic & Broad,
+## Custom & Specific
 
-??? We saw today how we could build a calypso-like admin for a generic WordPress install; this is an example of what I term a broad or generic application, which depends mostly on the built-in API functionality.
-
-Calpyso works with any .com or jetpack-enabled site, with no further customization needed.
+??? As I just described, Bocoup's first foray into the API went a highly customized direction by creating plugins and a client that could only work with one another.
 
 ---
 
 ### or API Projects can be
 
-## Custom & Specific
+## Generic & Broad,
 
-??? and as I just described, Bocoup's first foray into the API went the opposite direction by creating plugins and a client that could only work with one another.
+??? Something like Calypso goes the opposite direction, and served a broad variety of sites by utilizing solely the built-in API functionality.
 
-Generic clients have broad applicability, but fewer capabilities; specific clients have very narrow applicability, and limitless capabilities
+Generic clients have broad applicability, but fewer capabilities; specific clients have very narrow applicability, and limitless capabilities.
 
 ---
 
@@ -826,8 +873,6 @@ built with the WP API will
 
 ??? Custom endpoints mean you can reduce boilerplate code on both the API client and the API server; your responses will be custom tailored to your needs.
 
-But then you're beholden to maintain them, too.
-
 ---
 
 ### A Prediction:
@@ -840,8 +885,6 @@ of WP API-driven projects
 
 ??? However, the actual majority of API projects -- we're not talking Wired, or the NY Times, or Automattic's VIP customers, or a project we might execute at Bocoup, but one of those "generic, broad" projects -- will probably be written against the out-of-the-box API.
 
-This is where my interest lies, because it does the most good for the most people.
-
 ---
 
 ## The People's API?
@@ -851,6 +894,10 @@ This is where my interest lies, because it does the most good for the most peopl
 > WordPress is limited only by your imagination. (And tech chops.)
 
 *<small>From [wordpress.org/about](https://wordpress.org/about/)</small>*
+
+??? Both type of project are super exciting. Customizing the API lets you build very powerful applications, and will allow WordPress content to flow into any system we can imagine. 
+
+But I have even greater interest is in those majority-case projects. This API is going to be many people's first experience having _data_ access to their own content. That is _tremendously_ exciting.
 
 ---
 
@@ -871,9 +918,9 @@ Me: [@kadamwhite](https://twitter.com/kadamwhite)
 
 Us: [bocoup.com](https://bocoup.com)
 
-Demos:
-
 [github.com/kadamwhite/wordpress-rest-api](https://github.com/kadamwhite/wordpress-rest-api)
+
+Demos:
 
 [github.com/kadamwhite/ghostpress](https://github.com/kadamwhite/ghostpress)
 
