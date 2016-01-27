@@ -34,8 +34,16 @@ blockquote * {
 .slide-background {
   -webkit-filter: blur(1px);
   filter: blur(1px);
+  /* !important needed to override `background` shorthand property used inline */
   background-position: center center !important;
   background-size: cover !important;
+}
+@media (max-width: 35em) {
+  .solid-bg .slide-background {
+    /* Total hack for mobile sizing, this is probably not universal */
+    background-size: 160vw !important;
+    background-repeat: no-repeat !important;
+  }
 }
 
 .solid-bg .slide-background,

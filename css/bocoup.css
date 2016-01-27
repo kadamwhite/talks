@@ -36,6 +36,9 @@ body {
   font-size: 2rem;
   font-weight: normal;
   color: #222; }
+@media (max-width: 35em) {
+  .reveal { font-size: 1.5rem; }
+}
 
 ::selection {
   color: #fff;
