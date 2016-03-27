@@ -467,19 +467,11 @@ Kathleen is going to dive into this calculus about when it's appropriate to use 
 
 ??? Who's familiar with the JavaScript CMS "Ghost"?
 
-Ghost happens to have an express-based server, and uses a well-documented theming system inspired by WordPress's, but implemented using the JavaScript templating library "Handlebars." Ghost uses its express server to bridge the gap between a static site generator and a dynamic server-side CMS.
+Ghost happens to have an express-based server, and uses a well-documented theming system inspired by WordPress's,
 
 ---
 
-## [Demo](http://localhost:3456)
-
-![Screenshot of "Casper" default Ghost theme](images/casper-screenshot.png)
-
-??? Let's see how easy it is to "steal" the themeing layer of Ghost, so we can use it to render our WordPress data.
-
----
-
-`loop.hbs`
+"`loop.hbs`"
 ```html
 {{! Previous/next page links - only displayed on page 2+ }}
 <div class="extra-pagination inner">
@@ -508,6 +500,16 @@ Ghost happens to have an express-based server, and uses a well-documented themin
 {{pagination}}
 ```
 <!-- .element class="stretch" -->
+
+??? but implemented using the JavaScript templating library "Handlebars."
+
+---
+
+## [Demo](https://github.kadamwhite.com/ghostpress)
+
+![Screenshot of "Casper" default Ghost theme](images/casper-screenshot.png)
+
+??? Let's see how easy it is to "steal" the themeing layer of Ghost, so we can use it to render our WordPress data.
 
 ---
 
