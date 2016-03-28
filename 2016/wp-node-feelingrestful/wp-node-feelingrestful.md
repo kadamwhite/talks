@@ -13,12 +13,24 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 ??? I work at Bocoup. We are an
 
-- open design & tech consultancy w/ offices in Boston & NYC
+- open design & tech consultancy w/ offices here in Boston & in NYC
 - Our mission is to develop and entrench open technologies in the markets we serve, and to do so in a way that fosters inclusivity, open access, education, and diversity.
 - (We're a JS consultancy)
 - Everything from audits to full implementations; front-end performance to multi-server deployment infrastructure.
 - honor of working on the official JS test suite Test-262
 - education/workshops/conferences
+
+---
+
+![WordPress REST API Project Logo](images/wp-api-logo.jpg)
+
+??? I've been a contributor to the WordPress Rest API project
+
+Has been in dev for a while -- who knows it? who's built with it?
+
+(demo if there are hands with local vm)
+
+Here today to talk about JavaScript, APIs, and the concept of interfaces.
 
 ---
 
@@ -53,6 +65,28 @@ This is our infra: WP initially ran on a managed host, and our AWS infra talked 
 That data fit seamlessly into our existing site templates, and their writers and editor loved the flexibility of the WP Admin UI.
 
 It took a little while to set up, but we spent much less time iterating on this architecture than we did on the rest of our integrations!
+
+---
+
+## ExpressPress
+
+[github.com/kadamwhite/expresspress](https://github.com/kadamwhite/expresspress)
+
+Sample Express server w/ WP Backend
+
+??? To illustrate the fundamentals of our approach, I created a standalone repository called ExpressPress. ExpressPress runs on the v1 of the API, and I shared it as a demo at WordCamp San Francisco 2014.
+
+---
+
+[![Screenshot of my talk on the WCSF site](images/wcsf-talk.png)](http://wordpress.tv/2014/11/03/k-adam-white-wordpress-in-weird-places-content-management-for-node-using-rest/)
+
+*"Weird" is relative*
+
+<small><abbr title="WordCamp San Francisco">WCSF</abbr> 2014</small>
+
+??? I shared the results at WCSF 2014 under the title "WordPress in Weird Places;" what constitutes "weird" has changed a bit over the intervening years!
+
+While the node + wp combo is perhaps _uncommon_, as we've seen today it's definitely not unheard of.
 
 ---
 
@@ -144,28 +178,6 @@ But the API lets you use WordPress in an _additive_ way.
 
 ---
 
-## ExpressPress
-
-[github.com/kadamwhite/expresspress](https://github.com/kadamwhite/expresspress)
-
-Sample Express server w/ WP Backend
-
-??? To illustrate the fundamentals of our approach, I created a standalone repository called ExpressPress. ExpressPress runs on the v1 of the API, and I shared it as a demo at WordCamp San Francisco 2014.
-
----
-
-[![Screenshot of my talk on the WCSF site](images/wcsf-talk.png)](http://wordpress.tv/2014/11/03/k-adam-white-wordpress-in-weird-places-content-management-for-node-using-rest/)
-
-*"Weird" is relative*
-
-<small><abbr title="WordCamp San Francisco">WCSF</abbr> 2014</small>
-
-??? I shared the results at WCSF 2014 under the title "WordPress in Weird Places;" what constitutes "weird" has changed a bit over the intervening years!
-
-While the node + wp combo is perhaps _uncommon_, as we've seen today it's definitely not unheard of.
-
----
-
 > **What if** the dashboard was built on top of the WP REST API?
 
 ??? The API as a whole may not yet be a part of core, but our community's coming around to "API thinking". At WCSF I asked a lot of "what if?" questions...
@@ -194,7 +206,7 @@ WP-Admin is great, but it's a bit long in the tooth and disruption will help us 
 
 We used to talk about WP as a "platform", something to build on top of: it has become a component, something to build _with_.
 
-I was asked here today to provide a case study, but I've already shared our takeaways from 2014. I'd like to take this time instead to look forward, to investigate the place of the API and its interfaces in this new component mentality.
+In January I gave this talk at the Day of REST, where I'd been invited to present a case study. I'd given that talk in 2014; instead, I'd like to take this time instead to look forward, to investigate the place of the API and its interfaces in this new component mentality.
 
 ---
 &nbsp;
@@ -229,7 +241,7 @@ But the book is only the top level of interface that's at play.
 
 *<small>Paraphrased from [James Nicoll](https://en.wikipedia.org/wiki/James_Nicoll#.22The_Purity_of_the_English_Language.22)</small>*
 
-??? Even "simple" books presuppose a familiarity with the language in which they are written. And some languages are easier than others. English is notoriously irregular; I say this as an American standing in the middle of London. Our two countries have, each in our own way, inflicted a fascinating but undeniably flawed language on far more of the world's population than really ought to have had to deal with it in the first place.
+??? Even "simple" books presuppose a familiarity with the language in which they are written. And some languages are easier than others. English is notoriously irregular a fascinating but undeniably flawed language that has been inflicted on far more of the world's population than really ought to have had to deal with it in the first place.
 
 ---
 
@@ -712,7 +724,7 @@ function makeCPTObject( record ) {
 
 ---
 
-**`require( 'room' ).elephant();`**
+**`require( 'room' ).elephant;`**
 ## Node & NPM
 ### can be overwhelming
 
@@ -737,8 +749,8 @@ var request = require( 'superagent' );
 
 page( '/', function ( ctx ) {
   var data,
-    slug = ctx.params.slug,
-    url = '/wp-json/wp/v2/posts';
+      slug = ctx.params.slug,
+      url = '/wp-json/wp/v2/posts';
 
   request
     .get( url )
@@ -848,7 +860,7 @@ To make some of my own, I think we'll see two major categories of WP API-driven 
 
 ### API Projects can be
 
-## Custom & Specific
+## Custom & Specific,
 
 ??? As I just described, Bocoup's first foray into the API went a highly customized direction by creating plugins and a client that could only work with one another.
 
@@ -856,7 +868,7 @@ To make some of my own, I think we'll see two major categories of WP API-driven 
 
 ### or API Projects can be
 
-## Generic & Broad,
+## Generic & Broad
 
 ??? Something like Calypso goes the opposite direction, and served a broad variety of sites by utilizing solely the built-in API functionality.
 
@@ -915,17 +927,17 @@ If we all have access to tools that allow us to work with the API on a level we'
 
 <hr>
 
-Slides: [talks.kadamwhite.com/wp-node-feelingrestful](http://talks.kadamwhite.com/wp-node-feelingrestful)
+Slides: [**talks.kadamwhite.com/wp-node-feelingrestful**](http://talks.kadamwhite.com/wp-node-feelingrestful)
 
 Me: [@kadamwhite](https://twitter.com/kadamwhite)
 
 Us: [bocoup.com](https://bocoup.com)
 
-[github.com/kadamwhite/wordpress-rest-api](https://github.com/kadamwhite/wordpress-rest-api)
+[github.com/kadamwhite/**wordpress-rest-api**](https://github.com/kadamwhite/wordpress-rest-api)
 
 Demos:
 
-[github.com/kadamwhite/ghostpress](https://github.com/kadamwhite/ghostpress)
+[github.com/kadamwhite/**ghostpress**](https://github.com/kadamwhite/ghostpress)
 
-[github.com/kadamwhite/vis-post-length](https://github.com/kadamwhite/vis-post-length)
+[github.com/kadamwhite/**vis-post-length**](https://github.com/kadamwhite/vis-post-length)
 
