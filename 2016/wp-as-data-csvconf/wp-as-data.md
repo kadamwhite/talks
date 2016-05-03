@@ -11,6 +11,10 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 
 Excited for the rest of this event b/c we do design/datavis, but here today to share some of the work that's been going on recently to make it easier to work with WordPress data.
 
+--
+
+[![Bocoup logo](../../common/images/bocoup-vertical-676.png)](https://www.bocoup.com)
+
 ---
 
 ![WordPress Logo](./images/wp-logo-large.png)
@@ -230,6 +234,23 @@ The reason this is exciting is that this plugin is being built with the intent o
 ---
 <!-- .slide: class="center" -->
 
+## Extending the API
+
+[Add Custom Routes](http://v2.wp-api.org/extending/adding/) to expose new resources
+
+(or new views of existing information),
+
+or [define custom content types](http://v2.wp-api.org/extending/custom-content-types/) that can be accessed via the API.
+
+??? And those resources don't have to be limited to the default WordPress types.
+
+WordPress is still a PHP application, of course, so there's a little bit of legwork to do to create endpoints for your own custom resources -- but it's mostly boilerplate. I've linked to it here rather than going through it in depth.
+
+---
+<!-- .slide: class="center" -->
+
+## Querying the API
+
 Code using the [`wordpress-rest-api` package](https://www.npmjs.com/package/wordpress-rest-api) on NPM:
 ```
 var WP = require('wordpress-rest-api');
@@ -242,9 +263,9 @@ site.posts().get().then(function(posts) {
 });
 ```
 
-??? I'll switch over to client code because it's easier to show than arbitrary URLs.
+??? So how do we use it -- I'll switch over to client code because it's easier to show than long URLs.
 
-In the course of our consulting work I wrote a Node client for this API which works on the server or in browser; PHP, Go, Ruby, Angular.js and Backbone.js client libraries also exist
+In the course of our consulting work I wrote a Node client for this API which works on the server or in-browser; PHP, Go, Ruby, Angular.js and Backbone.js client libraries also exist
 
 ---
 <!-- .slide: class="center" -->
@@ -296,21 +317,6 @@ wp.posts().auth( credentials ).id( id ).delete();
 ---
 <!-- .slide: class="center" -->
 
-## Extending the API
-
-[Add Custom Routes](http://v2.wp-api.org/extending/adding/) to expose new resources
-
-(or new views of existing information),
-
-or [define custom content types](http://v2.wp-api.org/extending/custom-content-types/) that can be accessed via the API.
-
-??? And those resources don't have to be limited to the default WordPress types.
-
-WordPress is still a PHP application, of course, so there's a little bit of legwork to do to create endpoints for your own custom resources -- but it's mostly boilerplate. I've linked to it here rather than going through it in depth.
-
----
-<!-- .slide: class="center" -->
-
 ## Who Benefits?
 
 ??? So, who's this actually _for?_ I show you bespoke uses of WordPress as a data archive that are only possible for experienced developers, then share an API that clearly isn't user-facing either.
@@ -347,6 +353,56 @@ The .com team have also asserted that if and when this plugin rolls into core, t
 ??? Bulk Data Load also gets a lot easier: we've used the WP API as a way to bulk load data into WP. On a recent project it let us take a bucket of CSV files and get all that data into our system in an afternoon; content import used to be a fairly fraught process!
 
 That data was visualized on dashboards running on that site: win for their team, same system. Could do the same with Analytics, text vis.
+
+---
+
+## `wp2csv.js`
+```js
+var WP = require('wordpress-rest-api');
+var fs = require('fs');
+
+var site = WP.site('http://website.loc/wp-json');
+var json2csv = require('json2csv');
+
+function flatten(nestedArr) {
+  return nestedArr.reduce((flatArr, arr) => flatArr.concat(arr), []);
+}
+function pick(obj, props) {
+  return props.reduce((newObj, prop) => (newObj[prop] = obj[prop], newObj), {});
+}
+function all( wpReq ) {
+  return wpReq.then(function( response ) {
+    if ( ! response._paging || ! response._paging.next ) {
+      return response;
+    }
+    return Promise.all([
+      response,
+      all( response._paging.next )
+    ]).then(function( responses ) {
+      return flatten( responses );
+    });
+  });
+}
+all(site.posts()).then(function(allPosts) {
+  var data = allPosts.map(post => Object.assign({
+    title: post.title.rendered,
+    content: post.content.rendered
+  }, pick(post, [ 'id', 'type', 'slug', 'author', 'categories', 'tags' ])));
+  json2csv({ data: data }, function(err, csv) {
+    if (err) console.log(err);
+    fs.writeFile('posts.csv', csv, function(err) {
+      if (err) return console.error(err);
+      console.log('wrote posts to posts.csv');
+    });
+  });
+});
+
+```
+<!-- .element: class="stretch full-width" -->
+
+??? And of course we can take the entirety of WP data _out_ and do things with it externally, as well. This script will export every post from a WP site into a CSV by walking through the pagination of the posts endpoint.
+
+So, WP to _and_ from CSV! I've fulfilled my file-format-namedrop obligation.
 
 ---
 
