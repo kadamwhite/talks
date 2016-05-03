@@ -47,15 +47,12 @@ My friend Beau Lebens from Automattic, the parent company of WordPress.com, uses
 
 ---
 
-## Change This Slide
+<h2>WordPress &amp;<br>&ldquo;Developer Ergonomics&rdquo;</h2>
 
-> WordPress's code is badly designed and written in a language that I no longer believe serves the best interests of the Internet in general
+1. Write PHP
+2. &hellip;Profit?
 
-> PHP is&hellip; a collection of hacks more than a language
-
-<small>~ [grumpy ycombinator comments](https://news.ycombinator.com/item?id=9548674)</small>
-
-??? WP's success means it must be doing something right&mdash;but of course WP does not have a reputation for excellent developer ergonomics.
+??? WP's success means it must be doing something right&mdash;but of course WP does not have a reputation for excellent developer experience.
 
 It still takes a lot of effort to get data into or out of WP, which has fueled a lot of recent work around improving WP's built-in APIs
 
@@ -80,9 +77,7 @@ I've heard that about 40% of the code in the mobile app goes JUST to encoding/de
   [developer.wordpress.com/docs/api](https://developer.wordpress.com/docs/api/)
 </div>
 
-??? WordPress.com started providing a REST API a few years back, and you can use it with an independent WP site by installing the Jetpack plugin; but this depends on leveraging Automattic's wordpress.com infrastructure, and isn't "built in"
-
-(WP.com and WP the software are related by separate)
+??? WordPress.com (WP.com and WP the software are related but separate) started providing a REST API a few years back, and you can use it with an independent WP site by installing the Jetpack plugin; but this depends on leveraging Automattic's wordpress.com infrastructure, and isn't "built in"
 
 ---
 <!-- .slide: class="center" -->
@@ -90,23 +85,33 @@ I've heard that about 40% of the code in the mobile app goes JUST to encoding/de
 ![WordPress REST API Project Logo](./images/wp-api-logo.jpg)
 [v2.wp-api.org](http://v2.wp-api.org/)
 
-??? So most recently, I've been involved with a project to build a canonical, modern, JSON-based HTTP REST API to WordPress, a project started by an Australian developer named Ryan McCue in 2013 through Google Summer of Code.
+??? So I've been excitedly involved in this project; back in 2013 an Australian developer named Ryan McCue started a new API plugin through Google Summer of Code, which has since become the primary attempt to build a canonical, modern, JSON-based HTTP REST API for WordPress.
 
 ---
 
-## &hellip;So?
+# &hellip;So?
 
-Why yet another API?
+### Why
+## _yet another_
+### API?
 
 ??? The reason this is exciting is that this plugin is being built with the intent of merging this API into WordPress core, which would give WP users unprecedented access to their content
 
 ---
 
-`yoursite.com/wp-json/wp/v2`
+`yoursite.com/wp-json`
 ```
 {
-  "namespace": "wp/v2",
+  "name": "Your Site Title",
+  "description": "Your Site Description",
+  "url": "http://yoursite.com",
+  "namespaces": [
+    "wp/v2",
+    "oembed/1.0"
+  ],
+  "authentication": [],
   "routes": {
+    "/": {},
     "/wp/v2": {},
     "/wp/v2/posts": {},
     "/wp/v2/posts/(?P<id>[\\d]+)": {},
@@ -132,14 +137,17 @@ Why yet another API?
     "/wp/v2/users/(?P<id>[\\d]+)": {},
     "/wp/v2/users/me": {},
     "/wp/v2/comments": {},
-    "/wp/v2/comments/(?P<id>[\\d]+)": {}
+    "/wp/v2/comments/(?P<id>[\\d]+)": {},
+    "/oembed/1.0": {},
+    "/oembed/1.0/embed": {}
   },
   "_links": {}
 }
+
 ```
 <!-- .element: class="stretch" -->
 
-??? This is the endpoint list you get when you hit the root endpoint for the plugin's built-in resources, which represent the core WordPress types and taxonomies.
+??? It provides endpoints for most of WordPress's built-in resource types and taxonomies; this is the schema you get if you hit the root "wp-json" endpoint
 
 ---
 <!-- .slide: data-background="url('./images/blog-post.jpg')" class="center" -->
@@ -213,6 +221,8 @@ Why yet another API?
 ```
 <!-- .element class="stretch" -->
 
+??? Any resource that's publicly viewable on your site may also then be accessed as JSON through the API, including media, custom post types, you name it.
+
 ---
 <!-- .slide: class="center" -->
 
@@ -228,7 +238,9 @@ site.posts().get().then(function(posts) {
 });
 ```
 
-??? In the course of our consulting work I wrote a Node client for this API which works on the server or in browser; PHP, Go, Ruby, Angular.js and Backbone.js client libraries also exist
+??? I'll switch over to client code because it's easier to show than arbitrary URLs.
+
+In the course of our consulting work I wrote a Node client for this API which works on the server or in browser; PHP, Go, Ruby, Angular.js and Backbone.js client libraries also exist
 
 ---
 <!-- .slide: class="center" -->
@@ -251,7 +263,7 @@ var query = site.posts()
 
 ??? If you don't know the ID of the post you want, you can query for it -- most of these clients provide an interface to simplify the process of building out the query and filter parameters
 
-Our JS client uses a chaining syntax.
+My own JS client uses a chaining syntax.
 
 ---
 
@@ -297,9 +309,18 @@ WordPress is still a PHP application, of course, so there's a little bit of legw
 
 ## Who Benefits?
 
-??? I show you bespoke uses of WordPress as a data archive that are only possible for experienced developers, then share an API, the very name of which indicates this isn't a tool for the end user either.
+??? So, who's this actually _for?_ I show you bespoke uses of WordPress as a data archive that are only possible for experienced developers, then share an API that clearly isn't user-facing either.
 
-But users can and will benefit from what developers do with this API.
+The goal here is to provide a suite of tools for developers to build amazing user-facing tools on top of or alongside WordPress.
+
+---
+<!-- .slide: data-background="url('../wp-node-feelingrestful/images/2014-project-wp-data-flow.svg')" data-state="solid-bg" -->
+
+??? Bocoup is not a WP Agency; our first API-related project bolted WordPress on to a Node application as an editing UI.
+
+Our clients' editorial team got the best of its battle-hardened interface, while we flowed their copy and images into the modern Node and SPA applications we were creating. No PHP templating!
+
+Their writers and editor loved the flexibility of the WP Admin, and we spent much less time iterating on this architecture than we did on the rest of our integrations!
 
 ---
 <!-- .slide: data-background="url('../wp-node-feelingrestful/images/calypso-site-screenshot.png')" class="center" -->
@@ -310,18 +331,9 @@ But users can and will benefit from what developers do with this API.
 
 </div>
 
-??? Last year Automattic launched the new WordPress.com admin UI, "Calypso," one example of the new interfaces that can be built once a standard API is in place.
+??? Another example would be entirely new UIs, like the Calypso UI that Automattic launched recently for WP.com. With a standard API in place we could see an explosion of add-ons that provide tailored interfaces for different purposes; a reporter in a newsroom has different priorities than a poet, they could each have their own UI (not just skin).
 
-The .com team have asserted that if and when this plugin rolls into core, the WordPress.com API will be merged, reducing fragmentation across the ecosystem.
-
----
-<!-- .slide: data-background="url('../wp-node-feelingrestful/images/2014-project-wp-data-flow.svg')" data-state="solid-bg" -->
-
-??? At Bocoup I've used WordPress as the editing interface UI for non-PHP applications
-
-Our clients' editorial team got the best of its battle-hardened editorial UI, while we flowed their copy and images into Node and Ember applications.
-
-Their writers and editor loved the flexibility of the WP Admin, and we spent much less time iterating on this architecture than we did on the rest of our integrations!
+The .com team have also asserted that if and when this plugin rolls into core, the WordPress.com API will be merged, reducing fragmentation across the ecosystem.
 
 ---
 <!-- .slide: data-background="url('./images/csv-data-load.svg')" data-state="solid-bg" -->
@@ -342,9 +354,57 @@ Generated from [Bocoup blog copy](https://bocoup.com/weblog) using [torch-rnn](h
   <p>There is an incredibly exciting command.</p>
 </blockquote>
 
-??? I am super new to this specifically but machine learning was a theme of our OpenVis Conf event last week, so over the weekend I experimented with spidering our own company blog through the API and using that data to train a recurrent neural network:
+??? Extrapolating further, machine learning was a theme of our OpenVis Conf event last week, so over the weekend I experimented with spidering our own company blog through the API and using that data to train a recurrent neural network:
 
-I could imagine a world in which our sites are capable of manufacturing vacuous filler content entirely on their own, maintaining our own voice in the process; or at least a world in which our sites can make up headlines for us as writing prompts!
+I could imagine a world in which our sites are capable of manufacturing vacuous filler content entirely on their own, maintaining our own voice in the process
+
+---
+
+## Machine Learning&hellip;?
+
+Actual WIRED Headlines:
+
+**VW's Ousted CEO Is Probably Getting a $32 Million Pension**
+
+**The Bizarre, Bony-Looking Future of Algorithmic Design**
+
+**How a Pixar Vet Is Shaping the Future of VR Storytelling**
+
+**The Science in The Martian Isn't Perfect, But That's OK**
+
+**WIRED Binge-Watching Guide: Agents of S.H.I.E.L.D.**
+
+**Facebook Debuts 360 Video With Immersive Star Wars Clip**
+
+**The Muppets GIF and a Graf: Animal Tops the Power Rankings**
+
+??? or at least our sites can make up headlines for us as writing prompts, or for us to ensure we're maintaining our voice. The way this neural network works is that you train it on a set of text; WIRED uses the wp api on their site, so I collected two years of WIRED headlines like this, as output by the API&hellip;
+
+---
+
+## Machine Learning&hellip;?
+
+Generated WIRED Headlines:
+
+**Facebook Camera Tech: Use to Bring Watch**
+
+**Clean Apple Cars Vaunting Bees**
+
+**This Giant Surfic Battery Could Steal War, Break Instagram**
+
+**How the Web?**
+
+**Star Wars Already Has Every Sand**
+
+**Turning Great Will Drive Action Video**
+
+**The Aircar of Netflix May Americanner With $19K**
+
+**The Play of Thrones: Army Hackers**
+
+??? and used those headlines to trained another RNN that can generate future headlines. Though it didn't fully learn English, and I don't know what a surfic battery is, I suspect WIRED would report on it. (Star Wars, FB)
+
+There's a lot of data latent in a corpus like these headlines, one of my first experiments just generated a neural net that was a huge star wars fan because of the bulk of articles about that movie from the past few months. Getting our "content" in a machine readable format opens all this up.
 
 ---
 <!-- .slide: data-background="url('../wp-node-feelingrestful/images/2014-project-architecture.svg')" data-state="semi-solid-bg" -->
@@ -352,9 +412,9 @@ I could imagine a world in which our sites are capable of manufacturing vacuous 
 ### WP as _Component_
 <!-- .element: class="whitebg" -->
 
-??? With a robust, modern API WP doesn't need to be a monolithic platform, it doesn't need to be the core of our project -- it can be a component, something we use for its strengths when we need to.
+??? All of this is another way of saying, with a robust, modern API WP doesn't need to be a monolithic platform, it doesn't need to be the core of our project -- it can be a component, something we use for its strengths when we need to.
 
-It can supplement or replace other data stores, or it can be an intermediary that passes its data off to another system.
+From a data standpoint, it can supplement or replace other data stores, or it can be an intermediary or generator that passes its data off to another system.
 
 ---
 
@@ -373,11 +433,11 @@ We can detect if a given site is providing this API, but we cannot necessarily s
 - [v2.0 Plugin to be Released Soon](https://make.wordpress.org/core/2016/04/04/wp-rest-api-2-0-beta-13-roadmap/)
 - Plugin will be proposed for core merge in late 2016
 
-??? The API team is talking through these questions and releasing beta versions of the API v2 plugin, which should get a stable release soon.
+??? The API team is talking through these questions and releasing beta versions of the API plugin, which should get a stable v2 release soon.
 
 Our current plan is to propose that this plugin be merged into core in late 2016.
 
-Some argument from Automattic, who are focused on the "new UI" use-case, that it won't merge until full feature parity: I hope it'll go in sooner b/c you can do a LOT with it today.
+There's a little debate around this, around whether the API needs to support the full breadth of WP's functionality before we merge it in; but I hope it will go in sooner because the possibilities for content consumption and manipulation are much more interesting to me than building a new monolithic interface for the whole of WP.
 
 ---
 
@@ -387,16 +447,7 @@ What do you need for this to be useful to _you?_
 
 Kick tires, file bugs.
 
-??? So for us to get this thing off the ground, we need testers and implementers more than anything. Every new site I've used the API on has turned up bugs in the API itself or in my client library; we need more people kicking these tires before we're comfortable unleashing it on a quarter of the internet!
-
----
-
-# Types
-## of API Project
-
-*(home stretch)*
-
-??? The API suits itself to two very different type of project, and we need more examples of both.
+??? So for us to get this thing off the ground, we need testers and implementers more than anything. Every new site I've used the API on is another opportunity to hone it, or to fix bugs in my client library; we need more people kicking these tires before we're comfortable unleashing it on a quarter of the internet!
 
 ---
 
@@ -404,7 +455,7 @@ Kick tires, file bugs.
 
 ## Custom & Specific,
 
-??? The first type is the bespoke system, like the work we do at Bocoup that is highly tailored for an individual client.
+??? The projects we build with this API may be custom and specific, like the work we do at Bocoup, or like WIRED or other large media sites, where the implementation is highly tailored to the individual client's needs and depends on custom endpoints.
 
 ---
 
@@ -412,9 +463,9 @@ Kick tires, file bugs.
 
 ## Generic & Broad
 
-??? Something like Calypso goes the opposite direction, and served a broad variety of sites by utilizing solely the built-in API functionality.
+??? But something like Calypso, something like a headline generator, goes the opposite direction, and can serve a broad variety of sites by utilizing solely the built-in API functionality.
 
-Generic clients have broad applicability, but fewer capabilities; specific clients have very narrow applicability, and limitless capabilities.
+Specific clients have very narrow applicability, and limitless capabilities; while generic clients have fewer capabilities, they can reach more users.
 
 ---
 
@@ -424,7 +475,16 @@ Generic clients have broad applicability, but fewer capabilities; specific clien
 
 ??? Projects written against this out-of-the-box API are where we have the most opportunity to impact how WordPress users see their content and understand the data they are generating.
 
-There was a lot of FUD about RSS when it was first released: people have access to my content without my permission! Ah! We may go through the same phase with this API, but I turn to the csv,conf community for help understanding how we can communicate the benefits to our users without making them blind to the continued need for them to be diligent about licensing and protecting their content accordingly.
+So I turn to you with a question: how can we educate users about the potential they have here? Can we?
+
+---
+
+### Personal Publishing,
+## Personal API
+
+??? The answer may be, we can't. But WP is a system first and foremost for personal publishing, and I'm excited about the notion of it becoming a personal API as well.
+
+We may encounter FUD; there were concerns when RSS was first released: people have access to my content without my permission! Ah! We don't expose anything through the API that isn't already public, that's a tenant of this project. But again I turn to the csv,conf community for help understanding how we can educate WordPress authors about content licensing, about their rights as creators, so that those rights will be protected and respected by the tools we can build for them.
 
 ---
 
@@ -440,7 +500,8 @@ Us: [bocoup.com](https://bocoup.com)
 
 <hr>
 
-API Project Home: [github.com/WP-API/WP-API](https://github.com/WP-API/WP-API)
+API Project Home: [github.com/WP-API/**WP-API**](https://github.com/WP-API/WP-API)
 
 [npmjs.com/package/**wordpress-rest-api**](https://npmjs.com/package/wordpress-rest-api)
 
+??? And with that, I thank you for your time.
