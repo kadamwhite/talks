@@ -41,9 +41,11 @@ That makes WP one of the most widespread storage mechanisms for data in the worl
 
 <small>[dentedreality.com.au](http://dentedreality.com.au/)</small>
 
-??? Because WP is permissively licensed, frequently deployed upon a user's own server, and not prescriptive of what type of data it is used to store, WordPress has come to be used as an arbitrary personal data store
+??? Because WP is not prescriptive of what type of data it is used to store, WordPress has come to be used as an arbitrary personal data store.
 
 My friend Beau Lebens from Automattic, the parent company of WordPress.com, uses it to back up anything he publishes to other platforms and social networks; this is not a common use-case necessarily but it is not unique
+
+(WP is permissively licensed, frequently deployed upon a user's own server)
 
 ---
 
@@ -95,7 +97,9 @@ I've heard that about 40% of the code in the mobile app goes JUST to encoding/de
 ## _yet another_
 ### API?
 
-??? The reason this is exciting is that this plugin is being built with the intent of merging this API into WordPress core, which would give WP users unprecedented access to their content
+??? This project has become a hot topic in the WP community, and we're seeing a lot of excitement about it, but what's different?
+
+The reason this is exciting is that this plugin is being built with the intent of merging this API into WordPress core, which would give WP users unprecedented access to their content
 
 ---
 
@@ -451,11 +455,13 @@ Kick tires, file bugs.
 
 ---
 
+Back to Data&hellip;
+
 ### API Projects can be
 
 ## Custom & Specific,
 
-??? The projects we build with this API may be custom and specific, like the work we do at Bocoup, or like WIRED or other large media sites, where the implementation is highly tailored to the individual client's needs and depends on custom endpoints.
+??? Returning to the concept of WordPress data specifically, the highest-profile WP API projects are liable to be the ones where we're building out custom endpoints, custom data types, custom interfaces; this would be the sort of work we do at Bocoup, or that a WordPress agency like 10up might build for one of their partners. The data here is domain-specific, very powerful and relevant, but these implementations are only relevant within that organization.
 
 ---
 
@@ -469,13 +475,12 @@ Specific clients have very narrow applicability, and limitless capabilities; whi
 
 ---
 
-### Broad Applications
-
-(may) benefit users the most.
+### Broad Applications,
+## Broad User Base
 
 ??? Projects written against this out-of-the-box API are where we have the most opportunity to impact how WordPress users see their content and understand the data they are generating.
 
-So I turn to you with a question: how can we educate users about the potential they have here? Can we?
+So I turn to you with a final question: how can we educate users about the potential they have here? Can we?
 
 ---
 
@@ -484,7 +489,13 @@ So I turn to you with a question: how can we educate users about the potential t
 
 ??? The answer may be, we can't. But WP is a system first and foremost for personal publishing, and I'm excited about the notion of it becoming a personal API as well.
 
-We may encounter FUD; there were concerns when RSS was first released: people have access to my content without my permission! Ah! We don't expose anything through the API that isn't already public, that's a tenant of this project. But again I turn to the csv,conf community for help understanding how we can educate WordPress authors about content licensing, about their rights as creators, so that those rights will be protected and respected by the tools we can build for them.
+---
+
+## Data Security?
+
+??? We may encounter FUD; there were concerns when RSS was first released: people have access to my content without my permission! Ah! We don't expose anything through the API that isn't already public, that's a tenant of this project.
+
+But again I turn to the csv,conf community for help understanding how we can educate WordPress authors about content licensing, about their rights as creators, so that those rights will be protected and respected by the tools we will build for them.
 
 ---
 
@@ -503,5 +514,7 @@ Us: [bocoup.com](https://bocoup.com)
 API Project Home: [github.com/WP-API/**WP-API**](https://github.com/WP-API/WP-API)
 
 [npmjs.com/package/**wordpress-rest-api**](https://npmjs.com/package/wordpress-rest-api)
+
+[A Day of REST Boston](https://adayofrest.hm/boston-2016), 28 Oct 2016
 
 ??? And with that, I thank you for your time.
