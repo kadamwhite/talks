@@ -231,19 +231,13 @@ Kadenze course: [Machine Learning for Artists & Musicians](https://www.kadenze.c
 
 ---
 
-## ~ Digression ~
-
-??? To explain my favorite kind of artistic use of Neural Network, a brief digression: I am a long-time rock music fan, and I remember very specifically the day I learned about Led Zeppelin. My friend had some over to share this transcendent experience he'd had listening to his parents' Led Zeppelin records, and I was completely unimpressed.
-
----
-
 ![Jimi Hendrix](./images/jimi_hendrix_1967_uncropped.jpg)
 
 ## Feedback
 
-??? I was unimpressed because he'd made the mistake of playing another record first, a record by Jimi Hendrix. And after hearing Hendrix for the first time, even Zeppelin was going to have a hard time. Here was a musician who had leashed and tamed guitar feedback, then let it loose again, in a way unlike anything I'd ever heard.
+??? I vividly remember hearing a Jimi Hendrix recording for the first time, because it's one of only a very few moments in my life I've discovered music with a sound beyond anything I'd ever heard before. Here was a musician who had leashed and tamed guitar feedback, then let it loose again, fully under his control.
 
-Ever since, I've loved systems built on top of feedback. Feedback can be horrible but if you tune it and leverage it properly it pushes the limits of our imaginations.
+I love feedback, and I love systems built on top of feedback. Feedback can be horrible but if you tune it and leverage it properly it pushes the limits of our imaginations.
 
 ---
 
