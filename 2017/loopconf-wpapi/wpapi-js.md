@@ -679,9 +679,9 @@ Us: [bocoup.com](https://bocoup.com)
 
 <hr>
 
-[npmjs.com/package/**wpapi**](https://npmjs.com/package/wpapi)
-
 [A Day of REST Boston](https://adayofrest.hm/boston-2017), March 8 &ndash; 10
+
+[npmjs.com/package/**wpapi**](https://npmjs.com/package/wpapi)
 
 ??? And with that, I thank you for your time.
 

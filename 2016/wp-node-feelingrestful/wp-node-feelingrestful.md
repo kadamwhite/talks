@@ -410,14 +410,14 @@ This is how the API plugin plays inside an Express route. If you're unfamiliar w
 
 **`single.tmpl`**
 ```html
-{%extend layouts/main as content%}
+{​%extend layouts/main as content%}
 <div class="container single post">
-  {%partial partials/global-header . %}
+  {​%partial partials/global-header . %}
 
-  {%if post.featured_image|get-image 'large' 'url'%}
+  {​%if post.featured_image|get-image 'large' 'url'%}
   <div class="row">
     <div class="col-md-12">
-      {%partial partials/page-banner post.featured_image|get-image %}
+      {​%partial partials/page-banner post.featured_image|get-image %}
     </div>
   </div>
   {%endif%}
@@ -431,16 +431,16 @@ This is how the API plugin plays inside an Express route. If you're unfamiliar w
       <div class="content">
         {{{post.content}}}
       </div>
-    </div>{%-- .col-md-8 --%}
+    </div>{​%-- .col-md-8 --%}
     <div id="sidebar" class="col-md-4 col-md-pull-8">
-      {%partial partials/sidebar sidebar %}
-    </div>{%-- .col-md-4 --%}
-  </div>{%-- .row --%}
+      {​%partial partials/sidebar sidebar %}
+    </div>{​%-- .col-md-4 --%}
+  </div>{​%-- .row --%}
 </div>
 
-{%partial partials/footer%}
+{​%partial partials/footer%}
 
-{%endextend%}
+{​%endextend%}
 ```
 <!-- .element class="stretch" -->
 
