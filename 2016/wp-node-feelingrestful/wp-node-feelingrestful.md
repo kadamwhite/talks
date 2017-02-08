@@ -420,7 +420,7 @@ This is how the API plugin plays inside an Express route. If you're unfamiliar w
       {​%partial partials/page-banner post.featured_image|get-image %}
     </div>
   </div>
-  {%endif%}
+  {​%endif%}
 
   <div class="row">
     <div class="col-md-8 col-md-push-4">
