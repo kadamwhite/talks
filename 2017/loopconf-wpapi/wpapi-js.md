@@ -140,7 +140,9 @@ While I appreciate what Ryan said yesterday about dev UX, we can's compromise ou
 
 We are starting by migrating existing functionality in places where the current behavior is inconsistent, such as bulk actions.
 
-This will provide direct improvements to our users, and also provide reference implementations for plugin developers and future core enhancements.
+This will provide direct improvements to our users, and reference implementations for plugin developers and future core enhancements.
+
+It will also highlight what the API can't do, right now; and we'll be expanding support for menus, improving date handling, adding batching, etc
 
 ---
 
