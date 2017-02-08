@@ -1,4 +1,4 @@
-<!-- .slide: class="lurking-bob" -->
+<br>
 
 ## Build Your Dreams
 ### with the
@@ -94,21 +94,84 @@ We answered, "for everybody!"
 
 # &ldquo;Everyone!&rdquo;
 
----
-<!-- .slide: class="center" -->
-
-### our API Projects were
-
-## Custom & Specific
-
-??? The highest-profile WP API projects had been the ones where we built out custom endpoints, custom data types, custom interfaces; this would be the sort of work we do at Bocoup, HumanMade, 10up, etc. These are exciting projects, but these implementations were domain-specific, only relevant within that organization.
+??? And of course, it wasn't, really -- The highest-profile WP API projects had been the ones where we built out custom endpoints, custom data types, custom interfaces; this would be the sort of work we do at Bocoup, HumanMade, The Alley, 10up, etc. These are exciting projects, but the implementations are domain-specific, only relevant within the client's organization.
 
 ---
 <!-- .slide: class="center" -->
 
 # <large>80 / 20</large>
 
-??? We hadn't demonstrated that anybody beyond those who already used it would benefit from having this in core.
+<br>
+
+## WordPress 4.7:
+### *&ldquo;Now With 2% More code!!&rdquo;*
+
+??? We hadn't demonstrated what benefit this would have that would justify putting it onto a quarter of the web. How do you write release notes for an API?
+
+Software : APIs :: Sculpture : Stuff
+
+"now with 2% more code!"
+
+While I appreciate what Ryan said yesterday about dev UX, we can's compromise our philosophy, and WP is a product that exists for the people that use it.
+
+(upgrade now)
+
+---
+
+## Conditional Merge
+
+**_And [Success Metrics](https://make.wordpress.org/core/2016/10/19/wordpress-rest-api-success-metrics/)_**
+
+- Metric #1: Plugin utilization
+- Metric #2: Distributed theme utilization
+- Metric #3: Custom development implementations
+- Metric #4: Core development and feature projects
+
+??? In the end we did get the go-ahead to merge the API into core, but it was conditional. We've got to broaden our usage and demonstrate the power of the REST API at scale.
+
+---
+
+### The REST API is for
+# WordPress Core
+
+<small>[Focus Leads for 4.8](https://make.wordpress.org/core/2017/01/04/focus-tech-and-design-leads/)</small>
+
+??? And so, if you saw the State of the Word, the API is a focus area for 4.8 to improve usage of the API inside WP-Admin, eventually replacing Admin Ajax in most or all places.
+
+We are starting by migrating existing functionality in places where the current behavior is inconsistent, such as bulk actions.
+
+This will provide direct improvements to our users, and also provide reference implementations for plugin developers and future core enhancements.
+
+---
+
+### The REST API is for
+# Plugin Developers
+
+??? As well as support plugin developers.
+
+I am not a plugin developer myself, so I hadn't fully appreciated the benefits a shared set of content endpoints could bring; more and more plugins provide endpoints for their own data, but WordPress is a publishing platform, and having access to the editorial content of a site in a consistent way is tremendous for plugin development.
+
+Another focus for our team this year is remote API authentication, such as improving OAuth support and releasing better tools to simplify the process.
+
+This will drive both the sorts of custom work we've seen already, and continue to improve the ability of plugins to tie in to external services and offerings.
+
+---
+
+> If this doesn’t end up in core, we’ll start rolling our own API for stuff. Others will too. Interoperability won’t be there [...] this is much more like all of us using the same table space in MySQL.
+> 
+> <small>~ [@joostdevalk](https://wordpress.slack.com/archives/core-restapi/p1476306524006688)</small>
+
+??? We don't have plugin dependency management yet, and that is not a burden an average user should be expected to bear. If core does not provide an opinion about how to model core types, plugins would have to roll their own, and we'd end up with a big mess.
+
+---
+
+## Access Common Data
+
+## Model Custom Data
+
+??? And not only do the classes in 4.7 provide access to native WordPress data types: those classes also make it much easier than before to model custom data.
+
+This has been a narrative-heavy talk, want some code?
 
 ---
 
@@ -135,21 +198,55 @@ site.comments().before( '2016-03-31' )
   .then(function( comments ) { /* discourse! */ });
 ```
 
+??? wpapi is not required to use the REST API; you can use the Backbone client library, or just use jQuery or fetch to make direct requests. But we created a chaining syntax inspired by jQuery's to make it easy to request specific resources.
+
 ---
 
 ### `npm install wpapi`
 
 ```js
-// Get third and fourth pages of posts (posts 40-59)
+// Get all posts in the tags with ID 37 or 42
+// wp-json/wp/v2/posts?tags[]=37&tags[]=42
+site.posts().tags([37, 42]).then(function(posts) {
+  console.log(posts);
+});
+
+// Get posts in the category with slugs "news" or "art"
+Promise.all([
+  site.categories().slug('news').get(),
+  site.categories().slug('art').get(),
+])
+  .then(function(cats) {
+    var ids = cats.map(function(cat) { return cat.id; });
+    return site.posts().categories(ids);
+  })
+  .then(function(posts) {
+    console.log(posts);
+  });
+```
+<!-- .element class="stretch" -->
+
+??? One of the frequently asked questions about the API is how to retrieve posts by their terms.
+
+The API lets you query for posts in a specific tag or category by ID, or you can chain requests to look up posts by a category's slug or tag.
+
+---
+
+### `npm install wpapi`
+
+```js
+// Get third and fourth pages of media (media 40-59)
 // rel="next" link is exposed as `._paging.next`
-site.posts().page( 3 ).then(function( page3 ) {
+site.media().page( 3 ).then(function( page3 ) {
   return page3._paging.next
     .then(function( page4 ) {
       return page3.concat( page4 );
     });
 })
-  .then(function( posts ) { /* Two Pages! */ });
+  .then(function( media ) { /* Two Pages! */ });
 ```
+
+??? Pagination is supported with a `_paging` property that exposes the previous and next pages of results for collections
 
 ---
 
@@ -172,7 +269,7 @@ site.posts()
   });
 ```
 
-??? it supports creating, updating and deleting resources, as well.
+??? it supports creating, updating and deleting resources, as well, with authentication; we'll see this in action in a few slides.
 
 ---
 
@@ -423,35 +520,6 @@ class App extends Component {
 
 ---
 
-### `App.jsx`
-
-```js
-class App extends Component {
-  constructor() {
-    // ...
-    this.savePost = this.savePost.bind(this);
-  }
-
-  savePost(post) {
-    return this.api.journalEntries()
-      .create({
-        title: post.title,
-        content: post.content,
-        current_music: post.current_music,
-        status: 'private'
-      })
-      // Refresh the data to get the update
-      .then(result => { this.updateData(); });
-  }
-```
-<!-- .element class="stretch" -->
-
-??? We'll define our savePost method first: it will take an object submitted by the child component and create a status:private journal entry using the API.
-
-When the request is done, update is called again to refresh the list.
-
----
-
 ### `EntryComposer.jsx`
 
 ```
@@ -476,7 +544,7 @@ class EntryComposer extends Component {
 ```
 <!-- .element class="stretch" -->
 
-??? The EntryComposer component renders a form,
+??? The EntryComposer component renders a basic HTML form,
 
 ---
 
@@ -508,9 +576,38 @@ class EntryComposer extends PureComponent {
 
 ---
 
+### `App.jsx`
+
+```js
+class App extends Component {
+  constructor() {
+    // ...
+    this.savePost = this.savePost.bind(this);
+  }
+
+  savePost(post) {
+    return this.api.journalEntries()
+      .create({
+        title: post.title,
+        content: post.content,
+        current_music: post.current_music,
+        status: 'private'
+      })
+      // Refresh the data to get the update
+      .then(result => { this.updateData(); });
+  }
+```
+<!-- .element class="stretch" -->
+
+??? And to make that form work, on submit, we'll fire a savePost method: it will take an object submitted by the child component and create a status:private journal entry using the API.
+
+When the request is done, update is called again to refresh the list.
+
+---
+
 ![How to draw a Doge, from a Vice article that 404's](images/how-to-draw-a-doge.png)
 
-??? this is like how to draw a owl or how to breakdance, we skip over some steps.
+??? this probably feels a little bit like those "how to draw an owl" or "how to breakdance" tutorials; we skip over some steps.
 
 ---
 <!-- .slide: data-background="url('./images/wp-notebook-git-repo.png')" data-state="solid-bg" class="center" -->
@@ -534,7 +631,7 @@ class EntryComposer extends PureComponent {
 
 The API serves many users. It papers over a lot of inconsistencies within WordPress; last night I inadvertently dubbed it the "jQuery of the WordPress Database."
 
-jQuery filled, and still fills, a critical role in the web development community; and our REST API will, too, whether we planned for it or not.
+jQuery filled, and still fills, a critical role in the web development community; and our REST API will, too. It's the first major facade over the internal roughness of WordPress data. It is rough itself, but we're improving it daily.
 
 ---
 <!-- .slide: class="center" -->
@@ -545,24 +642,28 @@ jQuery filled, and still fills, a critical role in the web development community
 
 <small>[*Make it Better Without Making it Over*](https://www.youtube.com/watch?v=-ZX8y56Tnx4), Rebecca Murphey at CascadiaFest 2016</small>
 
-??? Technologies come and go. That WordPress continues to be viable is nothing short of a miracle, in software terms; and to quote one of my heroes, Rebecca Murphey, "Every technology decision is eventually regrettable."
+??? And if we do our job right, some day we will outgrow this incarnation of the API. Technologies come and go. That WordPress continues to be viable is nothing short of a miracle, in software terms;
 
-I learned to code by making WordPress sites. But eventually my growth outpaced WordPress's. We should always be willing to go see what else is out there. But that also means that within Wordpress, in a landscape of constant change, one audience and one goal stands above all others.
+we look back on the past and wince, but to quote one of my heroes, Rebecca Murphey, "Every technology decision is eventually regrettable."
+
+I learned to code by making WordPress sites. But eventually my growth outpaced WordPress's. We should always be willing to go see what else is out there.
+
+But that also means that within Wordpress, in a landscape of constant change, one audience and one goal stands above all others.
 
 ---
 <!-- .slide: class="center" -->
 
-# For The Learner
+# For Learners
 
-??? The final and most important person the API is for is not somebody who spoke up to get it merged, or who even knows what it is yet. The REST API is for the future developers.
+??? The final and most important person the API is for is not somebody who spoke up to get it merged, or who even knows what it is yet. The REST API is for the future generation of WordPress developers.
 
-Every tech decision eventually regrettable; at any time the best we can hope for is that we are learning, growing and teaching.
+If every tech decision is eventually regrettable, at any time the best we can hope for is that we are always learning, growing and teaching.
 
-Ryan shared his thoughts on the future of WP yesterday. I don't agree with him on everything, but if we improve things in core iteratively, if we keep focusing on our world of users and building them a world-class product, WordPress will continue to be viable and move forward.
+Today, a new generation of developers around the world is making WordPress sites, learning CSS, muddling their way through PHP, discovering the power of JavaScript; and now they can get exposure to REST APIs through WP in a way none of us could.
 
-When I was learning to code by making WordPress sites, REST APIs and Backbone seemed a long way off. By the time I returned to the community a few years later, WordPress was catching up to that frontier, and we've worked to keep it moving.
+We came to WordPress and wanted it to do more. The people who have yet to join our community will push it still further.
 
-Today, a new generation of developers around the world is making WordPress sites, learning CSS, muddling their way through PHP, discovering the power of JavaScript; and now they can get exposure to REST APIs through WP in a way none of us could. This is why I will continue to be involved in the project. This is what excites me. I can't wait to hear what they say about the decisions we have made with another decade of hindsight.
+This is why I will continue to be involved in the project. This is what excites me. I can't wait to hear what they say about the decisions we have made with another decade of hindsight.
 
 ---
 
