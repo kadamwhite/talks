@@ -1,7 +1,6 @@
 <!-- .slide: class="center" -->
 
 # API Client<br>API Design
-<!-- .element: style="font-family:'League Spartan';" -->
 
 <br>
 
@@ -750,15 +749,15 @@ and code can be read, and eventually, most of the time, understood
 ---
 <!-- .slide: data-background="url('./images/tank-matrix-many-screens.jpg')" data-state="solid-bg" -->
 
-## Interfaces Are Complex
+### Interfaces Are Complex
 <!-- .element: class="whitebg" -->
 
 ???
 And understanding the code you use is critical. You don't need to be able to contribute to it, or write your own version; but you have to know what a tool is for, and when to use it.
 
-At Bocoup my colleagues are an amazing resource; they created or contributed to Grunt, JSHint, the robotics library Johnny-Five, Backbone Marionette, the venerable jQuery project, and now Webpack.
+Every tool strikes a balance between power and comprehensibility. New tools that I'm coming to love, like Redux, and syntaxes like the new destructuring and spread operators in the latest JS, are powerful but hard to learn
 
-Every tool strikes a balance between power and comprehensibility.
+At Bocoup my colleagues are an amazing learning resource; they created or contributed to Grunt, JSHint, the robotics library Johnny-Five, jQuery, and now Webpack. But I can't assume that the people that use my code even _have_ colleagues.
 
 The tendency to write "clever code" is toxic.
 
@@ -793,7 +792,7 @@ This is why I will continue to be involved in the project. This is what excites 
 
 ---
 
-## Roadmap
+### `wpapi`<!-- .element: style="font-size:1.4em;" --> Client Roadmap
 
 - Bring Your Own Transport build
 - Bring Your Own JSON schema object build

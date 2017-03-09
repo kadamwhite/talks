@@ -231,3 +231,12 @@ html {
 
 .reveal small {
   font-size: 0.6em;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5 {
+  font-family: League Spartan;
+}
