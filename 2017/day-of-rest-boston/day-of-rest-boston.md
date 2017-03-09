@@ -1,5 +1,7 @@
-# API Client
-# API Design
+<!-- .slide: class="center" -->
+
+# API Client<br>API Design
+<!-- .element: style="font-family:'League Spartan';" -->
 
 <br>
 
@@ -35,17 +37,19 @@ It may come easier to some than others, but _nobody_ starts with code interface 
 ???
 I'm here to share how I designed the API for my "wpapi" Node.js WordPress REST API client module.
 
-I work w/ colleagues who created or contributed to Grunt, JSHint, the robotics library Johnny-Five, Backbone Marionette, the venerable jQuery project, and now Webpack
+And building an interface, and releasing it publicly, is fun -- but brought unexpected challenges.
 
-and I am now the design lead for the WP REST API, but this was the first major project I published where I was responsible for the design decisions
+It's possible you may be facing similar challenges;
 
 ---
 <!-- .slide: data-background="url('./images/wpapi-stickers.jpg')" data-state="solid-bg" -->
 
 ???
-And building an interface, and releasing it publicly, is fun -- but brought unexpected challenges.
+But also, even if you don't need or want to write your own client, I hope to demystify how a tool like this works.
 
-When I pitched talk I hoped that would provide more info about the structure of the WP REST API, but also share the rationale for the decisions I made to address these challenges
+Whether it's a client like this, or the API itself, Learning how your tools work can help you understand more about what your tools are capable of.
+
+The most important skill I've ever learned as a developer is how to read other people's code.
 
 
 ---
@@ -245,11 +249,10 @@ jQuery is already loaded on the vast majority of WordPress sites, and it's what 
 <!-- .slide: data-background="url('./images/basic-fetch-usage.png')" data-state="solid-bg" -->
 
 ???
-And as new browser APIs roll out, this will get even easier still;
 
-B/c the Web Hypertext Application Technology Working Group is still trying to make fetch happen
+And the Web Hypertext Application Technology Working Group is still trying to make fetch happen
 
-So in browsers like Chrome, we get the point where you get the conciseness of jQuery without
+so as these new browser APIs roll out, this will get even easier still; in browsers like Chrome, we get the point where you can make concise requests without any library required at all!
 
 ---
 
@@ -285,6 +288,7 @@ But there may be something about the decisions I made while writing node-wpapi t
 Because my design decisions were motivated by the twin and at times opposing goals of providing a simple, fluent API, and providing a tool that was flexible to different types of needs
 
 ---
+<!-- .slide: class="center" -->
 
 ## `node-wpapi`
 ### is a 
@@ -309,7 +313,7 @@ This narrow scope probably saved the project before I even began.
 Because Nobody wants to maintain a swiss army hammer.
 
 ---
-
+### Terminology
 ```js
 const site = new WPAPI({ endpoint: '...' });
 // "WPAPI" constructor; "site instance"
@@ -345,15 +349,13 @@ const site = new WPAPI({
 The WPAPI module is just a constructor that returns a site client instance.
 
 ---
-
+### Site Client Constructor
 ```js
 function WPAPI( opts ) {
   this._ns = {}; // Namespace handler dictionary
   this._options = { endpoint: opts.endpoint };
 
-  if ( opts && ( opts.username || opts.nonce ) ) {
-    this.auth( opts );
-  }
+  if ( opts.username || opts.nonce ) this.auth( opts );
 
   return this
     // Allow injection of a custom HTTP transport
@@ -373,15 +375,11 @@ Then it runs the "transport" and "bootstrap" methods, each of which can take an 
 
 ---
 
-## The HTTP Transport
-
----
-
+### The HTTP Transport
 ```js
 WPAPI.prototype.transport = function( transport ) {
   var _options = this._options;
-  if ( ! _options.transport ) {
-    // Clone default transport
+  if ( ! _options.transport ) { // Clone default transport
     _options.transport = Object.create( WPAPI.transport );
   }
   // Override defaults with provided transport methods
@@ -400,17 +398,15 @@ The HTTP transport is a set of methods for GET, POST, PUT, HEAD and DELETE, whic
 
 ---
 
-## Route Handler Bootstrapping
-
----
-
+### Route Handler Bootstrapping
 ```js
 WPAPI.prototype.bootstrap = function( routes ) {
 ```
 1. Load a JSON object of the default /wp-json response
 2. Create a route tree representing all possible routes
 3. Create route handler factories for each resource tree
-4. Add route handlers in "wp/v2" namespace to WPAPI instance
+4. Separate handlers by namespace
+5. Add route handlers in "wp/v2" namespace to WPAPI instance
 
 ```js
 };
@@ -516,7 +512,6 @@ This information is all embedded within a base object called WPRequest, which ha
 #### 3. Create route handler factories
 
 ```js
-
 // Create the constructor function for this endpoint
 function PostsEndpointRequest( options ) {
     WPRequest.call( this, options );
@@ -537,6 +532,7 @@ posts().id( 814 ).revisions( 714 );
 We extend WPRequest for each route tree, and assign prototype methods to the new constructor that set those named path parts we found when building the tree.
 
 ---
+#### 3. Create route handler factories
 ```js
 "/wp/v2/posts": {
     "namespace": "wp/v2",
@@ -566,7 +562,7 @@ The whole reason I created this library was to manage all of its query parameter
 These are available on the JSON schema object, too, so when we were building the tree we were building a list of the parameters this route tree supports.
 
 ---
-
+#### 3. Create route handler factories
 ```js
 WPRequest.prototype.param = function( props, value ) {
   if ( typeof props === 'string' ) {
@@ -590,7 +586,7 @@ WPRequest.prototype.param = function( props, value ) {
 The .param method on WPRequest sets values on one more internal values hash
 
 ---
-
+#### 3. Create route handler factories
 ```js
 parameterMixins.before = function( date ) {
     return this.param(
@@ -608,7 +604,7 @@ parameterMixins.status = paramSetter( 'status' );
 If any of the parameters supported by an endpoint match an existing mixin, we apply that method to the constructor
 
 ---
-
+#### 3. Create route handler factories
 ```js
 site.posts()
     .status([ 'publish', 'draft', 'future' ])
@@ -627,7 +623,7 @@ This gets us what I originally wanted, which was a fluent chaining syntax for se
 And this data structure gets converted into your final request URI in a .toString() method, with the brackets and colons of PHP's array syntax nicely converted to URL entities, too.
 
 ---
-
+#### 3. Create route handler factories
 ```js
 site.posts()
     .status([ 'publish', 'draft', 'future' ])
@@ -647,7 +643,7 @@ And it's possible to use the library just for that -- just for its string builde
 This supports both a callback syntax,
 
 ---
-
+#### 3. Create route handler factories
 ```js
 site.posts()
     .status([ 'publish', 'draft', 'future' ])
@@ -663,7 +659,8 @@ and a promise-based syntax, depending on your preference.
 
 ---
 
-```
+#### 4. Separate handlers by namespace
+
 - `site.namespace( 'wp/v2' ).posts()...`
 - `site.namespace( 'wp/v2' ).pages()...`
 - `site.namespace( 'wp/v2' ).media()...`
@@ -672,7 +669,6 @@ and a promise-based syntax, depending on your preference.
 - `site.namespace( 'wp/v2' ).users()...`
 - `site.namespace( 'wp/v2' ).types()...`
 - `site.namespace( 'wp/v2' ).comments()...`
-```
 
 ???
 At this point we have fully-baked route handler factories for every set of routes within each namespace this site supports.
@@ -680,7 +676,7 @@ At this point we have fully-baked route handler factories for every set of route
 We can take one final step to clean this up, though:
 ---
 
-#### 4. Add "wp/v2" handlers to base WPAPI instance
+#### 5. Add "wp/v2" handlers to base WPAPI instance
 
 - `site.posts()...`
 - `site.pages()...`
@@ -718,35 +714,82 @@ WPAPI.discover('http://demo.wp-api.org').then(api => {
 ```
 
 ???
-And while the process is abstract, we can use the exact same code to handle registering custom routes from just a string...
+And the benefit of the abstract tree structure process is that we can use the exact same code to handle creating a custom route handler with just its route string...
 
 or to handle auto-discovery, which just means we pull down that JSON schema from a remote site, rather than using our built-in copy.
 
-But the auto-discovery process will then _also_ automatically detect and register factories for your registered custom post types & routes, which is cool
+And the auto-discovery process will _also_ automatically detect and register factories for your registered custom post types & routes.
 
 ---
+### Make Your Own REST API Client
+<br>
 
-## Establish Boundaries
-
-- Designed to be wrapped by an app-specific service wrapper
-- Bring Your Own constructs & collection utilities
-
-
----
-
-## Roadmap
-
-
-~~**Full support for built-in WP endpoints**~~
-
-~~**Endpoint discovery**~~
-
-~~**Full compatibility with browser usage**~~
-
-**OAuth 1.0a support**
+1. Digest `wp-json/` response into a **tree structure**
+2. Make a system to **target a specific endpoint** (route/method pair)
+3. Determine how to handle
+    + native WP 4.7 content endpoint resources
+    + plugin custom endpoints & custom post types
+    + auto-discovery
+4. Decide how much structure you want to give to the returned data
 
 ???
-We've hit a lot of our roadmap goals from last year
+So that's how you build a client for the REST API. Simple, right?
+
+---
+
+<div style="width: 80%;margin:auto;">
+![How to draw a Doge, from a Vice article that 404's](../loopconf-wpapi/images/how-to-draw-a-doge.png)
+</div>
+
+??? I know. Lots of code, very quickly. But the specific code isn't the important part.
+
+what I want to get across is that this is just code, all the way down
+
+and code can be read, and eventually, most of the time, understood
+
+---
+<!-- .slide: data-background="url('./images/tank-matrix-many-screens.jpg')" data-state="solid-bg" -->
+
+## Interfaces Are Complex
+<!-- .element: class="whitebg" -->
+
+???
+And understanding the code you use is critical. You don't need to be able to contribute to it, or write your own version; but you have to know what a tool is for, and when to use it.
+
+At Bocoup my colleagues are an amazing resource; they created or contributed to Grunt, JSHint, the robotics library Johnny-Five, Backbone Marionette, the venerable jQuery project, and now Webpack.
+
+Every tool strikes a balance between power and comprehensibility.
+
+The tendency to write "clever code" is toxic.
+
+If you have to write clever code, you MUST write better docs.
+
+---
+<!-- .slide: class="center" -->
+
+# Let's lower
+### the barrier to entry
+
+??? Let's build interfaces and tools for working with this API that lower that barrier to entry as much as we can.
+
+If we all have access to tools that allow us to work with the API on a level we're comfortable with, then we can stop paying attention to the WordPress behind our applications, and focus on dreaming up the best applications we can.
+
+---
+<!-- .slide: class="center" -->
+
+![WordPress Logo](../../2016/wp-as-data-csvconf/images/wp-logo-large.png)
+<!-- .element: style="max-width: 400px;" -->
+## For Learners
+
+??? Interfaces aren't just for us, they're for future developers. The REST API itself is more for the future generation of WordPress developers than it is for us who came before.
+
+As developers and as humans the best we can hope for is that we are always learning, growing and teaching.
+
+Today, a new generation of developers around the world is making WordPress sites, learning CSS, muddling their way through PHP, discovering the power of JavaScript; and now they can get exposure to REST APIs through WP in a way none of us could.
+
+We came to WordPress and wanted it to do more. The people who have yet to join our community will push it still further.
+
+This is why I will continue to be involved in the project. This is what excites me. I can't wait to hear what they say about the decisions we have made with another decade of hindsight.
 
 ---
 
@@ -754,26 +797,33 @@ We've hit a lot of our roadmap goals from last year
 
 - Bring Your Own Transport build
 - Bring Your Own JSON schema object build
-
-- Better linking?
-- 
+- Utilities for traversing API links?
+- OAuth 1.0a support
 
 ???
+To meet their needs, we're going to keep growing the API, and we're going to keep growing tools like this client library.
+
+
+We've hit a lot of our roadmap goals from last year, like making a browser-oriented bundle & adding auto-discovery.
+
 We tagged v1.0 when WordPress 4.7 shipped, but there's more work we want to do.
 
-The first part is making super-trimmed down builds that don't come with build-in transports or route lists, to make it easier to use the query-builder with a completely custom HTTP layer or with only your own custom routes.
+Making super-trimmed down builds w/out build-in transports or route lists...
 
-Support for the latest and greatest v2 betas is almost complete, and I'm hoping to improve that at the hack day tomorrow. We're also looking to build in some degree of auto-discovery support; and currently only nonce-based and basic http authentication are supported, so we need to improve that situation.
+We also are considering making utilities to aid in traversing the links between resources,
+
+and as I said, I swear that we will support OAuth 1 soon.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: data-background="url('../loopconf-wpapi/images/journal-app-demo.gif')" data-state="solid-bg" -->
 
-# Be Kind
+<div>
+[github.com/kadamwhite/wp-notebook](https://github.com/kadamwhite/wp-notebook)<br><small>_wpapi in action in a simple React app_</small>
+</div>
+<!-- .element: class="whitebg" -->
 
 ???
-AP **I** digression?
-
-Toxic element in our community of cleverness overruling comprehensibility
+And that's a lot about the library without seeing what it can do, so in the links at the end I've got resources like demo plugins to share to show how I can use all of this inside a real application.
 
 ---
 
@@ -789,80 +839,12 @@ Us: [bocoup.com](https://bocoup.com)
 
 <hr>
 
-[npmjs.com/package/**wpapi**](https://npmjs.com/package/wpapi)
+
+[npmjs.com/package/**wpapi**](https://npmjs.com/package/wpapi) & [github.com/**wp-api/node-wpapi**](https://github.com/wp-api/node-wpapi)
+
+[wp-api.org/node-wpapi](http://wp-api.org/node-wpapi/)
+
+[github.com/kadamwhite/wp-notebook](https://github.com/kadamwhite/wp-notebook)<br><small>(React Demo App plugin)</small>
+
 
 ??? And with that, I thank you for your time.
-
----
-- **interface**, _noun_. <small><em>(plural</em> interfaces<em>)</em></small>
-    - The point of **interconnection** between entities.
-    - (computing) The point of **interconnection** between systems or subsystems.
-      + _The data is sent over the air interface to the remote system._
-    - (computing) The **connection** between a user and a machine.
-      + _The options are selected via the user interface._
-    - (computing, object-oriented programming) The **connection** between parts of software.
-      + _This interface is implemented by several Java classes._
-    - (computing, object-oriented programming) In object-oriented programming, a piece of code defining a set of **operations** that other code must implement.
-
----
-
-
-> **interface,** _noun_. (plural _interfaces)_
->
-> A means or place of interaction between two systems, organizations, etc.; a **meeting-point** or **common ground** between two parties, systems, or disciplines; also, interaction, liaison, dialogue.
-
-<small>~ Oxford English Dictionary</small>
-
-
----
-<!-- .slide: data-background="url('./images/calypso.png')" data-state="solid-bg" -->
-
-???
-In WordPress we provide different user interfaces for different types of user; or so we tell ourselves. In practice we provide the text editor as a necessary escape hatch for when the visual editor breaks.
-
-Even the WordPress.com desktop app Calypso, which provides a completely re-designed interface intended to appeal to a wider audience, duplicates this necessary evil of two interfaces.
-
-
----
-
-> The etymology of "interface" is a story of playful and professional appropriations. The concept moved from the natural sciences to common vernacular by way of computer science. En route, the word took on whimsical, almost fantastic connotations. It stood for new possibilities to connect previously disconnected spheres of business, commerce, education, matter, space, time, and technology. Interface is a uniquely modern idea. The concept contains within it the hope of healing divisions formed by the break from an agrarian, communal past. An interface is a place of overlap and connection, but it is also a space of in-between, simultaneously a part of two things yet distinct in its own right. Its prefix suggests communion, with "inter-" meaning "between," "shared," "connected." The root word, "face," brings a human aspect to what is often a technical term.
-
-<small>~ [Interface Friction: The Politics of Participation and the Spaces Between Users and New Media](https://books.google.com/books?id=1KflcDfsYGEC), _by Peter Daniel Schaefer_
-
----
-
-> A means or place of interaction between two systems, organizations, etc.; a meeting-point or common ground between two parties, systems, or disciplines; also, interaction, liaison, dialogue.
-
-<small>~ Oxford English Dictionary, citing McLuhan from _The Gutenberg Galaxy_</small>
-
----
-
-# API
-
----
-
-# ~~AP~~I
-
----
-
-# <span style="font-family: serif;">I</span>
-
-
-???
-But since getting involved with the REST API project I developed a fascination with that word "interface," a remarkably generic catch-all term which one writer describes as having "whimsical, almost fantastic connotations".
-
-Citation: [Interface Friction: The Politics of Participation and the Spaces Between Users and New Media](https://books.google.com/books?id=1KflcDfsYGEC), _by Peter Daniel Schaefer_
-
----
-
-
----
-
-## Interconnection
-
-### _Between Entities_
-
-### _Between Human & Machine_
-
-???
-Broadly speaking an interface connects two things, most commonly a human and a machine.
