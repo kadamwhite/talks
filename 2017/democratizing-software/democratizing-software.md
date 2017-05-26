@@ -1,6 +1,6 @@
 <!-- .slide: class="center" -->
 
-# Data Visualization with the WordPress REST API
+# Democratizing Software
 
 <br>
 
@@ -8,7 +8,7 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 
 ???
 
-Thank for intro / thank WCEU organizers; last talk, home stretch!
+Thank you for having me, it is an honor to have been asked to keynote
 
 ---
 <!-- .slide: class="center" -->
