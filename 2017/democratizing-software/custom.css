@@ -35,13 +35,13 @@ blockquote * {
   -webkit-filter: blur(1px);
   filter: blur(1px);
   /* !important needed to override `background` shorthand property used inline */
-  background-position: center center !important;
+  /*background-position: center center !important;*/
   background-size: cover !important;
 }
 @media (max-width: 35em) {
   .solid-bg .slide-background {
     /* Total hack for mobile sizing, this is probably not universal */
-    background-size: 160vw !important;
+    /*background-size: 160vw !important;*/
     background-repeat: no-repeat !important;
   }
 }
@@ -94,11 +94,6 @@ blockquote * {
 
 .reveal h1 {
   line-height: 1.2 !important;
-}
-
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-  /*font-family: Raleway, sans-serif;*/
-  text-shadow: none;
 }
 
 /* Captions */
@@ -179,9 +174,9 @@ blockquote * {
   width: 100% !important;
 }
 
-#slides-element {
+/*#slides-element {
   top: 370px;
-}
+}*/
 
 .reveal li {
   margin-bottom: 0.5em;
@@ -205,38 +200,26 @@ html {
   .reveal { font-size: 1.5rem; }
 }
 
-.reveal h1 {
-  font-size: 3.8em;
-}
-
-.reveal h2 {
-  font-size: 2.5em;
-}
-
-.reveal h3 {
-  font-size: 1.7em;
-}
-
-.reveal h4 {
-  font-size: 1.2em;
-}
-
-.reveal pre {
-  font-size: 0.95em;
-}
-
-.reveal p code {
-  font-size: 1.4em;
-}
-
-.reveal small {
-  font-size: 0.6em;
-}
+.reveal h1     { font-size: 3.8em; }
+.reveal h2     { font-size: 3.2em; }
+.reveal h3     { font-size: 1.8em; }
+.reveal h4     { font-size: 1.2em; }
+.reveal pre    { font-size: 0.95em; }
+.reveal p code { font-size: 1.4em; }
+.reveal small  { font-size: 0.6em; }
 
 .reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
 .reveal h5 {
-  font-family: League Spartan;
+  /*font-family: League Spartan;*/
+  font-family: Montserrat, "League Spartan", Avenir, sans-serif;
+  font-weight: 800;
+  /*font-variant: small-caps;*/
+  text-transform: none;
+  text-shadow: none;
+}
+.reveal h1 {
+  text-transform: uppercase;
 }

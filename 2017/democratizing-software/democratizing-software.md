@@ -8,179 +8,454 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 
 ???
 
-Thank you for having me, it is an honor to have been asked to keynote
+Thank you for having me, it is an honor to have been asked to keynote.
+
+For the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and more importantly what WordPress actually does. And when Gary invited me to speak I knew immediately what I wanted to talk about.
+
+---
+<!-- .slide: data-background="url('./images/democratizing-publishing-slack.png')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
+
+???
+
+WordPress core development is coordinated using Slack, and when you sign in to the WordPress slack channel, you see a series of customized messages from the lead developers. There's a lot of cute messages like "Initializing the loop" or "rounding corners," but this one always catches my eye.
+
+"Democratizing Publishing." This is the stated goal of Automattic, the company behind WordPress.com, and it is the closest thing to a mission statement I know for WordPress as a whole.
 
 ---
 <!-- .slide: class="center" -->
 
-# Data Visualization
+### Democratize
+
+_verb_ | de·moc·ra·tize | \di-ˈmä-krə-ˌtīz\
+
+> : to make (something) available to all people<br>
+> : to make it possible for all people to understand (something)
+
+<small><em>~ [Merriam Webster](https://www.merriam-webster.com/dictionary/democratize)</em></small>
 
 ???
 
-Data Visualization is all around us. Charts, graphs, & interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps -- "datavis" is everywhere.
+And it's a good mission. We give people around a world a voice, a place to be heard, an online home -- ourselves included.
 
-We're so immersed in pictures of data that it can be easy to take them for granted, but every chart or graph you see was created by a human to tell a story.
-
----
-
-(Charles Minard napoleon graphic)
-
-???
-
-Data Visualization itself is a large field with a long history.
-
-It is a particular honor to be giving this talk here in Paris, when so many of the pioneers of visualization are themselves French. I have a few links at the end for any of you who are more curious about the history of this field.
-
-(Can't take time to explain graphic, but it shows temperature, location, and travel over time of Napoleon's army as it invaded Russia in 1812-13) http://patrimoine.enpc.fr/document/ENPC01_Fol_10975?image=54#bibnum
-
----
-
-(reel of data visualization projects to serve as examples of breadth of field: Lyra, Measurement Lab, Harvard cancer browser)
-
-???
-
-Visualization is one of our specialties at Bocoup, and we've been honored to work on many complex, large-scale data analysis projects. Today I want to share how we can bring the tools and techniques of data visualization to WordPress.
-
----
-(screenshot of Google Analytics and/or Jetpack Analytics)
-
-???
-
-While we may not be aware of data visualization as a specialty of its own, you are probably already familiar with some WordPress-specific applications of datavis, such as the web traffic reports we look at in Jetpack or Google Analytics.
-
----
-(screenshot of Chicago Magazine Obama's Speech emoji visualization? NY Times graphics desk work? https://www.theatlas.com/ (qz.com graphics portal)?)
-
-???
-
-There are also many other news sites that embed interactive graphics into their pieces, such as to explain a news story.
-
-But today we're going to focus on how we can visualize the information already present within our WordPress sites.
-
----
-<!-- .slide: data-background="url('../../2016/wp-as-data-csvconf/images/wp_posts-columns.png')" data-state="solid-bg" -->
-
-???
-
-Because, though we think of WordPress in terms of words, poetry, images, or _content_, that content is of course stored in a database.
-
-And i'd bet that many of us use WordPress for far more than "just blogging," so that database contains a lot of interesting information. Maybe there are things we can learn about even our most "basic" writing by inspecting that content from a different angle.
+Now, that makes sense for publishing. But, to democratize something, our dictionaries tell us, is to make it not just available but _understandable_ to _all people_.
 
 ---
 <!-- .slide: class="center" -->
 
-# Content is _Data_
+## _All People_
 
 ???
 
-Content is data, and data can be visualized.
+And that should make you question my title of "democratizing software". Because software is code.
+
+All people. Looking at this room, not much is true about all of us; the WP community is diverse and multivariate.
+
+But we are all human, so we are all born, we all die, and we all start out not knowing how to code.
 
 ---
-
-(image of post frequency graphic from Jetpack Analytics -- need a site updated more than my blog is)
-![GitHub Contribution Frequency Graph](./images/github-contributions-graph.png)
+<!-- .slide: data-background="url('../day-of-rest-boston/images/tank-matrix-many-screens.jpg')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
 
 ???
 
-To see how we can do this ourselves, let's start with another chart you might have seen before: the posting freqency graphic used in Jetpack. it's a variation of the lower graphic, which you may recognize as GitHub's contribution frequency graph.
+The word itself is a problem. To borrow a idea from Mike Bostock, to use the word _code_ "suggests impenetrability." Code is "hardly human-friendly;" code is opaque, abstract.
+
+That is of course why we use the word. Computers work in abstract ways, so we invented symbols and programming languages to make it easier for us to tell them what to do.
+
+But that abstraction means the barrier to entry is high. Learning to code is hard. Even in the Matrix, where _every character is literally a hacker,_ there's only one or two dedicated computer users per ship.
 
 ---
+<!-- .slide: data-background="url('./images/bloomberg-code-year.png')" data-state="solid-bg" data-background-position="top center" data-background-repeat="no-repeat" -->
 
-## Getting The Data
-
-(screenshot or text sample of REST API posts endpoint request)
+<small><em>[BBC News, 2012](http://www.bbc.com/news/technology-16440126)</em></small>
 
 ???
 
-Most web data visualization is created using JavaScript, so our first step is to get our data onto the client. Fortunately we have the WordPress REST API to help us.
+https://www.wired.com/insights/2015/02/should-we-really-try-to-teach-everyone-to-code/
 
-We're going to get the past year of posts for our site, for all authors. For this example we're going to pull the fields we want from the existing REST API posts endpoint one page at a time, which means we'll be inefficiently transmitting a lot of unnecessary information.
+So to democratize software, you have to teach programming.
 
-If you are building something like this into your own plugin, I recommend creating a custom endpoint to reveal just the data you need.
+About half a decade ago we started to hear calls for everybody to learn to code. The common conclusion back then, which I believe remains unchanged, is that not everybody should learn to code, just as not everybody should learn to service cars or build houses.
 
-(convert to use `rest-filter-response-fields` plugin?)
+(Although I do wish we taught a little programming in every school curriculum, like we teach math.)
+
+But what I believe, is that everybody should have the right to learn to code if they want to.
+
+@TODO: there's a narrative gap here
 
 ---
+<!-- .slide: class="center" -->
 
-### Page through posts endpoint
+## _&ldquo;The web was supposed to be a think we make&rdquo;_
 
-(will be replaced by flow diagram)
-```js
-
-const now = new Date();
-const msInOneYear = 1000 * 60 * 60 * 24 * 365;
-
-function getUpdateAndIterate( request ) {
-    request.get().then( ( posts ) => {
-        if ( now - new Date( posts.date ) > msInOneYear ) {
-            return;
-        }
-        updateGraphic( posts );
-        if ( posts._paging && posts._paging.next ) {
-            getAndUpdate( posts._paging.next );
-        }
-    });
-}
-
-getUpdateAndIterate( wp.posts().perPage( 20 ) );
-```
-<!-- .element class="stretch" -->
+<em>~ [Anil Dash](https://medium.com/glitch/the-web-was-supposed-to-be-a-thing-we-make-c023b6e7f56a), CEO of Fog Creek Software</em>
 
 ???
 
-This isn't a code talk so I'm going to describe what we do rather than show you lines and lines of code, but all the examples we're looking at are up on github and linked from my slides.
+This was the initial promise of the web. The internet wasn't just something we'd consume, but it was something we ourselves were intended to help to build.
 
-We fetch our first page of results -- we'll get 20 posts at a time, which is a good balance between payload transfer size and number of steps.
-
-Each time a page comes back, we'll pass the new data to an update function, then check to see if there's another page of results. If there is, and if we're still within the past year, we'll iterate on to fetch the next page.
+With a basic knowledge of HTML and FTP -- "that bizarre, magical way in which things are flung into the internet" -- you could make a space for yourself online.
 
 ---
-
-### Parse the Data
-
-```js
-[
-    { id: 1178, date: "2017-04-11T20:22:19" },
-    { id: 1170, date: "2017-04-02T16:11:42" },
-    { id: 1169, date: "2017-04-02T10:41:27" },
-    // And so on
-]
-```
-```js
-[
-    { date: "2017-04-11", count: 1 },
-    { date: "2017-04-02", count: 2 },
-    // And so on
-]
-```
+<!-- .slide: data-background="url('./images/xkcd-geocities-tribute.png')" data-state="solid-bg" data-background-position="top center" data-background-repeat="no-repeat" -->
 
 ???
 
-Using this process we can build up an array of all the posts in the past year. We iterate through that list to create a new array, with only the counts of posts per date.
+Companies like Angelfire and Geocities made this easier, providing free hosting and more intuitive editors. But we still build our internet homes ourselves, assembling websites out of spare parts, borrowed images, and rotating text. Sites like Geocities even made the homesteading metaphor explicit, organizing sites into neighborhoods and addresses.
 
-This is why we'd want to build a new endpoint to get this data -- we've now thrown away almost all of the data the posts endpoints returned to us! But you can use this approach for prototyping on a local install.
+In the 2000's, things got a little easier. Sites like MySpace or Livejournal provided a more consistent base, but you could still hack or theme it to express yourself. This lowered the barrier to entry at the expense of making your site look a little more like your friends' -- theming only takes you so far.
+
+---
+<!-- .slide: data-background="url('./images/facebook-signup-screen.png')" data-state="solid-bg" data-background-position="top center" data-background-repeat="no-repeat" -->
+
+???
+
+Taking templated sites to their extreme, we reach the present day. We've traded expression for ease-of-use. Almost everybody's web presence requires no coding at all but looks exactly the same, and cannot be customized.
+
+And this is where most existing system fail. Because sites that prohibit customization restrict curiosity.
 
 ---
 
-### Draw the Squares
+<div style="width: 80%;margin:auto;">
+![How to draw a Doge, from a Vice article that 404's](../loopconf-wpapi/images/how-to-draw-a-doge.png)
+</div>
 
-```html
-    <div />
-    <div />
-    <div />
-    <div />
+???
 
-    <!-- ...& 361 more -->
-```
-Our graphic will be a grid of squares, so we know we'll need to render a square for each day. For this graphic we're just going to use divs, but we'll switch to SVG in the next example.
+We can still find ourself a web host, roll up our sleeves, bust out an FTP client and build something ourselves; but if you try to ask "how do I make a website" in 2017, it doesn't feel like a straightforward process anymore.
+
+It feels like there is some step in the middle that we're not telling people.
+
+---
+<!-- .slide: data-background-video="./images/sue-lockwood-tech-choice.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+
+<small><em>Illustration by [@deathbearbrown](https://twitter.com/deathbearbrown)</em></small>
+
+???
+
+Because when you go looking for guides on building websites, you run into all this.
+
+What programming language should I use? Do I really need to learn Ruby, Python, PHP, JavaScript or any of the million frameworks -- my friends just told me I could learn HTML?!
+
+All these tools are aimed at people who already know how to code. Where are we supposed to start?
+
+---
+<!-- .slide: class="center" -->
+
+![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
+
+???
+
+And this is where WordPress comes in.
+
+Because WordPress is useful to programmers, but it is first and foremost for writers. This sets it apart from many other open source communities, where the audience and consumers of the software are also technical.
+
+I believe that WordPress, both the software and this community we have built around it, is unique in the web ecosystem in the way it brings the consumers and developers of the software together in one room like this.
+
+---
+<!-- .slide: data-background="url('./images/wpdotcom-theme-gallery.png')" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" -->
+
+???
+
+WordPress doesn't want you to make a site that looks like everybody else's. It is about expression. Our theming community is one of our selling points:  Themes and plugins provide a flexible starting point for building your site.
+
+We've still got a lot of work to do to make it easier to find and configure the theme that you want, but nobody can argue that we don't provide a lot of theme choices!
+
+---
+<!-- .slide: class="center" data-background-video="./images/customizer-theme-preview_hd.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="cover" -->
+
+### Encouraging Customization
+<!-- .element: class="whitebg" -->
+
+???
+
+The work that's gone into the customizer can help with finding a theme that works for you, and it's the first step in easily personalizing your site.
+
+For the developers in the room, if you saw RC's talk this morning, supporting the customizer is one of the most empowering things we can do for our users.
+
+---
+<!-- .slide: data-background-video="./images/using-customizer-css.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+
+???
+
+And it's in the customizer where a WordPress author can most easily first encounter what we would call code.
+
+Last year the customizer gained the "Additional CSS" tab -- we can change our how site looks without leaving the admin by writing CSS stylesheet rules. No FTP, no files, just you and your site.
+
+And best yet, the changes you make are applied in real-time. User interface designers like Brett Victor would be proud.
+
+---
+<!-- .slide: class="center" -->
+
+## CSS
+### &nbsp;
+
+???
+
+This is the first step many people take into code. We have a site, we have a change they want to make. CSS allows us to make that change. Maybe a friend helps us figure out what to write; maybe we get a book, or find a tutorial online. The important thing is that it's a feedback loop that we can _see_.
+
+---
+<!-- .slide: class="center" -->
+
+## CSS
+### _is Code_
+
+???
+
+And now we're coding. Now we're using the tools with which this software is made. That's all it takes.
+
+Some software engineers would say that CSS is not code. That's ridiculous. CSS is a complex and rich language that, in the right hands can work wonders. And yet I still regularly hear friends -- and even colleagues -- put themselves down because they "only know CSS."
+
+We have to fight this attitude, and encourage each other to celebrate how impressive it is to control the way a webpage looks.
+
+---
+<!-- .slide: class="center" -->
+
+## PHP
+
+???
+
+CSS can work wonders but it can't change the content on the page. At some point many of us found ourselves wanting to move deeper than presentation, to rearrange or augment the structure of our site.
+
+WordPress is written in the PHP programming language, and PHP is the next step after CSS. Our themes are open source, so we can tweak them, changing things to taste. Later on we can learn about child themes and code organization, but we have to start somewhere.
+
+---
+<!-- .slide: class="center" -->
+## JavaScript
+
+???
+
+Or maybe we wanted to make something on our page interactive: to add a button or a toggle or a dropdown. That would lead us to JavaScript, the most widespread programming language in the world, and the only one that runs right within our web browsers.
+
+---
+<!-- .slide: class="center" -->
+## jQuery
+
+???
+
+But even in 2017 JavaScript can be confusing, so we turn to libraries like jQuery that simplify common tasks.
+
+jQuery filled, and still fills, a critical role in the web development community.
+
+Just because a tool isn't brand new doesn't make it obsolete: In a workshop it's the well-worn tools we trust the most.
+
+---
+<!-- .slide: class="center" -->
+## Data Modeling
+
+???
+
+Then we'll reach a point where you want to store some new type of data in WordPress.
+
+I've seen everything from foursquare checkins to ecommerce products, to health clinic efficiency metrics stored in the WordPress database:
+
+We model this data by defining custom post types.
+
+---
+<!-- .slide: class="center" -->
+## Public Speaking
+_(ok, these steps aren't all "code")_
+
+???
+
+Somebody at our local WordPress meetup showed us how to do it. And soon we're probably making our own WordPress plugins.
+
+Our friends from the meetup encourage us to share what we've learned, and we give our first talk at a WordCamp.
+
+---
+<!-- .slide: class="center" -->
+
+## Backbone
+
+???
+
+Then we want to make the interfaces for viewing our custom data bigger, but our JS files start to get unwieldy; so we follow the lead of WordPress core and start to learn JavaScript frameworks like Backbone.
+
+These tools structure our code and give us a more powerful toolset to build our interfaces.
+
+---
+<!-- .slide: class="center" -->
+
+## Teaching
+
+???
+
+And on a global level that's a fairly niche skill, so we find ourselves teaching our communities how to use these tools.
+
+We share what we've learned. People tell us how much the resources we create, the talks we give, help them on their own journey.
+
+---
+<!-- .slide: class="center" -->
+
+## REST APIs
+
+???
+
+And when WordPress 4.7 is released in 2016, now all data we would want to display in our new interfaces can be accessed through a modern REST API.
+
+Somewhere along the way we realized that we've become a web application developer. It happens step by step as we make small steps to improve our websites.
+
+---
+<!-- .slide: class="center" -->
+
+### React <span class="fragment">&bull; Vue</span> <span class="fragment">&bull; Timber &bull;</span> <span class="fragment">SCSS &bull;</span> <span class="fragment">Stylus</span> <span class="fragment"><br>Node.js &bull;</span> <span class="fragment">Webpack &bull;</span> <span class="fragment">Babel &bull;</span> <span class="fragment">Redux</span> <span class="fragment"><br>Testing &bull;</span> <span class="fragment">Performance</span> <span class="fragment">&bull; Accessibility</span> <span class="fragment"><br>Data Visualization</span> <span class="fragment">&bull; Consulting </span><br>&nbsp;
+
+???
+
+what I want to get across is that this is just code, all the way down
+
+and code can be read, and eventually, most of the time, understood
+
+All the complexity of software development, it's all just tools that humans wrote to accomplish tasks
+
+We learn one thing after another. We grow, we learn. We become recognized as an expert.
+
+---
+<!-- .slide: class="center" -->
+
+### React &bull; Vue &bull; Timber &bull; SCSS &bull; Stylus <br>Node.js &bull; Webpack &bull; Babel &bull; Redux <br>Testing &bull; Performance &bull; Accessibility <br>Data Visualization &bull; Consulting <br>_Keynoting a WordCamp_
+
+???
+
+And some day maybe you find yourself on this state, in front of all of you.
+
+I care about this learning path because I wouldn't be standing up here without WordPress.
+
+WordPress has taken me from an unemployed recent grad, to a leader within one of the best software communities in the world. Learning bit by bit. One step at a time.
+
+---
+<!-- .slide: class="center" -->
+## WordPress
+#### _is for_
+## Learners
+
+???
+
+While this was my story, I'm not unique.
+
+WordPress is for learners.
+
+Whether we're developers, or business owners, or designers, photographers, podcasters, bloggers -- WordPress is a global community that supports us all.
+
+I know many of you have followed a similar path.
+
+And we need to make sure that we keep that path open.
+
+---
+<!-- .slide: class="center" -->
+
+# Celebrate Diversity
+
+???
+
+The most important thing we can do for our community is to keep it open, and diverse.
+
+WordPress is used around the world. We must strive to make the tools and communities we create as welcoming and open to people of different backgrounds and nations as we can.
+
+---
+<!-- .slide: class="center" -->
+
+# Prioritize Accessibility
+
+???
+
+In tandem with that, we should always strive to make our work accessible, so that as many people can benefit from it as possible.
+
+---
+<!-- .slide: class="center" -->
+
+# Be Kind
+
+???
+
+And maintaining diversity is hard, so we must also protect our community from hate & arrogance. This whole thing only works if people feel comfortable entering the group, and feel safe asking for help.
+
+---
+<!-- .slide: class="center" data-background="url('./images/norcross-loopconf-talk.png')" data-state="solid-bg" data-background-position="bottom" data-background-repeat="no-repeat" data-background-size="cover" -->
+
+[Watch on YouTube](https://www.youtube.com/watch?v=lHWI75nKWb0)
+
+???
+
+On that note I'd like to plug Andrew Norcross' talk from February's LoopConf event. There's a lot of nastiness on the web, and that does extend onto our own forums. Racism. Sexism. Ableism. Xenophobia.
+
+Resisting these things is hard. It's a community responsibility. It's a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy.
 
 ---
 
-### Our Tools
+# Share
 
-- [D3.js](https://d3js.org/)
+???
 
-### Resources
+But thankfully this is still a healthy community, and a healthy community is a sharing community. If you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
 
-- [Bocoup Data Visualization](https://bocoup.com/services/datavis), examples of our work
-- [Dashing D3.js](https://www.dashingd3js.com/), tutorials & lessons
+I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
+
+---
+<!-- .slide: class="center" -->
+
+> The power to understand and predict the quantities of the world should not be restricted to those with a freakish knack for manipulating abstract symbols.
+
+<small><em>~ Brett Victor, [Kill Math](http://worrydream.com/KillMath/)</em></small>
+
+???
+
+Again, it isn't about making everybody learn to code. It's about understanding that none of this is impossible if you want to learn. And it's about keeping the doors to learning open for those of us that want to walk through them.
+
+Nobody becomes a programmer all at once. It takes many, many steps, and every step along the way is a role and a job and a responsibility all of its own.
+
+I have a lot left to learn. We all do.
+
+---
+
+## Encourage Curiosity
+
+???
+
+But if we are kind to each other, and keep making our communities and our software things that we can engage in however we want to, to follow our curiosity wherever it may lead,
+
+---
+
+## Democratize Software
+
+???
+
+Then, I think, we will be democratizing software.
+
+---
+
+I started to use WordPress because I liked the look of the theme on my friend's blog. I didn't even have anything to write about, I just thought it would be fun. My web host had a one-button installer, and I was up and running.
+
+Now, it's important to note
+
+---
+
+~~We have our "famous 5-minute install;" WP is designed to balance ease of use with extensibility.
+
+Our biggest problem is discovering the good themes and plugins in the sea of options.~~
+
+---
+
+What does it take to break away from this meritocracy; to make a space that truly democratizes software?
+
+~~I come from a family of teachers and academics. Despite noble effort, our schools and curricula are being slowly eviscerated; having access to programming education is a rare privilege in the US.~~
+
+---
+
+But, the "four freedoms" of open source include the right to study, share and improve software, not just to use it.
+
+Let us establish that software is code, and the word code presents a problem.
+
+
+
+---
+<!-- .slide: class="center" -->
+
+> The power to understand and predict the quantities of the world should not be restricted to those with a freakish knack for manipulating abstract symbols.
+
+<small><em>~ Brett Victor, [Kill Math](http://worrydream.com/KillMath/)</em></small>
+
+???
+
+~~
+We fetishize the self-taught computer geniuses; the brilliant college dropouts who start the biggest companies of our day. But we cannot and should not depend on the silicon valley oligarchs, because the systems that Apple and Facebook provide us actually go out of their way to prevent and discourage customization.
+~~
