@@ -297,26 +297,41 @@ Somewhere along the way we realized that we've become a web application develope
 ---
 <!-- .slide: class="center" -->
 
-### React <span class="fragment">&bull; Vue</span> <span class="fragment">&bull; Timber &bull;</span> <span class="fragment">SCSS &bull;</span> <span class="fragment">Stylus</span> <span class="fragment"><br>Node.js &bull;</span> <span class="fragment">Webpack &bull;</span> <span class="fragment">Babel &bull;</span> <span class="fragment">Redux</span> <span class="fragment"><br>Testing &bull;</span> <span class="fragment">Performance</span> <span class="fragment">&bull; Accessibility</span> <span class="fragment"><br>Data Visualization</span> <span class="fragment">&bull; Consulting </span><br>&nbsp;
+![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
 
 ???
 
-what I want to get across is that this is just code, all the way down
+And this can all happen without leaving the WordPress ecosystem.
 
-and code can be read, and eventually, most of the time, understood
+Now, It's good to try out other platforms and tools, but it is still _absolutely extraordinary_ that so much _is_ possible all within WordPress.
 
-All the complexity of software development, it's all just tools that humans wrote to accomplish tasks
-
-We learn one thing after another. We grow, we learn. We become recognized as an expert.
+I know of no other product like that, especially one that isn't designed for developers.
 
 ---
 <!-- .slide: class="center" -->
 
-### React &bull; Vue &bull; Timber &bull; SCSS &bull; Stylus <br>Node.js &bull; Webpack &bull; Babel &bull; Redux <br>Testing &bull; Performance &bull; Accessibility <br>Data Visualization &bull; Consulting <br>_Keynoting a WordCamp_
+### React <span class="fragment">&bull; Vue</span> <span class="fragment">&bull; Twig &bull;</span> <span class="fragment">SCSS &bull;</span> <span class="fragment">Stylus</span> <span class="fragment"><br>Node.js &bull;</span> <span class="fragment">Webpack &bull;</span> <span class="fragment">Babel &bull;</span> <span class="fragment">Redux</span> <span class="fragment"><br>Testing &bull;</span> <span class="fragment">Performance</span> <span class="fragment">&bull; Accessibility</span> <span class="fragment"><br>Data Visualization</span> <span class="fragment">&bull; Consulting </span><br>&nbsp;
 
 ???
 
-And some day maybe you find yourself on this state, in front of all of you.
+And all those other things you hear about, all those other tools? Check them out. Use them in your plugins. All of these things can be made to work with WordPress.
+
+Because it's all just code, all the way down
+
+and code can be read, and eventually, understood
+
+All the complexity of software development, it's all just individual tools that humans wrote to get things done.
+
+We learn, we grow. We find the tools that work for us, and share them with others. We help each other make these tools better.
+
+---
+<!-- .slide: class="center" -->
+
+### React &bull; Vue &bull; Twig &bull; SCSS &bull; Stylus <br>Node.js &bull; Webpack &bull; Babel &bull; Redux <br>Testing &bull; Performance &bull; Accessibility <br>Data Visualization &bull; Consulting <br>_Keynoting a WordCamp_
+
+???
+
+And some day maybe we find ourselves on this stage, in front of all of you.
 
 I care about this learning path because I wouldn't be standing up here without WordPress.
 
@@ -347,7 +362,7 @@ And we need to make sure that we keep that path open.
 
 ???
 
-The most important thing we can do for our community is to keep it open, and diverse.
+How do we do that? I'd say the single most important thing we can do for our community is to keep it open, and diverse.
 
 WordPress is used around the world. We must strive to make the tools and communities we create as welcoming and open to people of different backgrounds and nations as we can.
 
@@ -367,28 +382,45 @@ In tandem with that, we should always strive to make our work accessible, so tha
 
 ???
 
-And maintaining diversity is hard, so we must also protect our community from hate & arrogance. This whole thing only works if people feel comfortable entering the group, and feel safe asking for help.
+And maintaining diversity is hard, so we must also protect our community from hate & arrogance. This whole system only works if people feel comfortable entering the group, and feel safe asking for help.
 
 ---
-<!-- .slide: class="center" data-background="url('./images/norcross-loopconf-talk.png')" data-state="solid-bg" data-background-position="bottom" data-background-repeat="no-repeat" data-background-size="cover" -->
+<!-- .slide: data-background="url('./images/norcross-loopconf-talk.png')" data-state="solid-bg" data-background-position="bottom" data-background-repeat="no-repeat" data-background-size="cover" -->
 
 [Watch on YouTube](https://www.youtube.com/watch?v=lHWI75nKWb0)
+<!-- .element class="whitebg" -->
 
 ???
 
-On that note I'd like to plug Andrew Norcross' talk from February's LoopConf event. There's a lot of nastiness on the web, and that does extend onto our own forums. Racism. Sexism. Ableism. Xenophobia.
+On that note I'd like to plug Andrew Norcross' talk from February's LoopConf event. There's a lot of nastiness on the web, and that does extend onto our own forums.
 
-Resisting these things is hard. It's a community responsibility. It's a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy.
+Racism. Sexism. Ableism. Xenophobia.
+
+Resisting these things is hard. It's a community responsibility. This was a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy.
 
 ---
-
-# Share
+<!-- .slide: class="center" -->
+# Learn, Share
 
 ???
 
-But thankfully this is still a healthy community, and a healthy community is a sharing community. If you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
+But thankfully WordPress on the whole is still a healthy community, and a healthy community is a sharing community. When you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
 
-I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
+I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on jQuery and Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
+
+---
+<!-- .slide: class="center" -->
+## WordPress
+#### _is for_
+## Learners
+
+???
+
+Just as I know no other open source project with a community that so richly combines authors, writers, bloggers, and developers,
+
+No other modern software product so actively encourages the full range of customization and extension, from adding a line of custom CSS through the admin all the way to creating a single-page webapp backed by a REST API.
+
+WordPress is for learners because WordPress enables learners of all kinds.
 
 ---
 <!-- .slide: class="center" -->
@@ -406,6 +438,7 @@ Nobody becomes a programmer all at once. It takes many, many steps, and every st
 I have a lot left to learn. We all do.
 
 ---
+<!-- .slide: class="center" -->
 
 ## Encourage Curiosity
 
@@ -413,49 +446,30 @@ I have a lot left to learn. We all do.
 
 But if we are kind to each other, and keep making our communities and our software things that we can engage in however we want to, to follow our curiosity wherever it may lead,
 
----
-
-## Democratize Software
-
-???
-
-Then, I think, we will be democratizing software.
-
----
-
-I started to use WordPress because I liked the look of the theme on my friend's blog. I didn't even have anything to write about, I just thought it would be fun. My web host had a one-button installer, and I was up and running.
-
-Now, it's important to note
-
----
-
-~~We have our "famous 5-minute install;" WP is designed to balance ease of use with extensibility.
-
-Our biggest problem is discovering the good themes and plugins in the sea of options.~~
-
----
-
-What does it take to break away from this meritocracy; to make a space that truly democratizes software?
-
-~~I come from a family of teachers and academics. Despite noble effort, our schools and curricula are being slowly eviscerated; having access to programming education is a rare privilege in the US.~~
-
----
-
-But, the "four freedoms" of open source include the right to study, share and improve software, not just to use it.
-
-Let us establish that software is code, and the word code presents a problem.
-
-
+then our community will grow as more and more people find ways to learn from WordPress, and from us, and from each other.
 
 ---
 <!-- .slide: class="center" -->
 
-> The power to understand and predict the quantities of the world should not be restricted to those with a freakish knack for manipulating abstract symbols.
-
-<small><em>~ Brett Victor, [Kill Math](http://worrydream.com/KillMath/)</em></small>
+# Democratize Software
 
 ???
 
-~~
-We fetishize the self-taught computer geniuses; the brilliant college dropouts who start the biggest companies of our day. But we cannot and should not depend on the silicon valley oligarchs, because the systems that Apple and Facebook provide us actually go out of their way to prevent and discourage customization.
-~~
+If we do all these things,
+
+then, I think, we will be democratizing software.
+
+---
+<!-- .slide: class="center" -->
+
+## Thank You
+
+<hr>
+
+[talks.kadamwhite.com/democratizing-software](http://talks.kadamwhite.com/democratizing-software)
+
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocoup](https://bocoup.com)
+
+???
+
+Thank you
