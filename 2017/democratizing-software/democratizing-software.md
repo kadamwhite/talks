@@ -1,4 +1,4 @@
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 # Democratizing Software
 
@@ -8,9 +8,11 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 
 ???
 
-Thank you for having me, it is an honor to have been asked to keynote.
+Thank you for having me, it is an honor to have been invited. <3 to Portland.
 
-For the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and more importantly what WordPress actually does. And when Gary invited me to speak I knew immediately what I wanted to talk about.
+Intros -- get audience feel
+
+When Gary invited me to speak I knew immediately what I wanted to share with you. This talk is a departure for me; I'm used to talking about code. But for the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and more importantly what WordPress actually does.
 
 ---
 <!-- .slide: data-background="url('./images/democratizing-publishing-slack.png')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
@@ -22,7 +24,7 @@ WordPress core development is coordinated using Slack, and when you sign in to t
 "Democratizing Publishing." This is the stated goal of Automattic, the company behind WordPress.com, and it is the closest thing to a mission statement I know for WordPress as a whole.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ### Democratize
 
@@ -40,7 +42,7 @@ And it's a good mission. We give people around a world a voice, a place to be he
 Now, that makes sense for publishing. But, to democratize something, our dictionaries tell us, is to make it not just available but _understandable_ to _all people_.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## _All People_
 
@@ -50,14 +52,14 @@ And that should make you question my title of "democratizing software". Because 
 
 All people. Looking at this room, not much is true about all of us; the WP community is diverse and multivariate.
 
-But we are all human, so we are all born, we all die, and we all start out not knowing how to code.
+But we are all human, so we are all born, we all die, and none of us start out knowing how to code.
 
 ---
 <!-- .slide: data-background="url('../day-of-rest-boston/images/tank-matrix-many-screens.jpg')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
 
 ???
 
-The word itself is a problem. To borrow a idea from Mike Bostock, to use the word _code_ "suggests impenetrability." Code is "hardly human-friendly;" code is opaque, abstract.
+The word itself presents a problem. To borrow a idea from Mike Bostock, _code_ "suggests impenetrability." Code is "hardly human-friendly;" code is opaque, abstract.
 
 That is of course why we use the word. Computers work in abstract ways, so we invented symbols and programming languages to make it easier for us to tell them what to do.
 
@@ -66,24 +68,20 @@ But that abstraction means the barrier to entry is high. Learning to code is har
 ---
 <!-- .slide: data-background="url('./images/bloomberg-code-year.png')" data-state="solid-bg" data-background-position="top center" data-background-repeat="no-repeat" -->
 
-<small><em>[BBC News, 2012](http://www.bbc.com/news/technology-16440126)</em></small>
-
 ???
-
-https://www.wired.com/insights/2015/02/should-we-really-try-to-teach-everyone-to-code/
 
 So to democratize software, you have to teach programming.
 
-About half a decade ago we started to hear calls for everybody to learn to code. The common conclusion back then, which I believe remains unchanged, is that not everybody should learn to code, just as not everybody should learn to service cars or build houses.
+About half a decade ago we started to hear calls for everybody to learn to code. I don't know that there's anything that _everybody_ should learn; I'm not sure how applicable JavaScript is to a mayor, for example.
 
-(Although I do wish we taught a little programming in every school curriculum, like we teach math.)
+But I do believe that everybody should have the _right_ and _opportunity_ to learn to code, when they want to. And they should know what it's good for. It shouldn't be magic.
 
-But what I believe, is that everybody should have the right to learn to code if they want to.
+Programming is, fundamentally, a thought process; it is structured problem solving. There's a lot that you can do with even the most basic skills.
 
-@TODO: there's a narrative gap here
+http://www.bbc.com/news/technology-16440126
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## _&ldquo;The web was supposed to be a think we make&rdquo;_
 
@@ -91,7 +89,7 @@ But what I believe, is that everybody should have the right to learn to code if 
 
 ???
 
-This was the initial promise of the web. The internet wasn't just something we'd consume, but it was something we ourselves were intended to help to build.
+This was the initial promise of the web. The internet wasn't just something we'd consume, but it was something we ourselves were intended to help to build. It was easy, or at least easier than other types of code.
 
 With a basic knowledge of HTML and FTP -- "that bizarre, magical way in which things are flung into the internet" -- you could make a space for yourself online.
 
@@ -129,6 +127,7 @@ It feels like there is some step in the middle that we're not telling people.
 <!-- .slide: data-background-video="./images/sue-lockwood-tech-choice.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
 
 <small><em>Illustration by [@deathbearbrown](https://twitter.com/deathbearbrown)</em></small>
+<!-- .element: class="whitebg" -->
 
 ???
 
@@ -139,7 +138,7 @@ What programming language should I use? Do I really need to learn Ruby, Python, 
 All these tools are aimed at people who already know how to code. Where are we supposed to start?
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
 
@@ -161,7 +160,7 @@ WordPress doesn't want you to make a site that looks like everybody else's. It i
 We've still got a lot of work to do to make it easier to find and configure the theme that you want, but nobody can argue that we don't provide a lot of theme choices!
 
 ---
-<!-- .slide: class="center" data-background-video="./images/customizer-theme-preview_hd.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="cover" -->
+<!-- .slide: class="notcenter" data-background-video="./images/customizer-theme-preview_hd.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="cover" -->
 
 ### Encouraging Customization
 <!-- .element: class="whitebg" -->
@@ -184,17 +183,31 @@ Last year the customizer gained the "Additional CSS" tab -- we can change our ho
 And best yet, the changes you make are applied in real-time. User interface designers like Brett Victor would be proud.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
+
+## Learning to Code
+### The WordPress Way
+
+???
+
+This is the start of what I'd describe as the _WordPress Style_ of programming education. It's not the only way people we learn, but it's a way that is uniquely enabled by the way WordPress works. It's practically motivated, and incremental. It can happen almost by accident.
+
+---
+<!-- .slide: class="notcenter" -->
 
 ## CSS
 ### &nbsp;
 
 ???
 
-This is the first step many people take into code. We have a site, we have a change they want to make. CSS allows us to make that change. Maybe a friend helps us figure out what to write; maybe we get a book, or find a tutorial online. The important thing is that it's a feedback loop that we can _see_.
+It starts here: We have a site, we want it to look different. Because WP is a platform that can be customized, we want to customize it. We want to make this little piece of the internet into our own space.
+
+CSS allows us to make that change. Maybe a friend helps us figure out what to write; maybe we get a book, or find a tutorial online. The important thing is that it's a feedback loop that we can _see_.
+
+It's abstract, but maybe it's a little less magic.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## CSS
 ### _is Code_
@@ -208,18 +221,29 @@ Some software engineers would say that CSS is not code. That's ridiculous. CSS i
 We have to fight this attitude, and encourage each other to celebrate how impressive it is to control the way a webpage looks.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
-## PHP
+## HTML
 
 ???
 
 CSS can work wonders but it can't change the content on the page. At some point many of us found ourselves wanting to move deeper than presentation, to rearrange or augment the structure of our site.
 
-WordPress is written in the PHP programming language, and PHP is the next step after CSS. Our themes are open source, so we can tweak them, changing things to taste. Later on we can learn about child themes and code organization, but we have to start somewhere.
+Our themes are open source, so we can tweak them, changing things to taste. Theme files are mostly HTML, so it's not too intimidating.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
+
+## PHP
+
+???
+
+And while we're editing our theme templates we might begin to intuit or study what these other pieces of code do inside our themes. We begin to learn and use template tags and the loop.
+
+WordPress is written in the PHP programming language, which at first just looks like fancy HTML. Later on we can learn about functions child themes and code organization, but we have to start somewhere.
+
+---
+<!-- .slide: class="notcenter" -->
 ## JavaScript
 
 ???
@@ -227,7 +251,7 @@ WordPress is written in the PHP programming language, and PHP is the next step a
 Or maybe we wanted to make something on our page interactive: to add a button or a toggle or a dropdown. That would lead us to JavaScript, the most widespread programming language in the world, and the only one that runs right within our web browsers.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 ## jQuery
 
 ???
@@ -239,7 +263,7 @@ jQuery filled, and still fills, a critical role in the web development community
 Just because a tool isn't brand new doesn't make it obsolete: In a workshop it's the well-worn tools we trust the most.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 ## Data Modeling
 
 ???
@@ -250,19 +274,12 @@ I've seen everything from foursquare checkins to ecommerce products, to health c
 
 We model this data by defining custom post types.
 
----
-<!-- .slide: class="center" -->
-## Public Speaking
-_(ok, these steps aren't all "code")_
+Somebody at our local WordPress meetup shows us how to do it. And soon we're making our own WordPress plugins.
 
-???
-
-Somebody at our local WordPress meetup showed us how to do it. And soon we're probably making our own WordPress plugins.
-
-Our friends from the meetup encourage us to share what we've learned, and we give our first talk at a WordCamp.
+Our friends from the meetup encourage us to share what we've learned, and we give our first talk.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## Backbone
 
@@ -272,19 +289,12 @@ Then we want to make the interfaces for viewing our custom data bigger, but our 
 
 These tools structure our code and give us a more powerful toolset to build our interfaces.
 
----
-<!-- .slide: class="center" -->
-
-## Teaching
-
-???
-
 And on a global level that's a fairly niche skill, so we find ourselves teaching our communities how to use these tools.
 
 We share what we've learned. People tell us how much the resources we create, the talks we give, help them on their own journey.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## REST APIs
 
@@ -295,7 +305,7 @@ And when WordPress 4.7 is released in 2016, now all data we would want to displa
 Somewhere along the way we realized that we've become a web application developer. It happens step by step as we make small steps to improve our websites.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
 
@@ -308,9 +318,9 @@ Now, It's good to try out other platforms and tools, but it is still _absolutely
 I know of no other product like that, especially one that isn't designed for developers.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
-### React <span class="fragment">&bull; Vue</span> <span class="fragment">&bull; Twig &bull;</span> <span class="fragment">SCSS &bull;</span> <span class="fragment">Stylus</span> <span class="fragment"><br>Node.js &bull;</span> <span class="fragment">Webpack &bull;</span> <span class="fragment">Babel &bull;</span> <span class="fragment">Redux</span> <span class="fragment"><br>Testing &bull;</span> <span class="fragment">Performance</span> <span class="fragment">&bull; Accessibility</span> <span class="fragment"><br>Data Visualization</span> <span class="fragment">&bull; Consulting </span><br>&nbsp;
+### React <span class="fragment">&bull; Vue</span> <span class="fragment">&bull; SCSS</span> <span class="fragment">&bull; Stylus</span> <span class="fragment"><br>Node.js</span> <span class="fragment"> &bull; Webpack</span> <span class="fragment">&bull; Babel</span> <span class="fragment">&bull; Redux</span> <span class="fragment"><br>Testing</span> <span class="fragment">&bull; Performance</span> <span class="fragment">&bull; Accessibility</span> <span class="fragment"><br>Data Visualization</span> <span class="fragment">&bull; Consulting</span> <span class="fragment"><br>Teaching <span style="visibility:hidden;">&bull; Speaking</span></span>
 
 ???
 
@@ -325,27 +335,27 @@ All the complexity of software development, it's all just individual tools that 
 We learn, we grow. We find the tools that work for us, and share them with others. We help each other make these tools better.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
-### React &bull; Vue &bull; Twig &bull; SCSS &bull; Stylus <br>Node.js &bull; Webpack &bull; Babel &bull; Redux <br>Testing &bull; Performance &bull; Accessibility <br>Data Visualization &bull; Consulting <br>_Keynoting a WordCamp_
+### React &bull; Vue &bull; SCSS &bull; Stylus <br>Node.js &bull; Webpack &bull; Babel &bull; Redux <br>Testing &bull; Performance &bull; Accessibility <br>Data Visualization &bull; Consulting <br>Teaching &bull; Speaking
 
 ???
 
-And some day maybe we find ourselves on this stage, in front of all of you.
+And as we learn these things, some day maybe we find ourselves on this stage, in front of all of you.
 
-I care about this learning path because I wouldn't be standing up here without WordPress.
+I care about this learning path because I wouldn't be standing up here without WordPress. I have learned so much about programming, event organizing and speaking from being a part of my local WordPress meetup down in Boston.
 
-WordPress has taken me from an unemployed recent grad, to a leader within one of the best software communities in the world. Learning bit by bit. One step at a time.
+WordPress took me from an unemployed recent grad, to become a leader within one of the best software communities in the world. Learning bit by bit. One step at a time.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 ## WordPress
 #### _is for_
 ## Learners
 
 ???
 
-While this was my story, I'm not unique.
+And while this was my story, I'm not unique.
 
 WordPress is for learners.
 
@@ -356,18 +366,29 @@ I know many of you have followed a similar path.
 And we need to make sure that we keep that path open.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
+
+# Building _a_ Learning Community
+
+???
+
+How do we do that? What makes WordPress a learning community?
+
+We've already established the first principle: WordCamps and meetups are for WordPress users of all types, from writers to developers. Keeping everybody in the same room and same group keeps us honest.
+
+---
+<!-- .slide: class="notcenter" -->
 
 # Celebrate Diversity
 
 ???
 
-How do we do that? I'd say the single most important thing we can do for our community is to keep it open, and diverse.
+I'd say the single most important thing we can do for our community is to keep it open, and diverse.
 
 WordPress is used around the world. We must strive to make the tools and communities we create as welcoming and open to people of different backgrounds and nations as we can.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 # Prioritize Accessibility
 
@@ -376,7 +397,7 @@ WordPress is used around the world. We must strive to make the tools and communi
 In tandem with that, we should always strive to make our work accessible, so that as many people can benefit from it as possible.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 # Be Kind
 
@@ -399,7 +420,7 @@ Racism. Sexism. Ableism. Xenophobia.
 Resisting these things is hard. It's a community responsibility. This was a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 # Learn, Share
 
 ???
@@ -409,7 +430,7 @@ But thankfully WordPress on the whole is still a healthy community, and a health
 I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on jQuery and Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 ## WordPress
 #### _is for_
 ## Learners
@@ -423,7 +444,24 @@ No other modern software product so actively encourages the full range of custom
 WordPress is for learners because WordPress enables learners of all kinds.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: data-background-video="./images/glitch-intro-video.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+[Glitch.com](https://glitch.com)
+<!-- .element: class="whitebg" -->
+
+???
+
+And just as we recently added the CSS editor, can take inspiration from kindred spirits in the web community about how we can build tools to inspire and reward curiosity.
+
+This is Glitch, the product my friend Jenn Schiffer works on with Anil Dash. Glitch is a remixing platform for web programs, designed for learners.
+
+If you see something you like, you can remix it and adjust it. No "forking," which is an awful choice of word; no command line, no editors to install. Just code, without the magic.
+
+You can use it to make a blog, or a game, or a chat bot.
+
+And I think we should be learning from this. Our plugins should make it easier to adjust their settings; our themes should be more open to modular remixing. We cannot restrict exploration, or WordPress loses its main advantage over Squarespace, Wix and the like.
+
+---
+<!-- .slide: class="notcenter" -->
 
 > The power to understand and predict the quantities of the world should not be restricted to those with a freakish knack for manipulating abstract symbols.
 
@@ -438,18 +476,18 @@ Nobody becomes a programmer all at once. It takes many, many steps, and every st
 I have a lot left to learn. We all do.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## Encourage Curiosity
 
 ???
 
-But if we are kind to each other, and keep making our communities and our software things that we can engage in however we want to, to follow our curiosity wherever it may lead,
+Because if we are kind to each other, and keep making it easier to engage in our communities and modify our software however we want, to follow our curiosity wherever it may lead,
 
-then our community will grow as more and more people find ways to learn from WordPress, and from us, and from each other.
+then our community will grow as more and more people find ways to learn from the web, from WordPress, from us, and from each other.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 # Democratize Software
 
@@ -460,7 +498,7 @@ If we do all these things,
 then, I think, we will be democratizing software.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="notcenter" -->
 
 ## Thank You
 
@@ -473,3 +511,19 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 ???
 
 Thank you
+
+---
+
+### The Four Freedoms of Open Source:
+## Use, Study, Share, and Improve
+### Open-Source Software
+
+???
+
+This is how Open Source is meant to work. Adapting Roosevelt's idea of the four freedoms, the free software movement has defined the four freedoms of open source as the freedom to use, study, improve and to share the software.
+
+We usually focus on the part where it says it's free to use; that's very appealing.
+
+We also focus on our ability to come together to improve the software, and we share those improvements with one another.
+
+But it's the ability we have to study the software,
