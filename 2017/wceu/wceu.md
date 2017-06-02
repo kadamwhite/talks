@@ -83,23 +83,19 @@ M-Lab & Bocoup Data Visualization Team
 
 ???
 
-And this scale of data is of course not limited to science. We talk a lot about Big Data, but how can you reason about something you cannot see? A lot of the work our data visualization team at Bocoup does
+And this scale of data is of course not limited to science. We talk a lot about Big Data, but how can you reason about something you cannot see? A lot of the work our data visualization team at Bocoup does involves building custom interfaces for specific datasets, going beyond what you can do with analytics tools like Tableau.
 
 ---
 
-(reel of data visualization projects to serve as examples of breadth of field: Lyra, Measurement Lab, Harvard cancer browser)
-
-But this is just the tip of the iceberg. We use maps to illustrate
-Visualization is one of our specialties at Bocoup, and we've been honored to work on many complex, large-scale data analysis projects. Today I want to share how we can bring the tools and techniques of data visualization to WordPress.
-
----
-(screenshot of Chicago Magazine Obama's Speech emoji visualization? NY Times graphics desk work? https://www.theatlas.com/ (qz.com graphics portal)?)
+## So, WordPress?
 
 ???
 
-There are also many other news sites that embed interactive graphics into their pieces, such as to explain a news story.
+Today I want to share how we can bring the tools and techniques of data visualization to WordPress.
 
-But today we're going to focus on how we can visualize the information already present within our WordPress sites.
+The sorts of news visuals we talked about earlier are often embedded into articles written in WordPress,
+
+But we're going to focus on how we can visualize the information that's already present within our WordPress sites.
 
 ---
 <!-- .slide: data-background="url('../../2016/wp-as-data-csvconf/images/wp_posts-columns.png')" data-state="solid-bg" -->
