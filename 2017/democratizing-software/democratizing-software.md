@@ -469,7 +469,7 @@ And I think we should be learning from this. Our plugins should make it easier t
 
 ???
 
-Again, it isn't about making everybody learn to code. It's about understanding that none of this is impossible if you want to learn. And it's about keeping the doors to learning open for those of us that want to walk through them.
+Again, this isn't about making everybody learn to code. It's about understanding that none of this is impossible if you want to learn it. It's not magic. And it's about keeping the doors to learning open for those of us that want to walk through them.
 
 Nobody becomes a programmer all at once. It takes many, many steps, and every step along the way is a role and a job and a responsibility all of its own.
 
@@ -511,19 +511,3 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocou
 ???
 
 Thank you
-
----
-
-### The Four Freedoms of Open Source:
-## Use, Study, Share, and Improve
-### Open-Source Software
-
-???
-
-This is how Open Source is meant to work. Adapting Roosevelt's idea of the four freedoms, the free software movement has defined the four freedoms of open source as the freedom to use, study, improve and to share the software.
-
-We usually focus on the part where it says it's free to use; that's very appealing.
-
-We also focus on our ability to come together to improve the software, and we share those improvements with one another.
-
-But it's the ability we have to study the software,

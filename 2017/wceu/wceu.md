@@ -1,6 +1,7 @@
 <!-- .slide: class="center" -->
 
-# Data Visualization with the WordPress REST API
+# Data Visualization
+### with the WordPress REST API
 
 <br>
 
@@ -17,36 +18,79 @@ Thank for intro / thank WCEU organizers; last talk, home stretch!
 
 ???
 
-Data Visualization is all around us. Charts, graphs, & interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps -- "datavis" is everywhere.
+Data Visualization, or "datavis," is all around us. Charts, graphs, & interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps, and advertisements.
 
 We're so immersed in pictures of data that it can be easy to take them for granted, but every chart or graph you see was created by a human to tell a story.
 
----
 
-(Charles Minard napoleon graphic)
+---
+<!-- .slide: class="full-height" data-background="url('./images/minard.png')" data-background-size="contain" data-background-repeat="no-repeat" data-background-position="center center" -->
+
+<div class="attribution"><span>
+Charles Joseph Minard, 1869 ([learn more](https://robots.thoughtbot.com/analyzing-minards-visualization-of-napoleons-1812-march))
+</span></div>
 
 ???
 
-Data Visualization itself is a large field with a long history.
+The field has a long history. It is a particular honor to be giving this talk here in Paris, when so many of the pioneers of visualization are themselves French.
 
-It is a particular honor to be giving this talk here in Paris, when so many of the pioneers of visualization are themselves French. I have a few links at the end for any of you who are more curious about the history of this field.
+(Can't take time to explain graphic, but it shows temperature, location, and travel over time as Napoleon's army invaded Russia in 1812-13) http://patrimoine.enpc.fr/document/ENPC01_Fol_10975?image=54#bibnum
 
-(Can't take time to explain graphic, but it shows temperature, location, and travel over time of Napoleon's army as it invaded Russia in 1812-13) http://patrimoine.enpc.fr/document/ENPC01_Fol_10975?image=54#bibnum
+---
+<!-- .slide: data-background="url('./images/wpcom-stats-screen.png')" data-background-size="cover" data-background-position="top" -->
+
+<div class="attribution"><span>
+WordPress.com Analytics Dashboard, by Automattic
+</span></div>
+
+???
+
+We learn to create and read graphs in school, and we reference them daily as we do our jobs. We measure site traffic and sales with one eye on analytics dashboards like those provided by Google or Jetpack.
+
+---
+<!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-syria-settling.mp4" -->
+
+<div class="attribution"><span>
+_[This is the life of a Syrian refugee](https://bocoup.com/blog/globalpost-syria-conflict)_, Paul Wood, [GlobalPost, 24 September 2015](https://www.pri.org/stories/2015-09-24/daily-hustle-survive-life-syrian-refugee).<br>
+Maps and Graphics by the Bocoup Data Visualization Team.
+</span></div>
+
+???
+
+Charts and maps add depth and perspective to articles beyond what can be conveyed in words or shown in pictures.
+
+Interactive graphics like those produced by the New York Times and other newspapers and magazines let readers explore an issue themselves to understand nuances that might otherwise be missed.
+
+---
+<!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-hms-lincs.mp4" -->
+
+<div class="attribution"><span>
+[LINCS Database Breast Cancer Browser](https://bocoup.com/work/cancer-browser)<br>
+Harvard Medical School & Bocoup Data Visualization Team
+</span></div>
+
+???
+
+Or in the sciences, where researchers in different groups can produce astronomical amounts of unconnected data, data visualization techniques can be used to build interactive portals like this Breast Cancer Browser: an online tool for exploring and visualizing both published and unpublished datasets to find connections between different studies in a single unified manner.
+
+---
+<!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-mlab.mp4" data-background-video-loop="true" -->
+
+<div class="attribution"><span>
+<em>[Measurement Lab - Visualizing the Health of the Internet](https://bocoup.com/work/measurement-lab).<br>
+M-Lab & Bocoup Data Visualization Team
+</span></div>
+
+???
+
+And this scale of data is of course not limited to science. We talk a lot about Big Data, but how can you reason about something you cannot see? A lot of the work our data visualization team at Bocoup does
 
 ---
 
 (reel of data visualization projects to serve as examples of breadth of field: Lyra, Measurement Lab, Harvard cancer browser)
 
-???
-
+But this is just the tip of the iceberg. We use maps to illustrate
 Visualization is one of our specialties at Bocoup, and we've been honored to work on many complex, large-scale data analysis projects. Today I want to share how we can bring the tools and techniques of data visualization to WordPress.
-
----
-(screenshot of Google Analytics and/or Jetpack Analytics)
-
-???
-
-While we may not be aware of data visualization as a specialty of its own, you are probably already familiar with some WordPress-specific applications of datavis, such as the web traffic reports we look at in Jetpack or Google Analytics.
 
 ---
 (screenshot of Chicago Magazine Obama's Speech emoji visualization? NY Times graphics desk work? https://www.theatlas.com/ (qz.com graphics portal)?)
@@ -83,6 +127,19 @@ Content is data, and data can be visualized.
 ???
 
 To see how we can do this ourselves, let's start with another chart you might have seen before: the posting freqency graphic used in Jetpack. it's a variation of the lower graphic, which you may recognize as GitHub's contribution frequency graph.
+
+---
+## Technologies
+
+### D3.js (Data Driven Documents)
+### React
+### SVG (Scaleable Vector Graphics)
+### Canvas
+### WebGL (and libraries like REGL)
+
+???
+
+This is going to be light on code, but there are a lot of tools available for creating rich, interactive visualizations on the web. We'll be looking at only a few of them, with the goal of showing the overall process you can use to build a chart or map on the web. All demos have linked code samples.
 
 ---
 
@@ -175,10 +232,7 @@ This is why we'd want to build a new endpoint to get this data -- we've now thro
 Our graphic will be a grid of squares, so we know we'll need to render a square for each day. For this graphic we're just going to use divs, but we'll switch to SVG in the next example.
 
 ---
-
-### Our Tools
-
-- [D3.js](https://d3js.org/)
+<!-- .slide: class="full-height" data-background="url('./images/minard.png')" data-background-size="contain" data-background-repeat="no-repeat" data-background-position="center center" -->
 
 ### Resources
 
