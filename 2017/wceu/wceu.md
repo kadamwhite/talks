@@ -62,6 +62,17 @@ Charts and maps add depth and perspective to articles beyond what can be conveye
 Interactive graphics like those produced by the New York Times and other newspapers and magazines let readers explore an issue themselves to understand nuances that might otherwise be missed.
 
 ---
+<!-- .slide: class="full-height" data-background="url('./images/mister-rogers-cardigans.png')" data-background-size="cover" data-background-repeat="no-repeat" data-background-position="top" -->
+
+<div class="attribution"><span>
+The Awl, _[Every Color Of Cardigan Mister Rogers Wore From 1979–2001](https://theawl.com/every-color-of-cardigan-mister-rogers-wore-from-1979-2001-83c1faba2677)_
+</span></div>
+
+???
+
+Visualizations can be used to illuminate small details in our everyday lives, for humor or nostalgia,
+
+---
 <!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-hms-lincs.mp4" -->
 
 <div class="attribution"><span>
@@ -98,7 +109,7 @@ The sorts of news visuals we talked about earlier are often embedded into articl
 But we're going to focus on how we can visualize the information that's already present within our WordPress sites.
 
 ---
-<!-- .slide: data-background="url('../../2016/wp-as-data-csvconf/images/wp_posts-columns.png')" data-state="solid-bg" -->
+<!-- .slide: data-background="url('./images/wp_posts-columns.png')" data-background-position="top" data-background-size="cover" -->
 
 ???
 
@@ -141,7 +152,17 @@ This is going to be light on code, but there are a lot of tools available for cr
 
 ## Getting The Data
 
-(screenshot or text sample of REST API posts endpoint request)
+- GET /wp-json/wp/v2/posts
+- GET /wp-json/wp/v2/posts?page=2
+- GET /wp-json/wp/v2/posts?page=3
+- &hellip;forever?
+
+<div class="fragment">
+**_No!_** Make a custom endpoint :)
+
+- GET `/wp-json/wceu/2017/posts`
+
+</div>
 
 ???
 
@@ -228,9 +249,90 @@ This is why we'd want to build a new endpoint to get this data -- we've now thro
 Our graphic will be a grid of squares, so we know we'll need to render a square for each day. For this graphic we're just going to use divs, but we'll switch to SVG in the next example.
 
 ---
-<!-- .slide: class="full-height" data-background="url('./images/minard.png')" data-background-size="contain" data-background-repeat="no-repeat" data-background-position="center center" -->
+<!-- .slide: class="full-height center" data-background-video="./images/bocoup-datavis-canvas-performance.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
+
+<div class="attribution"><span>
+Yannick Assogba, [Needles, Haystacks, and the Canvas API](https://bocoup.com/blog/2d-picking-in-canvas)
+</span></div>
+
+
+???
+
+DOM and SVG rendering can only get us so far. The browser cannot render thousands of SVG nodes without a little stutter; for smooth animation with thousands of individual datapoints, you need to use the HTML Canvas element for rendering.
+
+---
+<!-- .slide: class="full-height center" data-background-video="./images/bocoup-datavis-canvas-animation-dark.mp4" data-background-video-loop="true" data-background-size="cover" -->
+
+# Canvas
+
+<div class="attribution"><span>
+Peter Beshai, [Smoothly animate thousands of points with HTML5 Canvas and D3](https://bocoup.com/blog/smoothly-animate-thousands-of-points-with-html5-canvas-and-d3)
+</span></div>
+
+???
+
+Canvas is a drawing surface inside the browser. It gives us a lower-level, high performance drawing API that can handle much more complex animations than SVG without breaking a sweat.
+
+For complex charts like large network graphs, or to show thousands of points moving across maps, Canvas is the way to go.
+
+However, things that SVG gives us "for free," like mouse events and selector hierarchy, aren't available -- we get this performance at the expense of simplicity, because actions like selecting a datapoint require more calculations and manual development.
+
+---
+<!-- .slide: class="full-height center" data-background-video="./images/pbesh-webgl-animation.mp4" data-background-video-loop="true" data-background-size="cover" -->
+
+# WebGL
+
+<div class="attribution"><span>
+Peter Beshai, [Animate Points with WebGL and REGL](http://peterbeshai.com/beautifully-animate-points-with-webgl-and-regl.html)<br>
+_see also_ Jim Vallandingham, [An Intro to regl for Data Visualization](http://vallandingham.me/regl_intro.html)<br>
+_also see also_ [thebookofshaders.com](https://thebookofshaders.com/)
+</span></div>
+
+???
+
+Shaders are complex -- This takes us even further away from the easy-to-read SVG code we saw earlier, but it's the fastest rendering you're going to see in the browser!
+
+[Book of Shaders](https://thebookofshaders.com/) at thebookofshaders.com
+
+Tools like REGL (pronounced "regal"), a REactive WebGL framework, make working with WebGL simpler; Three.js is another popular WebGL library, and I expect we'll continue to see more & more resources pop up to make it easier to get started.
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/vega-lite-homepage.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
+
+<div class="attribution"><span>
+Vega & Vega-Lite, [vega.github.io/vega-lite](https://vega.github.io/vega-lite/)<br>
+Arvind Satyanarayan, _[Reactive Building Blocks: Interactive Visualizations with Vega](https://www.youtube.com/watch?v=Y8Fp9z-9DWc)_, OpenVis Conf 2016
+</span></div>
+
+???
+
+As we begin to wrap up, I want to emphasize that you don't always have to handle the rendering yourself.
+
+Analysis tools like Tableau or Excel can frequently get you something useful. Writing your own data pipeline and WebGL renderer will only be the best option when you have something big and valuable to analyze.
+
+In the middle, there are an increasing number of tools for
+One of them, from a team I've had the pleasure to work with at the University of Washington in the US, is a vizualization grammar called Vega, and its simplified derivative Vega-Lite. These grammars let you build a tool that formats your data into a JSON representation of what a chart should look like -- vega will do the rest.
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/vx-gallery.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
+
+<div class="attribution"><span>
+REACT + D3 = VX, [vx-demo.now.sh](https://vx-demo.now.sh/)
+</span></div>
+
+???
+
+Or for more control, there's many different component libraries for React, Vue or Angular that give you lower-level primatives you can use to draw your charts.
+
+---
 
 ### Resources
 
-- [Bocoup Data Visualization](https://bocoup.com/services/datavis), examples of our work
+- [FlowingData](https://flowingdata.com/)
 - [Dashing D3.js](https://www.dashingd3js.com/), tutorials & lessons
+- [Bocoup DataVis Blog](https://bocoup.com/blog/category/datavis)
+- Conferences: [OpenVis Conf](https://openvisconf.com/), [Eyeo Festival](http://eyeofestival.com/), [EuroVis](http://eurovis2017.virvig.es/), [Visualized](http://visualized.com/), [Data Visualization Summit](https://theinnovationenterprise.com/summits/data-visualization-summit-boston-2017), [Strata](https://conferences.oreilly.com/strata), _<span class="amp">&amp;</span> many, many more_
+
+---
+
+# Thank You

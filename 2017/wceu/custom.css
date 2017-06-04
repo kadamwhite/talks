@@ -215,3 +215,7 @@ html {
 .reveal h1 {
   text-transform: uppercase;
 }
+span.amp {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+}
