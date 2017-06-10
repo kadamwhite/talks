@@ -1,12 +1,19 @@
 /**
- * Bocoup theme for reveal.js. Based on the reveal.js 'white' theme.
+ * Personal theme for reveal.js. Based on the reveal.js 'white' theme.
  *
  * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
  */
 
 @import url(/talks/fonts/source-sans-pro/source-sans-pro.css);
-section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
-  color: #fff; }
+section.has-dark-background,
+section.has-dark-background h1,
+section.has-dark-background h2,
+section.has-dark-background h3,
+section.has-dark-background h4,
+section.has-dark-background h5,
+section.has-dark-background h6 {
+  color: #fff;
+}
 
 
 /*
@@ -41,7 +48,12 @@ body:before {
   height: 100%;
   z-index: 1;
   opacity: 0.05;
-  background: url(/talks/img/banner-home-back.svg) left top repeat-y;
+  background: url(/talks/img/five-towns-emily-garfield.jpg) left top repeat-y;
+  background-size: cover;
+}
+/* keep reveal slides over that background */
+.reveal {
+  z-index: 1;
 }
 
 .reveal {
@@ -171,10 +183,12 @@ body {
   position: relative;
   width: 70%;
   margin: 20px auto;
-  padding: 5px ;
+  padding: 5px;
   font-style: italic;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+  background: rgba(30, 30, 30, 0.6);
+  border-left: 10px solid #666;
+  border-left: 10px solid rgba(255, 255, 255, 0.5);
+}
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {

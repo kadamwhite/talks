@@ -5,7 +5,7 @@
 
 <br>
 
-K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocoup](https://bocoup.com)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 ???
 
@@ -14,11 +14,84 @@ Thank for intro / thank WCEU organizers; last talk, home stretch!
 ---
 <!-- .slide: class="center" -->
 
-# Data Visualization
+# Data
 
 ???
 
-Data Visualization, or "datavis," is all around us. Charts, graphs, & interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps, and advertisements.
+We generally think of WordPress in terms of the things it lets us do -- in terms of publishing, posting, commenting. We think in terms of content. After all, it's a content management system!
+
+We are not usually thinking in terms of data.
+
+---
+<!-- .slide: class="center" data-background="url('./images/wp_posts-columns.png')" data-background-position="top" data-background-size="cover" -->
+
+# Data
+
+???
+
+But all that content is of course stored in a database.
+
+And I'd bet that many of us use WordPress for far more than "just blogging," so that database contains a lot of interesting information. Maybe there are things we can learn about even our most "basic" writing by inspecting that content from a different angle.
+
+---
+<!-- .slide: class="center" -->
+
+> **The Loop** is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
+
+<div class="center"><small>
+[codex.wordpress.org/The_Loop](https://codex.wordpress.org/The_Loop)
+</small></div>
+
+???
+
+The core of a WordPress theme is The Loop -- that PHP code that lets you iterate through your posts and display them on the page.
+
+Thinking in terms of data lets us think about the loop a little differently.
+
+---
+<!-- .slide: class="center" -->
+
+`SELECT wp_posts.* FROM wp_posts...`
+
+<div class="center">&darr;&darr;&darr;</div>
+
+`array( $post1, $post2, $post3 );`
+
+<div class="center">&darr;&darr;&darr;</div>
+
+`<div class="post post-1" />`<br>
+`<div class="post post-2" />`<br>
+`<div class="post post-3" />`
+
+???
+
+What's actually happening in the loop? We're using WordPress to move our data from a MySQL database into PHP, where we then map it into HTML. This transforms our posts from abstract information to something our readers can read and enjoy.
+
+It's a direct mapping of data to visual representation.
+
+---
+<!-- .slide: class="center" -->
+
+### Data-Driven Documents
+
+_(or &ldquo;D3&rdquo;; we'll come back to this later!)_
+
+???
+
+When we think about it in these terms, most documents on the web can be thought of as "data-driven": they map some sort of data into some sort of visual representation.
+
+This is usually content; text, words, images; but sometimes we want to communicate information more directly, or convey complex information that would be hard to describe in words or photographs.
+
+---
+<!-- .slide: class="center" -->
+
+## Data Visualization
+
+???
+
+Data visualization is the practice of representing complex information visually.
+
+Datavis is all around us: Charts, graphs, and interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps, and advertisements.
 
 We're so immersed in pictures of data that it can be easy to take them for granted, but every chart or graph you see was created by a human to tell a story.
 
@@ -32,12 +105,14 @@ Charles Joseph Minard, 1869 ([learn more](https://robots.thoughtbot.com/analyzin
 
 ???
 
-The field has a long history. It is a particular honor to be giving this talk here in Paris, when so many of the pioneers of visualization are themselves French.
+Many different dimensions of information -- such as geographical position, temperature, and so on -- can be embedded into a single graphic.
+
+The field has a long history. It is a particular honor to be giving this talk here in Paris, when many of the pioneers of visualization are themselves French.
 
 (Can't take time to explain graphic, but it shows temperature, location, and travel over time as Napoleon's army invaded Russia in 1812-13) http://patrimoine.enpc.fr/document/ENPC01_Fol_10975?image=54#bibnum
 
 ---
-<!-- .slide: data-background="url('./images/wpcom-stats-screen.png')" data-background-size="cover" data-background-position="top" -->
+<!-- .slide: class="full-height" data-background="url('./images/wpcom-stats-screen.png')" data-background-size="cover" data-background-position="top" -->
 
 <div class="attribution"><span>
 WordPress.com Analytics Dashboard, by Automattic
@@ -48,11 +123,10 @@ WordPress.com Analytics Dashboard, by Automattic
 We learn to create and read graphs in school, and we reference them daily as we do our jobs. We measure site traffic and sales with one eye on analytics dashboards like those provided by Google or Jetpack.
 
 ---
-<!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-syria-settling.mp4" -->
+<!-- .slide: class="full-height" data-background-video="./images/nytimes-2013-obama-budget-vis.mp4" data-background-size="contain" -->
 
 <div class="attribution"><span>
-_[This is the life of a Syrian refugee](https://bocoup.com/blog/globalpost-syria-conflict)_, Paul Wood, [GlobalPost, 24 September 2015](https://www.pri.org/stories/2015-09-24/daily-hustle-survive-life-syrian-refugee).<br>
-Maps and Graphics by the Bocoup Data Visualization Team.
+_[Four Ways to Slice Obama’s 2013 Budget Proposal](http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html)_, Shan Carter, New York Times, February 2012
 </span></div>
 
 ???

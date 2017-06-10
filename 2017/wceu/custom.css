@@ -1,7 +1,4 @@
 .reveal blockquote {
-  border-left: 10px solid #666;
-  border-left: 10px solid rgba(0, 0, 0, 0.2);
-  box-shadow: none;
   padding: 0.25em 0.75em;
   text-align: left;
   overflow: hidden;
@@ -155,6 +152,8 @@ blockquote * {
   top: 80%;
   width: 100%;
   font-size: 0.5em;
+}
+.reveal .center {
   text-align: center;
 }
 
@@ -199,6 +198,20 @@ html {
 .reveal pre    { font-size: 0.95em; }
 .reveal p code { font-size: 1.4em; }
 .reveal small  { font-size: 0.6em; }
+
+.react h1,
+.react h2,
+.react h3,
+.react h4,
+.react h5,
+.react h6,
+.react p,
+.react li,
+.react div,
+.react section,
+.reveal .slides {
+  text-align: left;
+}
 
 .reveal h1,
 .reveal h2,
