@@ -123,6 +123,18 @@ WordPress.com Analytics Dashboard, by Automattic
 We learn to create and read graphs in school, and we reference them daily as we do our jobs. We measure site traffic and sales with one eye on analytics dashboards like those provided by Google or Jetpack.
 
 ---
+<!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-syria-settling.mp4" -->
+
+<div class="attribution"><span>
+_[This is the life of a Syrian refugee](https://bocoup.com/blog/globalpost-syria-conflict)_, Paul Wood, [GlobalPost, 24 September 2015](https://www.pri.org/stories/2015-09-24/daily-hustle-survive-life-syrian-refugee).<br>
+Maps and Graphics by the Bocoup Data Visualization Team.
+</span></div>
+
+???
+
+Charts and maps add depth and perspective to articles beyond what can be conveyed in words. They don't tell, they show.
+
+---
 <!-- .slide: class="full-height" data-background-video="./images/nytimes-2013-obama-budget-vis.mp4" data-background-size="contain" -->
 
 <div class="attribution"><span>
@@ -131,20 +143,22 @@ _[Four Ways to Slice Obama’s 2013 Budget Proposal](http://www.nytimes.com/inte
 
 ???
 
-Charts and maps add depth and perspective to articles beyond what can be conveyed in words or shown in pictures.
+Interactive graphics like those produced by the New York Times and other newspapers and magazines can even become the story themselves.
 
-Interactive graphics like those produced by the New York Times and other newspapers and magazines let readers explore an issue themselves to understand nuances that might otherwise be missed.
+News interactives like this one let readers explore complex information to understand nuances that might otherwise be missed.
 
 ---
-<!-- .slide: class="full-height" data-background="url('./images/mister-rogers-cardigans.png')" data-background-size="cover" data-background-repeat="no-repeat" data-background-position="top" -->
+<!-- .slide: class="full-height" data-background-video="./images/periscopic-gun-deaths-vis.mp4" data-background-size="contain" -->
 
 <div class="attribution"><span>
-The Awl, _[Every Color Of Cardigan Mister Rogers Wore From 1979–2001](https://theawl.com/every-color-of-cardigan-mister-rogers-wore-from-1979-2001-83c1faba2677)_
+_[U.S. Gun Deaths in 2013](http://guns.periscopic.com/?year=2013)_, Periscopic
 </span></div>
 
 ???
 
-Visualizations can be used to illuminate small details in our everyday lives, for humor or nostalgia,
+When we read a number like 11,419, we can't picture that in our head. But most of us are used to quantifying information visually.
+
+A good visualization can show us the individuals that make up a statistic.
 
 ---
 <!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-hms-lincs.mp4" -->
@@ -156,31 +170,35 @@ Harvard Medical School & Bocoup Data Visualization Team
 
 ???
 
-Or in the sciences, where researchers in different groups can produce astronomical amounts of unconnected data, data visualization techniques can be used to build interactive portals like this Breast Cancer Browser: an online tool for exploring and visualizing both published and unpublished datasets to find connections between different studies in a single unified manner.
+Or in the sciences, where researchers in different groups can produce astronomical amounts of unconnected data, data visualization techniques can be used to build interactive data portals, finding connections in different datasets to improve cancer research
 
 ---
 <!-- .slide: class="full-height" data-background-video="./images/bocoup-datavis-mlab.mp4" data-background-video-loop="true" -->
 
 <div class="attribution"><span>
-<em>[Measurement Lab - Visualizing the Health of the Internet](https://bocoup.com/work/measurement-lab).<br>
+[Measurement Lab - Visualizing the Health of the Internet](https://bocoup.com/work/measurement-lab).<br>
 M-Lab & Bocoup Data Visualization Team
 </span></div>
 
 ???
 
-And this scale of data is of course not limited to science. We talk a lot about Big Data, but how can you reason about something you cannot see? A lot of the work our data visualization team at Bocoup does involves building custom interfaces for specific datasets, going beyond what you can do with analytics tools like Tableau.
+And this scale of data is of course not limited to science. We talk a lot about Big Data, but how can you reason about something you cannot see?
+
+Analytics tools like Tableau can't answer everything; much of the work I did with the Bocoup data visualization team involved building custom interfaces for companies with large-scale data and specific analytics needs.
 
 ---
+<!-- .slide: class="center" -->
 
-## So, WordPress?
+## so, what about
+# WordPress?
 
 ???
 
-Today I want to share how we can bring the tools and techniques of data visualization to WordPress.
+So, WordPress is used for news sites, but news rooms build teams to do this; and enterprise companies hire datavis consultancies like Bocoup. But why are we talking about this at a WordCamp?
 
-The sorts of news visuals we talked about earlier are often embedded into articles written in WordPress,
+Something that really drives me is finding ways to bring the cutting edge of web experiences into WordPress, to make better plugins and products for WordPress developers, authors and users.
 
-But we're going to focus on how we can visualize the information that's already present within our WordPress sites.
+So today I want to tell you that it's easy to get started with data visualization and data analysis, and that there is a tremendous opportunity for using these techniques within WordPress.
 
 ---
 <!-- .slide: data-background="url('./images/wp_posts-columns.png')" data-background-position="top" data-background-size="cover" -->
