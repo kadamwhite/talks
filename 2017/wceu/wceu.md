@@ -26,27 +26,28 @@ We are not usually thinking in terms of data.
 <!-- .slide: class="center" data-background="url('./images/wp_posts-columns.png')" data-background-position="top" data-background-size="cover" -->
 
 # Data
+<!-- .element: class="blackoutline" -->
 
 ???
 
-But all that content is of course stored in a database.
-
-And I'd bet that many of us use WordPress for far more than "just blogging," so that database contains a lot of interesting information. Maybe there are things we can learn about even our most "basic" writing by inspecting that content from a different angle.
+But all that content is of course stored in a database. Today we're going to start with how we get that content out of the database, and in front of our readers.
 
 ---
-<!-- .slide: class="center" -->
+<!-- .slide: class="center full-height" -->
 
-> **The Loop** is PHP code used by WordPress to display posts. Using The Loop, WordPress processes each post to be displayed on the current page, and formats it according to how it matches specified criteria within The Loop tags. Any HTML or PHP code in the Loop will be processed on each post.
+# The Loop
 
-<div class="center"><small>
+&ldquo;PHP code used by WordPress to display posts.&rdquo;
+
+<div class="attribution"><span>
 [codex.wordpress.org/The_Loop](https://codex.wordpress.org/The_Loop)
-</small></div>
+</span></div>
 
 ???
 
 The core of a WordPress theme is The Loop -- that PHP code that lets you iterate through your posts and display them on the page.
 
-Thinking in terms of data lets us think about the loop a little differently.
+But what's actually happening in the loop?
 
 ---
 <!-- .slide: class="center" -->
@@ -65,25 +66,21 @@ Thinking in terms of data lets us think about the loop a little differently.
 
 ???
 
-What's actually happening in the loop? We're using WordPress to move our data from a MySQL database into PHP, where we then map it into HTML. This transforms our posts from abstract information to something our readers can read and enjoy.
+We're using WordPress to move our data from a MySQL database into PHP, where we then map it into HTML. This transforms our posts from abstract information to something our readers can read and enjoy.
 
 It's a direct mapping of data to visual representation.
 
 ---
-<!-- .slide: class="center" -->
 
-### Data-Driven Documents
-
-_(or &ldquo;D3&rdquo;; we'll come back to this later!)_
+## Data-Driven Documents
 
 ???
 
-When we think about it in these terms, most documents on the web can be thought of as "data-driven": they map some sort of data into some sort of visual representation.
+In these terms, most documents on the web are "data-driven": they map some sort of data from a database into some sort of visual representation.
 
-This is usually content; text, words, images; but sometimes we want to communicate information more directly, or convey complex information that would be hard to describe in words or photographs.
+This is usually content: text, words, images; but sometimes we want to communicate information more directly, or convey complex information that would be hard to describe in words or photographs.
 
 ---
-<!-- .slide: class="center" -->
 
 ## Data Visualization
 
@@ -135,7 +132,7 @@ Maps and Graphics by the Bocoup Data Visualization Team.
 Charts and maps add depth and perspective to articles beyond what can be conveyed in words. They don't tell, they show.
 
 ---
-<!-- .slide: class="full-height" data-background-video="./images/nytimes-2013-obama-budget-vis.mp4" data-background-size="contain" -->
+<!-- .slide: class="full-height" data-background-video="./images/nytimes-2013-obama-budget-vis.mp4" data-background-size="cover" -->
 
 <div class="attribution"><span>
 _[Four Ways to Slice Obama’s 2013 Budget Proposal](http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html)_, Shan Carter, New York Times, February 2012
@@ -187,7 +184,6 @@ And this scale of data is of course not limited to science. We talk a lot about 
 Analytics tools like Tableau can't answer everything; much of the work I did with the Bocoup data visualization team involved building custom interfaces for companies with large-scale data and specific analytics needs.
 
 ---
-<!-- .slide: class="center" -->
 
 ## so, what about
 # WordPress?
@@ -205,12 +201,11 @@ So today I want to tell you that it's easy to get started with data visualizatio
 
 ???
 
-Because, though we think of WordPress in terms of words, poetry, images, or _content_, that content is of course stored in a database.
+There's a lot of narrative or news-oriented visualizations we could create and embed in our WordPress sites to help tell stories; but since we're sitting on all this data, let's see whether we can make some simple visualizations to better understand our own websites.
 
-And i'd bet that many of us use WordPress for far more than "just blogging," so that database contains a lot of interesting information. Maybe there are things we can learn about even our most "basic" writing by inspecting that content from a different angle.
+And since many of us use WordPress for far more than "just blogging," that database contains a lot of interesting information. Maybe there's opportunities for how we can visualize that, as well.
 
 ---
-<!-- .slide: class="center" -->
 
 # Content is _Data_
 
@@ -220,125 +215,267 @@ Content is data, and data can be visualized.
 
 ---
 
-(image of post frequency graphic from Jetpack Analytics -- need a site updated more than my blog is)
+### what data is in
+# A Post?
+
+???
+
+To see how we can do this ourselves, let's think about what data is represented by post.
+
+It has a title, some content, an author, categories and taxonomies, and a date.
+
+---
+<!-- .slide: class="center" --> 
 ![GitHub Contribution Frequency Graph](./images/github-contributions-graph.png)
 
 ???
 
-To see how we can do this ourselves, let's start with another chart you might have seen before: the posting freqency graphic used in Jetpack. it's a variation of the lower graphic, which you may recognize as GitHub's contribution frequency graph.
+And if we have a date, we already have a numeric value we can start to use.
+
+You may be familiar with the posting frequency graph from Jetpack Analytics, or this GitHub contribution graph. If you have posts by date, you can build visuals to understand how regularly you post.
+
+Regular publishing is important for maintaining a blog or a site, so this type of visual reminder can be very useful.
+
+It's not hard to create a visual like this, but let's start with something simpler.
 
 ---
-## Technologies
-
-### D3.js (Data Driven Documents)
-### React
-### SVG (Scaleable Vector Graphics)
-### Canvas
-### WebGL (and libraries like REGL)
+<!-- .slide: data-background="url('./images/demo-post-frequency-by-month.png')" data-background-position="top" data-background-size="contain" data-background-repeat="no-repeat" demo-background-video-loop="true" -->
 
 ???
 
-This is going to be light on code, but there are a lot of tools available for creating rich, interactive visualizations on the web. We'll be looking at only a few of them, with the goal of showing the overall process you can use to build a chart or map on the web. All demos have linked code samples.
+Rather than looking day by day, week by week, let's look at months as a whole. Are we publishing regularly throughout the year?
+
+- Explain Binning
+- You could do this in PHP!
+- Can just render DOM
+- But we're using SVG, scaleable vector graphics
+
+---
+<!-- .slide: class="full-height center" data-background-video="./images/demo-post-frequency-animation.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
+
+???
+
+- if you do the rendering with JavaScript instead of PHP, you can animate it
+- you can filter the data to see changes
+- we can start to compare different years
+- This could be expanded into a tool to ensure you maintain an annual rhythm, or to diagnose issues in your calendar. (Jan 2017 gap, for example)
+- Could use it as a filter, to begin exploring what you publish in different months -- is that cyclical?
 
 ---
 
-## Getting The Data
+# How?
+
+## 1. _Get the Data_
+## 2. _Draw the Graphics_
+
+???
+
+There's a lot of power in getting our data into the browser, so that we can work with it in JavaScript.
+
+How do we get the data into JavaScript? The easiest way I know is to use the WordPress REST API.
+
+---
+
+## GET the Data
 
 - GET /wp-json/wp/v2/posts
 - GET /wp-json/wp/v2/posts?page=2
 - GET /wp-json/wp/v2/posts?page=3
-- &hellip;forever?
-
-<div class="fragment">
-**_No!_** Make a custom endpoint :)
-
-- GET `/wp-json/wceu/2017/posts`
-
-</div>
+- _&hellip;etcetera?_
 
 ???
 
-Most web data visualization is created using JavaScript, so our first step is to get our data onto the client. Fortunately we have the WordPress REST API to help us.
+The easy way to build our dataset is by paging through the posts collection. Step through your posts until you have them all, then bin by date.
 
-We're going to get the past year of posts for our site, for all authors. For this example we're going to pull the fields we want from the existing REST API posts endpoint one page at a time, which means we'll be inefficiently transmitting a lot of unnecessary information.
-
-If you are building something like this into your own plugin, I recommend creating a custom endpoint to reveal just the data you need.
-
-(convert to use `rest-filter-response-fields` plugin?)
+We can use jQuery to do this, we can use any AJAX library, we can curl the data and process it locally.
 
 ---
+<!-- .slide: data-background="url('./images/api-posts-endpoint-full-response.png'" data-background-position="top" data-background-size="cover" -->
 
-### Page through posts endpoint
+### _~50kb <span class="amp">&amp;</span> over 0.5s per page&hellip;?!_
+<!-- .element: class="blackoutline" -->
 
-(will be replaced by flow diagram)
-```js
-
-const now = new Date();
-const msInOneYear = 1000 * 60 * 60 * 24 * 365;
-
-function getUpdateAndIterate( request ) {
-    request.get().then( ( posts ) => {
-        if ( now - new Date( posts.date ) > msInOneYear ) {
-            return;
-        }
-        updateGraphic( posts );
-        if ( posts._paging && posts._paging.next ) {
-            getAndUpdate( posts._paging.next );
-        }
-    });
-}
-
-getUpdateAndIterate( wp.posts().perPage( 20 ) );
-```
-<!-- .element class="stretch" -->
+## _We Can Do Better!_
+<!-- .element: class="blackoutline" -->
 
 ???
 
-This isn't a code talk so I'm going to describe what we do rather than show you lines and lines of code, but all the examples we're looking at are up on github and linked from my slides.
+But this is SO MUCH INFORMATION we don't need in our graphic. HTTP traffic is expensive. Literally. This JSON is less than a single post's worth of data.
 
-We fetch our first page of results -- we'll get 20 posts at a time, which is a good balance between payload transfer size and number of steps.
+For a WordPress plugin, we cannot assume anything about the internet of the viewer. They could be paying per megabyte. Even in a major US city I've been feeling that phone data plans get less unlimited every year.
 
-Each time a page comes back, we'll pass the new data to an update function, then check to see if there's another page of results. If there is, and if we're still within the past year, we'll iterate on to fetch the next page.
+Plus it is SLOW to load all of this; you have to wait for many requests to complete.
 
 ---
 
-### Parse the Data
-
-```js
-[
-    { id: 1178, date: "2017-04-11T20:22:19" },
-    { id: 1170, date: "2017-04-02T16:11:42" },
-    { id: 1169, date: "2017-04-02T10:41:27" },
-    // And so on
-]
-```
 ```js
 [
     { date: "2017-04-11", count: 1 },
-    { date: "2017-04-02", count: 2 },
-    // And so on
+    { date: "2017-04-02", count: 5 },
+    { date: "2017-05-21", count: 2 }
+    ...
 ]
 ```
 
 ???
 
-Using this process we can build up an array of all the posts in the past year. We iterate through that list to create a new array, with only the counts of posts per date.
-
-This is why we'd want to build a new endpoint to get this data -- we've now thrown away almost all of the data the posts endpoints returned to us! But you can use this approach for prototyping on a local install.
+To make a graph like the one I just showed, this is all we actually need. Technically we need even less than this; we just need a count for the month and year. If we send anything extra we're wasting bandwidth, money and time.
 
 ---
 
-### Draw the Squares
+## Custom Endpoints
+### `register_rest_route` _&amp; transients_
 
-```html
-    <div />
-    <div />
-    <div />
-    <div />
+???
 
-    <!-- ...& 361 more -->
-```
-Our graphic will be a grid of squares, so we know we'll need to render a square for each day. For this graphic we're just going to use divs, but we'll switch to SVG in the next example.
+Writing a custom endpoint to return this data saves almost 2mb and up to 20s per page load.
+
+Most client-side visualizations in WP can and should be driven by custom endpoints.
+
+Use PHP to retrieve and structure your data, then send only what you need to the client.
+
+If the data isn't going to change too quickly, use a transient to cache that value so that the data loads faster.
+
+Using the default endpoints is great for prototyping, but be efficient when you ship something to a production plugin or dashboard.
+
+---
+
+# Drawing the Graphics
+
+???
+
+So we request our custom endpoint. Now we have the data.
+
+How do we draw these graphics?
+
+---
+# HTML <span class="amp">&amp;</span> CSS
+### _from PHP, React, Vue, you name it&hellip;_
+
+???
+
+Anything that can render HTML can be used to create a visualization, especially one made up of rectangles or lines. CSS can be used to style DOM nodes so that they represent a chart.
+
+And you can use any tool you are comfortable with to render that markup, from the client or the server.
+
+---
+# SVG
+### _Scaleable Vector Graphics_
+
+???
+
+but for more complex graphics you'll probably need to use SVG.
+
+There's a lot of drawing tools out there, but for data visualization one stands above the rest.
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/d3-website.png')" data-background-position="top" data-background-repeat="no-repeat" data-background-size="cover" -->
+
+<div class="attribution"><span>
+"Data Driven Documents, or "D3" [d3js.org](https://d3js.org/)
+</span></div>
+
+???
+
+The most
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/vega-lite-homepage.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
+
+<div class="attribution"><span>
+Vega &amp; Vega-Lite, [vega.github.io/vega-lite](https://vega.github.io/vega-lite/)<br>
+Arvind Satyanarayan, _[Reactive Building Blocks: Interactive Visualizations with Vega](https://www.youtube.com/watch?v=Y8Fp9z-9DWc)_, OpenVis Conf 2016
+</span></div>
+
+???
+
+But of course you don't always have to handle the rendering yourself.
+
+Analysis tools like Tableau or Excel can frequently get you something useful. Writing your own data pipeline and WebGL renderer will only be the best option when you have something big and valuable to analyze.
+
+In the middle, there are an increasing number of tools for
+One of them, from a team I've had the pleasure to work with at the University of Washington in the US, is a vizualization grammar called Vega, and its simplified derivative Vega-Lite. These grammars let you build a tool that formats your data into a JSON representation of what a chart should look like -- vega will do the rest.
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/vx-gallery.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
+
+<div class="attribution"><span>
+REACT + D3 = VX, [vx-demo.now.sh](https://vx-demo.now.sh/)
+</span></div>
+
+???
+
+Or for more control, there's many different component libraries for React, Vue or Angular that give you lower-level primitives you can use to draw your charts.
+
+---
+
+### what
+## _Other_
+### Data is in a Post?
+
+???
+
+Dates, calendars and posting frequency are easy, because they are essentially continuous numeric values.
+
+But there's a lot of other information about our posts that we can visualize.
+
+For one example, a lot of us struggle with how to most effectively use tags and categories. Now that we've heard a little bit about tools like D3, can we visualize those in a useful way?
+
+---
+<!-- .slide: class="full-height" data-background-video="./images/bostock-lesmis-force-directed-graph.mp4" data-background-position="top" data-background-size="cover" -->
+
+<div class="attribution"><span>
+Mike Bostock, [Force-Directed Graph of Character relationships in _Les Miserables_](https://bl.ocks.org/mbostock/4062045)
+</span></div>
+
+???
+
+Network diagrams are great at showing relationships, and D3's force-directed graph layout gives us a tool to simplify computing that kind of layout.
+
+when the network stabilizes, you can usually see interesting groups and relationships... (explain)
+
+The layout itself is a simple physics simulation, where nodes in the graph repel each other while linkages between different nodes attract
+
+---
+<!-- .slide: class="full-height" data-background-video="./images/demo-tag-category-force-directed-graph.mp4" data-background-position="top" data-background-size="cover" -->
+
+???
+
+...although it can also show you when you've got a bit of a mess on your hands!
+
+(explain what's going on, and the ways that it is helpful)
+
+Not all visualization options are appropriate for all datasets.
+
+---
+<!-- .slide: data-background="url('./images/demo-tag-co-occurrence-matrix.png')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+???
+
+This is the same data, visualized instead with a co-occurrence matrix. Each shaded square represents two tags that coincide on a post, and the darker squares co-occur more often.
+
+Terms with more posts are in the upper right.
+
+More easily than with the network, you can see which topics are broad, like tutorials and web performance articles, and which are more specific.
+
+With the sorting, you can also see which are less common.
+
+---
+<!-- .slide: data-background="url('./images/tag-cloud.png')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+---
+<!-- .slide: data-background="url('./images/wordcloud-web-applications-count.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+---
+<!-- .slide: data-background="url('./images/wordcloud-web-applications-tf-idf.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+---
+
+# _Important Considerations_
+
+---
+
+# Performance
 
 ---
 <!-- .slide: class="full-height center" data-background-video="./images/bocoup-datavis-canvas-performance.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
@@ -389,41 +526,45 @@ Shaders are complex -- This takes us even further away from the easy-to-read SVG
 Tools like REGL (pronounced "regal"), a REactive WebGL framework, make working with WebGL simpler; Three.js is another popular WebGL library, and I expect we'll continue to see more & more resources pop up to make it easier to get started.
 
 ---
-<!-- .slide: class="full-height" data-background="url('./images/vega-lite-homepage.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
 
-<div class="attribution"><span>
-Vega & Vega-Lite, [vega.github.io/vega-lite](https://vega.github.io/vega-lite/)<br>
-Arvind Satyanarayan, _[Reactive Building Blocks: Interactive Visualizations with Vega](https://www.youtube.com/watch?v=Y8Fp9z-9DWc)_, OpenVis Conf 2016
-</span></div>
+## Accessibility
 
-???
-
-As we begin to wrap up, I want to emphasize that you don't always have to handle the rendering yourself.
-
-Analysis tools like Tableau or Excel can frequently get you something useful. Writing your own data pipeline and WebGL renderer will only be the best option when you have something big and valuable to analyze.
-
-In the middle, there are an increasing number of tools for
-One of them, from a team I've had the pleasure to work with at the University of Washington in the US, is a vizualization grammar called Vega, and its simplified derivative Vega-Lite. These grammars let you build a tool that formats your data into a JSON representation of what a chart should look like -- vega will do the rest.
-
----
-<!-- .slide: class="full-height" data-background="url('./images/vx-gallery.png')" data-background-size="cover" data-background-repeat="no-repeat"  data-background-position="top" -->
-
-<div class="attribution"><span>
-REACT + D3 = VX, [vx-demo.now.sh](https://vx-demo.now.sh/)
-</span></div>
-
-???
-
-Or for more control, there's many different component libraries for React, Vue or Angular that give you lower-level primatives you can use to draw your charts.
+[Doug Schepers, _Invisible Visualization_, OpenVis Conf 2013](https://www.youtube.com/watch?v=f4P6JsAKrDM)
 
 ---
 
 ### Resources
 
 - [FlowingData](https://flowingdata.com/)
-- [Dashing D3.js](https://www.dashingd3js.com/), tutorials & lessons
+- [Dashing D3.js](https://www.dashingd3js.com/), tutorials &amp; lessons
 - [Bocoup DataVis Blog](https://bocoup.com/blog/category/datavis)
-- Conferences: [OpenVis Conf](https://openvisconf.com/), [Eyeo Festival](http://eyeofestival.com/), [EuroVis](http://eurovis2017.virvig.es/), [Visualized](http://visualized.com/), [Data Visualization Summit](https://theinnovationenterprise.com/summits/data-visualization-summit-boston-2017), [Strata](https://conferences.oreilly.com/strata), _<span class="amp">&amp;</span> many, many more_
+- Conferences: [OpenVis Conf](https://openvisconf.com/), [Eyeo Festival](http://eyeofestival.com/), [EuroVis](http://eurovis2017.virvig.es/), [Visualized](http://visualized.com/), [Data Visualization Summit](https://theinnovationenterprise.com/summits/data-visualization-summit-boston-2017), [Strata](https://conferences.oreilly.com/strata), _<span class="amp">&amp;</span
+- School for Poetic Computation
+> many, many more_
+
+---
+
+# Your Own Data
+
+???
+
+The WordPress REST API matters to me because it is, I believe, the most widespread free and accessible API for accessing your own personal data -- your content, as data -- on the web.
+
+Most of us haven't signed up for a Fitbit developer account or anything like that. It's the first time many of us have had API access to our own data.
+
+---
+
+# Understand It
+
+???
+
+We should be empowering each other to visualize that data, so we can understand it.
+
+You've got to understand that data, understand the process of looking at data and drawing conclusions from it.
+
+Companies are collecting our information constantly every day for their own purposes. This is a rare opportunity we have to gain literacy into how that process works, to increase our own awareness.
+
+Know thyself, and know thy data.
 
 ---
 

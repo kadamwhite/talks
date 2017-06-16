@@ -137,6 +137,14 @@ blockquote * {
   border: 1px solid #afafaf !important;
 }
 
+.reveal .blackoutline {
+  text-shadow:
+    5px 5px 0 black,
+    -5px -5px 0 black,
+    5px -5px 0 black,
+    -5px 5px 0 black;
+}
+
 .attribution > *,
 .whitebg > * {
   padding: 0.2em !important;
@@ -229,6 +237,6 @@ html {
   text-transform: uppercase;
 }
 span.amp {
-  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-family: Palatino, "Book Antiqua", serif;
   font-style: italic;
 }

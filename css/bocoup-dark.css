@@ -78,13 +78,6 @@ body:before {
 
 /* Header/Footer Rainbows */
 body {
-	border: solid transparent;
-	border-width: 10px 0 10px 0;
-	border-style: solid;
-	-webkit-border-image: url(/talks/img/rainbow-header.svg) 4 1 4 1 stretch;
-	-moz-border-image: url(/talks/img/rainbow-header.svg) 4 1 4 1 stretch;
-	-o-border-image: url(/talks/img/rainbow-header.svg) 4 1 4 1 stretch;
-	border-image: url(/talks/img/rainbow-header.svg) 4 1 4 1 stretch;
 	min-height: 100vh;
 }
 /*********************************************
