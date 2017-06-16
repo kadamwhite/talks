@@ -12,6 +12,28 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 Thank for intro / thank WCEU organizers; last talk, home stretch!
 
 ---
+<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke.png')" data-background-position="canter" data-background-size="cover" -->
+
+???
+
+To kick things off, here's the first data graphic of the talk
+
+As you may or may not know pie charts are the comic sans of datavis, or perhaps the papyrus, but both of those fonts are very approachable, right?
+
+I wanted to make datavis approachable today, so it felt like the most appropriate to represent this dataset.
+
+---
+<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke-2.png')" data-background-position="canter" data-background-size="cover" -->
+
+???
+
+It's a chart of the talks I've wanted to attend at WCEU, in blue, vs the ones I felt like skipping, in orange
+
+I have never been at a WordCamp with more talks I wanted to attend, the orange slice represents only my own presentation because my only regret today is wish I could also be across the way listening to Michael share his thoughts on design in open source.
+
+Thank you for sticking it out to the end, and thank you for picking this session; so let's talk data!
+
+---
 <!-- .slide: class="center" -->
 
 # Data
@@ -71,6 +93,7 @@ We're using WordPress to move our data from a MySQL database into PHP, where we 
 It's a direct mapping of data to visual representation.
 
 ---
+<!-- .slide: class="center" -->
 
 ## Data-Driven Documents
 
@@ -81,6 +104,7 @@ In these terms, most documents on the web are "data-driven": they map some sort 
 This is usually content: text, words, images; but sometimes we want to communicate information more directly, or convey complex information that would be hard to describe in words or photographs.
 
 ---
+<!-- .slide: class="center" -->
 
 ## Data Visualization
 
@@ -422,7 +446,12 @@ But there's a lot of other information about our posts that we can visualize.
 For one example, a lot of us struggle with how to most effectively use tags and categories. Now that we've heard a little bit about tools like D3, can we visualize those in a useful way?
 
 ---
-<!-- .slide: class="full-height" data-background-video="./images/bostock-lesmis-force-directed-graph.mp4" data-background-position="top" data-background-size="cover" -->
+<!-- .slide: class="full-height light-bg" data-background-video="./images/bostock-lesmis-force-directed-graph.mp4" data-background-position="top" data-background-size="cover" -->
+
+### _Networks <span class="amp">&amp;</span> Relationships_
+<!-- .element: class="whiteoutline" -->
+#### with Force-Directed Graphs
+<!-- .element: class="whiteoutline" -->
 
 <div class="attribution"><span>
 Mike Bostock, [Force-Directed Graph of Character relationships in _Les Miserables_](https://bl.ocks.org/mbostock/4062045)
@@ -463,22 +492,47 @@ With the sorting, you can also see which are less common.
 ---
 <!-- .slide: data-background="url('./images/tag-cloud.png')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
 
----
-<!-- .slide: data-background="url('./images/wordcloud-web-applications-count.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+???
+
+Finally, I'd be remiss not to talk about one of the very few types of visualization that is actually present in WordPress out of the box: the tag cloud.
 
 ---
-<!-- .slide: data-background="url('./images/wordcloud-web-applications-tf-idf.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+<!-- .slide: class="full-height" data-background="url('./images/wordcloud-web-applications-count.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+<div class="attribution"><span>
+Data courtesy of [Bocoup.com](https://bocoup.com/blog)
+</span></div>
+
+???
+
+This word cloud is for the most common web applications category, sized by overall occurrence count
+
+we remove words like "the", "of", and so on -- these are known as "stop words", words that do not have much significance and can be excluded
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/wordcloud-web-applications-tf-idf.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
+
+<div class="attribution"><span>
+Data courtesy of [Bocoup.com](https://bocoup.com/blog)
+</span></div>
+
+???
+
+On the other hand, this word cloud is sized using a text analytics technique called term-frequency-inverse document frequency, or TF-IDF.
 
 ---
 
-# _Important Considerations_
+## _Important Considerations_
+
+???
+
+We're low on time, so I want to leave you with a few things to think about as you begin to explore what data visualization can teach you, or do for your company or product
 
 ---
+<!-- .slide: class="full-height center light-bg" data-background-video="./images/bocoup-datavis-canvas-performance.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
 
 # Performance
-
----
-<!-- .slide: class="full-height center" data-background-video="./images/bocoup-datavis-canvas-performance.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
+<!-- .element: class="whiteoutline" -->
 
 <div class="attribution"><span>
 Yannick Assogba, [Needles, Haystacks, and the Canvas API](https://bocoup.com/blog/2d-picking-in-canvas)
@@ -492,7 +546,7 @@ DOM and SVG rendering can only get us so far. The browser cannot render thousand
 ---
 <!-- .slide: class="full-height center" data-background-video="./images/bocoup-datavis-canvas-animation-dark.mp4" data-background-video-loop="true" data-background-size="cover" -->
 
-# Canvas
+## Canvas
 
 <div class="attribution"><span>
 Peter Beshai, [Smoothly animate thousands of points with HTML5 Canvas and D3](https://bocoup.com/blog/smoothly-animate-thousands-of-points-with-html5-canvas-and-d3)
@@ -509,7 +563,7 @@ However, things that SVG gives us "for free," like mouse events and selector hie
 ---
 <!-- .slide: class="full-height center" data-background-video="./images/pbesh-webgl-animation.mp4" data-background-video-loop="true" data-background-size="cover" -->
 
-# WebGL
+## WebGL
 
 <div class="attribution"><span>
 Peter Beshai, [Animate Points with WebGL and REGL](http://peterbeshai.com/beautifully-animate-points-with-webgl-and-regl.html)<br>
@@ -527,33 +581,67 @@ Tools like REGL (pronounced "regal"), a REactive WebGL framework, make working w
 
 ---
 
-## Accessibility
+# Accessibility
 
-[Doug Schepers, _Invisible Visualization_, OpenVis Conf 2013](https://www.youtube.com/watch?v=f4P6JsAKrDM)
+<br>
 
----
-
-### Resources
-
-- [FlowingData](https://flowingdata.com/)
-- [Dashing D3.js](https://www.dashingd3js.com/), tutorials &amp; lessons
-- [Bocoup DataVis Blog](https://bocoup.com/blog/category/datavis)
-- Conferences: [OpenVis Conf](https://openvisconf.com/), [Eyeo Festival](http://eyeofestival.com/), [EuroVis](http://eurovis2017.virvig.es/), [Visualized](http://visualized.com/), [Data Visualization Summit](https://theinnovationenterprise.com/summits/data-visualization-summit-boston-2017), [Strata](https://conferences.oreilly.com/strata), _<span class="amp">&amp;</span
-- School for Poetic Computation
-> many, many more_
-
----
-
-# Your Own Data
+### Watch: [_Invisible Visualization_](https://www.youtube.com/watch?v=f4P6JsAKrDM)
+#### Doug Schepers, OpenVis Conf 2013
 
 ???
+
+but Canvas and WebGL are just pictures
+
+Even HTML or SVG visualizations may not contain semantic information
+
+Be mindful of your audience; accessibility is a topic embarrassingly under-discussed in the datavis community, and it's a huge area where we need to improve
+
+(Mention Sonification)
+
+---
+
+# It is Easy
+## _to get started_
+
+???
+
+but most importantly, some of the things I've discussed are complex -- but this is a huge field and the basics are simple.
+
+---
+
+### _Learning Resources_
+
+- Blogs: [FlowingData](https://flowingdata.com/), [Dashing D3.js](https://www.dashingd3js.com/), [Bocoup](https://bocoup.com/blog/category/datavis)
+- Conferences: [OpenVis Conf](https://openvisconf.com/), [Eyeo Festival](http://eyeofestival.com/), [EuroVis](http://eurovis2017.virvig.es/), [Visualized](http://visualized.com/), [Data Visualization Summit](https://theinnovationenterprise.com/summits/data-visualization-summit-boston-2017), [Strata](https://conferences.oreilly.com/strata), _<span class="amp">&amp;</span> many, many more_
+- Tools: [d3js.org](https://d3js.org/), [processing.org](https://processing.org/) <span class="amp">&amp;</span> [p5js.org](https://p5js.org/), [regl.party](http://regl.party/)
+- School for Poetic Computation, [sfpc.io](http://sfpc.io/)
+- Machine Learning for Artists, [ml4a.github.io](https://ml4a.github.io/)
+- (Your blog, by this time next year?)
+
+???
+
+There is a tremendous quantity of good material out there for learning datavis, from blogs like flowingdata, dashingd3, and Bocoup's, to talks & videos from OpenVis conf, eyeo, and other conferences
+
+For the more artistic side of things, check out what people are doing with software art at the school for poetic computation in NY, and similar places around the world -- data art is a real and awesome thing
+
+---
+<!-- .slide: class="center" -->
+
+### _WordPress gives us_
+# Our Own Data
+
+???
+
+And what better way to start learning than by exploring your own data?
 
 The WordPress REST API matters to me because it is, I believe, the most widespread free and accessible API for accessing your own personal data -- your content, as data -- on the web.
 
 Most of us haven't signed up for a Fitbit developer account or anything like that. It's the first time many of us have had API access to our own data.
 
 ---
+<!-- .slide: class="center" -->
 
+### _We should_
 # Understand It
 
 ???
@@ -567,5 +655,10 @@ Companies are collecting our information constantly every day for their own purp
 Know thyself, and know thy data.
 
 ---
+<!-- .slide: class="center" -->
 
 # Thank You
+
+<br>
+
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)

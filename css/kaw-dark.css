@@ -255,6 +255,22 @@ body {
 .reveal small * {
   vertical-align: top; }
 
+/******
+ CUSTOM
+ ******/
+.reveal .center {
+  text-align: center;
+}
+
+.reveal .light-bg h1,
+.reveal .light-bg h2,
+.reveal .light-bg h3,
+.reveal .light-bg h4,
+.reveal .light-bg h5,
+.reveal .light-bg h6 {
+  color: #181718;
+}
+
 /*********************************************
  * LINKS
  *********************************************/

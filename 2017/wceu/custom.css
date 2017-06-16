@@ -144,6 +144,13 @@ blockquote * {
     5px -5px 0 black,
     -5px 5px 0 black;
 }
+.reveal .whiteoutline {
+  text-shadow:
+    5px 5px 0 white,
+    -5px -5px 0 white,
+    5px -5px 0 white,
+    -5px 5px 0 white;
+}
 
 .attribution > *,
 .whitebg > * {
@@ -160,9 +167,6 @@ blockquote * {
   top: 80%;
   width: 100%;
   font-size: 0.5em;
-}
-.reveal .center {
-  text-align: center;
 }
 
 .reveal .full-width {
