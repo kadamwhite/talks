@@ -244,3 +244,15 @@ span.amp {
   font-family: Palatino, "Book Antiqua", serif;
   font-style: italic;
 }
+
+.reveal .has-overlay {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 3px;
+}
+.reveal div.has-overlay {
+  background: rgba(0,0,0,0.9);
+  margin-bottom: 1em;
+}

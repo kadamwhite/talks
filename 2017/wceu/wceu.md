@@ -655,10 +655,17 @@ Companies are collecting our information constantly every day for their own purp
 Know thyself, and know thy data.
 
 ---
-<!-- .slide: class="center" -->
 
-# Thank You
+<h2 class="has-overlay blackoutline">Thank You WCEU!</h1>
 
-<br>
+<div class="has-overlay">
+Slides: [talks.kadamwhite.com/wceu2017](http://kadamwhite.github.io/talks/2017/wceu)
+</div>
 
+<div class="has-overlay">
+Code: [github.com/kadamwhite/wceu-datavis](https://github.com/kadamwhite/wceu-datavis)
+</div>
+
+<div class="has-overlay">
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+</div>
