@@ -256,3 +256,8 @@ span.amp {
   background: rgba(0,0,0,0.9);
   margin-bottom: 1em;
 }
+
+.reveal .italic {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+}

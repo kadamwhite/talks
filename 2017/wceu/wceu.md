@@ -12,7 +12,7 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 Thank for intro / thank WCEU organizers; last talk, home stretch!
 
 ---
-<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke.png')" data-background-position="canter" data-background-size="cover" -->
+<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke.png')" data-background-position="center" data-background-size="cover" -->
 
 ???
 
@@ -23,7 +23,7 @@ As you may or may not know pie charts are the comic sans of datavis, or perhaps 
 I wanted to make datavis approachable today, so it felt like the most appropriate to represent this dataset.
 
 ---
-<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke-2.png')" data-background-position="canter" data-background-size="cover" -->
+<!-- .slide: class="center" data-background="url('./images/wceu-talks-i-want-to-see-joke-2.png')" data-background-position="center" data-background-size="cover" -->
 
 ???
 
@@ -114,7 +114,7 @@ Data visualization is the practice of representing complex information visually.
 
 Datavis is all around us: Charts, graphs, and interactive graphics bombard us on news websites, analytics dashboards, television programmes, smartphone apps, and advertisements.
 
-We're so immersed in pictures of data that it can be easy to take them for granted, but every chart or graph you see was created by a human to tell a story.
+We're so immersed in pictures of data that it can be easy to take them for granted, but every chart or graph you see was created by a human to tell a story or answer a question.
 
 
 ---
@@ -128,7 +128,7 @@ Charles Joseph Minard, 1869 ([learn more](https://robots.thoughtbot.com/analyzin
 
 Many different dimensions of information -- such as geographical position, temperature, and so on -- can be embedded into a single graphic.
 
-The field has a long history. It is a particular honor to be giving this talk here in Paris, when many of the pioneers of visualization are themselves French.
+C'est un honneur de faire cette conférence à Paris, en fait, because some of the most famous pioneers of the field, like Minard, are themselves French. The field has a long history.
 
 (Can't take time to explain graphic, but it shows temperature, location, and travel over time as Napoleon's army invaded Russia in 1812-13) http://patrimoine.enpc.fr/document/ENPC01_Fol_10975?image=54#bibnum
 
@@ -221,21 +221,14 @@ Something that really drives me is finding ways to bring the cutting edge of web
 So today I want to tell you that it's easy to get started with data visualization and data analysis, and that there is a tremendous opportunity for using these techniques within WordPress.
 
 ---
-<!-- .slide: data-background="url('./images/wp_posts-columns.png')" data-background-position="top" data-background-size="cover" -->
-
-???
-
-There's a lot of narrative or news-oriented visualizations we could create and embed in our WordPress sites to help tell stories; but since we're sitting on all this data, let's see whether we can make some simple visualizations to better understand our own websites.
-
-And since many of us use WordPress for far more than "just blogging," that database contains a lot of interesting information. Maybe there's opportunities for how we can visualize that, as well.
-
----
 
 # Content is _Data_
 
 ???
 
 Content is data, and data can be visualized.
+
+Let's make some simple visualizations to better understand our own websites.
 
 ---
 
@@ -490,11 +483,35 @@ More easily than with the network, you can see which topics are broad, like tuto
 With the sorting, you can also see which are less common.
 
 ---
+
+## What about the
+# Content?
+
+???
+
+These can be really interesting editorial tools. But they're all meta information. Metadata. Dates, tags, authors, comments.
+
+When we say "the content" in WordPress, we usually mean posts -- writing. Words.
+
+---
+<!-- .slide: data-background="url('./images/petya-hello-word-cloud.png')" data-background-position="center" data-background-size="cover" data-background-repeat="no-repeat" -->
+
+???
+
+So finally today, I want to talk about words. 
+
+When I saw this slide in Petya's talk yesterday I knew I had to ask her if I could use it. This is a word cloud. It's a data visualization, though we don't usually think of it that way!
+
+It visualizes the breadth of our community.
+
+---
 <!-- .slide: data-background="url('./images/tag-cloud.png')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
 
 ???
 
-Finally, I'd be remiss not to talk about one of the very few types of visualization that is actually present in WordPress out of the box: the tag cloud.
+This is one of the very few visualizations that is present in WordPress core out of the box, in the form of the tag cloud widget.
+
+That widget shows us the breadth of our tags in a visual way. But let's see if we can make a word cloud that actually represents the content within blog posts.
 
 ---
 <!-- .slide: class="full-height" data-background="url('./images/wordcloud-web-applications-count.svg')" data-background-position="center" data-background-size="contain" data-background-repeat="no-repeat" -->
@@ -526,7 +543,9 @@ On the other hand, this word cloud is sized using a text analytics technique cal
 
 ???
 
-We're low on time, so I want to leave you with a few things to think about as you begin to explore what data visualization can teach you, or do for your company or product
+So there's some things you can build.
+
+I want to leave you with a few things to think about as you begin to explore what data visualization can teach you, or do for your company or product
 
 ---
 <!-- .slide: class="full-height center light-bg" data-background-video="./images/bocoup-datavis-canvas-performance.mp4" data-background-video-loop="true" data-background-position="top" data-background-size="contain" -->
@@ -600,12 +619,41 @@ Be mindful of your audience; accessibility is a topic embarrassingly under-discu
 
 ---
 
+## Define Custom Data
+
+#### `register_post_type` _for defining objects_
+
+#### `register_rest_field` _for content modeling_
+
+???
+
+To close -- I promised to talk about making your own custom dashboards. We're out of time, but I'd like to briefly think about all the other stuff we may have in our DB.
+
+Many of us use WordPress for far more than "just blogging;" that DB contains a lot of interesting information.
+
+Whenever you are making a new type of object in WordPress, think about what visual representation might help you understand that data better.
+
+---
+<!-- .slide: data-background="url('./images/bocoup-jsi-dashboard-case-study.png')" data-background-size="cover" data-background-position="top" -->
+
+???
+
+I've seen health information, business metrics, foursquare check ins, restaurant management, all built on top of WordPress
+
+I built a data dashboard on top of WordPress before the REST API was merged. It took a long time and we basically had to implement our own API instead. It is so much easier to get your content into WordPress than ever before.
+
+We should take advantage of that.
+
+---
+
 # It is Easy
 ## _to get started_
 
 ???
 
-but most importantly, some of the things I've discussed are complex -- but this is a huge field and the basics are simple.
+but above all, just think about data as something you deserve to see.
+
+Some of the things I've discussed are complex -- but this is a huge field and the basics are simple.
 
 ---
 
@@ -634,9 +682,11 @@ For the more artistic side of things, check out what people are doing with softw
 
 And what better way to start learning than by exploring your own data?
 
-The WordPress REST API matters to me because it is, I believe, the most widespread free and accessible API for accessing your own personal data -- your content, as data -- on the web.
+28% of the web. WordPress is big data. but Big data is just a lot of personal data.
 
 Most of us haven't signed up for a Fitbit developer account or anything like that. It's the first time many of us have had API access to our own data.
+
+The WordPress REST API matters to me because it is, I believe, the most widespread free and accessible API for accessing your own personal data -- your content, as data -- on the web.
 
 ---
 <!-- .slide: class="center" -->
@@ -650,11 +700,32 @@ We should be empowering each other to visualize that data, so we can understand 
 
 You've got to understand that data, understand the process of looking at data and drawing conclusions from it.
 
-Companies are collecting our information constantly every day for their own purposes. This is a rare opportunity we have to gain literacy into how that process works, to increase our own awareness.
+Companies are collecting our information constantly. This is a rare opportunity we have to gain literacy into how that process works.
 
-Know thyself, and know thy data.
+Visualization can even be used to de-mystify things like neural networks and the other algorithms that govern our lives.
+
+Know thy data. Learn to read it like we read the words we press.
 
 ---
+<!-- .slide: class="center" -->
+
+## WordPress cannot stay in its bubble. It must rub against other bubbles, vigorously.
+<!-- .element: class="italic" -->
+
+#### _~ John Maeda_
+
+???
+
+As John taught us yesterday, creativity comes from juxtapositions.
+
+We have deeply ingrained ways of thinking about WordPress content.
+
+Learn to decipher these systems, and make things that use that information to empower each other.
+
+---
+<!-- .slide: class="center" data-background-video="./images/processing-image-wall.mp4" data-background-size="cover" data-background-video-loop="true" -->
+
+<div class="fragment">
 
 <h2 class="has-overlay blackoutline">Thank You WCEU!</h1>
 
@@ -669,3 +740,46 @@ Code: [github.com/kadamwhite/wceu-datavis](https://github.com/kadamwhite/wceu-da
 <div class="has-overlay">
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 </div>
+
+</div>
+
+---
+
+Processing code for the video loop of WCEU attendees used in the final slide
+
+```pde
+int across = 14;
+int down = 8;
+int scaleFactor = 2;
+int imageEdge = 96 / scaleFactor;
+// Which image to draw
+int playhead = 0;
+
+PImage[] images = new PImage[1901];
+
+void setup() {
+  background(0);
+  fullScreen();
+  // imageFiles is an array of image filenames from the data folder
+  for (int i = 0; i < imageFiles.length; i++) {
+    images[i] = loadImage(imageFiles[i]);
+  }
+  frameRate(12);
+}
+
+void draw() {
+  int posToDraw = int(random((across * scaleFactor) * (down * scaleFactor)));
+  int x = ( posToDraw % (across * scaleFactor) ) * imageEdge;
+  int y = floor( posToDraw / (across * scaleFactor) ) * imageEdge;
+  fill( 255 );
+  rect( x, y, imageEdge, imageEdge );
+  image( images[playhead], x, y, imageEdge, imageEdge );
+  playhead++;
+  while (playhead < images.length && images[playhead] == null) {
+    playhead++;
+  }
+  if (playhead >= images.length - 1) {
+    playhead = 0;
+  }
+}
+```
