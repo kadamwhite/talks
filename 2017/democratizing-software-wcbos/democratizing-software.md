@@ -12,7 +12,7 @@ Thank you for having me, it is an honor to have been invited.
 
 Intros -- get audience feel
 
-This talk is a departure for me; I'm used to talking about code. But for the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and what WordPress actually does.
+This talk is about this room. It's a departure for me; I'm used to talking about code. But for the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and what WordPress actually does.
 
 ---
 <!-- .slide: data-background="url('../democratizing-software/images/democratizing-publishing-slack.png')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
@@ -50,8 +50,6 @@ Now, that makes sense for publishing. But, to democratize something, our diction
 
 And that should make you question my title of "democratizing software". Because software is code.
 
-I don't know about you, but I've been thinking about Democracy a lot lately. is this a good word?
-
 All people. Looking at this room, not much is true about all of us; the WP community is diverse and multivariate.
 
 But we are all human, so we are all born, we all die, and none of us start out knowing how to code.
@@ -86,7 +84,7 @@ http://www.bbc.com/news/technology-16440126
 ---
 <!-- .slide: class="notcenter" -->
 
-## _&ldquo;The web was supposed to be a think we make&rdquo;_
+## _&ldquo;The web was supposed to be a thing we make&rdquo;_
 
 <em>~ [Anil Dash](https://medium.com/glitch/the-web-was-supposed-to-be-a-thing-we-make-c023b6e7f56a), CEO of Fog Creek Software</em>
 
@@ -101,7 +99,7 @@ With a basic knowledge of HTML and FTP -- "that bizarre, magical way in which th
 
 ???
 
-Companies like Angelfire and Geocities made this easier, providing free hosting and more intuitive editors. But we still build our internet homes ourselves, assembling websites out of spare parts, borrowed images, and rotating text. Sites like Geocities even made the homesteading metaphor explicit, organizing sites into neighborhoods and addresses.
+Companies like Angelfire and Geocities made this easier, providing free hosting and more intuitive editors. But we still built our internet homes ourselves, assembling websites out of spare parts, borrowed images, and rotating text. Sites like Geocities even made the homesteading metaphor explicit, organizing sites into neighborhoods and addresses.
 
 In the 2000's, things got a little easier. Sites like MySpace or Livejournal provided a more consistent base, but you could still hack or theme it to express yourself. This lowered the barrier to entry at the expense of making your site look a little more like your friends' -- theming only takes you so far.
 
@@ -114,7 +112,7 @@ Taking templated sites to their extreme, we reach the present day. We've traded 
 
 A computer scientist I know described the world Apple and Facebook have built as Paternalistic: they know best, don't mind your little head about it. "The smart phone is so pared down that useful software has to be authored on a different device by someone else."
 
-And this is where most existing system fail. Because sites that prohibit customization restrict curiosity.
+And this is where most existing systems let us down. Because sites that prohibit customization restrict curiosity.
 
 ---
 
@@ -123,9 +121,7 @@ And this is where most existing system fail. Because sites that prohibit customi
 
 ???
 
-Before these systems were in place, to have a web presence we had to build some or all of it ourselves.
-
-We can still find ourself a web host, roll up our sleeves, bust out an FTP client and start building; but if you try to ask "how do I make a website" in 2017, it doesn't feel like a straightforward process anymore.
+We can still do things ourselves; find ourself a web host, roll up our sleeves, bust out an FTP client and start building. But if you try to ask "how do I make a website" in 2017, it doesn't feel like a straightforward process anymore.
 
 ---
 <!-- .slide: data-background-video="../democratizing-software/images/sue-lockwood-tech-choice.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
@@ -194,7 +190,9 @@ And best yet, the changes you make are applied in real-time. User interface desi
 
 ???
 
-This is the start of what I'd describe as the _WordPress Style_ of programming education. It's not the only way people we learn, but it's a way that is uniquely enabled by the way WordPress works. It's practically motivated, and incremental. It can happen almost by accident.
+This is the start of what I'd describe as the _WordPress Style_ of programming education. It's not the only way people, but it's a way that is uniquely enabled by the way WordPress works.
+
+Learning to code with WP is practically motivated, and incremental. It can happen almost by accident.
 
 ---
 <!-- .slide: class="notcenter" -->
@@ -390,6 +388,8 @@ How did this happen? What makes WordPress a learning community?
 
 We've already established the first principle: WordCamps and meetups are for WordPress users of all types, from writers to developers. Keeping everybody in the same room and same group keeps us honest.
 
+What else can we do to keep this system working?
+
 ---
 <!-- .slide: class="notcenter" -->
 
@@ -410,6 +410,8 @@ WordPress is used around the world. We must strive to make the tools and communi
 
 In tandem with that, we should always strive to make our work accessible, so that as many people can benefit from it as possible.
 
+Accessibility has to be foundational to our practice as developers. We can't only start thinking of others after the product has shipped.
+
 ---
 <!-- .slide: class="notcenter" -->
 
@@ -419,19 +421,9 @@ In tandem with that, we should always strive to make our work accessible, so tha
 
 And maintaining diversity is hard, so we must also protect our community from hate & arrogance. This whole system only works if people feel comfortable entering the group, and feel safe asking for help.
 
----
-<!-- .slide: data-background="url('../democratizing-software/images/norcross-loopconf-talk.png')" data-state="solid-bg" data-background-position="bottom" data-background-repeat="no-repeat" data-background-size="cover" -->
+There's a lot of nastiness on the web, and that does extend onto our own forums.
 
-[Watch on YouTube<br><small>(content/trigger warning)</small>](https://www.youtube.com/watch?v=lHWI75nKWb0)
-<!-- .element class="whitebg" -->
-
-???
-
-On that note I'd like to plug Andrew Norcross' talk from February's LoopConf event. There's a lot of nastiness on the web, and that does extend onto our own forums.
-
-Racism. Sexism. Ableism. Xenophobia.
-
-Resisting these things is hard, and it's a community responsibility. This was a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy. If you meet a WordPress forum moderator, you're meeting a community hero.
+Resisting Racism, Sexism, Ableism & Xenophobia is hard, and it's important to remember how much effort it takes to keep our community healthy. WordPress forum moderators are unsung community heroes.
 
 ---
 <!-- .slide: class="notcenter" -->
@@ -439,11 +431,13 @@ Resisting these things is hard, and it's a community responsibility. This was a 
 
 ???
 
-With this group effort, thankfully WordPress on the whole is a healthy community, and a healthy community is a sharing community. When you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
+When we're kind to each other WP is a healthy community, and a healthy community is a sharing community. When you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
 
-I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on jQuery and Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
+I spend my days working with the latest versions of the most modern web libraries and tools,
 
----
+but it's my talks on jQuery and Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
+
+--
 <!-- .slide: class="notcenter" -->
 ## WordPress is for
 # _Learners_
