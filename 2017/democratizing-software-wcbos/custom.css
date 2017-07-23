@@ -3,6 +3,7 @@
   text-align: left;
   overflow: hidden;
   margin-left: 0;
+  font-size: 1.25em;
 }
 
 blockquote * {
@@ -129,10 +130,15 @@ blockquote * {
 }
 
 .reveal .attribution > *,
+.reveal .whitebg h2,
+.reveal .whitebg h3,
+.reveal .whitebg h4,
+.reveal .whitebg h5,
+.reveal .whitebg h6,
 .whitebg {
   display: inline-block;
   background-color: white;
-  color: #222;
+  color: #222 !important;
   border-radius: 2px;
   padding: 0.5em !important;
   border: 1px solid #afafaf !important;

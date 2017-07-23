@@ -4,15 +4,15 @@
 
 <br>
 
-K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocoup](https://bocoup.com)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 ???
 
-Thank you for having me, it is an honor to have been invited. <3 to Portland.
+Thank you for having me, it is an honor to have been invited.
 
 Intros -- get audience feel
 
-When Gary invited me to speak I knew immediately what I wanted to share with you. This talk is a departure for me; I'm used to talking about code. But for the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and more importantly what WordPress actually does.
+This talk is a departure for me; I'm used to talking about code. But for the past year or so, as I worked on the REST API project, I've been thinking a lot about what WordPress is for, and what WordPress actually does.
 
 ---
 <!-- .slide: data-background="url('../democratizing-software/images/democratizing-publishing-slack.png')" data-state="solid-bg" data-background-position="center" data-background-size="cover" -->
@@ -50,6 +50,8 @@ Now, that makes sense for publishing. But, to democratize something, our diction
 
 And that should make you question my title of "democratizing software". Because software is code.
 
+I don't know about you, but I've been thinking about Democracy a lot lately. is this a good word?
+
 All people. Looking at this room, not much is true about all of us; the WP community is diverse and multivariate.
 
 But we are all human, so we are all born, we all die, and none of us start out knowing how to code.
@@ -66,15 +68,16 @@ That is of course why we use the word. Computers work in abstract ways, so we in
 But that abstraction means the barrier to entry is high. Learning to code is hard. Even in the Matrix, where _every character is literally a hacker,_ there's only one or two dedicated computer users per ship.
 
 ---
-<!-- .slide: data-background="url('../democratizing-software/images/bloomberg-code-year.png')" data-state="solid-bg" data-background-position="top center" data-background-repeat="no-repeat" -->
+
+# _Open<br>Source&hellip;_
 
 ???
 
 So to democratize software, you have to teach programming.
 
-About half a decade ago we started to hear calls for everybody to learn to code. I don't know that there's anything that _everybody_ should learn; I'm not sure how applicable JavaScript is to a mayor, for example.
+Just having the source code be open is not enough. WordPress is Free and open source -- Free as in freedom is a good phrase, but if you don't have time or money to take courses, don't live in place with academic resources, don't have background to engage with technical resources, you're shut out.
 
-But I do believe that everybody should have the _right_ and _opportunity_ to learn to code, when they want to. And they should know what it's good for. It shouldn't be magic.
+Not everybody needs to or should learn code, But I do believe that everybody should have the _right_ and _opportunity_ to learn to code, when they want to. And they should know what it's good for. It shouldn't be magic.
 
 Programming is, fundamentally, a thought process; it is structured problem solving. There's a lot that you can do with even the most basic skills.
 
@@ -109,22 +112,23 @@ In the 2000's, things got a little easier. Sites like MySpace or Livejournal pro
 
 Taking templated sites to their extreme, we reach the present day. We've traded expression for ease-of-use. Almost everybody's web presence requires no coding at all but looks exactly the same, and cannot be customized.
 
+A computer scientist I know described the world Apple and Facebook have built as Paternalistic: they know best, don't mind your little head about it. "The smart phone is so pared down that useful software has to be authored on a different device by someone else."
+
 And this is where most existing system fail. Because sites that prohibit customization restrict curiosity.
 
 ---
 
-<div style="width: 80%;margin:auto;">
-![How to draw a Doge, from a Vice article that 404's](../loopconf-wpapi/images/how-to-draw-a-doge.png)
-</div>
+## _How do I build a_
+# _Website?_
 
 ???
 
-We can still find ourself a web host, roll up our sleeves, bust out an FTP client and build something ourselves; but if you try to ask "how do I make a website" in 2017, it doesn't feel like a straightforward process anymore.
+Before these systems were in place, to have a web presence we had to build some or all of it ourselves.
 
-It feels like there is some step in the middle that we're not telling people.
+We can still find ourself a web host, roll up our sleeves, bust out an FTP client and start building; but if you try to ask "how do I make a website" in 2017, it doesn't feel like a straightforward process anymore.
 
 ---
-<!-- .slide: data-background-video="./images/sue-lockwood-tech-choice.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+<!-- .slide: data-background-video="../democratizing-software/images/sue-lockwood-tech-choice.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
 
 <small><em>Illustration by [@deathbearbrown](https://twitter.com/deathbearbrown)</em></small>
 <!-- .element: class="whitebg" -->
@@ -138,9 +142,9 @@ What programming language should I use? Do I really need to learn Ruby, Python, 
 All these tools are aimed at people who already know how to code. Where are we supposed to start?
 
 ---
-<!-- .slide: class="notcenter" -->
+<!-- .slide: class="center" -->
 
-![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
+![WordPress Logo](./images/wordpress-logo.png)
 
 ???
 
@@ -160,7 +164,7 @@ WordPress doesn't want you to make a site that looks like everybody else's. It i
 We've still got a lot of work to do to make it easier to find and configure the theme that you want, but nobody can argue that we don't provide a lot of theme choices!
 
 ---
-<!-- .slide: class="notcenter" data-background-video="./images/customizer-theme-preview_hd.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="cover" -->
+<!-- .slide: class="notcenter" data-background-video="../democratizing-software/images/customizer-theme-preview_hd.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="cover" -->
 
 ### Encouraging Customization
 <!-- .element: class="whitebg" -->
@@ -169,10 +173,10 @@ We've still got a lot of work to do to make it easier to find and configure the 
 
 The work that's gone into the customizer can help with finding a theme that works for you, and it's the first step in easily personalizing your site.
 
-For the developers in the room, if you saw RC's talk this morning, supporting the customizer is one of the most empowering things we can do for our users.
+For the developers in the room, supporting the customizer is one of the most empowering things we can do for our users.
 
 ---
-<!-- .slide: data-background-video="./images/using-customizer-css.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+<!-- .slide: data-background-video="../democratizing-software/images/using-customizer-css.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
 
 ???
 
@@ -204,7 +208,7 @@ It starts here: We have a site, we want it to look different. Because WP is a pl
 
 CSS allows us to make that change. Maybe a friend helps us figure out what to write; maybe we get a book, or find a tutorial online. The important thing is that it's a feedback loop that we can _see_.
 
-It's abstract, but maybe it's a little less magic.
+It's abstract, but now maybe the web seems a little less magical and inscrutable.
 
 ---
 <!-- .slide: class="notcenter" -->
@@ -214,7 +218,7 @@ It's abstract, but maybe it's a little less magic.
 
 ???
 
-And now we're coding. Now we're using the tools with which this software is made. That's all it takes.
+Because now we're coding. Now we're using the tools with which software is made. That was all it took.
 
 Some software engineers would say that CSS is not code. That's ridiculous. CSS is a complex and rich language that, in the right hands can work wonders. And yet I still regularly hear friends -- and even colleagues -- put themselves down because they "only know CSS."
 
@@ -305,9 +309,9 @@ And when WordPress 4.7 is released in 2016, now all data we would want to displa
 Somewhere along the way we realized that we've become a web application developer. It happens step by step as we make small steps to improve our websites.
 
 ---
-<!-- .slide: class="notcenter" -->
+<!-- .slide: class="center" -->
 
-![WordPress Logo](../../2014/wcsf-node-wp/images/wordpress-logo-simplified-rgb.png)
+![WordPress Logo](./images/wordpress-logo.png)
 
 ???
 
@@ -347,15 +351,14 @@ I care about this learning path because I wouldn't be standing up here without W
 
 WordPress took me from an unemployed recent grad, to become a leader within one of the best software communities in the world. Learning bit by bit. One step at a time.
 
+And while this was my story, I'm not unique.
+
 ---
 <!-- .slide: class="notcenter" -->
-## WordPress
-#### _is for_
-## Learners
+## WordPress is for
+# _Learners_
 
 ???
-
-And while this was my story, I'm not unique.
 
 WordPress is for learners.
 
@@ -366,13 +369,24 @@ I know many of you have followed a similar path.
 And we need to make sure that we keep that path open.
 
 ---
+
+## _It's not about_
+# _Code_
+
+???
+
+And that's the plot twist of this talk: WordPress is not about code, or even software.
+
+It's a tool for humans to speak out, to have a place for ourselves, to be heard. The software and the community have a symbiotic relationship, and the software is supported through the enthusiasm of a community that wants to learn, grow, and accomplish our own goals.
+
+---
 <!-- .slide: class="notcenter" -->
 
 # Building _a_ Learning Community
 
 ???
 
-How do we do that? What makes WordPress a learning community?
+How did this happen? What makes WordPress a learning community?
 
 We've already established the first principle: WordCamps and meetups are for WordPress users of all types, from writers to developers. Keeping everybody in the same room and same group keeps us honest.
 
@@ -408,7 +422,7 @@ And maintaining diversity is hard, so we must also protect our community from ha
 ---
 <!-- .slide: data-background="url('../democratizing-software/images/norcross-loopconf-talk.png')" data-state="solid-bg" data-background-position="bottom" data-background-repeat="no-repeat" data-background-size="cover" -->
 
-[Watch on YouTube](https://www.youtube.com/watch?v=lHWI75nKWb0)
+[Watch on YouTube<br><small>(content/trigger warning)</small>](https://www.youtube.com/watch?v=lHWI75nKWb0)
 <!-- .element class="whitebg" -->
 
 ???
@@ -417,7 +431,7 @@ On that note I'd like to plug Andrew Norcross' talk from February's LoopConf eve
 
 Racism. Sexism. Ableism. Xenophobia.
 
-Resisting these things is hard. It's a community responsibility. This was a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy.
+Resisting these things is hard, and it's a community responsibility. This was a very hard talk to watch, but it's important to remember how much effort it takes to keep our community healthy. If you meet a WordPress forum moderator, you're meeting a community hero.
 
 ---
 <!-- .slide: class="notcenter" -->
@@ -425,26 +439,25 @@ Resisting these things is hard. It's a community responsibility. This was a very
 
 ???
 
-But thankfully WordPress on the whole is still a healthy community, and a healthy community is a sharing community. When you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
+With this group effort, thankfully WordPress on the whole is a healthy community, and a healthy community is a sharing community. When you learn how to do something, share it. However simple. Somebody out there won't have learned it yet.
 
 I spend my days working with the latest versions of the most modern web libraries and tools; my colleagues are involved in designing the JavaScript programming language itself. But it's my talks on jQuery and Backbone that consistently get the most traffic. Somebody new is always looking to learn, and none of us start at the top.
 
 ---
 <!-- .slide: class="notcenter" -->
-## WordPress
-#### _is for_
-## Learners
+## WordPress is for
+# _Learners_
 
 ???
 
 Just as I know no other open source project with a community that so richly combines authors, writers, bloggers, and developers,
 
-No other modern software product so actively encourages the full range of customization and extension, from adding a line of custom CSS through the admin all the way to creating a single-page webapp backed by a REST API.
+No other modern web software product so actively encourages the community to take advantage of the full range of customization and extension, from adding a line of custom CSS through the admin all the way to creating a single-page webapp backed by a REST API.
 
 WordPress is for learners because WordPress enables learners of all kinds.
 
 ---
-<!-- .slide: data-background-video="./images/glitch-intro-video.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
+<!-- .slide: data-background-video="../democratizing-software/images/glitch-intro-video.mp4" data-state="solid-bg" data-background-position="center" data-background-repeat="no-repeat" data-background-video-loop="true" data-background-size="contain" -->
 [Glitch.com](https://glitch.com)
 <!-- .element: class="whitebg" -->
 
@@ -452,13 +465,28 @@ WordPress is for learners because WordPress enables learners of all kinds.
 
 And just as we recently added the CSS editor, can take inspiration from kindred spirits in the web community about how we can build tools to inspire and reward curiosity.
 
-This is Glitch, the product my friend Jenn Schiffer works on with Anil Dash. Glitch is a remixing platform for web programs, designed for learners.
+This is Glitch, the product my friend Jenn Schiffer works on with Anil Dash at Fog Creek. Glitch is a remixing platform for web programs, designed for learners.
 
-If you see something you like, you can remix it and adjust it. No "forking," which is an awful choice of word; no command line, no editors to install. Just code, without the magic.
+If you see something you like, you can remix it and adjust it. No "forking," which is a horrible choice of word; no command line, no editors to install. Just code, without the magic.
 
 You can use it to make a blog, or a game, or a chat bot.
 
 And I think we should be learning from this. Our plugins should make it easier to adjust their settings; our themes should be more open to modular remixing. We cannot restrict exploration, or WordPress loses its main advantage over Squarespace, Wix and the like.
+
+---
+
+# Gutenberg?
+
+???
+
+This is all extra important given the changes that are coming to WP
+
+(wing this bit!)
+
+- To build new features, need modern code
+- Modern code is, as was established, complex
+- John Maeda called this a "step function", abruptly increasing complexity
+- How do we keep WP approachable, and let people get exposure to the new at a pace which works for them?
 
 ---
 <!-- .slide: class="notcenter" -->
@@ -504,9 +532,9 @@ then, I think, we will be democratizing software.
 
 <hr>
 
-[talks.kadamwhite.com/democratizing-software](http://talks.kadamwhite.com/democratizing-software)
+[talks.kadamwhite.com/wcbos2017](http://talks.kadamwhite.com/wcbos2017)
 
-K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Bocoup](https://bocoup.com)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 ???
 
