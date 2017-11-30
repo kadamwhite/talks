@@ -9,7 +9,7 @@
 
 ???
 
-Thank you organizers, welcome.
+Thank you organizers, welcome. I have some stiff competition in this block and I appreciate that you joined me for this session.
 
 ---
 <!-- .slide: class="full-height" data-background-video="./video/webpack-home-screen-2.mp4" data-background-video-loop="true" -->
@@ -20,35 +20,52 @@ Why are we still talking about build tools? Really ought to be a solved problem.
 
 Almost the entire front-end dev community supports Webpack in some fashion.
 
-Webpack isn't part of our UI; it isn't a user-facing feature. It's a means to an end, not the end itself. This should be a boring, rote subject
+Webpack isn't part of our UI; it isn't a user-facing feature. It's a means to an end, not the end itself. This should be a boring, rote subject.
 
-But where there's friction, there's room for understanding.
+But that belies the friction that Webpack causes. It takes time to understand a powerful tool, especially if it changes the way we think about our code.
 
-Talk intended to demystify a little of what webpack is and does, and to share ways we can better utilize the tools it gives us in our WP projects.
-
+This talk is therefore intended to demystify a what webpack is and does, and to share ways we can better leverage it in our WP projects.
 
 ---
 <!-- .slide: class="full-height" data-background="url('./images/grunt.png')" data-background-position="center" data-background-size="cover" -->
 
 ???
 
-TK: history of bundlers
+We've been through this before, with Grunt. Task runners and build tools promise to make our workflows easier, but then we get bogged down in configuration and spend more time
 
----
-<!-- .slide: class="full-height" data-background="url('./images/dorkq.png')" data-background-position="center" data-background-size="cover" data-transition="none" -->
+I had the privilege of working for a number of years with Ben Alman, Grunt's creator, and this was especially pronounced for him: he made the tool to help him do the gruntwork associated with maintaining all of his jQuery plugins, but in the end he didn't have time to maintain those plugins anymore because Grunt itself took up all his time.
 
-???
-
-(visual gag)
+We can't let our build tools get the better of us.
 
 ---
 <!-- .slide: class="full-height" data-background="url('./images/browserify.png')" data-background-position="center" data-background-size="cover" -->
+
+???
+
+Webpack of course doesn't replace a task runner like Grunt (although many of the things we can do with Grunt can be done more efficiently and holistically with Webpack).
+
+Webpack is a module bundler, so it instead replaces a tool like Browserify.
+
+---
+<!-- .slide: class="center" -->
+
+### _`browserify entry.js -o output.js`_
+
+### _`webpack entry.js output.js`_
+
+???
+
+The base interface for Webpack even looks very similar to Browserify's; We have an _entry_, and it gets bundled into an _output_. And in fact the similarities don't end there.
 
 ---
 <!-- .slide: class="full-height light-bg" data-background="url('./images/browserify-transforms.png')" data-background-position="center" data-background-size="cover" -->
 
 ### _Browserify Transforms_
 <!-- .element: class="whiteoutline" -->
+
+???
+
+Browserify gained a lot of traction not just for having a simpler module system than Require.JS, but also because of its transform system.
 
 ---
 
@@ -66,6 +83,10 @@ var template = require( './hello.combyne' );
 console.log( template.render({ who: 'world' }) );
 ```
 
+???
+
+Browserify transforms let us require non-JavaScript code directly; they could be used to do things like process template partials into render methods, eliminating a parallel template precompilation step.
+
 ---
 
 ### _Browserify Transforms_
@@ -82,35 +103,18 @@ Configured via `package.json`
 }
 ```
 
----
+???
 
-### _Browserify Transforms_
-
-or the command line&hellip;
-
-```
-browserify -t coffeeify \
-           -t [ browserify-ngannotate --ext .coffee --bar ] \
-           index.coffee > index.js
-```
+And in fact the chaining and extension-dependent configuration of Browserify anticipates Webpack's configuration in some ways, as well. But transforms often feel like an add-on in Browserify, and maintaining complex toolchains usually required additional tools like Gulp, and custom build pipelines that quickly become difficult to manage.
 
 ---
 <!-- .slide: class="full-height" data-background-video="./video/webpack-home-screen-2.mp4" data-background-video-loop="true" -->
 
 ???
 
-This brings us back to that webpack home screen. Look at the dependency tree; assets, scripts, styles, images. More than any bundler before it, Webpack is aware of the entire structure of your application: not just code but styles, even images.
+This brings us back to that webpack home screen. Look at the dependency tree; assets, scripts, styles, images. More than any bundler before it, Webpack is holistically aware of the entire structure of your application: not just code but styles, even images.
 
----
-<!-- .slide: class="center" -->
-
-### _`webpack entry.js output.js`_
-
-???
-
-The most fundamental concepts in webpack are the entry and the output. An entry is one or more scripts to analyze for dependencies, and those entry points are then each bundled into one or more output files.
-
-But if it was that simple Webpack wouldn't be able to match Browserify, much less exceed it, because Webpack out of the box only understands JavaScript. Everything else is handled with a _loader_.
+Out of the box it understands more about JavaScript than older tools like Browserify, providing native support for ES6 modules. But where that out-of-the-box experience falls short, Webpack loaders take over. Browserify transforms felt like an afterthought at times, Webpack's Loaders are core concepts alongside the file entry and output.
 
 ---
 <!-- .slide: class="center" -->
@@ -121,7 +125,9 @@ _https://webpack.js.org/concepts/_
 
 ???
 
-It took me a while to get my head around this, so let's clarify: what we're doing is not converting everything into javascript, per se. We're not making images, svg, or css into JavaScript. What we're doing is converting it into a form we can work with from JavaScript, and exposing useful information along the way.
+It took me a while to get my head around this, so let's clarify: when we load something with Webpack what we're doing is _not_ converting everything into javascript, per se. We're not making images, svg, or css into JavaScript. What we're doing is wrapping those assets with a JavaScript shell so that Webpack can properly output them, and that shell exposes useful information along the way.
+
+Loaders are what lets Webpack process modern JS files with Babel, precompile templates, or convert preprocessor styles into CSS.
 
 ---
 
@@ -151,13 +157,43 @@ module.exports = {
 
 ???
 
-If you use Webpack to compile SCSS, for example, you'll have a loader definition that looks like this:
+If you use Webpack to compile SCSS, we're asking Webpack to make a series of transformations; and each loader is designed to be very specific, so you'll have a loader definition that looks like this:
 
 This uses Node to read and compile a SASS file, then runs that content through PostCSS loader to do further transformations like autoprefixing. The CSS loader interprets `import` and `url` statements, to make sure Webpack knows about all relevant files. Finally, the style loader takes the string content of that transformation process and injects the CSS string into your document.
 
 ---
 
-```js
+```
+module: { rules: [{
+    oneOf: [{
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        loader: require.resolve('url-loader'),
+        options: {
+            limit: 10000,
+            name: 'static/media/[name].[hash:8].[ext]',
+        },
+    }, {
+        // Ensure that any files required from JS or CSS
+        // get output into the build media directory
+        exclude: [/\.js$/, /\.html$/, /\.json$/],
+        loader: require.resolve('file-loader'),
+        options: {
+            name: 'static/media/[name].[hash:8].[ext]',
+        },
+    },
+}]}
+```
+<!-- .element: class="stretch" -->
+
+???
+
+And when the CSS loader is reading those `import` statements, Webpack will resolve them with loaders, as well. Image files will be tested to see if they are small enough to inline, and if they are Webpack will bake that base64 url-encoded image into the rendered styles. Otherwise, and for all non-image assets as well, the `url-loader` and accompanying `file-loader` ensuring that any assets your styles depend upon get properly output into the build, and that your CSS and JS files point to the correct hashed filenames.
+
+For the amount of power that we get from image inlining, asset cachebusting and build integrity, these loaders are not a lot of configuration for the benefits they gives us.
+
+---
+
+```
 module.exports = {
     module: {
         rules: [
@@ -191,7 +227,7 @@ If you use css-loader's module options, you can specify rules for how Webpack wi
 
 ---
 
-```js
+```
 import styles from './Modal.styl';
 import OverviewAnimation from '../shared/img/overview.gif';
 
@@ -210,7 +246,33 @@ const FAQModal = ({ onCloseFAQ }) => (
 
 ???
 
-You can import the stylesheet itself into JS, and what Webpack will give your code is an object with keys representing classnames as you authored them, and values containing the generated classnames.
+When we import a stylesheet from our JS, Webpack sends it down that chain so that the styles will eventually end up on the page. But in the process it can also give our JS information about those styles; in this case the loader returns a JS object with mappings of our authored classnames to their generated equivalents, so that we can use the dynamic values in our bundled application.
+
+---
+
+> `raw-loader`: A loader for webpack that lets you import files as a string.
+
+```
+module.exports = function(content) {
+    return 'module.exports = ' + JSON.stringify(content);
+};
+```
+
+???
+
+Loaders are extremely powerful, but they don't have to be complex; 
+
+The `raw-loader` for example reads any file in as a string, without transformation; what that means is basically that it reads in the file's data and stringifies it, returning the source code of a new module that passes that string value along to the next loader.
+
+---
+
+[Loader API Documentation, webpack.js.org/api/loaders](https://webpack.js.org/api/loaders/)
+
+[_A Simple Loader_, bocoup.com/blog/webpack-a-simple-loader](https://bocoup.com/blog/webpack-a-simple-loader)
+
+???
+
+This means that they actually aren't hard to write, if you find yourself looking for a type of transformation or file information that isn't already available; I'd recommend reading both the loader documentation, as well as this article by my friend Z on writing a simple loader to parse Markdown.
 
 ---
 <!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-plugins.png')" data-background-position="top" data-background-size="cover" -->
@@ -329,7 +391,7 @@ Next, in our installed project directory we will run `eject` to write all the co
 
 _`style.css`_
 
-```css
+```
 /*
 Theme Name: WCUS Webpack Demo
 Description: A barebones example of using Create React App
@@ -378,6 +440,10 @@ For now the index will just contain a `<div id="root"></div>` in which to render
 Looks great! Totally a useful, functional theme.
 
 With our boilerplate set up, let's figue out how to get our app running.
+
+---
+
+Diagram of source files going to compiled assets on one side, and dev server on the other.
 
 ---
 <!-- .slide: class="full-height" data-background-video="./video/npm-run-build.mp4" -->
@@ -687,7 +753,7 @@ As we build more and more React projects on top of WordPress, we've been thinkin
 
 ???
 
-(narrate video live)
+`react-wp-scripts` is designed to work with create-react-app without ejecting; it wraps the scripts used within create-react-app projects to do all of these things we've discussed for you.
 
 ---
 <!-- .slide: class="center" -->
@@ -707,3 +773,4 @@ Slides: [talks.kadamwhite.com/wcus2017](http://kadamwhite.github.io/talks/2017/w
 
 <p>K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Human Made](http://humanmade.com/)</p>
 <!-- .element: class="italic" -->
+
