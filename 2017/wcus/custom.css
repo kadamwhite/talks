@@ -230,6 +230,7 @@ html {
 .reveal pre    { font-size: 0.9em; }
 .reveal p code { font-size: 1.1em; }
 .reveal small  { font-size: 0.6em; }
+.reveal .small { font-size: 0.6em; }
 
 .react h1,
 .react h2,

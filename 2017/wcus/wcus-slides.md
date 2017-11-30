@@ -102,11 +102,185 @@ browserify -t coffeeify \
 This brings us back to that webpack home screen. Look at the dependency tree; assets, scripts, styles, images. More than any bundler before it, Webpack is aware of the entire structure of your application: not just code but styles, even images.
 
 ---
+<!-- .slide: class="center" -->
 
-TK: loader & plugin overview
+### _`webpack entry.js output.js`_
+
+???
+
+The most fundamental concepts in webpack are the entry and the output. An entry is one or more scripts to analyze for dependencies, and those entry points are then each bundled into one or more output files.
+
+But if it was that simple Webpack wouldn't be able to match Browserify, much less exceed it, because Webpack out of the box only understands JavaScript. Everything else is handled with a _loader_.
 
 ---
-<!-- .slide: class="full-height light-bg" data-background="url('./images/core-ticket-40894.png')" data-background-position="center" data-background-size="cover" -->
+<!-- .slide: class="center" -->
+
+> Loaders enable webpack to process more than just JavaScript files (webpack itself only understands JavaScript). They give you the ability to leverage webpack's bundling capabilities for all kinds of files by converting them to valid modules that webpack can process.
+
+_https://webpack.js.org/concepts/_
+
+???
+
+It took me a while to get my head around this, so let's clarify: what we're doing is not converting everything into javascript, per se. We're not making images, svg, or css into JavaScript. What we're doing is converting it into a form we can work with from JavaScript, and exposing useful information along the way.
+
+---
+
+_Loading CSS_
+```
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    require.resolve('style-loader'),
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: { /* ... */ },
+                    },
+                    {
+                        loader: require.resolve('postcss-loader'),
+                        options: { /* ... */ },
+                    },
+                    require.resolve('sass-loader'),
+                ],
+            },
+            // ...
+```
+<!-- .element: class="small stretch" -->
+
+???
+
+If you use Webpack to compile SCSS, for example, you'll have a loader definition that looks like this:
+
+This uses Node to read and compile a SASS file, then runs that content through PostCSS loader to do further transformations like autoprefixing. The CSS loader interprets `import` and `url` statements, to make sure Webpack knows about all relevant files. Finally, the style loader takes the string content of that transformation process and injects the CSS string into your document.
+
+---
+
+```js
+module.exports = {
+    module: {
+        rules: [
+                {
+                    test: /\.styl$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                localIdentName: '[path][name]--[local]--[hash:base64:5]',
+                            },
+                        },
+                        'postcss-loader', // See postcss.config.js for options
+                        'stylus-loader',
+                    ],
+                },
+            }
+        ]
+    }
+}
+```
+<!-- .element: class="small stretch" -->
+
+???
+
+Writing the style tags from JS means a couple things. We have an actual dependency chain to the images we use in our CSS, so further enhancements like inlining small files as base64 become trivial. We can also get access to information about our CSS files from within our JS source code.
+
+If you use css-loader's module options, you can specify rules for how Webpack will transform class names. But if Webpack's changing your class names so they are module-specific, how do you know what classes to use?
+
+---
+
+```js
+import styles from './Modal.styl';
+import OverviewAnimation from '../shared/img/overview.gif';
+
+const FAQModal = ({ onCloseFAQ }) => (
+    <Modal
+      onConfirm={onCloseFAQ}
+      confirmText="Continue"
+    >
+        <div className={styles.center}>
+            {/* ... */}
+        </div>
+    </Modal>
+);
+```
+<!-- .element: class="stretch" -->
+
+???
+
+You can import the stylesheet itself into JS, and what Webpack will give your code is an object with keys representing classnames as you authored them, and values containing the generated classnames.
+
+---
+<!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-plugins.png')" data-background-position="top" data-background-size="cover" -->
+
+???
+
+Complementing loaders of course are Webpack's plugins.
+
+The Plugin interface is quite powerful, and there are plugins for minification, optimization, environment variable manipulation, index file generation, you name it.
+
+When you combine loaders and plugins together, webpack has a full dependency tree of every asset required in our frontend build, and a lot of flexibility about how to use that information. Images, stylesheets, ES6 files loaded with babel: Webpack knows their relationships.
+
+---
+<!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-hmr.png')" data-background-position="top" data-background-size="cover" -->
+
+???
+
+One of the most powerful results of this system is a technique called Hot Module Reloading. The `webpack-dev-server` library provides a development server which is aware of those relationships, and can swap out pieces as files change without a full page reload. We can do for our source code the same thing that tools like React let do with our content. We can adjust styles, markup & component code almost as quickly from our editors as we could from the browser dev tools.
+
+---
+<!-- .slide: class="full-height light-bg" data-background="url('./images/gutenberg-npm-run-build-output.png')" data-background-position="top" data-background-size="cover" -->
+
+???
+
+So what's in our bundle, anyway?
+
+If you've worked on a sufficiently large front-end application you've probably noticed that the size of our javascript bundles can get pretty large.
+
+As developers we have a good sense of our own code, but as JS developers in particular we depend pretty heavily on NPM modules. These can be black boxes, and can pretty significantly increase our bundle size.
+
+Fortunately we have some great tools at our disposal to help us understand where the bloat is coming from.
+
+---
+
+## Export Stats
+
+```
+webpack --json > stats.json
+```
+
+To use any of these tools we first need to take advantage of Webpack's stats module.
+
+---
+
+## Webpack Visualizer
+
+https://chrisbateman.github.io/webpack-visualizer/
+
+_or_
+
+`npm install webpack-visualizer-plugin`
+
+---
+<!-- .slide: class="full-height" data-background-video="./video/webpack-visualizer-demo.mp4" -->
+
+???
+
+(say somethign about video)
+
+---
+
+## Webpack Bundle Analyzer
+
+`npm install -g webpack-bundle-analyzer`
+
+---
+<!-- .slide: class="full-height" data-background-video="./video/webpack-bundle-analyzer-treemap.mp4" -->
+
+---
+<!-- .slide: class="full-height light-bg" data-background="url('./images/core-ticket-40894.png')" data-background-position="top" data-background-size="cover" -->
 
 ???
 
