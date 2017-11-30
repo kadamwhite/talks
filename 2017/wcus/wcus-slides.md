@@ -291,32 +291,245 @@ No files are written to disk; everything is served from memory. This means fast 
 
 ---
 
+_`webpack.dev.config.js`_
 ```diff
-    diff --git config/webpack.config.dev.js config/webpack.config.dev.js
-    index 409182a..19467e7 100644
-    --- config/webpack.config.dev.js
-    +++ config/webpack.config.dev.js
-    @@ -211,15 +211,10 @@ module.exports = {
-       ],
-     },
-     plugins: [
-    -    // Makes some environment variables available in index.html.
-    -    new InterpolateHtmlPlugin(env.raw),
-    -    // Generates an `index.html` file with the <script> injected.
-    -    new HtmlWebpackPlugin({
-    -      inject: true,
-    -      template: paths.appHtml,
-    +    // Write an assets-manifest.json to disk with dev server paths.
-    +    new ManifestPlugin({
-    +      basePath: config.output.publicPath,
-    +      fileName: 'asset-manifest.json',
-    +      writeToFileEmit: true,
-       }),
-       // Add module names to factory functions so they appear in browser profiler.
-       new webpack.NamedModulesPlugin(),
+ const paths = require('./paths');
+ 
+ // Webpack uses `publicPath` to determine where the app is being served from.
+-// In development, we always serve from the root. This makes config easier.
+-const publicPath = '/';
++// In development, we always serve from the root of the dev
++// server. This makes it easy for WordPress to find the files.
++const publicPath = 'http://localhost:3000/';
+
+```
+
+???
+
+We have to find some way for WordPress to know where to look for the scripts. First, we declare a consistent location and port for Webpack to use when serving files. We'll change the `publicPath` from the root `/` to the domain `http://localhost:3000/`, so that the bundle will know to look for its assets and files on the dev server and not on disk when we load it in from WP.
+
+---
+
+_`webpack.dev.config.js`_
+```diff
+plugins: [
++    new ManifestPlugin({
++        basePath: publicPath,
++        fileName: 'asset-manifest.json',
++        writeToFileEmit: true,
++    }),
+     // Makes some environment variables available in index.html.
+     new InterpolateHtmlPlugin(env.raw),
+     // Generates an `index.html` file with the <script> injected.
+     new HtmlWebpackPlugin({
+         inject: true,
+         template: paths.appHtml,
+     }),
 ```
 <!-- .element: class="stretch" -->
 
 ???
 
-Since WordPress is going to handle rendering the HTML shell, we can replace the HTMLWebpackPlugin instance with a new ManifestPlugin
+Since WordPress is going to handle rendering the HTML shell, we can replace the HTMLWebpackPlugin instance with another instance of ManifestPlugin -- which helpfully takes a configuration option to force it to write to disk even when a dev server is running!
+
+We add the basePath option, too, so that we'll see the URL in the output.
+
+---
+
+_Dev server's `asset-manifest.json`_
+```json
+{
+  "http://localhost:3000/main.js":
+    "http://localhost:3000/static/js/bundle.js",
+  "http://localhost:3000/main.js.map":
+    "http://localhost:3000/static/js/bundle.js.map",
+  "http://localhost:3000/static/media/logo.svg":
+    "http://localhost:3000/static/media/logo.5d5d9eef.svg"
+}
+```
+
+???
+
+The manfiest that this writes out to disk now has the complete paths to the JS bundle. (Note that there's no CSS file -- this is because the JS bundle handles injecting the CSS in dev mode.)
+
+We can injest this file directly from WordPress by hard-coding an enqueue to add it, if it's present. That'll load our script into WordPress, but we'll get some errors.
+
+---
+
+_Replace `react-dev-utils/webpackHotDevClient`_
+
+```diff
+-    // Note: instead of the default WebpackDevServer client, we use a custom one
+-    // to bring better experience for Create React App users. You can replace
+-    // the line below with these two lines if you prefer the stock client:
+-    // require.resolve('webpack-dev-server/client') + '?/',
+-    // require.resolve('webpack/hot/dev-server'),
+-    require.resolve('react-dev-utils/webpackHotDevClient'),
++    require.resolve('webpack-dev-server/client') +
++        '?http://localhost:3000/',
++    require.resolve('webpack/hot/dev-server'),
+     // Finally, this is your app's code:
+
+```
+
+See [facebookincubator/create-react-app#1588](https://github.com/facebookincubator/create-react-app/pull/1588)
+
+???
+
+One of the files you'll see in the Webpack entry array that gets included in our build is a module called `webpackHotDevClient` that's provided by CRA. It's a useful utility but it doesn't support binding the hot reload socket connection on a different domain.
+
+The default Webpack one doesn't have a nice error overlay, but it lets you pass in the desired host and port as a require call query parameter. So we swap that out.
+
+There's an outstanding ticket on the create-react-app repo to support binding to a socket that doesn't match `window.location`. Hopefully this gets fixed, but until then we can use this alternative: just remember to also alter the dev server configuration to allow cross-origin requests. (not shown)
+
+---
+_`scripts/start.js`_
+```diff
+      clearConsole();
+    }
+    console.log(chalk.cyan('Starting the development server...\n'));
+-   openBrowser(urls.localUrlForBrowser);
+  });
+ 
+  ['SIGINT', 'SIGTERM'].forEach(function(sig) {
+    process.on(sig, function() {
++     // Remove the asset manifest file on server termination
++     fs.unlinkSync( process.cwd() + '/asset-manifest.json' );
+      devServer.close();
+      process.exit();
+    });
+```
+<!-- .element: class="stretch" -->
+
+???
+
+We're almost good to go, but we wouldn't want our theme to look for the dev server when it isn't running. To avoid that we'll remove the dev server's asset manifest whenever the server quits, so we can error out or fall back to the built files depending on preference.
+
+---
+<!-- .slide: class="center" -->
+
+### _`npm install -S react-hot-loader`_
+
+???
+
+The final step for hot reloading, at least with Webpack's default hot reloading client, is to install the react-hot-loader. This is a good refresher, since it touches most parts of Webpack.
+
+---
+
+```diff
+   entry: [
+     // We ship a few polyfills by default:
+     require.resolve('./polyfills'),
++    // Support react-hot-loader
++    'react-hot-loader/patch',
+     // Include an alternative client for WebpackDevServer. A client's job is to
+
+```
+
+
+???
+
+First, we add 'react-hot-loader/patch' to our entry file array. This means it goes into the main bundle that webpack emits.
+
+---
+
+_`config/webpack.config.dev.js`_
+```diff
+  module: {
+    strictExportPresence: true,
+    rules: [
+          // Process JS with Babel.
+          {
+            test: /\.(js|jsx|mjs)$/,
+            include: paths.appSrc,
+            loader: require.resolve('babel-loader'),
+            options: {
+               // Caching results for faster rebuilds.
+               cacheDirectory: true,
++
++              "plugins": [ 'react-hot-loader/babel' ],
+             },
+           },
+           // "postcss" loader applies autoprefixer to our CSS.
+```
+<!-- .element: class="stretch" -->
+
+???
+
+We add the react-hot-loader babel plugin to the configuration for our babel loader, so that as Webpack processes ES modules Babel will decorate them with the metadata needed to reload in the browser.
+
+---
+
+```diff
+ import React from 'react';
+ import ReactDOM from 'react-dom';
++import { AppContainer } from 'react-hot-loader';
+ import App from './App';
+ 
+-ReactDOM.render(<App />, document.getElementById('root'));
++const render = Component => ReactDOM.render(
++    <AppContainer><Component /></AppContainer>,
++    document.getElementById('root')
++);
++render(App);
++
++// Webpack Hot Module Replacement API
++if (module.hot) {
++  module.hot.accept('./App', () => { render(App); });
++}
+```
+<!-- .element: class="stretch" -->
+
+???
+
+And finally, at the root of our app in index.js we need to set up our base React component to accept hot updates. All these setup steps are explained in the react-hot-loader documentation.
+
+---
+<!-- .slide: class="full-height" data-background-video="./video/hot-reloading-demo.mp4" -->
+
+???
+
+Whew! That was a lot. But with all that in place, if we start the dev server and load our WP theme, we now have hot reloading in place!
+
+---
+
+### _Surely there's an easier way&hellip;_
+
+???
+
+It's important to know how to go through those steps, because on a complex project you're likely going to want SASS, or code splitting, or any of the other things you can only do with Webpack if you have full control over the configuration.
+
+But tools like create-react-app were designed to achieve that goal I mentioned at the start, of giving us a build layer that just works for basic use-cases, and a dev server we don't have to think about.
+
+---
+<!-- .slide: class="full-height" data-background="url('./images/react-wp-scripts.png')" data-background-position="top" data-background-size="cover" -->
+
+???
+
+As we build more and more React projects on top of WordPress, we've been thinking about this goal, and I'm excited to announce that we released a brand-new project earlier this week designed to help.
+
+---
+<!-- .slide: class="full-height" data-background-video="./video/react-wp-scripts-demo.mp4" -->
+
+???
+
+(narrate video live)
+
+---
+<!-- .slide: class="center" -->
+
+## Thank You WCUS!
+
+Slides: [talks.kadamwhite.com/wcus2017](http://kadamwhite.github.io/talks/2017/wcus)
+
+~
+
+[github.com/humanmade/**react-wp-scripts**](https://github.com/humanmade/react-wp-scripts)
+
+[github.com/kadamwhite/**wcus-webpack-theme**](https://github.com/kadamwhite/wcus-webpack-theme)
+</div>
+
+~
+
+<p>K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Human Made](http://humanmade.com/)</p>
+<!-- .element: class="italic" -->
