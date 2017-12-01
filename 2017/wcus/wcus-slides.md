@@ -76,16 +76,41 @@ Every application has a dependency graph -- we load one module, which loads othe
 
 Once that dependency graph is complete, Webpack then packs the entire set of dependencies into one _output_ file and writes that file to disk.
 
+So far, this is nothing new; we've got a lot of ways to bundle code.
+
+---
+
+_`webpack.config.js`_
+```js
+module.exports = {
+    entry: [ /* One or more files to bundle together */ ],
+    
+    output: { filename: 'static/js/bundle.js' },
+    
+    module: {
+        rules: [/* loader 1, loader 2, ...etc */],
+    },
+    plugins: [/* plugin instance 1, plugin instance 2... */],
+};
+```
+<!-- .element: class="stretch" -->
+
+???
+
+But usually you'll be using Webpack with a declarative configuration file, and that config file tells a more interesting story.
+
+The shape of a webpack config object is defined by the complete set of all four of Webpack's core concepts: entry and output of course, but also a list of webpack Loaders to instruct Webpack how to process different types of asset, and a list of Plugins that can customize the build behavior or cause useful build side-effects.
+
+The exported configuration contains different configurations for development and production, a general best practice, but they share this same structure.
+
 ---
 <!-- .slide: class="full-height" data-background-video="./video/webpack-home-screen-2.mp4" data-background-video-loop="true" data-background-size="contain" -->
 
 ???
 
-So far, this is nothing new; we've got a lot of ways to bundle code.
+Loaders and Plugins: that brings us back to that webpack home screen. Look at the dependency tree: assets, scripts, styles, images. More than any bundler before it, Webpack is holistically aware of the entire structure of your application: not just code but styles, even images.
 
-But that brings us back to that webpack home screen. Look at the dependency tree: assets, scripts, styles, images. More than any bundler before it, Webpack is holistically aware of the entire structure of your application: not just code but styles, even images.
-
-Loaders, the third core Webpack concept, let us specify new types of dependencies. Similarly to Browserify's transform system, with loaders we can require CSS, images, or templates from our JavaScript files, and Webpack will know how to process those assets to ensure our app works the way we expect.
+This third core concept of Loaders lets us specify new types of dependencies. Similarly to Browserify's transform system, with loaders we can specify dependencies on CSS, images or templates right within our JavaScript files, and Webpack will know how to process those dependencies to ensure our app works the way we expect.
 
 ---
 <!-- .slide: class="center" -->
@@ -98,7 +123,7 @@ _https://webpack.js.org/concepts/_
 
 Loaders are what lets Webpack process modern JS syntax with Babel, precompile templates, or convert preprocessor styles into CSS. They're responsible for inlining small images into your stylesheets, and exporting bigger ones to your build directory.
 
-It took me a while to get my head around this, so let's clarify: when we load something with Webpack what we're doing is not converting everything into JavaScript, per se. We're instead wrapping those assets in a JS wrapper that tells Webpack how to transform it, what information about the asset to share with our JS app, and where to put the asset on disk when we output our code bundle.
+It took me a while to get my head around this, so let's clarify: when we load something with Webpack what we're doing is not converting everything into JavaScript, per se. We're instead wrapping those assets in a JS shell that tells Webpack how to transform the data, what information about the asset to share with the app, and where to put the asset on disk when we output our code bundle.
 
 ---
 <!-- .slide: class="center" -->
@@ -109,7 +134,7 @@ It took me a while to get my head around this, so let's clarify: when we load so
 
 ???
 
-To make this more concrete, let's look at how a specific JavaScript file gets processed by Webpack using a fairly standard configuration.
+To make this more concrete, let's think like Webpack and try to puzzle through bundling a basic JavaScript file.
 
 We'll use the output of Facebook's Create React App scaffolding tool as our baseline example here; nothing about Webpack is React-specific, but the two tools go together well, and Create React App is widespread enough to serve as a good proxy for a standard configuration.
 
@@ -136,29 +161,6 @@ We'll use the output of Facebook's Create React App scaffolding tool as our base
 ???
 
 When we generate a project with Create React App, it uses a webpack config hidden inside the node_modules folder. All we have in our application directory is our sourcecode and package.json. But we can run an "eject" command to bake all that configuration to disk, and this ejected copy is the source of the snippets I'll be sharing as we walk through the app.
-
----
-
-_`webpack.config.js`_
-```js
-module.exports = {
-    entry: [ /* One or more files to bundle together */ ],
-    
-    output: { filename: 'static/js/bundle.js' },
-    
-    module: {
-        rules: [/* loader 1, loader 2, ...etc */],
-    },
-    plugins: [/* plugin instance 1, plugin instance 2... */],
-};
-```
-<!-- .element: class="stretch" -->
-
-???
-
-The core structure of a Webpack config file is a JS module exporting an object that defines all four of the key Webpack concepts: the entry point to use when building the dependency tree, the output describing how to emit the finished code bundle, a list of loaders with tests to control which files they process, and an array of plugin instances to customize the build behavior.
-
-The exported configuration contains different configurations for development and production, a general best practice, but they share this same structure.
 
 ---
 
@@ -428,9 +430,24 @@ require.resolve('style-loader'),
 
 Finally, once Webpack has assembled a string representing the entire, processed CSS stylesheet, Webpack's `style-loader` will be used to inject those styles into our document. In the static build we'd use the ExtractTextWebpackPlugin to peel this out into an external css file, instead.
 
-Unlike the image example, JavaScript doesn't care about the result of these transformations, so we import the CSS to declare a dependency but we don't do anything with the imported value. To our JS, App.css just looks like an empty object.
+---
+<!-- .slide: class="full-height" data-background="url('./images/webpack-concepts.png')" data-background-position="center" data-background-size="cover" -->
+
+???
+
+To review the major Webpack concepts we've touched on, we have Entry, Output, Loaders -- and, finally, plugins.
 
 ---
+<!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-plugins.png')" data-background-position="top" data-background-size="cover" -->
+
+???
+
+We won't dig into plugins in the same depth, because we need to move on, but the plugin interface is extremely powerful and there are plugins for minification, optimization, environment variable manipulation, index file generation, you name it.
+
+And it's when you combine loaders and plugins together that Webpack becomes demonstrably more powerful than previous bundling systems.
+
+
+--
 
 `raw-loader`: A loader for webpack that lets you import files as a string.
 
@@ -505,27 +522,12 @@ _or_
 ???
 
 Explain the difference between the two.
-
----
-<!-- .slide: class="full-height" data-background="url('./images/webpack-concepts.png')" data-background-position="center" data-background-size="cover" -->
-
-???
-
-To review the major Webpack concepts we've touched on, we have Entry, Output, Loaders -- and, finally, plugins.
-
----
-<!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-plugins.png')" data-background-position="top" data-background-size="cover" -->
-
-???
-
-We won't dig into plugins in the same depth, because we need to move on, but the plugin interface is extremely powerful and there are plugins for minification, optimization, environment variable manipulation, index file generation, you name it.
-
-And it's when you combine loaders and plugins together that Webpack becomes demonstrably more powerful than previous bundling systems.
-
 ---
 <!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-hmr.png')" data-background-position="top" data-background-size="cover" -->
 
 ???
+
+These tools can be used standalone or integrated with Webpack as plugins, but they're not the most exciting thing Webpack can do for us.
 
 Because all of this information Webpack has as it is creating your application bundle enables a powerful technique called Hot Module Reloading.
 
@@ -584,7 +586,7 @@ Next, in our installed project directory we will run `eject` to write all the co
 
 _`style.css`_
 
-```
+```css
 /*
 Theme Name: WCUS Webpack Demo
 Description: A barebones example of using Create React App
@@ -604,7 +606,7 @@ We'll add an empty `style.css` in that folder so WP considers it a theme,
 ---
 
 _`index.php`_
-```
+```php
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -857,7 +859,7 @@ We're almost good to go, but we wouldn't want our theme to look for the dev serv
 ---
 <!-- .slide: class="center" -->
 
-### _`npm install --save react-hot-loader`_
+#### _`npm install --save react-hot-loader`_
 
 ???
 
