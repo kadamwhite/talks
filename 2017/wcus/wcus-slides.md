@@ -52,19 +52,26 @@ Browserify is a great tool, after all, and I've seen many WordPress projects tha
 ---
 <!-- .slide: class="center" -->
 
-### _We Should_
-## Understand<br>Our Tools
+### _Is Webpack_
+## Right For You?
+
+(Probably, but be informed!)
 
 ???
 
 We should be adopting Webpack for a reason.
 
-This talk is therefore intended to demystify a what webpack is and does, to help give you some concrete reasons to use it in your own projects.
+There's a lot of FUD around it. This talk is therefore intended to demystify a what webpack is and does, to help give you some concrete reasons to use it in your own projects.
 
 And since it can be hard to make certain parts of Webpack integrate well with themes and plugins, we'll also be sharing ways to leverage Webpack with WordPress specifically.
 
 ---
-<!-- .slide: class="center" -->
+
+### Core Concepts #1 <span class="amp">&amp;</span> #2: _Loaders_
+
+<br>
+<br>
+<br>
 
 ### _`webpack entry.js output.js`_
 
@@ -115,6 +122,8 @@ This third core concept of Loaders lets us specify new types of dependencies. Si
 ---
 <!-- .slide: class="center" -->
 
+### Core Concept #3: _Loaders_
+
 > Loaders enable webpack to process more than just JavaScript files (webpack itself only understands JavaScript). They give you the ability to leverage webpack's bundling capabilities for all kinds of files by converting them to valid modules that webpack can process.
 
 _https://webpack.js.org/concepts/_
@@ -128,7 +137,7 @@ It took me a while to get my head around this, so let's clarify: when we load so
 ---
 <!-- .slide: class="center" -->
 
-### _A Webpack Loader's view of_
+### _A Webpack Loader's View of_
 
 ## `create-react-app`
 
@@ -277,9 +286,9 @@ Well, maybe the next import call will be more interesting. Ah, this is unusual: 
 ---
 
 ```js
-    // "url" loader works like "file" loader except that it embeds assets
-    // smaller than specified limit in bytes as data URLs to avoid requests.
-    // A missing `test` is equivalent to a match.
+    // "url" loader works like "file" loader except that it
+    // embeds assets smaller than specified limit in bytes
+    // as data URLs to avoid requests.
     {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: require.resolve('url-loader'),
@@ -289,6 +298,7 @@ Well, maybe the next import call will be more interesting. Ah, this is unusual: 
         },
     },
 ```
+<!-- .element: class="stretch" -->
 
 ???
 
@@ -300,10 +310,11 @@ However, since this is an SVG file, it won't match against the url-loader defini
 
 ```
     {
-        // Exclude `js` files to keep "css" loader working as it injects
-        // it's runtime that would otherwise processed through "file" loader.
-        // Also exclude `html` and `json` extensions so they get processed
-        // by webpacks internal loaders.
+        // Exclude `js` files to keep "css" loader working
+        // as it injects it's runtime that would otherwise
+        // processed through "file" loader. Also exclude
+        // `html` and `json` extensions so they get processed
+        // by webpack's internal loaders.
         exclude: [/\.js$/, /\.html$/, /\.json$/],
         loader: require.resolve('file-loader'),
         options: {
@@ -311,6 +322,7 @@ However, since this is an SVG file, it won't match against the url-loader defini
         },
     },
 ```
+<!-- .element: class="stretch" -->
 
 ???
 
@@ -326,12 +338,10 @@ export default() =>  (
 );
 ```
 
-means,
-
-Copy `logo.svg` to `build/static/media/logo.5d5d9eef.svg`
+means, copy `logo.svg` &rarr; `static/media/logo.5d5d9eef.svg`
 ```
 export default() =>  (
-    <img src={ 'build/static/media/logo.5d5d9eef.svg' } alt="logo" />
+    <img src="static/media/logo.5d5d9eef.svg" alt="logo" />
 );
 ```
 
@@ -415,6 +425,7 @@ First, the CSS is passed through postcss-loader, where it receives flexbug fixes
     },
 },
 ```
+<!-- .element: class="stretch" -->
 
 ???
 
@@ -425,31 +436,17 @@ Then, it's passed to css-loader. We don't have any in this example, but Webpack 
 ```js
 require.resolve('style-loader'),
 ```
+<!-- .element: class="stretch" -->
 
 ???
 
 Finally, once Webpack has assembled a string representing the entire, processed CSS stylesheet, Webpack's `style-loader` will be used to inject those styles into our document. In the static build we'd use the ExtractTextWebpackPlugin to peel this out into an external css file, instead.
 
----
-<!-- .slide: class="full-height" data-background="url('./images/webpack-concepts.png')" data-background-position="center" data-background-size="cover" -->
-
-???
-
-To review the major Webpack concepts we've touched on, we have Entry, Output, Loaders -- and, finally, plugins.
-
----
-<!-- .slide: class="full-height light-bg" data-background="url('./images/webpack-plugins.png')" data-background-position="top" data-background-size="cover" -->
-
-???
-
-We won't dig into plugins in the same depth, because we need to move on, but the plugin interface is extremely powerful and there are plugins for minification, optimization, environment variable manipulation, index file generation, you name it.
-
-And it's when you combine loaders and plugins together that Webpack becomes demonstrably more powerful than previous bundling systems.
-
-
 --
 
-`raw-loader`: A loader for webpack that lets you import files as a string.
+### Easy, Right?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style="vertical-align: middle">` ┐(￣ヘ￣;)┌`</small>
+
+_So, loaders are not_ actually _good material for a talk, but they can be simple:_
 
 ```
 module.exports = function(content) {
@@ -457,16 +454,34 @@ module.exports = function(content) {
 };
 ```
 
-Try writing your own loaders:
+_And they're powerful! Try writing your own:_
 
-- Loader API Documentation, [webpack.js.org/api/loaders](https://webpack.js.org/api/loaders/)
 - _A Simple Loader_, [bocoup.com/blog/webpack-a-simple-loader](https://bocoup.com/blog/webpack-a-simple-loader)
+- Loader API Documentation, [webpack.js.org/api/loaders](https://webpack.js.org/api/loaders/)
 
 ???
 
-This hopefully clarifies a bit about how loaders get applied. They're powerful, but they don't have to be complex; a module like raw-loader (which reads a file in as a string) is only a handful of lines of code.
+What I'm trying to say isn't that you should be following all of this, just that loaders aren't magic. They can be simple, and you can write your own without too much work.
 
-This means that they actually aren't hard to write, if you find yourself looking for a type of transformation or file information that isn't already available; I'd recommend reading both the loader documentation, as well as this article by my friend Z on writing a simple loader to parse Markdown.
+We're transforming and outputing assets like we do in Grunt, just with a more explicit dependency.
+
+---
+
+### Core Concept #4: _Plugins_
+
+- **`ExtractTextPlugin`**: _emit CSS files on build_
+- **`webpack.optimize.UglifyJsPlugin`**: _minify JS output_
+- **`webpack.DefinePlugin`**: _hard-code values in build output_
+- **`HtmlWebpackPlugin`**: _output an html index to load emitted assets_
+- **`webpack.optimize.CommonsChunkPlugin`**: _separate out shared code_
+- **`HardSourceWebpackPlugin`**: _faster rebuilds_
+- **`ManifestPlugin`**: _output a json list of emitted files_
+- **`NamedModulesPlugin`**: _show the names of modules in HMR output_
+- _<span class="amp">&amp;</span> so, so many more_
+
+???
+
+The plugin interface is extremely powerful and there are plugins for minification, optimization, environment variable manipulation, index file generation, you name it.
 
 ---
 <!-- .slide: class="full-height light-bg" data-background="url('./images/gutenberg-npm-run-build-output.png')" data-background-position="top" data-background-size="cover" -->
@@ -980,7 +995,7 @@ WordPress isn't getting any less-JavaScript heavy, and tools like Webpack -- onc
 
 ## Thank You WCUS!
 
-Slides: [talks.kadamwhite.com/wcus2017](http://kadamwhite.github.io/talks/2017/wcus)
+Slides: [kadamwhite.github.io/talks/2017/wcus](http://kadamwhite.github.io/talks/2017/wcus)
 
 ~
 
@@ -993,24 +1008,3 @@ Slides: [talks.kadamwhite.com/wcus2017](http://kadamwhite.github.io/talks/2017/w
 
 <p>K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [Human Made](http://humanmade.com/)</p>
 <!-- .element: class="italic" -->
-
----
-
-need chapters -- need the opportunity to take things in
-it's technical, give people the ability to feel like they're able to follow along, even if you 
-cut from the beginning
-
-build up to the goal of "how do I do this in WP" more; the intro should be a ski jump
-
-Time yourself to treat the start as a lightning talk
-
-With the code examples, when doing the video, record the video at half-screen size
-
-websocket explanation is not clear -- need diagrams
-use --save, not -S
-
-When you finish writing, just leave it on the screen for a bit, so people can read
--- hold for a second or two before pressing 
-
-Two talks in one -- if people aren't native to webpack, what is happening in it, and why should they care. And the other talk is, now you know it, how do we make it easy to use.
-Pick which one matters the most, and spend the most time there -- and have the other be bonus.
