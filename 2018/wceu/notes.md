@@ -1,5 +1,109 @@
 
 
+I'm going to make a statement — possibly controversial — that programming itself is not hard. It's 2018, and we have the best tools we've ever had for writing useful, powerful applications.
+
+What's hard is all the stuff we have to do before and after we write the code -- the documentation, the bug reports, the interpersonal communication.
+
+If this is the hard stuff, we should be talking about it more -- and that's the genesis of this talk. How do we introspect and figure out where all our non-code stuff could be improved? How do we apply the same level of rigor to our bug reports that we do to actually solving those bugs?
+
+If this sounds like project management, and you think, that's not my job, then just remember that project management is a shared responsibility.
+
+---
+
+Reading code is one of the most important skills we learn as programmers, but most of us are faster at digesting words and pictures that describe how something will work, than we are at puzzling it out from code.
+Use screenshots and add steps to reproduce to your PRs, even brief, and the pull request becomes a record of the behavior of the application over time.
+
+---
+
+## `.github/PULL_REQUEST_TEMPLATE.md`
+
+```
+**Checklist:**
+
+- [ ] The code respects [coding standards](/myorg/myrepo/wiki/Coding-Standards).
+- [ ] The code is covered by [unit tests](/myorg/myrepo/wiki/Unit-Testing).
+```
+
+---
+## Gutenberg's `.github/ISSUE_TEMPLATE.md`
+```
+## Description
+<!-- Please describe what you have changed or added -->
+
+## How has this been tested?
+<!-- Please describe in detail how you tested your changes. -->
+<!-- Include details of your testing environment, tests ran to see how -->
+<!-- your change affects other areas of the code, etc. -->
+
+## Screenshots <!-- if applicable -->
+
+## Types of changes
+<!-- What types of changes does your code introduce?  -->
+<!-- Bug fix (non-breaking change which fixes an issue) -->
+<!-- New feature (non-breaking change which adds functionality) -->
+<!-- Breaking change (fix or feature that would cause existing functionality to not work as expected) -->
+
+## Checklist:
+- [ ] My code is tested.
+- [ ] My code follows the WordPress code style. <!-- Check code: `npm run lint`, Guidelines: https://make.wordpress.org/core/handbook/best-practices/coding-standards/javascript/ -->
+- [ ] My code follows the accessibility standards. <!-- Guidelines: https://make.wordpress.org/core/handbook/best-practices/coding-standards/accessibility-coding-standards/ -->
+- [ ] My code has proper inline documentation. <!-- Guidelines: https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/javascript/ -->
+```
+
+## Gutenberg's `.github/PULL_REQUEST_TEMPLATE.md`
+```
+<!--
+BEFORE POSTING YOUR ISSUE:
+- These comments won't show up when you submit the issue.
+- Try to add as much detail as possible. Be specific!
+- Please add the version of Gutenberg you are using in the description.
+- If you're requesting a new feature, explain why you'd like it to be added.
+- Search this repository for issues and pull requests and whether it has been fixed or reported already.
+- Ensure you are using the latest code before logging bugs.
+- Disable all plugins to ensure it's not a plugin conflict issue.
+- To report a security issue, please visit the WordPress HackerOne program: https://hackerone.com/wordpress.
+-->
+
+## Issue Overview
+<!-- This is a brief overview of the issue --->
+
+## Steps to Reproduce (for bugs)
+<!-- Provide a link to a live example, or an unambiguous set of steps to -->
+<!-- reproduce this bug. Include code to reproduce, if relevant -->
+1.
+2.
+3.
+4.
+<!-- Provide what browser you are using and any other specifics to your setup -->
+
+## Expected Behavior
+<!-- If you're describing a bug, tell us what should happen -->
+<!-- If you're suggesting a change/improvement, tell us how it should work -->
+
+## Current Behavior
+<!-- If describing a bug, tell us what happens instead of the expected behavior -->
+<!-- If suggesting a change/improvement, explain the difference from current behavior -->
+
+## Possible Solution
+<!-- Not obligatory, but suggest a fix/reason for the bug, -->
+<!-- or ideas how to implement the addition or change -->
+
+## Screenshots / Video
+<!-- Visual records are oxygen for others to understand what you are sharing -->
+
+## Related Issues and/or PRs
+<!-- List related issues or PRs against other branches -->
+
+## Todos
+- [ ] Tests
+- [ ] Documentation
+
+```
+
+---
+
+T
+
 PHP * Composer * Node * npm
 Vagrant * Virtualbox * Docker
 macOS * Windows * Linux
