@@ -79,10 +79,12 @@ The first thing I do whenever I join a project is to look through the README, an
 
 A good README, in my opinion, should
 
-- Tell you what a project is, concisely and clearly
-- Tell you in brief how to install or use the project
-- Link to more comprehensive documentation
-- 
+- Tell you what a project is and is for, concisely and clearly
+- Tell you in brief how use the project
+- (Arguably most critically) explain how to get the project running locally for development
+- Link to or provide more comprehensive documentation
+
+
 
 
 
