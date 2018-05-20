@@ -118,25 +118,28 @@ We're spoilt for choice in the WP ecosystem, so make it clear from the project's
 
 ---
 
-
-
----
-
-The first project where I took notice of the quality of the README was jQuery; they link directly to the project website from the README heading, open right off the bat with links to their contributor guides, then dive into where the library is intended to be used and how to create a custom build.
-
-The README doesn't try to replace their external documentation, but it documents the current intricacies of how to build your own jQuery. Their setup steps start at the operating system level. While they assume the reader has some technical proficiency, they don't skip steps: the guides for how to install Git and Node include separate callouts for OSX, Windows & Linux.
-
 ## Project Setup
 
-What do you need to run your project locally?
+One of the few things that's true for all projects is that we need to know how to set them up for local development.
 
-Especially if you're releasing an open source project, do not assume that all your contributors will be using the same operating system! Even within a single company you may have outliers using Linux or Windows.
+(Either I am uniquely bad at getting a project running locally, or I'm uniquely good at finding gaps in the onboarding steps.)
+
+For an npm package this may be as simple as running `npm install` or `yarn`, and some plugins may just need to be installed and activated.
+
+But if you need to do any configuration or setup to use your theme, or need to seed your project with sample content, you should explain or link to a guide for those steps.
+
+Be explicit with your dependencies.
+
+If you provide a setup script, what do I need to run it? Will it only work on OSX, or can I run it successfully in Linux or Windows? What systems will I need access to?
+
+Especially if you're releasing an open source project, do not assume that all your contributors will be using the same operating system!
+
+---
 
 For most WordPress projects, we use some sort of development environment -- many of them are built around Vagrant, like Chassis or VVV, but others use MAMP, XAMPP, Local by Flywheel, or Docker.
 
 I like vagrant-based projects because they tends to reduce the cross-platform issues you might encounter with a team using for example a combination of MAMP and XAMPP; assuming you've got virtualbox and vagrant, you can work around most cross-platform problems by wrapping them in a provisioning script. However the barrier to entry is higher.
 
-We often wrap our Chassis setups in scripts that orchestrate more complex site setup. I'm an outlier within HM in that I use Linux, so I like to work to ensure that 
 
 
 
