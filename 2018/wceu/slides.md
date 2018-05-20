@@ -77,12 +77,68 @@ Whether we're ramping up on a client project, auditing an existing site, evaluat
 
 The first thing I do whenever I join a project is to look through the README, and open issues for anything it doesn't explain. Because I think there's a very clear set of responsibilities that a README has, and if it doesn't meet them, it doesn't just slow _me_ down -- anybody hoping to contribute to or use the project may be held up. The running theme of this talk is going to be how to spend a little time up-front to save a lot later on, and the README is the most important part of this.
 
-A good README, in my opinion, should
+A good README, in my opinion, should do a couple things:
 
 - Tell you what a project is and is for, concisely and clearly
 - Tell you in brief how use the project
 - (Arguably most critically) explain how to get the project running locally for development
 - Link to or provide more comprehensive documentation
+
+---
+
+The importance of a project overview should be obvious, but all too often neglected. Remember that this is the first thing that somebody will see when they view your project; keep it concise, but don't skip it!
+
+This should include what environment your project is intended for; whether a JS library works in node or the browser, for example, or whether it's a WordPress plugin or a composer module.
+
+---
+
+How do you use this?
+
+A lot of readme's don't include any setup or getting started steps; this is permissible if you link to a comprehensive documentation site, but I think it's great that even projects like Redux that DO have excellent documentation include a basic getting-started site right there in the README.
+
+(https://github.com/reduxjs/redux "The Gist" example)
+
+I take this a bit far on wpapi, and actually generate a good portion of the documentation by parsing and splitting up the README. This is probably overkill, but good documentation can make the difference between a good library that gets adopted and a great one that gets ignored, so it's worth the investment.
+
+If you can practice documentation-driven development, do so!
+
+Redux doesn't put _too_ much documentation in the README, but they actually go a lot further by including a really great list of tutorials, introductions and overviews. They include a variety of types of learning resource (video vs narrative blog posts vs technical documentation) to support many learning styles.
+
+https://github.com/reduxjs/redux#learn-redux
+
+They also have a helpful section that explains when Redux may NOT be the best solution for a project. Not many projects do this, and I really respect that they are clear about where the library should be used.
+
+https://github.com/reduxjs/redux#before-proceeding-further
+
+---
+
+That's great for a package like Redux, but not all of that may seem useful for a plugin or theme. I would still expect that after reading your README, I could answer, "what would I use this plugin for," "how would I install it," and "how to I get it up and running on my site".
+
+We're spoilt for choice in the WP ecosystem, so make it clear from the project's plugin directory landing page or Github readme why you'd want to use THIS plugin to solve your problems, instead of another. Be clear.
+
+---
+
+
+
+---
+
+The first project where I took notice of the quality of the README was jQuery; they link directly to the project website from the README heading, open right off the bat with links to their contributor guides, then dive into where the library is intended to be used and how to create a custom build.
+
+The README doesn't try to replace their external documentation, but it documents the current intricacies of how to build your own jQuery. Their setup steps start at the operating system level. While they assume the reader has some technical proficiency, they don't skip steps: the guides for how to install Git and Node include separate callouts for OSX, Windows & Linux.
+
+## Project Setup
+
+What do you need to run your project locally?
+
+Especially if you're releasing an open source project, do not assume that all your contributors will be using the same operating system! Even within a single company you may have outliers using Linux or Windows.
+
+For most WordPress projects, we use some sort of development environment -- many of them are built around Vagrant, like Chassis or VVV, but others use MAMP, XAMPP, Local by Flywheel, or Docker.
+
+I like vagrant-based projects because they tends to reduce the cross-platform issues you might encounter with a team using for example a combination of MAMP and XAMPP; assuming you've got virtualbox and vagrant, you can work around most cross-platform problems by wrapping them in a provisioning script. However the barrier to entry is higher.
+
+We often wrap our Chassis setups in scripts that orchestrate more complex site setup. I'm an outlier within HM in that I use Linux, so I like to work to ensure that 
+
+
 
 
 
