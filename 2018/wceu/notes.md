@@ -113,3 +113,25 @@ What tools do you need on your host computer to run the application? And do they
 
 You want production data to replicate bugs, so you need an anonymized export
 
+
+---
+
+---
+
+
+---
+
+What do we test?
+
+- How the application works
+- That a bug has been fixed
+- That business goals are met
+
+We don't have tests for, is this easy to work on.
+
+Debugging (murder mystery metaphore): https://twitter.com/fortes/status/399339918213652480?lang=en
+
+
+
+
+"The title of the talk is of course what we forget to test, and you may have noticed that I didn't technically share any tests.

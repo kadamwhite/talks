@@ -1,47 +1,8 @@
-# What We Forget To Test
-
-## Abstract
+**Abstract**
 
 Our project has 100% test coverage; we have end-to-end tests, unit tests, manual testing scripts—and my colleague can’t get any of it working!?
 
 Poorly-written issues or out-of-date local installation steps can ruin a project, but when we think of testing we forget about the processes that surround our code. So how can we hold our workflows, onboarding steps and communication to the same rigorous standards of quality as our codebases? By applying that mentality to the issue trackers, READMEs and wikis we already have, we can save ourselves and our teams from communication and process errors and get back to making websites!
-
-## Slides
-
----
-
-# What We Forget To Test
-
-K. Adam White &bull; @kadamwhite &bull; Human Made
-
----
-
-Why do we build software?
-
-(to solve problems for people)
-
----
-
-Why do we test software?
-
-To avoid repeating our mistakes
-
----
-
-What do we test?
-
-- How the application works
-- That a bug has been fixed
-- That business goals are met
-
-We don't have tests for, is this easy to work on.
-
-Debugging (murder mystery metaphore): https://twitter.com/fortes/status/399339918213652480?lang=en
-
-
-
-
-"The title of the talk is of course what we forget to test, and you may have noticed that I didn't technically share any tests.
 
 ---
 
