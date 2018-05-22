@@ -25,7 +25,21 @@ What is the hardest part of software development?
 
 ???
 
-It's not programming, I think. This may sound controversial, but think about it -- it's 2018 and we have the best languages, frameworks, and tools that have existed in the history of the web. It gets better every week.
+I don't think it's programming. This may sound controversial, but think about it -- we have the best frameworks & tools that have existed in the history of the web. It gets better every week.
+
+---
+
+### We're here to
+## Solve Problems,
+### not write code
+
+???
+
+This is why we spend a small amount of time in our sprint retrospectives talking about what we could have done better technically,
+
+but we spend a LOT of time discussing what we could do to improve all the other things that help us work efficiently as a team
+
+Despite calling ourselves programmers, our job is to solve problems. The code is just a means to an end.
 
 ---
 
@@ -39,34 +53,9 @@ It's not programming, I think. This may sound controversial, but think about it 
 
 ???
 
-No, I think that the hard part of software development is what we do _just before_ and _right after_ programming. The actual coding is often the fun part; it's those tasks we have to complete before we start, or the things we need to do once we finish, that often feel the most difficult.
+No, I think that the hard part of software development is what we do _just before_ and _right after_ writing code.
 
-Whether you work for a product company, a consultancy, an agency, or for freelance clients, there's a lot of non-code tasks that are part of being a web developer.
-
-In our sprint and project retrospectives we spend some time talking about what we could have done better technically, and a LOT of time discussing what we could do to improve these other processes. These are challenges we face on every project. Switching costs; Onboarding takes; the friction of team communication; code review; handoff.
-
----
-
-### We're here to
-## Solve Problems,
-### not write code
-
-???
-
-We call ourselves programmers, but a programmer's job isn't really to write code. Our responsibility is to solve problems. The code is a means to an end; we should never forget that.
-
-But all our tools are oriented towards code. I think it's a problem that we focus on that to the exclusion of these other parts of our day-to-day jobs.
-
----
-
-## We test our code...
-### How do we evaluate the rest?
-
-???
-
-I want to share some best practices we can use to evaluate and improve our processes; think of it as a style guide for everything that isn't code.
-
-I don't have all the answers, and different teams require different processes. but we'll focus today on two important, complementary things: how we ramp up on a project, whether we're onboarding ourselves or helping our colleagues join the team; and how we improve communication within our teams to facilitate code review, task switching and handoff.
+Writing code is fun, and interesting! But whether you work freelance, at an agency, or in a product company, we face these other challenges on every project. Switching costs; Onboarding takes; the friction of team communication; code review; handoff.
 
 ---
 
@@ -75,9 +64,28 @@ I don't have all the answers, and different teams require different processes. b
 
 ???
 
-The hardest thing I've had to do as a developer recently is to admit that I'm bad at multitasking. I'm not good at context switching. Some folks are OK at it, but most of us think we're better than we are. Jumping between projects, especially projects with different organizational structures (such as a client project vs contributing to WordPress core), is just plain hard.
+The worst part about these responsibilities is that a lot of them require different types of thinking than programming does.
+
+The hardest thing I've had to do as a developer recently is to admit that I'm bad at multitasking. I'm not good at context switching. Some folks are OK, but almost all of us think we're better than we are. Jumping between tasks or projects, especially projects with different organizational structures (such as a client project vs contributing to WordPress core), is just plain hard.
 
 As I've admitted this to myself it has let me step back and compare the projects I work on, to figure out what helps me get going quickly and stay focused.
+
+---
+
+### What Helps Us
+## Switch Tasks Faster?
+
+- Clear Documentation
+- Predictable Process
+- Standardized Tools
+
+???
+
+If something's hard, we don't do it. So getting your dev environment set up, adding documentation, writing good issues -- we want this all to become muscle memory.
+
+Clarity is the most important, and clarity means good documentation.
+
+In the rest of my time today I'm going to share a couple ideas for specific areas where holding ourselves to a higher standard of documentation can save our teams a lot of time.
 
 ---
 
@@ -85,13 +93,13 @@ As I've admitted this to myself it has let me step back and compare the projects
 
 ???
 
-The biggest context switch of all is to begin a new project.
+So let's start with the biggest context switch of all: ramping up on a new project.
 
 How do you go from 0 to full speed on a brand new codebase?
 
 The best way is pair with another developer, but they may not have time.
 
-And while we can figure it out by reading the code, most of us can scan prose faster than PHP. So if we're on our own, the first thing we're going to look at is the README.
+And while we can figure it out by reading the code, I can read prose much faster than PHP. So if I'm on our own, I'm going to start by looking at the README.
 
 ---
 
@@ -293,3 +301,4 @@ One of my favorite features of Github is their issue and PR templates.
 ---
 
 ## `.github/PULL_REQUEST_TEMPLATE.md`
+

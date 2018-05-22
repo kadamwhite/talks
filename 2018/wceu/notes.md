@@ -135,3 +135,21 @@ Debugging (murder mystery metaphore): https://twitter.com/fortes/status/39933991
 
 
 "The title of the talk is of course what we forget to test, and you may have noticed that I didn't technically share any tests.
+
+
+
+---
+
+## We test our code...
+### How do we evaluate the rest?
+
+???
+
+These are the hard parts. It's harder to hold interpersonal processes to the same standard we use for our code; we don't have linters for documentation quality or pull request descriptions.
+
+It's easier to improve a technical process with tools than 
+It's easy to build tools to improve our code, but But all our tools are oriented towards code. I think it's a problem that we focus on that to the exclusion of these other parts of our day-to-day jobs.
+
+I want to share some best practices we can use to evaluate and improve our processes; think of it as a style guide for everything that isn't code.
+
+I don't have all the answers, and different teams require different processes. but we'll focus today on two important, complementary things: how we ramp up on a project, whether we're onboarding ourselves or helping our colleagues join the team; and how we improve communication within our teams to facilitate code review, task switching and handoff.
