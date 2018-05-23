@@ -153,3 +153,22 @@ It's easy to build tools to improve our code, but But all our tools are oriented
 I want to share some best practices we can use to evaluate and improve our processes; think of it as a style guide for everything that isn't code.
 
 I don't have all the answers, and different teams require different processes. but we'll focus today on two important, complementary things: how we ramp up on a project, whether we're onboarding ourselves or helping our colleagues join the team; and how we improve communication within our teams to facilitate code review, task switching and handoff.
+
+
+---
+JOE NOTES:
+
+We would when necessary put in a specific heading for "reviewer notes," e.g. "to test this functionality you'll need to run NPM; here's a weird gotcha to be aware of when testing; this thing's broken but out of scope so that was intentionally left unfinished"
+This made it easier for a reviewer to jump in
+vs a PR where there's no description, you pull it down, it's broken and you give up (when you could have taken one small step and had it work)
+
+REALLY GOOD JOE QUOTES
+
+"It's not rocket science that the best way to communicate with people on your team is to communicate
+
+"How do you let people know what they need to know? Well, you write it down!
+
+"Write it down as close to the thing they're going to interact with as possible.
+
+"Oftentimes we would write architectural notes, what the challenges are and how we were going to approach it, as a text file that's a part of that project, that would then also get committed and it almost becomes a readme for that functionality.
+
