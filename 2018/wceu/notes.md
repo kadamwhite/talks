@@ -172,3 +172,26 @@ REALLY GOOD JOE QUOTES
 
 "Oftentimes we would write architectural notes, what the challenges are and how we were going to approach it, as a text file that's a part of that project, that would then also get committed and it almost becomes a readme for that functionality.
 
+Media uploader component has a good README
+Nested block component, the columns gutenberg block has some docs
+
+"definitely not something we do often in WP core
+
+```
+[master][kadam@jetset:/wp/gberg/gutenberg]
+[15:39:33] $ find ./editor/ -iname 'readme.md'
+./editor/components/autocompleters/README.md
+./editor/components/README.md
+./editor/components/observe-typing/README.md
+./editor/components/autocomplete/README.md
+./editor/components/media-upload/README.md
+./editor/components/plain-text/README.md
+./editor/components/rich-text/README.md
+./editor/components/inner-blocks/README.md
+./editor/components/block-title/README.md
+./editor/README.md
+./editor/utils/with-history/README.md
+./editor/utils/with-change-detection/README.md
+```
+
+"They've done a really good job of that [i.e. adding readmes for blocks]... whether they stay maintained or not is another question"
