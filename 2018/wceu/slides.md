@@ -124,55 +124,19 @@ The markdown files in our repositories are co-located documentation. So long as 
 
 I'm going to focus on the markdown files that GitHub supports natively, but even if you use another VCS or issue tracker these tasks can be replicated with your own tool suite.
 
----
-
-### What Helps Us
-## Switch Tasks Faster?
-
-- Clear Documentation
-- Predictable Process
-- Standardized Tools
-
-???
-
-If something's hard, we don't do it. So getting your dev environment set up, adding documentation, writing good issues -- we want this all to become muscle memory.
-
-Clarity is the most important, and clarity means good documentation.
-
-In the rest of my time today I'm going to share a couple ideas for specific areas where holding ourselves to a higher standard of documentation can save our teams a lot of time.
+So how do we best use each of these files?
 
 ---
 
-## The Onboarding Process
-
-???
-
-So let's start with the biggest context switch of all: ramping up on a new project.
-
-How do you go from 0 to full speed on a brand new codebase?
-
-The best way is pair with another developer, but they may not have time.
-
-And while we can figure it out by reading the code, I can read prose much faster than PHP. So if I'm on our own, I'm going to start by looking at the README.
-
----
-
-### Believe In The
-## README
-
-??? The README is a project's landing page and cover letter.
-
-Because of this, I think there's a very clear set of responsibilities that a README has.
-
----
+# README.md
 
 ### What Is This For?
 ### How Do I Use It?
 ### How Do I Get Started?
 
-???
+??? The README is a project's landing page and cover letter.
 
-A good README, in my opinion, should do a couple things:
+It has a few key responsibilities — a good readme should, in my opinion,
 
 - Tell you what a project is and is for, concisely and clearly
 - Tell you in brief how use the project
@@ -241,6 +205,90 @@ We're spoilt for choice in the WP ecosystem, so make it clear right from Github 
 
 ---
 
+## How Do I Get Started?
+### Project Setup
+
+???
+
+We're moving out of README territory into CONTRIBUTING.md, now; for any project, we'll need to know how to set it up for local development.
+
+For an npm package this may be as simple as running `npm install` or `yarn`, and some plugins may just need to be installed and activated.
+
+But if you need to do any configuration or setup to use your theme, or need to seed your project with sample content, you should explain or link to a guide for those steps.
+
+---
+
+### Project Setup
+## Explicitly Define Dependencies
+
+???
+
+Be explicit with your dependencies.
+
+If you provide a setup script, what do I need to run it? What systems or servers do I need access to? Do I need NPM or Composer?
+
+Will it only work on macOS, or can I run it successfully on Linux or Windows? Especially if you're releasing an open source project, do not shut out contributors coming from other operating systems!
+
+---
+
+### Project Setup
+## Use Established Tools
+
+???
+
+We've got a lot of WP dev environments available -- many of them are built around Vagrant, like Chassis or VVV, but others like Local by Flywheel use Docker, and of course MAMP & XAMPP are going strong.
+
+It's tempting to assume that other developers will use the same tools you do, but unless you specify consistent tools people tend to do their own thing.
+
+This is why Vagrant is great, it can standardize the way your project runs across OSs.
+
+But even with Vagrant, it's better to leverage existing setup scripts like WP-CLI than to invent your own. You want to get going so you can debug your application code, not get hung up debugging your virtual machine!
+
+---
+
+### Project Setup
+## How Do I Get Sample Data?
+
+???
+
+And the piece that is _always_ skipped: how do I populate my VM database with sample data to get this running? It's a lot easier to see how something works if there's data locally, so make this as easy as possible.
+
+If you're taking backups from production, don't forget to scrub out any anonymous data first!
+
+---
+
+### Project Setup
+## Keep It Up To Date
+
+???
+
+The best way to make sure your installation instructions are current is to have somebody join the project. Things will break unexpectedly. This always happens to me; Either I am uniquely bad at getting a project running locally, or I'm uniquely good at finding gaps in the onboarding steps!
+
+when they do, pair the newcomer with an existing dev to work through them, and update the documentation accordingly.
+
+You can replicate this on your own by deleting and recreating your dev environment every sprint. Most teams won't go this far, but if you can bring yourself to do it, you'll be forced to keep things up to date for your own peace of mind.
+
+---
+
+### Project Setup
+## Put Your Setup Steps In Version Control
+
+???
+
+The setup process is tightly coupled to your code so it can be valuable to version it along with the rest.
+
+However, a wiki's the best choice if you need to coordinate multiple repositories.
+
+---
+
+### You can use more than one README!
+
+???
+
+You can also have more than one README in your codebase! If you view a folder in GitHub and that folder contains a README, github will display that readme. This is a great place to put more extensive design documentation or feature overviews that only apply to part of the codebase.
+
+---
+
 ## Documentation-Driven Development?
 
 ???
@@ -261,88 +309,6 @@ As an example, Redux doesn't put _too_ much documentation in the README, but the
 https://github.com/reduxjs/redux#learn-redux
 
 ---
-
-## How Do I Get Started?
-### Project Setup
-
-???
-
-We're moving out of README territory into CONTRIBUTING.md, now; for any project, we'll need to know how to set it up for local development.
-
-For an npm package this may be as simple as running `npm install` or `yarn`, and some plugins may just need to be installed and activated.
-
-But if you need to do any configuration or setup to use your theme, or need to seed your project with sample content, you should explain or link to a guide for those steps.
-
----
-
-## Project Setup
-### Explicitly Define Dependencies
-
-???
-
-Be explicit with your dependencies.
-
-If you provide a setup script, what do I need to run it? What systems or servers do I need access to? Do I need NPM or Composer?
-
-Will it only work on macOS, or can I run it successfully on Linux or Windows? Especially if you're releasing an open source project, do not shut out contributors coming from other operating systems!
-
----
-
-## Project Setup
-### Use Established Tools
-
-???
-
-We've got a lot of WP dev environments available -- many of them are built around Vagrant, like Chassis or VVV, but others like Local by Flywheel use Docker, and of course MAMP & XAMPP are going strong.
-
-It's tempting to assume that other developers will use the same tools you do, but unless you specify consistent tools people tend to do their own thing.
-
-This is why Vagrant is great, it can standardize the way your project runs across OSs.
-
-But even with Vagrant, it's better to leverage existing setup scripts like WP-CLI than to invent your own. You want to get going so you can debug your application code, not get hung up debugging your virtual machine!
-
----
-
-## Project Setup
-### How Do I Get Sample Data?
-
-???
-
-And the piece that is _always_ skipped: how do I populate my VM database with sample data to get this running? It's a lot easier to see how something works if there's data locally, so make this as easy as possible.
-
-If you're taking backups from production, don't forget to scrub out any anonymous data first!
-
----
-
-## Project Setup
-### Keep It Up To Date
-
-???
-
-The best way to make sure your installation instructions are current is to have somebody join the project. Things will break unexpectedly. This always happens to me; Either I am uniquely bad at getting a project running locally, or I'm uniquely good at finding gaps in the onboarding steps!
-
-when they do, pair the newcomer with an existing dev to work through them, and update the documentation accordingly.
-
-You can replicate this on your own by deleting and recreating your dev environment every sprint. Most teams won't go this far, but if you can bring yourself to do it, you'll be forced to keep things up to date for your own peace of mind.
-
----
-
-## Project Setup
-### Put Your Setup Steps In Version Control
-
-???
-
-The setup process is tightly coupled to your code so it can be valuable to version it along with the rest.
-
-However, a wiki's the best choice if you need to coordinate multiple repositories.
-
----
-
-## You're up and running!
-
-???
-
-Great! You're up and running. 
 
 ---
 
