@@ -35,11 +35,11 @@ I don't think it's programming. This may sound controversial, but think about it
 
 ???
 
+We like code! It's fun to write, and fun to talk about. But despite calling ourselves programmers, our actual job is to solve problems. The code is just a means to an end.
+
 This is why we spend a small amount of time in our sprint retrospectives talking about what we could have done better technically,
 
 but we spend a LOT of time discussing what we could do to improve all the other things that help us work efficiently as a team
-
-Despite calling ourselves programmers, our job is to solve problems. The code is just a means to an end.
 
 ---
 
@@ -53,9 +53,17 @@ Despite calling ourselves programmers, our job is to solve problems. The code is
 
 ???
 
-No, I think that the hard part of software development is what we do _just before_ and _right after_ writing code.
+What makes a successful project are all these things, the things we do _just before_ and _right after_ writing code.
 
-Writing code is fun, and interesting! But whether you work freelance, at an agency, or in a product company, we face these other challenges on every project. Switching costs; Onboarding takes; the friction of team communication; code review; handoff.
+We face these other challenges on every project. Onboarding, team communication, code review, handoff — I think this is the real hard stuff.
+
+---
+
+(flowchart showing how we constantly switch into and out of coding in the process of onboarding &rarr; code &arr; code review &arr; bug reports &rarr; documentation &rarr; etc, through to delivery)
+
+???
+
+It's hard because each one of these processes requires different types of thinking than programming does. We constantly switch back and forth between programming and team communication.
 
 ---
 
@@ -64,11 +72,57 @@ Writing code is fun, and interesting! But whether you work freelance, at an agen
 
 ???
 
-The worst part about these responsibilities is that a lot of them require different types of thinking than programming does.
+Jumping between tasks or projects, especially tasks that require different types of thinking or communication, is just plain hard. Some folks are OK at it, but almost all of us think we're better than we are.
 
-The hardest thing I've had to do as a developer recently is to admit that I'm bad at multitasking. I'm not good at context switching. Some folks are OK, but almost all of us think we're better than we are. Jumping between tasks or projects, especially projects with different organizational structures (such as a client project vs contributing to WordPress core), is just plain hard.
+The hardest thing I've had to do as a developer recently is to admit once and for all that I'm bad at context switching. I can't multitask. 
 
 As I've admitted this to myself it has let me step back and compare the projects I work on, to figure out what helps me get going quickly and stay focused.
+
+---
+
+### Ease These Transitions
+## Write Down The Process
+
+???
+
+Although we're bad at context switching, we're often not bad at following instructions. Instructions mean documentation.
+
+The small pieces of documentation we leave ourselves in our repositories play an important role in easing the transitions between tasks, and keeping us focused on the project.
+
+---
+
+### Believe in
+## Written Documentation
+
+???
+
+I work on a distributed team; if I need to set up my local dev environment or fix a bug, I can't go over and ask a colleague how to pull down sample data or how a feature is supposed to work.
+
+We can puzzle out answers from the code, but that takes far too much time. I need that information to be _written down_ and embedded in the project I'm working on, so that I can quickly answer those questions for myself.
+
+---
+
+### Believe In
+## Markdown Files
+
+_Co-Locate Your Documentation_
+
+???
+
+I like comprehensive documentation sites, but I like the markdown files in our repositories even more. To quote my colleague Joe McGill, if you need to let people know what they need to know, the best way is to write it down as close to the thing they're going to interact with as possible.
+
+The markdown files in our repositories are co-located documentation. So long as I have the code checked out, I also have the instructions! These can be fleshed out in design documents or the project wiki, but the markdown files are accessible in a way these other resources are not.
+
+---
+
+### README.md
+### CONTRIBUTING.md
+### .github/ISSUE_TEMPLATE.md
+### .github/PULL_REQUEST_TEMPLATE.md
+
+???
+
+I'm going to focus on the markdown files that GitHub supports natively, but even if you use another VCS or issue tracker these tasks can be replicated with your own tool suite.
 
 ---
 
