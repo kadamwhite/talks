@@ -44,25 +44,23 @@ How do we ensure we actually do this? We leave ourselves instructions, right in 
 
 We use GitHub's PR templates to document our process and remind us of the communication quality standards that we have for ourselves and our teammates.
 
+The markdown files in our repositories let us put process documentation right where it's needed -- right next to the code!
+
+We can do this for issues, too. we want to avoid issues that just say, "refactor this," or "that thing is broken." What thing? How? Issue templates help remind people to include what they expected to happen, specifics about what went wrong, and steps to reproduce a bug.
+
+Without templates we get vague issues because we often open them quickly while they occur to us, when we're in the middle of something else. What I had to do seemed clear at the time, and I was busy, so I didn't go into detail.
+
+But now if I had to come back to this three sprints later, I'm toast. Where do I start? I have to reassemble everything I knew about the relevant part of the codebase before I can get back to where I as before. It takes a lot longer than it would have to just write it down in the first place.
+
+I'm a firm believer in putting as much detail and supporting material into tickets as possible. Putting in the time to write a good issue leaves me an on-ramp I can use to get back up to speed.
+
+Especially with open source projects, you're not going to be in the same mindspace when you come back to an issue. If you're leaving descriptions for future enhancements, go all-out!
+
+Even if you're just trying to document a minor refactor in a client project, it's worth being thorough; one long meeting like a sprint retro can knock all of your accumulated ideas out of your head and make you start over.
+
+
+
 We could have put these guidelines in a wiki, but nobody would read it! the further we have to go to figure out what we're supposed to do next, the easier it is to get distracted!
-
-The markdown files in our repositories give us so much power to put documentation right where it's needed -- right next to the code.
-
-At Human Made we work on an async team. We can't rely on slack or video chat much of the time. To quote my colleague Joe McGill, if you need to let people know what they need to know, write it down -- and if you need to make sure they see it, write it down as close to the thing they're going to interact with as possible.
-
-We like inline documentation within our code. Learn to love these markdown files in your repo too.
-
-PR's just the tip of the iceberg. You can make issue templates, as well -- these exist for other issue tracker systems too, but GitHub's are again local markdown files.
-
-All too often I see an issue template more or less ignored; they'll say, just, "refactor that thing." What thing? How?
-
-We do this because we're in a hurry. we're opening the issue when it occurs to us; but we're in the middle of something else, and we don't want to break our concentration.
-
-But I'm a firm believer in putting as much detail and supporting material into a ticket as possible. This is frequently the point where we know the most about a bug or a new feature; fill things out, so that when you return to it you won't have to repeat any investigation!
-
-Especially with open source projects, you're not going to be in the same mindspace when you come back to an issue. If you're leaving descriptions for future enhancements, go all-out.
-
-Even if you're just trying to document a minor refactor in a client project, it's worth being thorough; one stressful meeting can knock all of your accumulated ideas out of your head and make you start over!
 
 And starting over's hard. Joining a brand new project is the worst; even if you use a consistent toolset like "react and redux on top of WP", we can't be effective until we've got an environment up and running and know what we're building.
 
