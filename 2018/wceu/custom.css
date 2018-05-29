@@ -90,6 +90,10 @@ blockquote * {
   background-color: rgba(255,255,255,0.85) !important;
 }
 
+.align-right {
+  text-align: right;
+}
+
 .highlight {
   padding: 0.5em 0.25em !important;
   background-color: rgba(255,255,255,0.8) !important;
@@ -140,44 +144,14 @@ blockquote * {
 }
 
 .reveal .attribution > *,
-.whitebg {
+.reveal .whitebg {
   display: inline-block;
   background-color: white;
   color: #222;
   border-radius: 2px;
-  padding: 0.5em !important;
+  padding: 0.15em !important;
+  margin: 0;
   border: 1px solid #afafaf !important;
-}
-
-.reveal .blackoutline {
-  text-shadow:
-     5px  5px 0 black,
-     3px  3px 0 black,
-    -5px -5px 0 black,
-    -3px -3px 0 black,
-     5px -5px 0 black,
-     3px -3px 0 black,
-    -5px  5px 0 black,
-    -3px  3px 0 black;
-}
-.reveal .whiteoutline {
-  text-shadow:
-     2px  3px 1px white,
-     1px  3px 1px white,
-     3px  2px 1px white,
-     3px  1px 1px white,
-    -2px  3px 1px white,
-    -1px  3px 1px white,
-    -3px  2px 1px white,
-    -3px  1px 1px white,
-     2px -3px 1px white,
-     1px -3px 1px white,
-     3px -2px 1px white,
-     3px -1px 1px white,
-    -2px -3px 1px white,
-    -1px -3px 1px white,
-    -3px -2px 1px white,
-    -3px -1px 1px white;
 }
 
 .attribution > *,
@@ -313,4 +287,180 @@ span.amp {
 .reveal .italic {
   font-family: Raleway;
   font-style: italic;
+}
+
+
+
+
+
+
+
+
+.reveal .blackoutline {
+  text-shadow:
+    -1px -1px 0.5px black,
+    -1px -2px 0.5px black,
+    -1px -3px 0.5px black,
+    -1px -4px 0.5px black,
+    -1px 0px 0.5px black,
+    -1px 1px 0.5px black,
+    -1px 2px 0.5px black,
+    -1px 3px 0.5px black,
+    -1px 4px 0.5px black,
+    -2px -1px 0.5px black,
+    -2px -2px 0.5px black,
+    -2px -3px 0.5px black,
+    -2px -4px 0.5px black,
+    -2px 0px 0.5px black,
+    -2px 1px 0.5px black,
+    -2px 2px 0.5px black,
+    -2px 3px 0.5px black,
+    -2px 4px 0.5px black,
+    -3px -1px 0.5px black,
+    -3px -2px 0.5px black,
+    -3px -3px 0.5px black,
+    -3px -4px 0.5px black,
+    -3px 0px 0.5px black,
+    -3px 1px 0.5px black,
+    -3px 2px 0.5px black,
+    -3px 3px 0.5px black,
+    -3px 4px 0.5px black,
+    -4px -1px 0.5px black,
+    -4px -2px 0.5px black,
+    -4px -3px 0.5px black,
+    -4px -4px 0.5px black,
+    -4px 0px 0.5px black,
+    -4px 1px 0.5px black,
+    -4px 2px 0.5px black,
+    -4px 3px 0.5px black,
+    -4px 4px 0.5px black,
+    0px -1px 0.5px black,
+    0px -2px 0.5px black,
+    0px -3px 0.5px black,
+    0px -4px 0.5px black,
+    0px 0px 0.5px black,
+    0px 1px 0.5px black,
+    0px 2px 0.5px black,
+    0px 3px 0.5px black,
+    0px 4px 0.5px black,
+    1px -1px 0.5px black,
+    1px -2px 0.5px black,
+    1px -3px 0.5px black,
+    1px -4px 0.5px black,
+    1px 0px 0.5px black,
+    1px 1px 0.5px black,
+    1px 2px 0.5px black,
+    1px 3px 0.5px black,
+    1px 4px 0.5px black,
+    2px -1px 0.5px black,
+    2px -2px 0.5px black,
+    2px -3px 0.5px black,
+    2px -4px 0.5px black,
+    2px 0px 0.5px black,
+    2px 1px 0.5px black,
+    2px 2px 0.5px black,
+    2px 3px 0.5px black,
+    2px 4px 0.5px black,
+    3px -1px 0.5px black,
+    3px -2px 0.5px black,
+    3px -3px 0.5px black,
+    3px -4px 0.5px black,
+    3px 0px 0.5px black,
+    3px 1px 0.5px black,
+    3px 2px 0.5px black,
+    3px 3px 0.5px black,
+    3px 4px 0.5px black,
+    4px -1px 0.5px black,
+    4px -2px 0.5px black,
+    4px -3px 0.5px black,
+    4px -4px 0.5px black,
+    4px 0px 0.5px black,
+    4px 1px 0.5px black,
+    4px 2px 0.5px black,
+    4px 3px 0.5px black,
+    4px 4px 0.5px black;
+}
+.reveal .whiteoutline {
+  text-shadow:
+    -4px -4px 0.5px white,
+    -4px -3px 0.5px white,
+    -4px -2px 0.5px white,
+    -4px -1px 0.5px white,
+    -4px 0px 0.5px white,
+    -4px 1px 0.5px white,
+    -4px 2px 0.5px white,
+    -4px 3px 0.5px white,
+    -4px 4px 0.5px white,
+    -3px -4px 0.5px white,
+    -3px -3px 0.5px white,
+    -3px -2px 0.5px white,
+    -3px -1px 0.5px white,
+    -3px 0px 0.5px white,
+    -3px 1px 0.5px white,
+    -3px 2px 0.5px white,
+    -3px 3px 0.5px white,
+    -3px 4px 0.5px white,
+    -2px -4px 0.5px white,
+    -2px -3px 0.5px white,
+    -2px -2px 0.5px white,
+    -2px -1px 0.5px white,
+    -2px 0px 0.5px white,
+    -2px 1px 0.5px white,
+    -2px 2px 0.5px white,
+    -2px 3px 0.5px white,
+    -2px 4px 0.5px white,
+    -1px -4px 0.5px white,
+    -1px -3px 0.5px white,
+    -1px -2px 0.5px white,
+    -1px -1px 0.5px white,
+    -1px 0px 0.5px white,
+    -1px 1px 0.5px white,
+    -1px 2px 0.5px white,
+    -1px 3px 0.5px white,
+    -1px 4px 0.5px white,
+    0px -4px 0.5px white,
+    0px -3px 0.5px white,
+    0px -2px 0.5px white,
+    0px -1px 0.5px white,
+    0px 0px 0.5px white,
+    0px 1px 0.5px white,
+    0px 2px 0.5px white,
+    0px 3px 0.5px white,
+    0px 4px 0.5px white,
+    1px -4px 0.5px white,
+    1px -3px 0.5px white,
+    1px -2px 0.5px white,
+    1px -1px 0.5px white,
+    1px 0px 0.5px white,
+    1px 1px 0.5px white,
+    1px 2px 0.5px white,
+    1px 3px 0.5px white,
+    1px 4px 0.5px white,
+    2px -4px 0.5px white,
+    2px -3px 0.5px white,
+    2px -2px 0.5px white,
+    2px -1px 0.5px white,
+    2px 0px 0.5px white,
+    2px 1px 0.5px white,
+    2px 2px 0.5px white,
+    2px 3px 0.5px white,
+    2px 4px 0.5px white,
+    3px -4px 0.5px white,
+    3px -3px 0.5px white,
+    3px -2px 0.5px white,
+    3px -1px 0.5px white,
+    3px 0px 0.5px white,
+    3px 1px 0.5px white,
+    3px 2px 0.5px white,
+    3px 3px 0.5px white,
+    3px 4px 0.5px white,
+    4px -4px 0.5px white,
+    4px -3px 0.5px white,
+    4px -2px 0.5px white,
+    4px -1px 0.5px white,
+    4px 0px 0.5px white,
+    4px 1px 0.5px white,
+    4px 2px 0.5px white,
+    4px 3px 0.5px white,
+    4px 4px 0.5px white;
 }

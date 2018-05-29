@@ -14,7 +14,7 @@ This talk occurred to me when I saw a bad PR.
 
 What's wrong with this? Well, what's written here is good -- it's useful to have PR templates to list things that you want all PR's to have.
 
-But, I could tell that this passed lint and had tests by checking the CI results and 
+But, I could tell that this passed lint and had tests by checking the CI results and reading the code
 
 Doesn't tell me what's being addressed
 

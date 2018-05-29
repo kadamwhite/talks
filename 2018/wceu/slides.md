@@ -54,19 +54,107 @@ We've got good tools for evaluating our code, but there's no unit tests for team
 Fortunately, we CAN evaluate the documentation we leave ourselves to help with these processes. And that's what I'm going to talk about today.
 
 ---
+<!-- .slide: data-background="images/example-bad-pr.png" data-background-position="center top" -->
 
-(flowchart showing how we constantly switch into and out of coding in the process of onboarding &rarr; code &arr; code review &arr; bug reports &rarr; documentation &rarr; etc, through to delivery)
+## <small>What Makes A</small> Good PR?
+<!-- .element: class="align-right blackoutline" -->
 
 ???
 
-It's hard because each one of these processes requires different types of thinking than programming does. We constantly switch back and forth between programming and team communication.
+This talk occurred to me when I was asked to review a bad PR.
+
+What made it bad? The code was actually fine. I'm glad it's tested, and that it passes lint. But I could have answered both questions by looking at the code and CI results; what's written here is useful only to the developer opening the PR.
+
+Without any description, it doesn't tell me what's being addressed.
+
+It doesn't tell me what to test or how to test it.
 
 ---
 
-## Context Switching
-### Humans Are Not Good At It
+### A &ldquo;Good&rdquo; PR Description should
+
+- Summarize the issue being addressed
+- Link to the acceptance criteria or requirements
+- Contain screenshots of before/after changes, or gifs showing interaction
+- Explain any unusual design decisions
+- List specific testing instructions as needed
 
 ???
+
+We can suss much of this out from the code, but we're all faster at reading prose. Leaving them information is not just kind, it's critical to good team communication. Leaving things out just introduces back and forth, which can take days across time zones.
+
+Fleshing out PR's this much may feel like it's a waste of your time, but you're asking your colleagues to do the harder part: to stop what they are doing, and try to understand your code.
+
+---
+
+## Context Switching <small>Humans Are Not Good At It</small>
+
+_Leave instructions to help your team pick up where you left off!_
+<!-- .element: class="fragment" -->
+
+???
+
+If you're doing code review, you're stepping into somebody else's thought process. It's a context switch.
+
+Context switching and multitasking are things we as humans are not good at. I myself am extremely bad at multi-tasking. I get really distracted when I try to switch tasks.
+
+(advance!) Take an extra five minutes when you're opening a PR to give your teammates as much help as possible, and it'll be easier for them to dig in quickly. That means switching takes less time, and we can get back to coding faster.
+
+---
+<!-- .slide: data-background="images/gutenberg-pr-template.png" data-background-position="center bottom" -->
+
+???
+
+How do we ensure we actually do this? We leave ourselves instructions, right in the PR description window.
+
+We can use GitHub's PR templates to document our process and remind us of the communication quality standards that we have for ourselves and our teammates.
+
+By putting markdown files in a `.github` folder at the top of our project, we can control what our collaborators see when we open pull requests or issues, and include project-specific instructions.
+
+---
+<!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-issue-template.png" -->
+
+???
+
+This is Gutenberg's issue template, which reminds bug reporters to include what they expected to happen, specifics about what went wrong, and steps to reproduce a bug.
+
+Issue and pull request templates also let you use HTML comments which are hidden in the final output, but which help ensure that the ticket is thorough.
+
+---
+
+## Don't Make Your Colleagues Guess
+
+_(It will help you, too)_
+
+???
+
+Without templates we often get vague issues, because even with best of intentions we're usually in a hurry and don't want to take the time to go into detail.
+
+But if I write a vague issue and come back to it after three sprints or so, I'm toast. Where do I start? I have to reassemble everything I knew about the problem before I can get back to where I was when I opened the ticket. Why not just write it down in the first place?
+
+I'm a firm believer in putting as much detail and supporting material into tickets as possible. Putting in the time to write a good issue leaves me an on-ramp I can use to get back up to speed.
+
+---
+<!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-pr-template-detail.png" -->
+
+???
+
+_Especially_ with open source projects, more detail is better. Your potential collaborators won't know how best to help you unless you tell them. And look at projects like Gutenberg — it works!
+
+---
+
+### Write Your Process Down
+
+???
+
+These templates don't mean you have to fill out every section for every ticket.
+
+They're just a reminder to respect our colleagues' time as we would our own, by being specific and direct. They let us hold our team process to a common standard.
+
+Although we're bad at context switching, we're often not bad at following instructions. Instructions mean documentation. Writing things down saves time and improves communication.
+
+---
+
 
 Jumping between tasks or projects, especially tasks that require different types of thinking or communication, is just plain hard. Some folks are OK at it, but almost all of us think we're better than we are.
 
@@ -76,12 +164,7 @@ As I've admitted this to myself it has let me step back and compare the projects
 
 ---
 
-### Ease These Transitions
-## Write Down The Process
-
 ???
-
-Although we're bad at context switching, we're often not bad at following instructions. Instructions mean documentation.
 
 The small pieces of documentation we leave ourselves in our repositories play an important role in easing the transitions between tasks, and keeping us focused on the project.
 
