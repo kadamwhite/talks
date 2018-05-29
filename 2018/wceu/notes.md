@@ -195,3 +195,25 @@ Nested block component, the columns gutenberg block has some docs
 ```
 
 "They've done a really good job of that [i.e. adding readmes for blocks]... whether they stay maintained or not is another question"
+
+
+```
+function goto(destY, delay = 500, steps = 1) {
+
+    if ( ! steps || steps <= 1 ) {
+        return window.scrollTo(0, destY);
+    }
+
+    const increment = ( destY - window.scrollY ) / steps;
+    console.log( `${ steps } steps, increment ${ increment }` );
+
+    console.log( `Scrolling to ${ window.scrollY + increment }` );
+    window.scrollTo(0, window.scrollY + increment);
+    setTimeout( () => {
+        goto( destY, delay, steps - 1 )
+    }, delay );
+
+}
+
+setTimeout( () => goto( bottom, 1200, 5 ), 4000 )
+```

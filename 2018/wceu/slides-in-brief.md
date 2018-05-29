@@ -2,17 +2,15 @@ What we forget to test.
 
 What does that mean?
 
-This talk has evolved somewhat since I proposed it, but in short, it means I think we spend too much time talking about code. Code's fun, but it's not the hard part.
+This talk has evolved somewhat since I proposed it, and I've gone through a lot of titles that would have been better than what's in the program. But in short, I'm here to argue that we spend too much time talking about code. Code's fun, but I don't think it's the hard part of what we do as software developers.
 
-The part part's everything we do _between_ small periods of writing code
+The part part's everything we do _between_ the small periods when we're writing code.
 
-We've got good tools for evaluating our code, but there's no CI for our non-code processes; no linting to tell me whether a developer handoff or PR review is going to go well.
+We've got good tools for evaluating our code, but there's no unit tests for team communication; no linting for pull request discussions or onboarding instructions.
 
-One thing we CAN evaluate at is the documentation we leave ourselves _alongside_ the code
+Fortunately we CAN evaluate the documentation we leave ourselves to help with these processes. And that's what I'm going to talk about today.
 
-Talk occurred to me when I saw a bad PR.
-
-(explain PR templates?)
+This talk occurred to me when I saw a bad PR.
 
 What's wrong with this? Well, what's written here is good -- it's useful to have PR templates to list things that you want all PR's to have.
 
@@ -56,15 +54,54 @@ I'm a firm believer in putting as much detail and supporting material into ticke
 
 Especially with open source projects, you're not going to be in the same mindspace when you come back to an issue. If you're leaving descriptions for future enhancements, go all-out!
 
-Even if you're just trying to document a minor refactor in a client project, it's worth being thorough; one long meeting like a sprint retro can knock all of your accumulated ideas out of your head and make you start over.
+Even if you're going to tackle the issue soon, it's worth being thorough; one distraction or a long meeting like a sprint retro can knock all of your accumulated ideas out of your head and make you start over.
+
+Issue and PR templates let us hold our team process to a common standard. They save time and they improve communication.
+
+The further we have to go to figure out what we're supposed to do next, the easier it is to get distracted. We could have put these guidelines in a wiki, but nobody would read it! By putting the steps right there in the PR description text area, GitHub ensures we can't miss it. It's our loss if we don't use the feature well. Two markdown files can do a lot of good.
+
+I'm not against wikis, but in the remaining time I'd like to talk about an even better markdown file -- the humble and under-appreciated README.md.
+
+READMEs are your code's landing page and cover letter.
+
+In my opinion a good readme has the responsibility to
+
+- Tell you what a project is and is for, concisely and clearly;
+- Tell you in brief how use the project;
+- Provide or link to directions for running the project locally; and
+- Provide or link to more comprehensive documentation.
+
+I like README's like Redux's, which contain everything but the kitchen sink: not just a brief blurb on what Redux is and why you should use it, but also a philosophy statement, a "the gist" quick-start guide, links to comprehensive documentation, a copious set of examples and tutorials including a video guide, and best of all, a section about when Redux might NOT be the best choice for your project!
+
+But even if you don't do all this, 
+
+GitHub has also introduced CONTRIBUTING.md to share some of these responsibilities.
 
 
 
-We could have put these guidelines in a wiki, but nobody would read it! the further we have to go to figure out what we're supposed to do next, the easier it is to get distracted!
 
-And starting over's hard. Joining a brand new project is the worst; even if you use a consistent toolset like "react and redux on top of WP", we can't be effective until we've got an environment up and running and know what we're building.
+You're not limited to one README. We encourage code modularization, and each module has its own design constraints, quirks, usage instructions and background. Document that in a README, too!
 
-When we come to a new project, the first thing we see is the README, yet another markdown file. This one's the best of all: README's are incredibly important. They serve as your code's landing page and cover letter.
+One of my colleagues at Human Made and a fellow core contributor, Joe McGill described to me recently how he has sometimes seen features begin as a text file in an empty directory. That file contains architectural notes on the challenges and how the team expects to approach them, and it lives as part of the project while they write the code around it. In the end that markdown file becomes the readme for the new functionality.
+
+Documentation-driven development, I guess you could call it!
+
+When nested within individual module folders in your codebase not only will the README text be picked up when you browse to that folder in Github, but it can also be integrated in tools like React Styleguidist and Storybook.
+
+This is not something we do often in core, but it's actually what the Gutenberg
 
 
 
+
+Why _wouldn't_ you want to embed your docs locally in your repo?
+
+The benefits of a wiki include that you don't have to have write access or be able to PR to update docs. But if there's any sort of log-in step required, such as with the WordPress handbooks, a public repo offers better collaboration IMO
+
+
+
+
+
+
+Documentation doesn't happen unless you make time for it. What we've discussed today is the tip of the iceberg of the benefits of writing and maintaining granular design and workflow documentation right alongside your code; I hope you will give it a try, and that together we'll continue to find new best practices to build into our tools and share with each other.
+
+Thank you!
