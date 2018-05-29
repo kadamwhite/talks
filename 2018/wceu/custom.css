@@ -22,6 +22,14 @@ blockquote * {
   box-shadow: none;
 }
 
+.reveal .progress span {
+  background: #D24632;
+}
+.reveal a {
+  font-weight: bold;
+  color: #D24632;
+}
+
 /*.dark blockquote,
 .dark h1,
 .dark h2,
@@ -116,13 +124,13 @@ blockquote * {
 }
 
 #footer a {
-  color: #24b4ca;
+  color: #D24632;
   text-decoration: none;
   display: inline-block;
   padding: 4px 0;
 }
 #footer a:hover {
-  color: #ea4142;
+  color: #4F4641;
 }
 
 @media (max-width: 600px) {
@@ -229,8 +237,8 @@ html {
 .reveal h4     { font-size: 1.2em; }
 .reveal pre    { font-size: 0.9em; }
 .reveal p code { font-size: 1.1em; }
-.reveal small  { font-size: 0.6em; }
-.reveal .small { font-size: 0.6em; }
+.reveal small  { font-size: 0.7em; }
+.reveal .small { font-size: 0.7em; }
 
 .react h1,
 .react h2,
@@ -261,6 +269,23 @@ html {
 .reveal h1,
 .reveal h2 {
   /*text-transform: uppercase;*/
+}
+
+.reveal h1 small,
+.reveal h2 small,
+.reveal h3 small,
+.reveal h4 small,
+.reveal h5 small {
+  display: block;
+  font-weight: 600;
+}
+.reveal h1 small:after,
+.reveal h2 small:after,
+.reveal h3 small:after,
+.reveal h4 small:after,
+.reveal h5 small:after {
+    content: '\A';
+    white-space: pre;
 }
 
 span.amp {

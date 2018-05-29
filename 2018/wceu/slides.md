@@ -1,45 +1,39 @@
-**Abstract**
-
-Our project has 100% test coverage; we have end-to-end tests, unit tests, manual testing scripts—and my colleague can’t get any of it working!?
-
-Poorly-written issues or out-of-date local installation steps can ruin a project, but when we think of testing we forget about the processes that surround our code. So how can we hold our workflows, onboarding steps and communication to the same rigorous standards of quality as our codebases? By applying that mentality to the issue trackers, READMEs and wikis we already have, we can save ourselves and our teams from communication and process errors and get back to making websites!
-
----
-
-# What We <br>Forget To Test
+# <small>What We</small> Forget To Test
 
 <br>
 
-<p>K. Adam White &bull; <a href="https://twitter.com/kadamwhite">@kadamwhite</a> &bull; Human Made</p>
+<p>K. Adam White &bull; <a href="https://twitter.com/kadamwhite">@kadamwhite</a> &bull; <img src="./images/hm-logo.png" style="height:1.5em;margin:0 0 -0.4em;display:inline-block" alt="Human Made Logo"/></p>
 <!-- .element: class="italic" -->
 
 ???
 
-Thank you! Let's get started.
-
-What is the hardest part of software development?
+Thank you!
 
 ---
 
-## Programming <br><small>is not the hard part</small>
+_Rejected Alternative Titles:_
+
+### Write Your Process Down
+
+### How To Raise Your Markdown Files
+
+### Docs-Driven Development
+
+### README (Or Else)
 
 ???
 
-I don't think it's programming. This may sound controversial, but think about it -- we have the best frameworks & tools that have existed in the history of the web. It gets better every week.
+This talk has evolved somewhat since I proposed it, and I've gone through a lot of titles that would have been better than what's in the program.
+
+But in short, I'm here to argue that we spend too much time talking about code. 
 
 ---
 
-### We're here to
-## Solve Problems,
-### not write code
+## Programming <small>Is Not The Hard Part</small>
 
 ???
 
-We like code! It's fun to write, and fun to talk about. But despite calling ourselves programmers, our actual job is to solve problems. The code is just a means to an end.
-
-This is why we spend a small amount of time in our sprint retrospectives talking about what we could have done better technically,
-
-but we spend a LOT of time discussing what we could do to improve all the other things that help us work efficiently as a team
+Code's fun, but it's not the hard part of what we do. It's hard, sure! But we have the best tools we've ever had in the history of the web. No, coding gets easier every week.
 
 ---
 
@@ -53,9 +47,11 @@ but we spend a LOT of time discussing what we could do to improve all the other 
 
 ???
 
-What makes a successful project are all these things, the things we do _just before_ and _right after_ writing code.
+The hard part's everything we do _between_ the small periods when we're writing code. We face these other challenges on every project.
 
-We face these other challenges on every project. Onboarding, team communication, code review, handoff — I think this is the real hard stuff.
+We've got good tools for evaluating our code, but there's no unit tests for team communication; no linting for pull request discussions or onboarding instructions.
+
+Fortunately, we CAN evaluate the documentation we leave ourselves to help with these processes. And that's what I'm going to talk about today.
 
 ---
 
