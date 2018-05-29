@@ -389,15 +389,32 @@ https://github.com/reduxjs/redux#learn-redux
 
 ---
 
----
+## Take The Time <small style="font-style: italic;">to write things down</small>
+<!-- .element: class="align-center" -->
 
-# Issue & Pull Request Templates
+## Take The Time <small style="font-style: italic;">to keep docs updated</small>
+<!-- .element: class="align-center" -->
 
 ???
 
-One of my favorite features of Github is their issue and PR templates.
+Documentation doesn't happen unless you make time for it. What we've discussed today is the tip of the iceberg of the benefits of writing and maintaining granular design and workflow documentation right alongside your code
+
+I hope you will give it a try, and that together we'll continue to find new best practices to build into our tools and share with each other.
 
 ---
 
-## `.github/PULL_REQUEST_TEMPLATE.md`
+# Thank You, <small style="font-size: 0.55em">WordCamp Europe!</small>
+<!-- .element: class="align-center" -->
 
+<hr style="margin: 1.5em 0">
+
+Slides: [talks.kadamwhite.com/wceu2018](http://kadamwhite.github.io/talks/2018/wceu)
+
+<!-- .element: class="align-center" -->
+
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+
+<!-- .element: class="align-center" -->
+<img src="images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
+
+<!-- .element: class="align-center" -->

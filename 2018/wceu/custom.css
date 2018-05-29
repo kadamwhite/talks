@@ -93,6 +93,9 @@ blockquote * {
 .align-right {
   text-align: right;
 }
+.align-center {
+  text-align: center;
+}
 
 .highlight {
   padding: 0.5em 0.25em !important;
