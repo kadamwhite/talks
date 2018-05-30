@@ -147,14 +147,84 @@ _Especially_ with open source projects, more detail is better. Your potential co
 
 ???
 
-These templates don't mean you have to fill out every section for every ticket.
+Documented process makes a healthy team. Writing things down doesn't mean you lose flexibility -- These templates don't mean you have to fill out every section for every ticket.
 
-They're just a reminder to respect our colleagues' time as we would our own, by being specific and direct. They let us hold our team process to a common standard.
+What it DOES is reduce ambiguity.
 
-Although we're bad at context switching, we're often not bad at following instructions. Instructions mean documentation. Writing things down saves time and improves communication.
+Documented processes remind us to respect our colleagues' time as we would our own, by being specific and direct. They let us hold our team process to a common standard.
 
 ---
 
+## Colocated Documentation
+
+???
+
+Templates have a visible impact on team behavior because they're right there. they're inescapable.
+
+The proximity of the _documentation_ to the _task_ is important. You may know the saying, "out of sight, out of mind" -- if it takes too long to look up how to do something or how something works, that documentation is worthless.
+
+This is why I'm such a fan of markdown files, not because they're the best encapsulation for documentation but because they fit well into our existing code repositories.
+
+---
+
+# I &hearts; README.md
+
+???
+
+The humble README is a great example. This is an incredibly important document within your repository. A README is your project's landing page and cover letter.
+
+---
+
+### What Is This For?
+### How Do You Use It?
+### How Can I Run It Locally?
+### Where Are The Docs?
+
+???
+
+In my opinion a good readme has the responsibility to
+
+- Tell you what a project is and is for, concisely and clearly;
+- Tell you in brief how use the project;
+- Provide or link to directions for running the project locally; and
+- Provide or link to more comprehensive documentation.
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/redux-readme.png" -->
+
+???
+
+I like README's like Redux's, which contain everything but the kitchen sink: not just a brief blurb on what Redux is and why you should use it,
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/redux-readme-philosophy.png" -->
+
+???
+
+but also a philosophy statement,
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/redux-readme-the-gist.png" -->
+
+???
+
+a "the gist" quick-start guide,
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/redux-readme-tutorials-docs.png" -->
+
+???
+
+links to comprehensive documentation and a _copious_ set of examples and tutorials, including blog posts, video guides, and sample apps,
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/redux-readme-before-proceeding.png" -->
+
+???
+
+and (my favorite), a prominant section about when Redux might NOT be the best choice for a project!
+
+---
 
 Jumping between tasks or projects, especially tasks that require different types of thinking or communication, is just plain hard. Some folks are OK at it, but almost all of us think we're better than we are.
 
