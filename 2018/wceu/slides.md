@@ -167,22 +167,18 @@ This is why I'm such a fan of markdown files, not because they're the best encap
 
 ---
 
-# I &hearts; README.md
+# README.md
+
+- What Is This For?
+- How Do You Use It?
+- How Can I Run It Locally?
+- Where Are The Docs?
 
 ???
 
 The humble README is a great example. This is an incredibly important document within your repository. A README is your project's landing page and cover letter.
 
----
-
-### What Is This For?
-### How Do You Use It?
-### How Can I Run It Locally?
-### Where Are The Docs?
-
-???
-
-In my opinion a good readme has the responsibility to
+A good readme has the responsibility to
 
 - Tell you what a project is and is for, concisely and clearly;
 - Tell you in brief how use the project;
@@ -192,12 +188,18 @@ In my opinion a good readme has the responsibility to
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme.png" -->
 
+### What Is This For?
+<!-- .element: class="align-right blackoutline" -->
+
 ???
 
 I like README's like Redux's, which contain everything but the kitchen sink: not just a brief blurb on what Redux is and why you should use it,
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-philosophy.png" -->
+
+### Project Philosophy
+<!-- .element: class="align-right blackoutline" -->
 
 ???
 
@@ -206,12 +208,18 @@ but also a philosophy statement,
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-the-gist.png" -->
 
+### Usage Overview
+<!-- .element: class="align-right blackoutline" -->
+
 ???
 
 a "the gist" quick-start guide,
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-tutorials-docs.png" -->
+
+### Learning Resources & Comprehensive Docs
+<!-- .element: class="align-right blackoutline" -->
 
 ???
 
@@ -220,9 +228,100 @@ links to comprehensive documentation and a _copious_ set of examples and tutoria
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-before-proceeding.png" -->
 
+### When Should I <br> _Not_ Use This?
+<!-- .element: class="align-right blackoutline" -->
+
 ???
 
 and (my favorite), a prominant section about when Redux might NOT be the best choice for a project!
+
+---
+
+## Tailor To The Task
+
+???
+
+That's obviously a lot of different types of content, but it's appropriate to a project like Redux that defines an architectural pattern you'd be using throughout your codebase. A JS module will require different types of documentation than a feature plugin or a client site.
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/hm-website-setup.png" -->
+
+???
+
+The READMEs for our projects at Human Made will focus on defining team roles & responsibilities and how to set up the project for local development. It's the first point of entry if we need to hand the project off within our company, or onboard a new contributor from a client's team.
+
+Within Human Made we actually have a README generator tool to ensure a new client project kicks off with all the baseline documentation already in place.
+
+---
+<!-- .slide: data-background-video="images/gutenberg-readme-overview.webm" -->
+
+???
+
+Gutenberg's readme, by contrast, emphasizes the project's goals, philosophy and roadmap. These make for an equally good introduction, given the different intent of the project.
+
+The README doesn't have to do everything: setup and development workflow steps are shifted into some specific other files.
+
+---
+
+### CODE_OF_CONDUCT.md
+### CONTRIBUTING.md
+### SECURITY.md
+
+_And More_
+
+???
+
+In addition to the README and issue templates, GitHub and other version control tools define a small list of markdown files which receive special handling.
+
+---
+<!-- .slide: data-background-position="center top" data-background="images/gutenberg-contributing.png" -->
+
+???
+
+Unlike Redux, Gutenberg moves all its setup and development workflow steps to the other files for which GitHub has special handling
+
+---
+
+## CONTRIBUTING.md
+## CODE_OF_CONDUCT.md
+## SECURITY.md
+
+
+
+---
+
+## CONTRIBUTING.md: <small>What Do I Need To Know?</small>
+
+- Code of Conduct
+- Community & Behavioural Expectactions
+- Development Dependencies
+- Workflows & Guidelines
+- Chain of Command
+- Release Process
+
+???
+
+If you have a CONTRIBUTING.md file in your repository file, GitHub will direct people to it when they open an issue or a PR.
+
+---
+
+### Encourage Contributions!
+<!-- .element: class="align-center" -->
+
+> <small>Thank you for thinking about contributing to WordPress' Gutenberg project! If you're unsure of anything, know that you're _100%__ welcome to submit an issue or pull request on any topic. The worst that can happen is that you'll be politely directed to the best location to ask your question, or to change something in your pull request. We appreciate any sort of contribution, and don't want a wall of rules to get in the way of that.</small>
+
+???
+
+In my opinion the CONTRIBUTING.md should also have a statement welcoming and encouraging participation. I know I disagree on this with many maintainers, but I don't like scaring people off from asking questions and I respect the way Gutenberg's maintainers structured their introduction.
+
+
+
+---
+## <small>A Good README</small>
+
+### Helps Project Consumers
+
+### Helps Project Maintainers
 
 ---
 
