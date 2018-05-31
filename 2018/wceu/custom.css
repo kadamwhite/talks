@@ -300,7 +300,7 @@ span.amp {
 
 
 
-@media (print) {
+@media print {
   .reveal .blackoutline {
        -moz-text-stroke-width: 4px;
     -webkit-text-stroke-width: 4px;

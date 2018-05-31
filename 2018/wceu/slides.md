@@ -220,20 +220,12 @@ but also a philosophy statement,
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-the-gist.png" -->
 
-### Usage Overview
+### Usage Overview, <br>Learning Resources & Comprehensive Docs
 <!-- .element: class="align-right blackoutline" -->
 
 ???
 
 a "the gist" quick-start guide,
-
----
-<!-- .slide: data-background-position="center top" data-background="images/redux-readme-tutorials-docs.png" -->
-
-### Learning Resources & Comprehensive Docs
-<!-- .element: class="align-right blackoutline" -->
-
-???
 
 links to comprehensive documentation and a _copious_ set of examples and tutorials, including blog posts, video guides, and sample apps,
 
@@ -323,7 +315,7 @@ All of these files we've discussed are project-level, but we're not limited to j
 The WordPress REST API, Redux, Gutenberg, all of these projects don't just use markdown files for repository workflow guides; the user-facing documentation content itself is authored as markdown files, often right there in the same repository alongside the code.
 
 ---
-![Screenshot of a Bash prompt showing nested README files within Gutenberg](images/readme-files-in-gberg.png)
+<!-- .slide: data-background-position="left top" data-background="images/readme-files-in-gberg.png" -->
 
 ???
 
@@ -336,6 +328,7 @@ When nested within individual module folders in your codebase not only will the 
 ---
 
 ## Documentation-Driven Development
+<!-- .element: style="font-size:2.8em" -->
 
 ???
 
