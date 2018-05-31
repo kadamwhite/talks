@@ -9,6 +9,8 @@
 
 Thank you!
 
+OK. "What we forget to test."
+
 ---
 
 _Rejected Alternative Titles:_
@@ -23,9 +25,9 @@ _Rejected Alternative Titles:_
 
 ???
 
-This talk has evolved somewhat since I proposed it, and I've gone through a lot of titles that would have been better than what's in the program.
+That's probably not the best title, in retrospect; we forget to test a lot of things.
 
-But in short, I'm here to argue that we spend too much time talking about code. 
+This talk has evolved somewhat since I proposed it, but in short, I'm here to argue that we spend too much time talking about code.
 
 ---
 
@@ -33,7 +35,11 @@ But in short, I'm here to argue that we spend too much time talking about code.
 
 ???
 
-Code's fun, but it's not the hard part of what we do. It's hard, sure! But we have the best tools we've ever had in the history of the web. No, coding gets easier every week.
+Coding is fun, but it's not the hard part of software developent.
+
+It's not easy, sure!
+
+But we have the best tools for programming that have ever existed in the history of the web.
 
 ---
 
@@ -47,11 +53,13 @@ Code's fun, but it's not the hard part of what we do. It's hard, sure! But we ha
 
 ???
 
-The hard part's everything we do _between_ the small periods when we're writing code. We face these other challenges on every project.
+No, the hard part's everything we do _in between_ the small periods when we're writing code. These other challenges we face on every project.
 
-We've got good tools for evaluating our code, but there's no unit tests for team communication; no linting for pull request discussions or onboarding instructions.
+There's no unit tests for team communication; no linting for pull request discussions or onboarding instructions.
 
-Fortunately, we CAN evaluate the documentation we leave ourselves to help with these processes. And that's what I'm going to talk about today.
+But what we CAN do is look at the documentation we leave ourselves to help with these processes.
+
+And that's what I'm going to talk about today.
 
 ---
 <!-- .slide: data-background="images/example-bad-pr.png" data-background-position="center top" -->
@@ -61,9 +69,11 @@ Fortunately, we CAN evaluate the documentation we leave ourselves to help with t
 
 ???
 
-This talk occurred to me when I was asked to review a bad PR.
+This talk occurred to me when I was asked to review a Pull Request.
 
-What made it bad? The code was actually fine. I'm glad it's tested, and that it passes lint. But I could have answered both questions by looking at the code and CI results; what's written here is useful only to the developer opening the PR.
+The code was great. But I was frustrated, because the PR description was only useful to the developer who opened it.
+
+I'm glad the code tested, and that it passes lint. But as a reviewer I could have answered both questions by looking at the code and CI results.
 
 Without any description, it doesn't tell me what's being addressed.
 
@@ -81,7 +91,9 @@ It doesn't tell me what to test or how to test it.
 
 ???
 
-We can suss much of this out from the code, but we're all faster at reading prose. Leaving them information is not just kind, it's critical to good team communication. Leaving things out just introduces back and forth, which can take days across time zones.
+If we don't know what the code is intended to do, we have to read it twice: once to figure out what it's trying to do, and once to determine if the solution is good.
+
+A written explanation lets us skip that first pass and dive into the code better prepared. Better team communication saves everybody time; leaving things out just introduces back and forth, which can take days in a team distributed across time zones.
 
 Fleshing out PR's this much may feel like it's a waste of your time, but you're asking your colleagues to do the harder part: to stop what they are doing, and try to understand your code.
 

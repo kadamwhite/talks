@@ -300,7 +300,14 @@ span.amp {
 
 
 
-
+@media (print) {
+  .reveal .blackoutline {
+       -moz-text-stroke-width: 4px;
+    -webkit-text-stroke-width: 4px;
+       -moz-text-stroke-color: black;
+    -webkit-text-stroke-color: black;
+  }
+}
 .reveal .blackoutline {
   text-shadow:
     -1px -1px 0.5px black,

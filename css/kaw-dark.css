@@ -38,7 +38,8 @@ body {
   background: #29282b;
   background-size: 100% auto;
 }
-body:before {
+body:before,
+.pdf-page:before {
   content: ' ';
   display: block;
   position: absolute;
@@ -46,13 +47,14 @@ body:before {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  opacity: 0.05;
+  z-index: 0;
+  opacity: 0.04;
   background: url(/talks/img/five-towns-emily-garfield.jpg) left top repeat-y;
   background-size: cover;
 }
 /* keep reveal slides over that background */
-.reveal {
+.reveal,
+.pdf-page section {
   z-index: 1;
 }
 
