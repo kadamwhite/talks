@@ -13,33 +13,13 @@ OK. "What we forget to test."
 
 ---
 
-_Rejected Alternative Titles:_
-
-### Write Your Process Down
-
-### How To Raise Your Markdown Files
-
-### Docs-Driven Development
-
-### README (Or Else)
+# <small>In Defence of the</small> README
 
 ???
 
-That's probably not the best title, in retrospect; we forget to test a lot of things.
+Last month I was talking to a developer who maintained a large number of interconnected applications, and I asked what they did for documentation. They replied, "just README files," sounding almost embarrassed.
 
-This talk has evolved somewhat since I proposed it, but in short, I'm here to argue that we spend too much time talking about code.
-
----
-
-## Programming <small>Is Not The Hard Part</small>
-
-???
-
-Coding is fun, but it's not the hard part of software developent.
-
-It's not easy, sure!
-
-But we have the best tools for programming that have ever existed in the history of the web.
+I'm here today to argue that the humble markdown files in our repositories are under-appreciated, and that we can improve our projects and our team communication by giving them the respect they deserve.
 
 ---
 
@@ -53,13 +33,9 @@ But we have the best tools for programming that have ever existed in the history
 
 ???
 
-No, the hard part's everything we do _in between_ the small periods when we're writing code. These other challenges we face on every project.
+Programming isn't the hard part of what we do. No, the hard part's everything we do _in between_ the small periods when we're writing code. These other challenges we face on every project.
 
-There's no unit tests for team communication; no linting for pull request discussions or onboarding instructions.
-
-But what we CAN do is look at the documentation we leave ourselves to help with these processes.
-
-And that's what I'm going to talk about today.
+We can't rely on unit tests or linting to ensure these tasks go smoothly. The best tool we have is our documentation.
 
 ---
 <!-- .slide: data-background="images/example-bad-pr.png" data-background-position="center top" -->
@@ -69,15 +45,25 @@ And that's what I'm going to talk about today.
 
 ???
 
-This talk occurred to me when I was asked to review a Pull Request.
+We think of documentation as a record of what our code does or how to use our applications, but we can also document process. By doing so, we can see where our process is failing.
 
-The code was great. But I was frustrated, because the PR description was only useful to the developer who opened it.
+As an example, take this pull request. There's no description explaining what's being changed, or how I should test it.
 
-I'm glad the code tested, and that it passes lint. But as a reviewer I could have answered both questions by looking at the code and CI results.
+If I'm asked to review this code, the best I can do is skim it for obvious logical errors; I can't say whether I think it's a good solution to a problem, because I don't know the problem it solves.
 
-Without any description, it doesn't tell me what's being addressed.
+---
 
-It doesn't tell me what to test or how to test it.
+## Context Switching <small>Humans Are Not Good At It</small>
+
+_Leave instructions to help your team pick up where you left off!_
+
+???
+
+If you're doing code review, you're stepping into somebody else's thought process. It's a context switch.
+
+Context switching and multitasking are things we as humans are not good at.
+
+When you take an extra five minutes when opening a PR to give your teammates some background, it's easier for them to dig in quickly.
 
 ---
 
@@ -91,46 +77,33 @@ It doesn't tell me what to test or how to test it.
 
 ???
 
-If we don't know what the code is intended to do, we have to read it twice: once to figure out what it's trying to do, and once to determine if the solution is good.
+A thorough written explanation, with screenshots or gifs of screen recordings where appropriate, gives me the context I need to do a thorough review.
 
-A written explanation lets us skip that first pass and dive into the code better prepared. Better team communication saves everybody time; leaving things out just introduces back and forth, which can take days in a team distributed across time zones.
-
-Fleshing out PR's this much may feel like it's a waste of your time, but you're asking your colleagues to do the harder part: to stop what they are doing, and try to understand your code.
+Leaving these things out introduces back and forth, which can take days in a team distributed across time zones. Better team communication saves everybody time.
 
 ---
-
-## Context Switching <small>Humans Are Not Good At It</small>
-
-_Leave instructions to help your team pick up where you left off!_
-<!-- .element: class="fragment" -->
+<!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-pr-template-detail.png" -->
 
 ???
 
-If you're doing code review, you're stepping into somebody else's thought process. It's a context switch.
+How do we ensure we actually do this? Documentation.
 
-Context switching and multitasking are things we as humans are not good at. I myself am extremely bad at multi-tasking. I get really distracted when I try to switch tasks.
+GitHub supports creating markdown file templates that control what we see when we open pull requests or issues.
 
-(advance!) Take an extra five minutes when you're opening a PR to give your teammates as much help as possible, and it'll be easier for them to dig in quickly. That means switching takes less time, and we can get back to coding faster.
-
----
-<!-- .slide: data-background="images/gutenberg-pr-template.png" data-background-position="center bottom" -->
-
-???
-
-How do we ensure we actually do this? We leave ourselves instructions, right in the PR description window.
-
-We can use GitHub's PR templates to document our process and remind us of the communication quality standards that we have for ourselves and our teammates.
-
-By putting markdown files in a `.github` folder at the top of our project, we can control what our collaborators see when we open pull requests or issues, and include project-specific instructions.
+These template files can include HTML comments that are hidden in the final output, but that convey instructions to help ensure the ticket or PR description is thorough.
 
 ---
 <!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-issue-template.png" -->
 
 ???
 
-This is Gutenberg's issue template, which reminds bug reporters to include what they expected to happen, specifics about what went wrong, and steps to reproduce a bug.
+Gutenberg's issue template, for example, reminds bug reporters to include
 
-Issue and pull request templates also let you use HTML comments which are hidden in the final output, but which help ensure that the ticket is thorough.
+- what they expected to happen,
+- specifics about what went wrong, and
+- steps to reproduce a bug.
+
+I try to put as much detail and supporting information into my tickets as possible. That leaves me a great on-ramp I can use to get back up to speed when I return to the bug later.
 
 ---
 
@@ -142,40 +115,36 @@ _(It will help you, too)_
 
 Without templates we often get vague issues, because even with best of intentions we're usually in a hurry and don't want to take the time to go into detail.
 
-But if I write a vague issue and come back to it after three sprints or so, I'm toast. Where do I start? I have to reassemble everything I knew about the problem before I can get back to where I was when I opened the ticket. Why not just write it down in the first place?
-
-I'm a firm believer in putting as much detail and supporting material into tickets as possible. Putting in the time to write a good issue leaves me an on-ramp I can use to get back up to speed.
-
----
-<!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-pr-template-detail.png" -->
-
-???
-
-_Especially_ with open source projects, more detail is better. Your potential collaborators won't know how best to help you unless you tell them. And look at projects like Gutenberg — it works!
+_Especially_ with open source projects, more detail is better. Your potential collaborators won't know how best to help you unless you tell them what you need to know.
 
 ---
 
 ### Write Your Process Down
 
+_Issue & PR templates define your team's  
+communication quality standards_
+
 ???
 
-Documented process makes a healthy team. Writing things down doesn't mean you lose flexibility -- These templates don't mean you have to fill out every section for every ticket.
+Documented process makes a healthy team. Writing things down doesn't mean you lose flexibility -- not every template section is relevant for every ticket, and that's OK.
 
 What it DOES is reduce ambiguity.
 
-Documented processes remind us to respect our colleagues' time as we would our own, by being specific and direct. They let us hold our team process to a common standard.
+Documented processes remind us to respect our colleagues' time as we would our own, by being specific and direct. They let us hold our team processes to a common standard.
 
 ---
 
 ## Colocated Documentation
 
+_Keep documentation close to the task or code it documents_
+
 ???
 
-Templates have a visible impact on team behavior because they're right there. they're inescapable.
+These templates have a visible impact on team behavior because they're _right there_ when you open a PR or issue. They work because they're inescapable.
 
-The proximity of the _documentation_ to the _task_ is important. You may know the saying, "out of sight, out of mind" -- if it takes too long to look up how to do something or how something works, that documentation is worthless.
+The proximity of the _documentation_ to the _task_ is important. You may know the saying, "out of sight, out of mind" -- if it takes too long to look up how to do something, that documentation is worthless.
 
-This is why I'm such a fan of markdown files, not because they're the best encapsulation for documentation but because they fit well into our existing code repositories.
+This is why I'm such a fan of markdown files, because they fit into our existing repositories right alongside our code.
 
 ---
 
@@ -332,7 +301,7 @@ When nested within individual module folders in your codebase not only will the 
 
 ???
 
-If your docs are kept next to your code in the same repository, you can easily update the docs when you update the code — or you can go even further, and write the docs first.
+If your docs are kept next to your code in the same repository, you can easily update the docs when you update the code — or you can go even further, and write the docs firtrst.
 
 My fellow core contributor and colleague at Human Made Joe McGill has described how he has seen features begin as a text file in an empty directory. 
 
