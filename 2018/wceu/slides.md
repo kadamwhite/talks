@@ -35,13 +35,13 @@ We don't have unit tests or linting for any of this.
 
 ---
 
-# Markdown Documentation
+### <small>This is a talk about</small> Markdown Documentation
 
 ???
 
 What we do have is our documentation. And I think the humble markdown files in our repositories are under-appreciated.
 
-I was talking to another developer recently and I happened to what they did for documentation at their company. "just README files," they replied, sounding embarrassed.
+Talking to another engineer recently, I happened to ask how they handled documentation at their company. "just README files," they replied, sounding embarrassed.
 
 You should _never_ be embarrassed of your documentation! The hardest part is writing it. And if we take even a tiny bit of time to write our processes down, these simple files can have a major impact on project success.
 
