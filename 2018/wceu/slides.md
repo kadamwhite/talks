@@ -26,9 +26,9 @@ What the title of this talk means is that I don't think programming is the hard 
 
 ???
 
-The hard part's everything we do _in between_ the small periods when we're writing code. These other challenges we face on every project.
-
-We don't have unit tests or linting for any of this.
+The hard part's everything we do in between the small periods when we're writing code.
+We face these challenges on every project, and we don't have unit tests, linting or web frameworks to help us for any of this.
+But fortunately, one of these can help with the rest. 
 
 ---
 
@@ -36,22 +36,19 @@ We don't have unit tests or linting for any of this.
 
 ???
 
-What we do have is our documentation. And I think the humble markdown files in our repositories are under-appreciated.
-
-Talking to another engineer recently, I happened to ask how they handled documentation at their company. "just README files," they replied, sounding embarrassed.
-
-You should _never_ be embarrassed of your documentation! The hardest part is writing it. And if we take even a tiny bit of time to write our processes down, these simple files can have a major impact on project success.
+So instead of talking code, let’s talk documentation.
+Talking to another engineer recently, I asked how they handled documentation at their company. "just README files," they replied, sounding embarrassed.
+You should never be embarrassed of your docs! Even a simple markdown file can have a major impact on project success.
 
 ---
 <!-- .slide: data-background="images/example-bad-pr.png" data-background-position="center top" -->
 
 ???
 
-We write documentation for interfaces or APIs, but we can also document process. By doing so, we can see where our process is failing.
+We document interfaces and APIs, but we can also document process. Doing so makes it easier to see where our process fails. As an example, take a PR like this one. 
 
-As an example, take a pull request like this one. There's no description explaining what's being changed, or how I should test it.
-
-If I'm asked to review this code, the best I can do is skim it for obvious logical errors; I can't say whether I think it's a good solution to a problem, because I don't know the problem it solves.
+(advance) There’s no description explaining what's being changed, or how to test it.
+If I'm asked to review this, the best I can do quickly is to skim the code for obvious logical errors; I can't say whether I think it's a good solution to a problem, because I don't know the problem it solves.
 
 ---
 
@@ -66,34 +63,18 @@ If I'm asked to review this code, the best I can do is skim it for obvious logic
 
 ???
 
-A thorough written explanation, with screenshots or gifs of screen recordings where appropriate, would have given me the context I need to do a thorough review.
+Think about the name Pull Request: if we’re requesting our code be added to a project, we should be explaining what it does. A thorough written explanation, with screenshots or gifs of screen recordings where appropriate, would have given me the context I need to do a thorough review.
 
-To review code is to step into somebody else's thought process. It's a context switch.
-
----
-
-## Context Switching <small>Humans Are Not Good At It</small>
-
-_Leave instructions to help your team pick up where you left off!_
-
-???
-
-Context switching and multitasking are things we as humans are _not good at_.
-
-When we take an extra five minutes while opening a PR to give our teammates some background, they can dig in to that code faster and deeper.
-
-Leaving these things out, on the other hand, introduces back and forth, which can take days in a team distributed across time zones. Better team communication saves everybody time.
+Taking an extra five minutes to give our teammates some background will save them a lot of time and questions. Leaving details out, on the other hand, introduces back and forth, which in a globally distributed team like mine can take days across time zones. Better team communication saves everybody time.
 
 ---
 <!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-pr-template-detail.png" -->
 
 ???
 
-How do we ensure we actually do this? Documentation.
+So, how do we ensure we actually fill the PR description out properly? Documentation.
 
-GitHub supports creating markdown file templates that control what we see when we open pull requests or issues.
-
-These template files can include HTML comments that are hidden in the final output, but that convey instructions to help ensure the ticket or PR description is thorough.
+GitHub supports creating markdown file templates that control what we see when we open pull requests or issues. We can use HTML comments in these template files to provide detailed instructions about what details we want to see in a PR or ticket.
 
 ---
 
@@ -103,24 +84,17 @@ _More Detail Is Always Better_
 
 ???
 
-Without templates we often get vague issues, because even with best of intentions we're usually in a hurry and don't want to take the time to go into detail.
-
-_Especially_ with open source projects, more detail is better! Your potential collaborators won't know how best to help you unless you tell them what you need to know.
+Without templates we get vague issues, because even with best of intentions we're usually in a hurry and don't want to take the time to go into detail. But more detail is always better, especially with open source projects!
+Potential collaborators won't know what information you need from them unless you tell them.
 
 ---
 <!-- .slide: data-background-position="center top" data-background-image="images/gutenberg-issue-template.png" -->
 
 ???
 
-Gutenberg's issue template, for example, reminds bug reporters to include
+Gutenberg’s issue template reminds bug reporters to include what they expected to happen, specifics about what went wrong, and steps to reproduce a bug.
 
-- what they expected to happen,
-- specifics about what went wrong, and
-- steps to reproduce a bug.
-
-I try to put as much detail and supporting information into my tickets as possible.
-
-Even if I'm writing an issue I'll be working on myself, writing down what I know _now_ creates an on-ramp I can use to get back up to speed when I return to the bug.
+However small the bug, we know more about it when we open the issue than we will when we return to it later. Writing down what we know now creates an on-ramp we can use to get back up to speed in the future.
 
 ---
 
@@ -130,28 +104,22 @@ _Documented process makes a healthy team_
 
 ???
 
-So, write your process down, and update it as needed. Not every template section will be relevant for every ticket, and that's OK!
-
-Our goal is to reduce ambiguity, not to force extra work.
-
-A good issue template defines the standard of communication we want for our team. It reminds us to respect our colleagues' time as we would our own, by being specific and direct.
+If used in this way, issue templates define the standard of communication we want for our team. They reminds us to respect our colleagues' time as we would our own, by being specific and direct.
+That standard should never be ambiguous. So, write your team’s process down, and update it as needed.
 
 
 ---
 
-## Colocated Documentation
+## Colocate Your Documentation
 
-_Keep documentation close to the task or code it documents_
+_with the thing it documents_
 
 ???
 
-A template can do this because it's _right there_ when we go to open a PR. They have a visible impact on team behavior because they're unavoidable.
-
-In our code, we like type annotations because they're documentation we cannot escape. Prose documentation works the same way: the proximity of the _documentation_ to the _task_ being documented is key.
-
+Templates have a visible impact on team behavior because they’re unavoidable—it’s right there when we go to open a PR.
 You may know the saying, "out of sight, out of mind" -- if it takes too long to look up how to do something, that documentation is worthless!
 
-This is why I'm such a fan of markdown files, because they fit right alongside our code in our existing projects.
+This is why I'm such a fan of markdown files, because they fit right alongside our code within our existing projects.
 
 ---
 
@@ -164,9 +132,7 @@ This is why I'm such a fan of markdown files, because they fit right alongside o
 
 ???
 
-The humble README is a great example. This is an incredibly important document within your repository -- It's the first thing potential users, contributors, or new teammates see.
-
-A README is your project's landing page and cover letter, and it has to clearly explain what the project is for, how it works, and how to participate in it.
+My favorite markdown file of all is the humble README. This is the first thing potential users, contributors, or new teammates see—it’s your project's landing page and cover letter.
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme.png" -->
@@ -176,7 +142,9 @@ A README is your project's landing page and cover letter, and it has to clearly 
 
 ???
 
-We're probably most aware of the READMEs for open-source libraries we use, because they're what we see first on GitHub or NPM.
+We're usually most aware of the READMEs for open-source libraries we use, where they display on the project’s GitHub repository or NPM listing.
+
+A README like this has to clearly explain what the project is for, how it works, and how to participate in it.
 
 I like README's like Redux's, which contain almost excessive detail: not just a brief blurb on what Redux is and why you should use it,
 
@@ -188,7 +156,7 @@ I like README's like Redux's, which contain almost excessive detail: not just a 
 
 ???
 
-but also a philosophy statement,
+but also a philosophy statement, installation instructions,
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-the-gist.png" -->
@@ -198,9 +166,7 @@ but also a philosophy statement,
 
 ???
 
-a "the gist" quick-start guide,
-
-links to comprehensive documentation and a _copious_ set of examples and tutorials, including blog posts, video guides, and sample apps,
+a quick-start guide, links to comprehensive documentation, and a copious set of examples and tutorials, including blog posts, video guides, and sample apps,
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/redux-readme-before-proceeding.png" -->
@@ -210,27 +176,30 @@ links to comprehensive documentation and a _copious_ set of examples and tutoria
 
 ???
 
-and (my favorite), a prominant section about when Redux might NOT be the best choice for a project!
+There is even a prominent section about when Redux might NOT be the best choice for a project!
+
+This is something we never think to call out, but not every tool is appropriate to every task, and that information belongs in our documentation too.
 
 ---
 
 ## Tailor To The Task
 
-_The READMEs for an NPM module, a theme or plugin,  
-and a client project have different responsibilities_
+_The READMEs for an NPM module,  
+a theme or plugin, and a client project  
+all have different responsibilities_
 
 ???
 
-This type of README is appropriate to a project like Redux that defines an architectural pattern you'd be using throughout your codebase.
+I think Redux has a great README. But the README for an open source library has different responsibilities than the README for a client project, theme or plugin.
 
-However, different types of projects raise different questions, and what is required of the README file depends on that context.
+What information belongs in the README depends on that context.
 
 ---
 <!-- .slide: data-background-position="center top" data-background="images/hm-website-setup.png" -->
 
 ???
 
-The READMEs for our client work at Human Made therefore focus on defining team roles & responsibilities and explaining the on-boarding process. These are the key questions we have to answer if we need to hand the project off within our company, or onboard a new contributor from a client's team.
+The READMEs for our client work at Human Made therefore focus on defining team roles & responsibilities and explaining the on-boarding process. These are the key questions we have to answer when somebody new joins the project.
 
 We've gone so far as to build a README generator, to ensure each new project kicks off with all the right baseline documentation in place.
 
@@ -239,9 +208,9 @@ We've gone so far as to build a README generator, to ensure each new project kic
 
 ???
 
-Gutenberg's readme, by contrast, emphasizes the project's goals, philosophy and roadmap. For a project like Gutenberg the "why" and "what" are the most important questions, so it makes sense to emphasize these points.
+By contrast, Gutenberg’s README emphasizes the project's goals, philosophy and roadmap. For a project like Gutenberg the "why" and "what" are more important than the technical specifics.
 
-The README doesn't have to do everything: to keep the focus on what matters, Gutenberg's setup and development workflow steps are shifted into other files.
+The README doesn't have to do everything: to keep the README focused and concise, the setup and development workflow steps get shifted into another file.
 
 ---
 
@@ -256,7 +225,7 @@ The README doesn't have to do everything: to keep the focus on what matters, Gut
 
 ???
 
-One of these files is CONTRIBUTING.md, a semi-standard filename where you can put everything a developer will need in order to dive into the project.
+CONTRIBUTING.md is another semi-standard filename where we can put everything a developer needs in order to dive into the project.
 
 This includes technical information like local development environment setup instructions, but also information about project management, team roles, workflows, and behavioral expectations.
 
@@ -265,46 +234,28 @@ This includes technical information like local development environment setup ins
 
 ???
 
-I love what GitHub does with these files, because if a CONTRIBUTING.md or CODE_OF_CONDUCT.md is present in your repository then they will be highlighted whenever a new contributor goes to open an issue or PR.
+I love what GitHub does with these files, because if a CONTRIBUTING.md or CODE_OF_CONDUCT.md is present in your repository (advance) then it gets highlighted when a new contributor goes to open an issue or PR.
 
-Just like with issue templates, this puts a link to the documentation right where it will be of most use to the person who needs it -- by documenting the process alongside our code, our tools can ensure it gets seen when it needs to be.
-
---
-
-### Encourage Contributions!
-
-> <small>Thank you for thinking about contributing to WordPress' Gutenberg project! If you're unsure of anything, know that you're <strong>100%</strong> welcome to submit an issue or pull request on any topic. The worst that can happen is that you'll be politely directed to the best location to ask your question, or to change something in your pull request. We appreciate any sort of contribution, and don't want a wall of rules to get in the way of that.</small>
-
-???
-
-I think one nice thing the Gutenberg team does here is that they open their CONTRIBUTING file with a welcoming message that encourages participation. It's important to remember that contributing to open source can feel really hard or intimidating, so do what you can to make people feel comfortable asking questions.
-
-And please, please be nice when you close off-topic issues!
+Just like with issue templates, this puts the documentation right in front of the person who needs it — by storing this information alongside our code, our tools can ensure it gets seen when and where it needs to be.
 
 ---
 
-### `README.md`
-### `CONTRIBUTING.md`
-### `CODE_OF_CONDUCT.md`
-### `docs/**/*.md`
-## _`**/*/README.md`_
+## Additional READMEs <small><em>may be nested in project subfolders</em></small>
 
 ???
 
-Projects like the WordPress REST API, Gutenberg, and Redux provide their website or handbook content as a folder of markdown files, but we can go further and sprinkle documentation throughout our project, wherever we need it.
-
-We break our projects up into themes, plugins, modules, and components, so why not give each module its own README?
+But we’re not limited to this handful of specific markdown files. We can write full-on user guides or handbooks as markdown in a docs folder, like Gutenberg or Angular do;
+but we can also sprinkle small pieces of documentation throughout our project, wherever we need it.
+We break our projects up into modules, and components, so why not give each module its own README?
 
 ---
 <!-- .slide: data-background-position="left top" data-background="images/readme-files-in-gberg.png" -->
 
 ???
 
-This is something else that the Gutenberg project does to good effect. If you search the repository for .md you'll find README files throughout, each one explaining what's going on in a specific folder.
+Again looking at Gutenberg, if you search the codebase you'll find READMEs throughout the repository, each one explaining what's going on in a specific folder or component.
 
-Inline code documentation explains _what_ your code does — these files complement those inline docs by explaining _why_ and _when_ you'd want to use that component.
-
-These README files get displayed as we browse our project code, and they can also be picked up by component development tools like React Styleguidist and Storybook.
+These README files get displayed as we browse the project, and they can be picked up by development tools like React Styleguidist and Storybook. They complement the inline docs by providing an overview of why and when we’d want to use each module.
 
 ---
 
@@ -313,33 +264,19 @@ These README files get displayed as we browse our project code, and they can als
 
 ???
 
-If your docs are kept next to your code in the same repository, it's easy to remember to update the docs when you update the code — or you can go even further, and write the docs _first_.
+If our docs are colocated with our code in the same repository, it's easier to remember to update them when we update the code — or we can go even further, and write the docs first.
 
-Imagine you need a new feature. Instead of starting with code, create a markdown file in an empty directory.
-
-Fill out that file with architectural notes on the challenges you face, how your team expects to approach them. Explain the API you intend to build as you would to a user, and you'll spot issues before you even begin to code!
-
-You're giving yourself a chance to think through the project without the overhead of constantly changing code every time you change your mind about something.
-
-This file will live on as part of the project when you do begin writing your unit tests and implementing the feature, and in the end, that markdown file becomes the readme for the new functionality.
+Imagine you need a new feature. Instead of starting with code, create a markdown file in an empty directory. Fill out that file with architectural notes on the challenges you face, and how your team expects to approach them.
 
 ---
 
-### README.md <small>is your most important file</small>
-
-> READMEs are often the single source of documentation that users will come across
-> 
-> <small><em>~ Gabrielle von Koss, JSConf EU 2018</em></small>
+## Documentation changes are <strong><em>cheap</em></strong>, code changes are <em><strong>expensive</strong></em>
 
 ???
 
-So at the very least, even if you do not write dozens of nested READMEs, CONTRIBUTING.md files, issue and pull request templates,
+Explain what you intend to build as you would to a user, and you'll spot issues before you even begin to code! You're giving yourself a chance to think through the design without the overhead of constantly changing code every time you change your mind about something.
 
-do not underestimate the README.
-
-Every project should have a README, and it should be considered in as much depth as the code it documents.
-
-Documentation does not _have_ to come first, but it is not acceptable for documentation to be an afterthought.
+Once you do finally write the code, this file lives on to become the README for the new functionality.
 
 ---
 
@@ -351,11 +288,19 @@ Documentation does not _have_ to come first, but it is not acceptable for docume
 
 ???
 
-Nothing we've discussed today is GitHub specific or Markdown specific. The message is simply to write things down _somewhere_.
+I’m not here today to tell you you have to do things this way, or that you have to use Markdown. GitHub may do some nice things with these files, but nothing we've discussed today is specific to GitHub or even to Markdown. The message is simply to write things down, and to do so as close to your code as possible.
 
-If you want to encourage contribution from team members without write access or if you need to coordinate one set of docs across multiple repositories, consider putting your docs into a wiki.
+---
 
-Or you can write your docs in a CMS, like we do with the WP handbooks — although this introduces permissions issues that make it harder to accept contributions.
+### README.md <small>is your most important file</small>
+
+> READMEs are often the single source of documentation that users will come across
+> 
+> <small><em>~ Gabrielle von Koss, JSConf EU 2018</em></small>
+
+???
+
+But I do believe that every project should have a README, and that it should be a good. If you want docs contribution from non-developers, you may put most of your docs in a wiki, or a CMS — but the README should still exist, as a visible single point of entry into your project.
 
 ---
 
@@ -367,22 +312,8 @@ Or you can write your docs in a CMS, like we do with the WP handbooks — althou
 
 ???
 
-Documentation doesn't happen unless you make time for it. What we've discussed today is the tip of the iceberg of the benefits of writing and maintaining granular design and workflow documentation right alongside your code.
-
----
-
-### WriteTheDocs.org
-
-> From the perspective of a user,  
-> if a feature is not documented, it does not exist.   
-> If a feature is documented incorrectly, then it is broken.
-
-&ldquo;Documentation changes are cheap,  
-code changes are expensive.&rdquo;
-
-???
-
-I'd encourage you all to check out a website and community called WriteTheDocs; they produce a ton of really valuable information about documentation best-practices that I've come to really value.
+We spend _so much time_ talking about code, but just like accessibility, internationalization, and testing, documentation and team processes keep becoming an afterthought.
+Documentation does _not_ have to come first, but it is _not_ acceptable for it to be an afterthought.
 
 ---
 
@@ -391,14 +322,13 @@ I'd encourage you all to check out a website and community called WriteTheDocs; 
 - ["Documentation-Driven Development"](https://medium.com/blacklane-engineering/documentation-driven-development-8b2ff119104f), Blacklane Engineering, 2017
 - ["Documentation-Driven Development"](https://niccokunzmann.github.io/blog/2016-06-10/Documentation-Driven-Development), Nicco Kunzmann, 2016
 - ["Readme Driven Development"](https://ponyfoo.com/articles/readme-driven-development), Nicolás Bevacqua, 2015
-- ["About API Documentation"](http://www.writethedocs.org/guide/api/about-api-documentation/#id1), WriteTheDocs
+- ["About API Documentation"](http://www.writethedocs.org/guide/api/about-api-documentation/#id1), WriteTheDocs _&larr; Excellent Resource!_
 - Your own blog post, next month? :)
 
 ???
 
-The idea that writing documentation makes you a better programmer is not new, but we keep having to re-learn it.
-
-I hope you'll take the time to give your documentation the attention it deserves, and that you'll share your successes so that others will do the same.
+The idea that writing docs can make you a better programmer is not new, but we keep having to re-learn it. We keep re-discovering how much more effective our teams are if we write down how we want to work together, and stick to those standards.
+I hope you'll take the time to give your documentation the attention it deserves, and that you’ll share your successes with others so that they may do the same.
 
 ---
 
@@ -413,3 +343,7 @@ K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 <img src="images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
+
+???
+
+Thank you for having me, WordCamp!
