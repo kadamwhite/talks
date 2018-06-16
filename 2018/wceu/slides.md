@@ -240,7 +240,7 @@ Just like with issue templates, this puts the documentation right in front of th
 
 ---
 
-## Additional READMEs <small><em>may be nested in project subfolders</em></small>
+### Additional READMEs <small><em>may be nested in project subfolders</em></small>
 
 ???
 
@@ -272,6 +272,8 @@ Imagine you need a new feature. Instead of starting with code, create a markdown
 
 ## Documentation changes are <strong><em>cheap</em></strong>, code changes are <em><strong>expensive</strong></em>
 
+<small>~ WriteTheDocs.org</small>
+
 ???
 
 Explain what you intend to build as you would to a user, and you'll spot issues before you even begin to code! You're giving yourself a chance to think through the design without the overhead of constantly changing code every time you change your mind about something.
@@ -282,7 +284,7 @@ Once you do finally write the code, this file lives on to become the README for 
 
 ## <small>You Don't Need To Use</small> Markdown Files
 
-<br>
+## <span class="amp">&amp;</span>
 
 ## <small>This isn't only relevant</small> on GitHub
 
