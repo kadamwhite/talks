@@ -90,6 +90,9 @@ blockquote * {
   background-color: rgba(255,255,255,0.85) !important;
 }
 
+.align-left {
+  text-align: left;
+}
 .align-right {
   text-align: right;
 }
@@ -230,7 +233,7 @@ html {
 .react div,
 .react section,
 .reveal .slides {
-  text-align: left;
+  /*text-align: left;*/
 }
 
 .reveal h1,
@@ -248,6 +251,9 @@ html {
 .reveal h1,
 .reveal h2 {
   /*text-transform: uppercase;*/
+}
+.reveal h1.title {
+  font-family: 'Oswald';
 }
 
 .reveal h1 small,

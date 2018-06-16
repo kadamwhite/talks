@@ -1,15 +1,12 @@
 # <small>What We</small> Forget To Test
-<!-- .element: class="align-center" -->
 
 <hr style="margin: 1.5em 0">
 
-K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
-<!-- .element: class="align-center" -->
 
-<img src="images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
+<img src="images/hm-logo.png" style="margin-top: 0; height: 2em;" alt="Human Made Logo" />
 
-<!-- .element: class="align-center" -->
 
 ???
 
@@ -35,7 +32,7 @@ We don't have unit tests or linting for any of this.
 
 ---
 
-### <small>This is a talk about</small> Markdown Documentation
+### <small>This is a talk about</small> Documentation
 
 ???
 
@@ -59,6 +56,7 @@ If I'm asked to review this code, the best I can do is skim it for obvious logic
 ---
 
 ### <small>What Makes A</small> Good PR?
+<!-- .element: class="align-left" -->
 
 - Summarize the issue being addressed
 - Link to the acceptance criteria or requirements
@@ -101,7 +99,7 @@ These template files can include HTML comments that are hidden in the final outp
 
 ## Don't Make Your Colleagues Guess
 
-_(It will help you, too)_
+_More Detail Is Always Better_
 
 ???
 
@@ -274,7 +272,6 @@ Just like with issue templates, this puts a link to the documentation right wher
 --
 
 ### Encourage Contributions!
-<!-- .element: class="align-center" -->
 
 > <small>Thank you for thinking about contributing to WordPress' Gutenberg project! If you're unsure of anything, know that you're <strong>100%</strong> welcome to submit an issue or pull request on any topic. The worst that can happen is that you'll be politely directed to the best location to ask your question, or to change something in your pull request. We appreciate any sort of contribution, and don't want a wall of rules to get in the way of that.</small>
 
@@ -329,7 +326,6 @@ This file will live on as part of the project when you do begin writing your uni
 ---
 
 ### README.md <small>is your most important file</small>
-<!-- .element: class="align-center" -->
 
 > READMEs are often the single source of documentation that users will come across
 > 
@@ -348,12 +344,10 @@ Documentation does not _have_ to come first, but it is not acceptable for docume
 ---
 
 ## <small>You Don't Need To Use</small> Markdown Files
-<!-- .element: class="align-center" -->
 
 <br>
 
 ## <small>This isn't only relevant</small> on GitHub
-<!-- .element: class="align-center" -->
 
 ???
 
@@ -366,12 +360,10 @@ Or you can write your docs in a CMS, like we do with the WP handbooks — althou
 ---
 
 ## Take The Time <small style="font-style: italic;">to write things down</small>
-<!-- .element: class="align-center" -->
 
 <br>
 
 ## Take The Time <small style="font-style: italic;">to keep docs updated</small>
-<!-- .element: class="align-center" -->
 
 ???
 
@@ -380,7 +372,6 @@ Documentation doesn't happen unless you make time for it. What we've discussed t
 ---
 
 ### WriteTheDocs.org
-<!-- .element: class="align-center" -->
 
 > From the perspective of a user,  
 > if a feature is not documented, it does not exist.   
@@ -388,7 +379,6 @@ Documentation doesn't happen unless you make time for it. What we've discussed t
 
 &ldquo;Documentation changes are cheap,  
 code changes are expensive.&rdquo;
-<!-- .element: class="align-center" -->
 
 ???
 
@@ -413,18 +403,13 @@ I hope you'll take the time to give your documentation the attention it deserves
 ---
 
 # Thank You, <small style="font-size: 0.55em">WordCamp Europe!</small>
-<!-- .element: class="align-center" -->
 
 <hr style="margin: 1.5em 0">
 
 Slides: [talks.kadamwhite.com/wceu2018](http://kadamwhite.github.io/talks/2018/wceu)
 
-<!-- .element: class="align-center" -->
 
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
-<!-- .element: class="align-center" -->
 
 <img src="images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
-
-<!-- .element: class="align-center" -->
