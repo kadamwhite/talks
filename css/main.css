@@ -99,9 +99,8 @@ html {
 }
 
 body {
-    margin: 1em auto;
+    margin: 0 auto;
     padding: 1em 2em;
-    border-radius: 3px;
     box-shadow: 0 0 3px rgba(0, 0, 0, .4);
     width: 90%;
     max-width: 700px;
