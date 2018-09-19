@@ -240,35 +240,40 @@ hr {
   /*text-align: left;*/
 }
 
-.reveal h1 {
+/*.reveal h1 {
   font-family: Baskerville, Palatino, "Book Antiqua", serif;
   font-style: italic;
   text-transform: none;
-}
+}*/
 .reveal h1 em {
   font-style: normal;
 }
-.reveal .montserrat {
-  font-family: Montserrat, "League Spartan", Avenir, sans-serif;
-}
-.reveal h1.montserrat,
+.reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
 .reveal h5 {
-  /*font-family: League Spartan;*/
-  font-family: Montserrat, "League Spartan", Avenir, sans-serif;
-  font-style: normal;
   font-weight: 800;
-  /*font-variant: small-caps;*/
   text-transform: none;
   text-shadow: none;
 }
-.reveal h1.montserrat em,
-.reveal h2 em,
-.reveal h3 em,
-.reveal h4 em,
-.reveal h5 em {
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal .baskerville {
+  font-family: Baskerville, Palatino, "Book Antiqua", serif;
+  font-style: italic;
+  text-transform: none;
+}
+.reveal .montserrat {
+  font-family: Montserrat, "League Spartan", Avenir, sans-serif;
+  font-style: normal;
+}
+.reveal .montserrat em,
+.reveal .montserrat em,
+.reveal .montserrat em,
+.reveal .montserrat em,
+.reveal .montserrat em {
   font-style: italic;
 }
 .reveal h1,

@@ -12,20 +12,56 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
 Thank you `____`, and thank you Empire for having me today. As `____` said, my name is K Adam White, you can call me KAdam.
 
+To start, I think it's important to acknowledge that the title of my talk is a lie. It's clickbait at best.
+
 ---
 
 # WordPress is _not_ JavaScript
 
+???
+
+WordPress is a 15-year-old PHP blogging application.
+
 ---
-|  |  |
-| ---- | --- |
-| Internet Explorer 7 | _October 2006_ |
-| jQuery              | _August 2006_ |
-| YUI Library         | _February 2006_ |
-| Acid2 Test          | _April 2005_ |
-| Gmail               | _April 2004_ |
-| _**WordPress**_     | _May 2003_ |
-| Internet Explorer 6 | _August 2001_ |
+
+|                     |                 |
+| ------------------- | --------------- |
+| Internet Explorer 7 | October 2006    |
+| jQuery              | August 2006     |
+| YUI Library         | February 2006   |
+| Acid2 Test          | April 2005      |
+| dōjō toolkit        | March 2005      |
+| Gmail               | April 2004      |
+| _**WordPress**_     | _**May 2003**_  |
+
+???
+
+It dates from a time before we even had a concept of JavaScript web apps in the modern sense
+
+---
+
+![WordPress Logo](../../2017/democratizing-software-wcbos/images/wordpress-logo.png)
+
+???
+
+Grew to almost a third of all websites
+Nothing stays the same
+No major rewrite
+
+---
+
+## WordPress cannot stay in its bubble. It must rub against other bubbles, vigorously.
+<!-- .element: class="italic" -->
+
+#### _~ John Maeda_
+
+???
+
+As John taught us yesterday, creativity comes from juxtapositions.
+
+We have deeply ingrained ways of thinking about WordPress content.
+
+Learn to decipher these systems, and make things that use that information to empower each other.
 
 ---
 
