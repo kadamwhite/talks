@@ -10,7 +10,7 @@ blockquote * {
 
 .reveal code,
 .reveal pre code {
-  font-family: "League Mono", "Ubuntu Mono", Consolas;
+  font-family: "League Mono", "Ubuntu Mono", Consolas, monospace;
 }
 .reveal pre code {
   padding: 20px;
@@ -308,8 +308,14 @@ hr {
 }
 
 span.amp {
-  font-family: Baskerville, Fanwood, Palatino, "Book Antiqua", serif;
+  font-family: Palatino, "Book Antiqua", serif;
   font-style: italic;
+}
+
+.reveal section .inline-logo {
+  max-width: 40%;
+  display: block;
+  margin: 0 auto;
 }
 
 .reveal .has-overlay {

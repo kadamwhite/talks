@@ -54,8 +54,63 @@ No major rewrite
 
 ---
 
+### jQuery 
 
+![Commit in which jQuery was added](images/bringing-in-the-jquery-goodness.png)
 
+Since January 2007
+
+---
+
+### Backbone
+
+![Commit in which Backbone was added](images/welcome-backbone-0-9-2.png)
+
+Since August 2012
+
+???
+
+---
+
+### admin-ajax.php
+
+```js
+// since 2.8 ajaxurl is always defined in the admin header
+// and points to admin-ajax.php
+jQuery.post(ajaxurl, {
+    'action': 'my_action',
+}, function(response) {
+    alert('Got this from the server: ' + response);
+});
+```
+
+--
+
+```php
+<?php
+
+add_action( 'wp_ajax_', function() {
+    echo JSON
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}
+```
+
+---
+
+![WordPress REST API banner](images/wp-rest-api-banner.jpg)
+
+---
+
+# &ldquo;Learn&nbsp;&nbsp;<br>JavaScript<br>&nbsp;&nbsp;Deeply&rdquo;
+
+<br>
+
+<small>_~ Matt Mullenweg, ["State of the Word"](https://www.youtube.com/watch?v=KrZx4IY1IgU), December 2015_</small>
+
+---
+
+## What does the WordPress of the Future Look Like?
 
 ---
 
@@ -67,24 +122,38 @@ We do all this by being mindful of the effect our decisions have. In WP 4.4 we a
 
 ---
 
-[ Webpack Logo ]
-[ Babel Logo ]
-[ React Logo ]
+![Webpack Logo](images/webpack-logo.png)<!-- .element: class="inline-logo" -->
+![Babel Logo](images/babel-logo.png)<!-- .element: class="inline-logo" -->
+![React Logo](images/react-logo.png)<!-- .element: class="inline-logo" -->
 
 ???
 
-Discuss the decision process that went into React
+Every new technology we add to something like WP makes it harder to learn how to develop for the platform, and they also set the tone for what will be used afterwards.
+
+---
+<!-- .slide: data-background="../../2016/wp-node-feelingrestful/images/calypso-site-screenshot.png" data-background-position="center top" data-background-size="contain" -->
+
+???
+
+React was already in heavy use within Automattic, and they were using it on WordPress.com, in their Jetpack plugin, and in their standalone Electron-app editor called Calypso.
+
+Human Made, 10up and the other major WP client services companies were using React heavily. It was a de facto standard.
 
 ---
 
-Had been used by Calypso
-but almost didn't make it in
+![React Logo](images/react-logo.png)<!-- .element: class="inline-logo" -->
+
+???
+
+But it had that patent clause issue.
 
 ---
 
 **September 14, 2017**
 
 ![Matt Mullenweg's React Licensing post](images/matt-react-license-post.png)
+
+_~ Matt Mullenweg, [On React and WordPress](https://ma.tt/2017/09/on-react-and-wordpress/)_
 
 ???
 
@@ -149,11 +218,64 @@ We have deeply ingrained ways of thinking about WordPress. We need outside input
 
 ---
 
+Gutenberg demo
+
+---
+
+## What Has Worked?
+
+---
+
+### _Educators Have_
+## Stepped Up
+
+---
+
 # Backwards Compatibility
 
 <hr>
 
 #### Move Fast, _Don&rsquo;t_ Break Things
+
+---
+
+### @wordpress/data
+```js
+import { withSelect } from '@wordpress/data';
+
+export default withSelect( ( select ) => ( {
+    date:     select( 'core/editor' )
+                .getEditedPostAttribute( 'date' ),
+
+    modified: select( 'core/editor' )
+                .getEditedPostAttribute( 'modified' ),
+
+    status:   select( 'core/editor' )
+                .getEditedPostAttribute( 'status' ),
+
+} )( PostScheduleLabel );
+```
+<!-- .element: class="stretch" -->
+
+---
+
+# Documentation
+
+<hr>
+
+#### Write <em>Much</em> More Than You Think You Need
+
+#### Write It Imagining Your Past Self
+
+#### Link To It From Your README _and Homepage!_
+
+---
+
+## Will It Be Successful?
+
+---
+
+!["Too Many Forks" image from Github](too-many-forks.png)
 
 ---
 
