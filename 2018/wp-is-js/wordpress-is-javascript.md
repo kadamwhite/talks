@@ -49,8 +49,37 @@ This makes sense, because WordPress dates from a time before the modern concept 
 What WordPress _is_ is an application (and community of developers and writers surrounding it) that has grown and evolved alongside the web platform.
 
 Grew to almost a third of all websites
+
+Like the web, gradual evolution: no major rewrite. There is still pre-WP code.
 Nothing stays the same
-No major rewrite
+
+---
+
+### WordPress[.org]
+
+> <small>Community-lead free <span class="amp">&amp;</span> open-source content management system created by Matt Mullenweg & Mike Little in 2003 by forking b2/cafelog, **which you may download, install <span class="amp">&amp;</span> run on any server**.</small>
+
+### WordPress.com
+
+> <small>A free (with optional paid upgrades) WordPress website hosting service run by Automattic, the company founded and run by Matt Mullenweg.</small>
+
+???
+
+I'm going to say WordPress a lot over the next 25 minutes, so let's clear up some definitions.
+
+---
+
+### WordPress Foundation
+
+> <small>A charitable organization founded to further the mission of the WordPress open source project: to **democratize publishing** through Open Source, GPL software, and to ensure WordPress remains a **stable platform for web publishing for generations to come**.</small>
+
+---
+
+# <small>The History of</small> JavaScript in WordPress
+
+???
+
+What I will share with you today is the history of how WordPress has weaved its way in and out of the JS community. There's been JS in WP since day one, and despite the overall reputation WordPress has for being old, from a JS standpoint we've done a better job of staying current than people often realize.
 
 ---
 
@@ -59,6 +88,10 @@ No major rewrite
 ![Commit in which jQuery was added](images/bringing-in-the-jquery-goodness.png)
 
 Since January 2007
+
+???
+
+WordPress's inclusion of jQuery in early 2007 exposed a whole generation of web developers to the beginnings of modern JavaScript, myself included.
 
 ---
 
@@ -69,6 +102,35 @@ Since January 2007
 Since August 2012
 
 ???
+
+---
+<!-- .slide: class="full-height" data-background-video="images/customizer-theme-preview_hd.mp4" data-background-size="contain" -->
+
+???
+
+A live-preview theme Customizer was introduced in 2012 as part of WordPress 3.4 "Grant Green"
+
+---
+<!-- .dslide: class="full-height" data-background="images/wordpress-3-5-image-editing.png" data-background-size="contain" -->
+
+![WP 3.5 Media Library](images/wordpress-3-5-image-editing.png)
+
+???
+
+Also written by Daryl Koopersmith, a new Backbone-driven Media Library front-end was added to WordPress in version 3.5 "Elvin Jones", released December 2012
+
+
+---
+
+## &ldquo;The WordPress Way&rdquo;
+
+???
+
+First-to-market issues
+
+Imposter syndrome
+
+Used to a particular facade over a black box
 
 ---
 
@@ -122,18 +184,6 @@ We did some stuff
 ???
 
 But for all this advancement, for all that the community was beginning to get excited about the possibilities of these new APIs and JavaScript frameworks, the average WordPress developer was (and is) still somebody primarily confident in HTML, CSS, maybe jQuery.
-
----
-
-"The WordPress Way"
-
-???
-
-First-to-market issues
-
-Imposter syndrome
-
-Used to a particular facade over a black box
 
 ---
 
@@ -354,23 +404,6 @@ attributes: {
 
 ---
 
-## What Has Worked?
-
----
-
-### _Educators Have_
-## Stepped Up
-
----
-
-# Backwards Compatibility
-
-<hr>
-
-#### Move Fast, _Don&rsquo;t_ Break Things
-
----
-
 ### @wordpress/data
 ```js
 import { withSelect } from '@wordpress/data';
@@ -391,6 +424,36 @@ export default withSelect( ( select ) => ( {
 
 ---
 
+## Will It Be Successful?
+
+---
+
+!["Too Many Forks" image from Github](images/too-many-forks.png)
+
+---
+
+## What Has Worked?
+
+---
+
+### _Educators Have_
+## Stepped Up
+
+---
+
+### _We Have Created_
+## Abstractions
+
+---
+
+# Backwards Compatibility
+
+<hr>
+
+#### Move Fast, _Don&rsquo;t_ Break Things
+
+---
+
 # Documentation
 
 <hr>
@@ -400,14 +463,6 @@ export default withSelect( ( select ) => ( {
 #### Write It Imagining Your Past Self
 
 #### Link To It From Your README _and Homepage!_
-
----
-
-## Will It Be Successful?
-
----
-
-!["Too Many Forks" image from Github](images/too-many-forks.png)
 
 ---
 
@@ -439,8 +494,7 @@ And I could not be more excited to figure this out together.
 
 ---
 
-# Thank You, <small style="font-size: 0.55em">EmpireJS!</small>
-<!-- .element: class="montserrat" -->
+# <span class="montserrat">Thank You,</span> <small style="font-size: 0.55em">EmpireJS!</small>
 
 <hr>
 
