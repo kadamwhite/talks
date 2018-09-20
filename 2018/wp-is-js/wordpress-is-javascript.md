@@ -125,6 +125,18 @@ But for all this advancement, for all that the community was beginning to get ex
 
 ---
 
+"The WordPress Way"
+
+???
+
+First-to-market issues
+
+Imposter syndrome
+
+Used to a particular facade over a black box
+
+---
+
 # <small>What does the</small> WordPress<br><span style="font-size: 0.6em;">of the</span> Future <small>look like?</small>
 
 ---
@@ -322,7 +334,35 @@ export default withSelect( ( select ) => ( {
 
 ---
 
-!["Too Many Forks" image from Github](too-many-forks.png)
+!["Too Many Forks" image from Github](images/too-many-forks.png)
+
+---
+
+## Come Join Us!
+<!-- .element: class="montserrat" -->
+
+---
+<!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
+
+---
+
+## Invite People In
+
+???
+
+The JS community is wonderful. But even -- perhaps especially -- in a city as diverse as NYC, it can be really cliquey and feel like an in-crowd. WordPress developers
+
+---
+
+# <small style="font-size: 0.4em;">&ldquo;The Divide between the<br>WP <span class="amp">&amp;</span> JS Communities is</small> Completely Manufactured
+
+<small>~ _Mika Epstein, WordPress Plugins Team_</small>
+
+???
+
+Our community is not a programming language. our community is the web, and the people on it, with all their goals, hopes, dreams and ambitions.
+
+And I could not be more excited to figure this out together.
 
 ---
 
