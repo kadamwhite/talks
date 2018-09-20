@@ -205,7 +205,11 @@ body {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
-  font-family: monospace; }
+  font-family: monospace;
+}
+.reveal pre.stretch code {
+  font-size: 0.8em;
+}
 
 .reveal pre code {
   display: block;

@@ -281,6 +281,79 @@ Gutenberg demo
 
 ---
 
+## <small>How Do You</small> Define a Block?
+
+---
+
+```js
+registerBlockType( 'my-plugin/book', {
+    title: __( 'Book' ),
+    description: __( 'Block showing a Book card.' ),
+    
+    attributes: {},
+
+    edit() {},
+    save() {},
+} );
+```
+
+---
+
+```js
+edit( { attributes, setAttributes, isSelected } ) {
+    const toggleSetting = () => setAttributes( {
+        mySetting: ! attributes.mySetting
+    } );
+    return (
+        <div className="my-block__content">
+            { attributes.content }
+            { isSelected &&
+                <button onClick={ toggleSetting }>
+                    { __( 'Toggle Setting.' ) }
+                </button>
+            }
+        </div>
+    );
+},
+```
+<!-- .element: class="stretch" -->
+
+---
+
+```js
+save( { attributes } ) {
+    return (
+        <div className="my-block__content">
+            { attributes.content }
+        </div>
+    );
+}
+```
+
+---
+
+```js
+attributes: {
+    cover: {
+        type: 'string',
+        source: 'attribute',
+        selector: 'img',
+        attribute: 'src',
+    },
+    author: {
+        type: 'string',
+        source: 'children',
+        selector: '.book-author',
+    },
+    pages: {
+        type: 'number',
+    },
+},
+```
+<!-- .element: class="stretch" -->
+
+---
+
 ## What Has Worked?
 
 ---
