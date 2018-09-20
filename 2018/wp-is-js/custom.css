@@ -265,6 +265,12 @@ hr {
   font-style: italic;
   text-transform: none;
 }
+.reveal h1 em,
+.reveal h2 em,
+.reveal h3 em,
+.reveal .baskerville em {
+  font-style: normal;
+}
 .reveal .montserrat {
   font-family: Montserrat, "League Spartan", Avenir, sans-serif;
   font-style: normal;
