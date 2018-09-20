@@ -111,9 +111,7 @@ Since August 2012
 A live-preview theme Customizer was introduced in 2012 as part of WordPress 3.4 "Grant Green"
 
 ---
-<!-- .dslide: class="full-height" data-background="images/wordpress-3-5-image-editing.png" data-background-size="contain" -->
-
-![WP 3.5 Media Library](images/wordpress-3-5-image-editing.png)
+<!-- .slide: class="full-height" data-background="images/wordpress-3-5-media-library.png" data-background-size="contain" -->
 
 ???
 
