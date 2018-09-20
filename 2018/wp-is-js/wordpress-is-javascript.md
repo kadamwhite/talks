@@ -16,34 +16,7 @@ To start, I think it's important to acknowledge that the title of my talk is a l
 
 ---
 
-### September 14, 2017
-
-![Matt Mullenweg's React Licensing post](images/matt-react-license-post.png)
-
-???
-
-Apache foundation announced they couldn't accept it
-
-A year ago this week, Matt announced WordPress could not either
-
----
-
-### September 22, 2017
-![React re-licensing decision](images/react-relicensing-announcement.png)
-
-A year ago _this_ week, WordPress adopted it
-
----
-
-> React has the biggest open source JavaScript ecosystem and support behind it. It has the job market, it has the most components, most active maintainers&hellip;
->
-> A WordPress developer who wants to stay up to date and learn new things can now start learning React.
-
-~ _Ahmad Awais_
-
----
-
-## (WordPress is _not_ JavaScript)
+### WordPress isn&rsquo;t JavaScript&hellip;
 
 ???
 
@@ -61,7 +34,7 @@ WordPress is a 15-year-old PHP blogging application.
 | dōjō toolkit        | March 2005      |
 | prototype.js        | February 2005   |
 | Gmail               | April 2004      |
-| _**WordPress**_     | _**May 2003**_  |
+| _**WordPress**_ <!-- .element: class="baskerville" -->     | _**May 2003**_ <!-- .element: class="baskerville" --> |
 
 ???
 
@@ -81,9 +54,92 @@ No major rewrite
 
 ---
 
-## WordPress cannot stay in its bubble. It must rub against other bubbles, vigorously.
 
-#### _~ John Maeda_
+
+
+---
+
+![](images/respimg-adoption.jpg)
+
+???
+
+We do all this by being mindful of the effect our decisions have. In WP 4.4 we added responsive image handling with `srcset` to WP core. The percentages on the Y axes may be small, but you can see the day that version was released in this Chrome Platform graph of how many pages use `srcset`
+
+---
+
+[ Webpack Logo ]
+[ Babel Logo ]
+[ React Logo ]
+
+???
+
+Discuss the decision process that went into React
+
+---
+
+Had been used by Calypso
+but almost didn't make it in
+
+---
+
+**September 14, 2017**
+
+![Matt Mullenweg's React Licensing post](images/matt-react-license-post.png)
+
+???
+
+Apache foundation announced they couldn't accept it
+
+A year ago this week, Matt announced WordPress could not either
+
+---
+
+**September 22, 2017**
+![React re-licensing decision](images/react-relicensing-announcement.png)
+
+A year ago _this_ week, WordPress adopted it
+
+---
+
+> React has the biggest open source JavaScript ecosystem and support behind it. It has the job market, it has the most components, most active maintainers&hellip;
+>
+> A WordPress developer who wants to stay up to date and learn new things can now start learning React.
+
+~ _Ahmad Awais_
+
+???
+
+The sentiment in the community was one of relief. As much as I'd liked to have been able to explore Vue personally, React brings major benefits
+
+---
+
+# Gutenberg
+
+[wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
+
+---
+
+### WordPress has always been about websites, but it’s not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
+
+<br>
+
+<small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
+
+???
+
+Gutenberg is technically complex, but ideologically it is about going back to basics: what are we trying to build with WordPress? what is the goal?
+
+---
+
+## Democratize Publishing
+
+---
+
+### WordPress cannot stay in its bubble.<br>It must rub against other bubbles, vigorously.
+
+<br>
+
+<small>_~ John Maeda, Global Head, Computational Design and Inclusion at Automattic_</small>
 
 ???
 
