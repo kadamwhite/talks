@@ -1,3 +1,8 @@
+
+.light-bg body {
+  background: #fff;
+}
+
 .reveal blockquote {
   padding: 0.25em 0.75em;
   text-align: left;

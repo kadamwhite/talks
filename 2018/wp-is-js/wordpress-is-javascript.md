@@ -75,13 +75,12 @@ Since August 2012
 ### admin-ajax.php
 
 ```js
-// since 2.8 ajaxurl is always defined in the admin header
-// and points to admin-ajax.php
-jQuery.post(ajaxurl, {
+// since 2.8 window.ajaxurl points to admin-ajax.php
+jQuery.post( ajaxurl, {
     'action': 'my_action',
-}, function(response) {
-    alert('Got this from the server: ' + response);
-});
+}, ( response ) => {
+    alert( 'Got this from the server: ' + response );
+} );
 ```
 
 --
@@ -97,8 +96,60 @@ add_action( 'wp_ajax_', function() {
 ```
 
 ---
+<!-- .slide: data-state="solid-bg light-bg" -->
 
 ![WordPress REST API banner](images/wp-rest-api-banner.jpg)
+
+---
+<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-wp-data-flow.svg')" data-background-size="cover" data-background-position="center center" data-background-repeat="no-repeat" data-state="solid-bg light-bg" -->
+
+???
+
+We did some stuff
+
+---
+<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-architecture.svg')" data-background-size="cover" data-background-position="center center" data-background-repeat="no-repeat" data-state="solid-bg light-bg" -->
+
+???
+
+We did some stuff
+
+---
+
+### What Defines a
+# WordPress &nbsp;Developer?
+
+???
+
+But for all this advancement, for all that the community was beginning to get excited about the possibilities of these new APIs and JavaScript frameworks, the average WordPress developer was (and is) still somebody primarily confident in HTML, CSS, maybe jQuery.
+
+---
+
+# <small>What does the</small> WordPress<br><span style="font-size: 0.6em;">of the</span> Future <small>look like?</small>
+
+---
+
+## <small>&ldquo;Users will be able to build</small> the sites they see in their imaginations&rdquo;
+
+<br>
+
+<small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
+
+---
+
+## &ldquo;make writing rich<br>&nbsp;&nbsp;&nbsp;posts effortless&rdquo;
+
+<br>
+
+<small>_~ Matias Ventura, [New Editor Technical Overview](https://make.wordpress.org/core/2017/01/17/editor-technical-overview/)_</small>
+
+---
+
+### &ldquo;standard, portable&hellip;<br>modern technologies&hellip;<br>use a common set of<br>code <span class="amp">&amp;</span> concepts&rdquo;
+
+<br>
+
+<small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
 
 ---
 
@@ -107,10 +158,6 @@ add_action( 'wp_ajax_', function() {
 <br>
 
 <small>_~ Matt Mullenweg, ["State of the Word"](https://www.youtube.com/watch?v=KrZx4IY1IgU), December 2015_</small>
-
----
-
-## What does the WordPress of the Future Look Like?
 
 ---
 
