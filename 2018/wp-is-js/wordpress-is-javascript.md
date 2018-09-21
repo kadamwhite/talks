@@ -170,13 +170,14 @@ We did some stuff
 
 ---
 
-# Gutenberg
+![Gutenberg Logo](images/gutenberg-logo.png)
+<!-- .element: style="max-height: 40%;" -->
 
 [wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
 
 ---
 
-### WordPress has always been about websites, but it’s not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
+### WordPress&hellip; is not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
 
 <br>
 
@@ -204,7 +205,7 @@ Gutenberg is technically complex, but ideologically it is about going back to ba
 
 ---
 
-### &ldquo;standard, portable&hellip;<br>modern technologies&hellip;<br>use a common set of<br>code <span class="amp">&amp;</span> concepts&rdquo;
+### &ldquo;standard, portable&hellip;<br>modern technologies&hellip;<br>a common set of<br>code <span class="amp">&amp;</span> concepts&rdquo;
 
 <br>
 
@@ -257,6 +258,46 @@ We do all this by being mindful of the effect our decisions have. In WP 4.4 we a
 React was already in heavy use within Automattic, and they were using it on WordPress.com, in their Jetpack plugin, and in their standalone Electron-app editor called Calypso.
 
 Human Made, 10up and the other major WP client services companies were using React heavily. It was a de facto standard.
+
+---
+
+![React Logo](images/react-logo.png)<!-- .element: class="inline-logo" -->
+
+???
+
+But it had that patent clause issue.
+
+---
+
+**September 14, 2017**
+
+![Matt Mullenweg's React Licensing post](images/matt-react-license-post.png)
+
+_~ Matt Mullenweg, [On React and WordPress](https://ma.tt/2017/09/on-react-and-wordpress/)_
+
+???
+
+Apache foundation announced they couldn't accept it
+
+A year ago this week, Matt announced WordPress could not either
+
+---
+
+**September 22, 2017**
+![React re-licensing decision](images/react-relicensing-announcement.png)
+
+A year ago _this_ week, React announced they were re-licensing, and WordPress adopted it
+
+The sentiment in the community was one of relief. As much as I'd liked to have been able to explore Vue personally, React brings major benefits
+
+---
+
+## Democratize Publishing
+
+---
+
+### _We Have Created_
+## Abstractions
 
 ---
 
@@ -366,46 +407,6 @@ save() {
     );
 },
 ```
-
----
-
-![React Logo](images/react-logo.png)<!-- .element: class="inline-logo" -->
-
-???
-
-But it had that patent clause issue.
-
----
-
-**September 14, 2017**
-
-![Matt Mullenweg's React Licensing post](images/matt-react-license-post.png)
-
-_~ Matt Mullenweg, [On React and WordPress](https://ma.tt/2017/09/on-react-and-wordpress/)_
-
-???
-
-Apache foundation announced they couldn't accept it
-
-A year ago this week, Matt announced WordPress could not either
-
----
-
-**September 22, 2017**
-![React re-licensing decision](images/react-relicensing-announcement.png)
-
-A year ago _this_ week, React announced they were re-licensing, and WordPress adopted it
-
-The sentiment in the community was one of relief. As much as I'd liked to have been able to explore Vue personally, React brings major benefits
-
----
-
-## Democratize Publishing
-
----
-
-### _We Have Created_
-## Abstractions
 
 ---
 
