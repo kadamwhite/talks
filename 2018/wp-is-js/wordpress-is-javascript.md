@@ -110,6 +110,8 @@ Since August 2012
 
 A live-preview theme Customizer was introduced in 2012 as part of WordPress 3.4 "Grant Green"
 
+See http://confreaks.tv/videos/jqcon2012-frame-juggling-building-a-live-preview
+
 ---
 <!-- .slide: class="full-height" data-background="images/wordpress-3-5-media-library.png" data-background-size="contain" -->
 
@@ -143,18 +145,6 @@ jQuery.post( ajaxurl, {
 } );
 ```
 
---
-
-```php
-<?php
-
-add_action( 'wp_ajax_', function() {
-    echo JSON
-
-    wp_die(); // this is required to terminate immediately and return a proper response
-}
-```
-
 ---
 <!-- .slide: data-state="solid-bg light-bg" -->
 
@@ -176,16 +166,25 @@ We did some stuff
 
 ---
 
-### What Defines a
-# WordPress &nbsp;Developer?
-
-???
-
-But for all this advancement, for all that the community was beginning to get excited about the possibilities of these new APIs and JavaScript frameworks, the average WordPress developer was (and is) still somebody primarily confident in HTML, CSS, maybe jQuery.
+# <small>What does the</small> WordPress<br><span style="font-size: 0.6em;">of the</span> Future <small>look like?</small>
 
 ---
 
-# <small>What does the</small> WordPress<br><span style="font-size: 0.6em;">of the</span> Future <small>look like?</small>
+# Gutenberg
+
+[wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
+
+---
+
+### WordPress has always been about websites, but it’s not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
+
+<br>
+
+<small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
+
+???
+
+Gutenberg is technically complex, but ideologically it is about going back to basics: what are we trying to build with WordPress? what is the goal?
 
 ---
 
@@ -211,6 +210,19 @@ But for all this advancement, for all that the community was beginning to get ex
 
 <small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
 
+???
+
+That meant JS. And that was a big change.
+
+---
+
+### What Defines a
+# WordPress &nbsp;Developer?
+
+???
+
+For all this advancement, for all that the community was beginning to get excited about the possibilities of these new APIs and JavaScript frameworks, the average WordPress developer was (and is) still somebody primarily confident in HTML, CSS, maybe jQuery.
+
 ---
 
 # &ldquo;Learn&nbsp;&nbsp;<br>JavaScript<br>&nbsp;&nbsp;Deeply&rdquo;
@@ -218,14 +230,6 @@ But for all this advancement, for all that the community was beginning to get ex
 <br>
 
 <small>_~ Matt Mullenweg, ["State of the Word"](https://www.youtube.com/watch?v=KrZx4IY1IgU), December 2015_</small>
-
----
-
-![](images/respimg-adoption.jpg)
-
-???
-
-We do all this by being mindful of the effect our decisions have. In WP 4.4 we added responsive image handling with `srcset` to WP core. The percentages on the Y axes may be small, but you can see the day that version was released in this Chrome Platform graph of how many pages use `srcset`
 
 ---
 
@@ -238,6 +242,14 @@ We do all this by being mindful of the effect our decisions have. In WP 4.4 we a
 Every new technology we add to something like WP makes it harder to learn how to develop for the platform, and they also set the tone for what will be used afterwards.
 
 ---
+
+![](images/respimg-adoption.jpg)
+
+???
+
+We do all this by being mindful of the effect our decisions have. In WP 4.4 we added responsive image handling with `srcset` to WP core. The percentages on the Y axes may be small, but you can see the day that version was released in this Chrome Platform graph of how many pages use `srcset`
+
+---
 <!-- .slide: data-background="../../2016/wp-node-feelingrestful/images/calypso-site-screenshot.png" data-background-position="center top" data-background-size="contain" -->
 
 ???
@@ -245,6 +257,115 @@ Every new technology we add to something like WP makes it harder to learn how to
 React was already in heavy use within Automattic, and they were using it on WordPress.com, in their Jetpack plugin, and in their standalone Electron-app editor called Calypso.
 
 Human Made, 10up and the other major WP client services companies were using React heavily. It was a de facto standard.
+
+---
+
+## <small>How Do You</small> Define a Block?
+
+---
+
+```js
+import './style.scss';
+
+const { createElement } = wp.element;
+const { registerBlockType } = wp.blocks;
+const { __ } = wp.i18n;
+
+registerBlockType( 'empirejs/welcome', {
+    title: __('Hello Banner'),
+
+    description: __('Display a banner message.'),
+
+    icon: 'media-text',
+
+    category: 'layout',
+
+    save() {
+        return (
+            <div className="hello-banner">
+                <h2 class="hello-banner__message">
+                    Hello, EmpireJS!
+                </h2>
+            </div>
+        );
+    },
+} );
+```
+<!-- .element: class="stretch" -->
+
+---
+<!-- .slide: data-background="images/block-demo-render-only.png" data-background-position="center top" data-background-size="cover" -->"
+
+---
+
+```js
+    attributes: {
+        content: {
+            source: 'children',
+            selector: '.hello-banner__message',
+        },
+    },
+
+    edit( { attributes, setAttributes } ) {
+        return (
+            <div className="hello-banner">
+                <RichText
+                    className="hello-banner__message"
+                    tagName="h2"
+                    value={ attributes.content }
+                    onChange={ content => setAttributes( { content } ) }
+                    placeholder={ __( 'Message...', 'artefact' ) }
+                    keepPlaceholderOnFocus={ true }
+                />
+            </div>
+        );
+    },
+
+    save( { attributes } ) {
+        return (
+            <div className="hello-banner">
+                <RichText.Content
+                    className="hello-banner__content"
+                    tagName="h2"
+                    value={ attributes.content }
+                />
+                <p>Learn more at <a href="http://empirejs.org">empirejs.org</a></p>
+            </div>
+        );
+    },
+```
+<!-- .element: class="stretch" -->
+
+---
+<!-- .slide: data-background="images/block-demo-richtext.png" data-background-position="center top" data-background-size="cover" -->"
+
+---
+<!-- .slide: data-background="images/block-demo-frontend.png" data-background-position="center top" data-background-size="cover" -->"
+
+---
+
+## Under The Hood
+
+---
+
+```js
+save() {
+    return (
+        <p>Learn more at <a href="http://empirejs.org">empirejs.org</a></p>
+    );
+},
+```
+&darr; &darr; &darr;
+```js
+const el = wp.element.createElement;
+
+save() {
+    return el( 'p', null,
+        'Learn more at ',
+        el( 'a ', { href: "http://empirejs.org" }, 'empirejs.org' )
+    );
+},
+```
 
 ---
 
@@ -273,37 +394,9 @@ A year ago this week, Matt announced WordPress could not either
 **September 22, 2017**
 ![React re-licensing decision](images/react-relicensing-announcement.png)
 
-A year ago _this_ week, WordPress adopted it
-
----
-
-> React has the biggest open source JavaScript ecosystem and support behind it. It has the job market, it has the most components, most active maintainers&hellip;
->
-> A WordPress developer who wants to stay up to date and learn new things can now start learning React.
-
-~ _Ahmad Awais_
-
-???
+A year ago _this_ week, React announced they were re-licensing, and WordPress adopted it
 
 The sentiment in the community was one of relief. As much as I'd liked to have been able to explore Vue personally, React brings major benefits
-
----
-
-# Gutenberg
-
-[wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
-
----
-
-### WordPress has always been about websites, but it’s not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
-
-<br>
-
-<small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
-
-???
-
-Gutenberg is technically complex, but ideologically it is about going back to basics: what are we trying to build with WordPress? what is the goal?
 
 ---
 
@@ -311,98 +404,12 @@ Gutenberg is technically complex, but ideologically it is about going back to ba
 
 ---
 
-### WordPress cannot stay in its bubble.<br>It must rub against other bubbles, vigorously.
-
-<br>
-
-<small>_~ John Maeda, Global Head, Computational Design and Inclusion at Automattic_</small>
-
-???
-
-As John Maeda, a leading designer who serves as the the Global Head of Computational Design and Inclusion at Automattic, put it, creativity comes from juxtapositions.
-
-We have deeply ingrained ways of thinking about WordPress. We need outside input to keep us objective, and to make sure we make the best decisions we can.
+### _We Have Created_
+## Abstractions
 
 ---
 
-Gutenberg demo
-
----
-
-## <small>How Do You</small> Define a Block?
-
----
-
-```js
-registerBlockType( 'my-plugin/book', {
-    title: __( 'Book' ),
-    description: __( 'Block showing a Book card.' ),
-    
-    attributes: {},
-
-    edit() {},
-    save() {},
-} );
-```
-
----
-
-```js
-edit( { attributes, setAttributes, isSelected } ) {
-    const toggleSetting = () => setAttributes( {
-        mySetting: ! attributes.mySetting
-    } );
-    return (
-        <div className="my-block__content">
-            { attributes.content }
-            { isSelected &&
-                <button onClick={ toggleSetting }>
-                    { __( 'Toggle Setting.' ) }
-                </button>
-            }
-        </div>
-    );
-},
-```
-<!-- .element: class="stretch" -->
-
----
-
-```js
-save( { attributes } ) {
-    return (
-        <div className="my-block__content">
-            { attributes.content }
-        </div>
-    );
-}
-```
-
----
-
-```js
-attributes: {
-    cover: {
-        type: 'string',
-        source: 'attribute',
-        selector: 'img',
-        attribute: 'src',
-    },
-    author: {
-        type: 'string',
-        source: 'children',
-        selector: '.book-author',
-    },
-    pages: {
-        type: 'number',
-    },
-},
-```
-<!-- .element: class="stretch" -->
-
----
-
-### @wordpress/data
+### npm install @wordpress/data
 ```js
 import { withSelect } from '@wordpress/data';
 
@@ -420,9 +427,31 @@ export default withSelect( ( select ) => ( {
 ```
 <!-- .element: class="stretch" -->
 
+???
+
+https://www.npmjs.com/package/@wordpress/data#comparison-with-redux
+
+---
+
+### Nascent Ecosystem
+
+- [create-guten-block](https://github.com/ahmadawais/create-guten-block)
+- [Gutenberg Cloud](https://gutenbergcloud.org/)
+
+### More To Be Done
+
+- Docs! So, so many more docs pages must be written
+- Community Quick-Start Tools for Hot Reloading, etc
+
+## Community Standards <span class="amp">&amp;</span> Boilerplates
+
 ---
 
 ## Will It Be Successful?
+
+???
+
+So that's Gutenberg.
 
 ---
 
@@ -439,8 +468,33 @@ export default withSelect( ( select ) => ( {
 
 ---
 
-### _We Have Created_
-## Abstractions
+## Come Join Us!
+<!-- .element: class="montserrat" -->
+
+---
+<!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
+
+---
+
+### WordPress cannot stay in its bubble.<br>It must rub against other bubbles, vigorously.
+
+<br>
+
+<small>_~ John Maeda, Global Head, Computational Design and Inclusion at Automattic_</small>
+
+???
+
+As John Maeda, a leading designer who serves as the the Global Head of Computational Design and Inclusion at Automattic, put it, creativity comes from juxtapositions.
+
+We have deeply ingrained ways of thinking about WordPress. We need outside input to keep us objective, and to make sure we make the best decisions we can.
+
+---
+
+## Open Doors
+
+???
+
+The JS community is wonderful. But even -- perhaps especially -- in a city as diverse as NYC, it can be really cliquey and feel like an in-crowd. We need to self-police
 
 ---
 
@@ -461,22 +515,6 @@ export default withSelect( ( select ) => ( {
 #### Write It Imagining Your Past Self
 
 #### Link To It From Your README _and Homepage!_
-
----
-
-## Come Join Us!
-<!-- .element: class="montserrat" -->
-
----
-<!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
-
----
-
-## Invite People In
-
-???
-
-The JS community is wonderful. But even -- perhaps especially -- in a city as diverse as NYC, it can be really cliquey and feel like an in-crowd. WordPress developers
 
 ---
 
