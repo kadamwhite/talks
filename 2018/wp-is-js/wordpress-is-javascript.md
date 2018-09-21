@@ -12,6 +12,14 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
 Thank you `____`, and thank you Empire for having me today. As `____` said, my name is K Adam White, you can call me KAdam.
 
+---
+
+![WordPress Logo](../../2017/democratizing-software-wcbos/images/wordpress-logo.png)
+
+???
+
+[Demographics]
+
 To start, I think it's important to acknowledge that the title of my talk is a lie. It's clickbait at best.
 
 ---
@@ -53,7 +61,7 @@ Grew to almost a third of all websites
 Like the web, gradual evolution: no major rewrite. There is still pre-WP code.
 Nothing stays the same
 
----
+--
 
 ### WordPress[.org]
 
@@ -67,7 +75,7 @@ Nothing stays the same
 
 I'm going to say WordPress a lot over the next 25 minutes, so let's clear up some definitions.
 
----
+--
 
 ### WordPress Foundation
 
@@ -119,19 +127,6 @@ See http://confreaks.tv/videos/jqcon2012-frame-juggling-building-a-live-preview
 
 Also written by Daryl Koopersmith, a new Backbone-driven Media Library front-end was added to WordPress in version 3.5 "Elvin Jones", released December 2012
 
-
----
-
-## &ldquo;The WordPress Way&rdquo;
-
-???
-
-First-to-market issues
-
-Imposter syndrome
-
-Used to a particular facade over a black box
-
 ---
 
 ### admin-ajax.php
@@ -144,6 +139,20 @@ jQuery.post( ajaxurl, {
     alert( 'Got this from the server: ' + response );
 } );
 ```
+
+???
+
+The interesting thing...
+
+---
+
+## &ldquo;The WordPress Way&rdquo;
+
+???
+
+First-to-market issues
+
+Used to a particular facade over a black box
 
 ---
 <!-- .slide: data-state="solid-bg light-bg" -->
@@ -196,6 +205,9 @@ Gutenberg is technically complex, but ideologically it is about going back to ba
 <small>_~ Matt Mullenweg, [We Called It Gutenberg For A Reason](https://ma.tt/2017/08/we-called-it-gutenberg-for-a-reason/)_</small>
 
 ---
+<!-- .slide: data-background="images/gutenberg-insert-block-2-1.gif" data-background-position="center top" data-background-size="contain" -->
+
+---
 
 ## &ldquo;make writing rich<br>&nbsp;&nbsp;&nbsp;posts effortless&rdquo;
 
@@ -231,6 +243,10 @@ For all this advancement, for all that the community was beginning to get excite
 <br>
 
 <small>_~ Matt Mullenweg, ["State of the Word"](https://www.youtube.com/watch?v=KrZx4IY1IgU), December 2015_</small>
+
+---
+
+# WordPress <small>_is for_</small> Learners
 
 ---
 
@@ -293,6 +309,8 @@ The sentiment in the community was one of relief. As much as I'd liked to have b
 ---
 
 ## Democratize Publishing
+
+???
 
 ---
 
@@ -493,23 +511,20 @@ As John Maeda, a leading designer who serves as the the Global Head of Computati
 We have deeply ingrained ways of thinking about WordPress. We need outside input to keep us objective, and to make sure we make the best decisions we can.
 
 ---
-
-## Come Join Us!
-<!-- .element: class="montserrat" -->
-
----
 <!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
 
-## _We Want_ You!&nbsp;
+## Come Join Us!&nbsp;
 <!-- .element: class="whitebg" -->
 
 ---
 
-## May We Come In?
+#### `community.addEventListener( 'clique' )`
 
 ???
 
 The JS community is wonderful. But even -- perhaps especially -- in a city as diverse as NYC, it can be really cliquey and feel like an in-crowd. We need to self-police
+
+Imposter syndrome
 
 ---
 
@@ -534,6 +549,12 @@ The JS community is wonderful. But even -- perhaps especially -- in a city as di
 
 #### Move Fast, _Don&rsquo;t_ Break Things
 
+???
+
+Backbone and jQuery endure to this day because they're not moving targets.
+
+There's a time and a place for going fast and breaking things. But if you don't, people have time to learn how things work, and your market share grows. Don't pull the rug out from under somebody for no reason.
+
 ---
 
 # Documentation
@@ -544,11 +565,11 @@ The JS community is wonderful. But even -- perhaps especially -- in a city as di
 
 #### Write It Imagining Your Past Self
 
-#### Link To It From Your README _and Homepage!_
+#### Link To It From Everywhere
 
 ---
 
-## <small>Global Perspectives on</small> Internationalization, Accessibility, Diversity, Usability&hellip;
+## <small>_Global Perspectives on_</small> Internationalization, Accessibility, Diversity, Usability&hellip;
 
 ---
 
@@ -568,11 +589,15 @@ Our community is not a programming language. our community is the web, and the p
 
 And I could not be more excited to figure this out together.
 
+(democratize software)
+
 ---
 
 # <span class="montserrat">Thank You,</span> <small style="font-size: 0.55em">EmpireJS!</small>
 
 <hr>
+
+[wordpress.org/gutenberg](https://wordpress.org/gutenberg) &bull; [chat.wordpress.org](https://chat.wordpress.org)
 
 Slides: [talks.kadamwhite.com/wp-is-js](http://kadamwhite.github.io/talks/2018/wp-is-js)
 
