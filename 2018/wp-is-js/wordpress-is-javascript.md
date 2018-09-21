@@ -171,7 +171,7 @@ We did some stuff
 ---
 
 ![Gutenberg Logo](images/gutenberg-logo.png)
-<!-- .element: style="max-height: 40%;" -->
+<!-- .element: style="width: 40%;" -->
 
 [wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
 
@@ -385,7 +385,7 @@ registerBlockType( 'empirejs/welcome', {
 
 ---
 
-## Under The Hood
+# <small style="font-size: 0.6em;">_Under the Hood:_</small> Defensive Abstraction
 
 ---
 
@@ -434,21 +434,20 @@ https://www.npmjs.com/package/@wordpress/data#comparison-with-redux
 
 ---
 
-### Nascent Ecosystem
+## Not-Invented-Here <small>_vs_</small> Mindful Abstraction
 
-- [create-guten-block](https://github.com/ahmadawais/create-guten-block)
-- [Gutenberg Cloud](https://gutenbergcloud.org/)
+???
 
-### More To Be Done
+Cannot control the environment, and need to solve different problems react and redux don't usually face
 
-- Docs! So, so many more docs pages must be written
-- Community Quick-Start Tools for Hot Reloading, etc
-
-## Community Standards <span class="amp">&amp;</span> Boilerplates
+How do you coordinate dozens of plugins which all want to share the same store?
 
 ---
 
-## Will It Be Successful?
+![Gutenberg Logo](images/gutenberg-logo.png)
+<!-- .element: style="width: 40%;" -->
+
+[wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
 
 ???
 
@@ -456,24 +455,28 @@ So that's Gutenberg.
 
 ---
 
+## More To Be Done
+
+- Docs! So, so many more docs pages must be written
+- Community Standards <span class="amp">&amp;</span> Boilerplates
+- Hot-reloading quick-start kits <span class="amp">&amp;</span> other dev tools
+
+???
+
+We have a nascent WP-specific JS ecosystem
+More to be done
+
+---
+
+## Will It Be Successful?
+
+???
+
+We have no idea. there's been pushback. But I'm not concerned
+
+---
+
 !["Too Many Forks" image from Github](images/too-many-forks.png)
-
----
-
-## What Has Worked?
-
----
-
-### _Educators Have_
-## Stepped Up
-
----
-
-## Come Join Us!
-<!-- .element: class="montserrat" -->
-
----
-<!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
 
 ---
 
@@ -491,11 +494,37 @@ We have deeply ingrained ways of thinking about WordPress. We need outside input
 
 ---
 
-## Open Doors
+## Come Join Us!
+<!-- .element: class="montserrat" -->
+
+---
+<!-- .slide: data-background="images/wordcamp-central.png" data-background-position="center top" data-background-size="cover" -->
+
+## _We Want_ You!&nbsp;
+<!-- .element: class="whitebg" -->
+
+---
+
+## May We Come In?
 
 ???
 
 The JS community is wonderful. But even -- perhaps especially -- in a city as diverse as NYC, it can be really cliquey and feel like an in-crowd. We need to self-police
+
+---
+
+## Some Things Have Gone Very Well
+
+---
+
+![Webpack Logo](images/webpack-logo.png)<!-- .element: class="inline-logo" -->
+![Babel Logo](images/babel-logo.png)<!-- .element: class="inline-logo" -->
+![React Logo](images/react-logo.png)<!-- .element: class="inline-logo" -->
+
+---
+
+### _Educators Have_
+## Stepped Up
 
 ---
 
@@ -519,6 +548,10 @@ The JS community is wonderful. But even -- perhaps especially -- in a city as di
 
 ---
 
+## <small>Global Perspectives on</small> Internationalization, Accessibility, Diversity, Usability&hellip;
+
+---
+
 # <small style="font-size: 0.4em;">&ldquo;The Divide between the<br>WP <span class="amp">&amp;</span> JS Communities is</small> Completely Manufactured
 
 <small>~ _Mika Epstein, WordPress Plugins Team_</small>
@@ -526,6 +559,12 @@ The JS community is wonderful. But even -- perhaps especially -- in a city as di
 ???
 
 Our community is not a programming language. our community is the web, and the people on it, with all their goals, hopes, dreams and ambitions.
+
+---
+
+## _&ldquo;We / You&rdquo;_ &rarr; &ldquo;Us&rdquo;
+
+???
 
 And I could not be more excited to figure this out together.
 
