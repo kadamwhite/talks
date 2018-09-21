@@ -572,10 +572,6 @@ There's a time and a place for going fast and breaking things. But if you don't,
 
 ---
 
-## <small>_Global Perspectives on_</small> Internationalization, Accessibility, Diversity, Usability&hellip;
-
----
-
 # <small style="font-size: 0.4em;">&ldquo;The Divide between the<br>WP <span class="amp">&amp;</span> JS Communities is</small> Completely Manufactured
 
 <small>~ _Mika Epstein, WordPress Plugins Team_</small>
@@ -583,6 +579,10 @@ There's a time and a place for going fast and breaking things. But if you don't,
 ???
 
 Our community is not a programming language. our community is the web, and the people on it, with all their goals, hopes, dreams and ambitions.
+
+---
+
+## <small>_Global Perspectives on_</small> Internationalization, Accessibility, Diversity, Usability&hellip;
 
 ---
 
