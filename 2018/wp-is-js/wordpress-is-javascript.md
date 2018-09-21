@@ -185,6 +185,9 @@ We did some stuff
 [wordpress.org/gutenberg](https://wordpress.org/gutenberg/)
 
 ---
+<!-- .slide: data-background="url('images/gutenberg.png')" data-background-size="cover" data-background-position="center top" data-background-repeat="no-repeat" -->
+
+---
 
 ### WordPress&hellip; is not just about websites. It’s about freedom, about possibility, and about carving out your own livelihood
 
