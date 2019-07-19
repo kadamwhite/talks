@@ -32,7 +32,9 @@ So, I challenge you all. What do you have to share? Everybody in the room knows 
 
 ???
 
-So what's this talk about? At its core, it's about responsive design. We're all likely familiar with RD but let's think back to its beginnings, to Ethan Marcotte's pivotal article 
+So what's this talk about? There's a little code, but my goal today is to give you tools you can use without having to write anything but HTML or CSS. At its core, this talk's about responsive design, and how we implement responsive designs.
+
+We're all likely familiar with RD but let's think back to its beginnings, to Ethan Marcotte's pivotal article 
 
 ---
 
@@ -116,7 +118,7 @@ But how do we account for the fact that an author could choose to use our block 
 
 ???
 
-It's this complexity and uncertainty that lead web developers to propose _element queries_.
+It's this complexity and uncertainty that lead web developers to propose what we call an _element query_. If you've heard the phrase container query, they refer to the same idea -- a container query is an element query on a container, used to style child elements.
 
 ---
 
@@ -134,7 +136,7 @@ It's this complexity and uncertainty that lead web developers to propose _elemen
 
 ???
 
-What if we could tag our styles with a media rule that says, "only apply these styles if the element is this big?" Then we'd be able to handle all possible sizing contexts with a few elegant rules. We could focus our energy on writing styles for those special cases where we want to alter the feel or impact of the content, rather than laboriously handling every possible layout scenario.
+What if, the thought goes, we could tag our styles with a media rule that says, "only apply these styles if the element is this big?" Then we'd be able to handle all possible sizing contexts with a few elegant rules. We could focus our energy on writing styles for those specific cases where we want to alter the _feel_ or _impact_ of the content, rather than laboriously handling every possible layout scenario.
 
 ---
 
@@ -193,7 +195,6 @@ Chrome has implemented an experimental feature called CSS Containment which woul
 ---
 
 ### Container Queries
-
 ## Not A Thing
 
 ???
@@ -362,20 +363,109 @@ I agree; and I'm excited to announce today a new plugin that provides this funct
 
 This past week I released a plugin called Responsive Containers, which adds a JS file to your site which will look for elements with the `data-responsive-container` attribute and tag each container a preset list of size-based classes.
 
-After twelve years using WordPress and six years contributing to the project, this is actually my first plugin I've submitted to the plugin directory; our banner image could use some work but I'm really excited to share it with you!
+After twelve years using WordPress, six years contributing to the project, and dozens of custom plugins written for clients, this is actually the first plugin I've ever submitted to the plugin directory; our banner image could probably use some work but I'm really excited to share it with you!
 
 ---
+
+```php
+    function myplugin_render_block( $attributes ) {
+        ob_start();
+        
+        echo '<div class="fancy-block" data-responsive-container>';
+        
+        // ...block markup
+        
+        return ob_get_clean();
+    }
+```
+Declaring a responsive container in PHP
 
 ???
 
 With this plugin installed and activated, we can add that data-attribute to our block or widget markup and begin taking immediate advantage of the sizing classes.
 
----
-
-How to use it in your theme or plugin
+This applies whether we're writing our HTML from PHP,
 
 ---
-<!-- .slide: class="full-height" data-background="images/caniuse-resizeobserver.png" data-background-size="cover" -->
+
+```
+    save() {
+        return (
+            <div
+                className="fancy-block"
+                data-responsive-container
+            >
+                { /* ...block markup */ }
+            </div>
+        );
+    }
+```
+Declaring a responsive container in React
+
+???
+
+or if we're generating our HTML using React and JSX. Any element with `data-responsive-container` will get our default set of sizing classes.
+
+---
+
+```php
+    function myplugin_render_block( $attributes ) {
+        ob_start();
+        echo sprintf(
+            '<div class=fancy-block" data-responsive-container="%s">',
+            // responsive_container_breakpoints() calls esc_attr internally.
+            responsive_container_breakpoints( [
+                'fancy-block--2-column' => 600,
+                'fancy-block--3-column' => 900,
+            ] )
+        );
+        // ...block markup
+        return ob_get_clean();
+    }
+```
+<!-- .element: class="stretch" -->
+Custom container breakpoints in PHP
+
+???
+
+As described before, we can provide a JSON object as the value for our data attribute to use a custom set of container breakpoints for a specific element.
+
+I've provided a `responsive_container_breakpoints` helper, which JSON-encodes & escapes a PHP array of classname-size pairs.
+
+---
+
+```
+    save() {
+        return (
+            <div
+                className="fancy-block"
+                data-responsive-container={ JSON.stringify( {
+                    'fancy-block--2-column': 600,
+                    'fancy-block--3-column': 900,
+                } ) }
+            >
+                { /* ...block markup */ }
+            </div>
+        );
+    }
+```
+<!-- .element: class="stretch" -->
+Custom container breakpoints in React
+
+???
+
+If we're writing a block in JavaScript, React will handle the escaping for us so we can just pass our object to JSON.stringify.
+
+---
+<!-- .slide: class="full-height" data-background="images/caniuse-resizeobserver.png" data-background-size="contain" -->
+
+???
+
+Hopefully I've got you interested in using this technique in your own projects, and hopefully you'll all find this plugin useful in your work.
+
+But I suspect some of you are wondering about browser support and performance.
+
+At present ResizeObserver is only available in Chrome and Opera. We do ship a polyfill as part of our JS bundle, so if you use this plugin 
 
 ---
 
