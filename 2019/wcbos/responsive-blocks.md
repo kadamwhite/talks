@@ -237,7 +237,7 @@ We're therefore going to take a step back and return to that original problem we
 
 ---
 
-## _`.container-md {}`_
+## _`.container-md {}`_?
 
 ???
 
@@ -247,62 +247,135 @@ Unfortunately this is slow, and won't catch layout changes that aren't triggered
 
 ---
 
-# _`new ResizeObserver`_
+## _`new ResizeObserver();`_
 
 ???
 
 The solution we're going to use is a new JavaScript interface called ResizeObserver. As the name suggests, ResizeObserver lets us efficiently react to element size changes.
 
 ---
+<!-- .slide: class="full-height" data-background="images/philip-walton-at-cssconf.png" data-background-size="cover" -->
 
-```
-const breakpoints = {
-    'container-sm': 420,
-    'container-md': 640,
-    'container-lg': 960,
-    'container-xl': 1280,
-};
-```
+<small><em>Philip Walton, [Container Queries: The Past, Future, and How You Can Actually Even Use Them Today](https://www.youtube.com/watch?v=0wA4CMo9_EU), CSSConf EU 2018</em></small>
+<!-- .element: class="whitebg" -->
 
 ???
 
-If we observe a container with ResizeObserver, we can then conditionally apply different classes to it based on how wide it appears in the viewport.
+I should preface by saying that the rest of this talk, and the plugin I've released to implement this solution, is based on an excellent presentation by Philip Walton from last year's CSSConf EU.
+
+Philip is an engineer on Google's Chrome & Web Platform techniques, and has popularized a ResizeObserver-based approach to responsive components that I find to be the most compelling and practical solution we have to styling components based on their size on page.
 
 ---
 
-Apply classes at specific widths
+<table>
+    <thead>
+        <tr>
+            <th style="width: 4em;">Container Width</th>
+            <th>Classes Applied</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>320px</td><td>`(none)`</td>
+        </tr>
+        <tr>
+            <td>420px</td><td>`.container-sm`</td>
+        </tr>
+        <tr>
+            <td>640px</td><td>`.container-sm.container-md`</td>
+        </tr>
+        <tr>
+            <td>960px</td><td>`.container-sm.container-md.container-lg`</td>
+        </tr>
+        <tr>
+            <td>1280px</td><td>`.container-sm.container-md.container-lg.container-xl`</td>
+        </tr>
+    </tbody>
+</table>
+
+???
+
+So let's see how that solution works. Well, ResizeObserver lets us observe how large an element appears on the page. If we observe a container, we can use JavaScript to add classes to that container based on how big it is.
+
+We'll do this in a way that mirrors how we use media queries, layering additional classes on as the component expands.
 
 ---
 
-Style to those widths
+```css
+    .latest-posts {
+        /* single-column styles */
+    }
+    .latest-posts.container-sm:not(.container-md) {
+        /* customizations specific to a wide single column */
+    }
+    .latest-posts.container-md {
+        /* two-column styles */
+    }
+    .latest-posts.container-lg {
+        /* three-column styles */
+    }
+    .latest-posts.container-xl {
+        /* four-column styles?!? sky's the limit! */
+    }
+```
+<!-- .element: class="stretch" -->
+
+???
+
+In our stylesheets we can then take advantage of these classes in the same way we would have used element or container query CSS rules: we can style based on the size of the container, not the page. Now if we write a rule that applies to medium-width containers, it will apply whether your block is displaying fullscreen on a phablet or in a narrow column on an ultra-widescreen display.
 
 ---
 
-Permit customizing breakpoints per-container
+### `<div data-responsive-container>`
+
+???
+
+It wouldn't be performant to observe every element on the page, and if we did then our CSS would get pretty gnarly. We opt an element into this treatment by adding a data-attribute to it, specifically `data-responsive-container`.
 
 ---
 
-How about doing this in WordPress?
+#### `data-responsive-container='{"sm":600,"lg":1200}'`
+
+#### `data-responsive-container='{"onecol":400,"twocol":800}'`
+
+???
+
+Neither components nor WordPress themes are one-size-fits-all, so if we don't want to use the default set of "breakpoints" on a given container, we can specify a set of container-specific overrides.
+
+By assigning a JSON string to the `data-responsive-container` attribute, our JS code can read in component-specific styles and apply exactly the breakpoints and classes that best fit your block or widget.
 
 ---
 
-Show how to render out breakpoints in PHP for widget or block
+# ![WordPress logo](../../2017/democratizing-software-wcbos/images/wordpress-logo.png) ?
+<!-- .element: style="vertical-align: middle;" -->
+
+???
+
+But, OK. So we can make a good system for reacting to responsive breakpoints. But if I were you, I'd be asking, do I have to re-write the JS in every project? do I have to write the JS at all? what if we want to focus on the HTML & CSS, and the site design and content? For this to be a truly workable container styling system, we need a consistent way to apply it across projects.
+
+I agree; and I'm excited to announce today a new plugin that provides this functionality for any WordPress site.
+
+---
+<!-- .slide: class="full-height" data-background="images/responsive-containers-plugin.png" data-background-size="cover" -->
+
+???
+
+This past week I released a plugin called Responsive Containers, which adds a JS file to your site which will look for elements with the `data-responsive-container` attribute and tag each container a preset list of size-based classes.
+
+After twelve years using WordPress and six years contributing to the project, this is actually my first plugin I've submitted to the plugin directory; our banner image could use some work but I'm really excited to share it with you!
 
 ---
 
-But I don't want to write that code!
+???
 
----
-
-Plugin reveal / Demo of plugin
+With this plugin installed and activated, we can add that data-attribute to our block or widget markup and begin taking immediate advantage of the sizing classes.
 
 ---
 
 How to use it in your theme or plugin
 
 ---
-
-![CanIUse results for ResizeObserver](./images/caniuse-resizeobserver.png)
+<!-- .slide: class="full-height" data-background="images/caniuse-resizeobserver.png" data-background-size="cover" -->
 
 ---
 
