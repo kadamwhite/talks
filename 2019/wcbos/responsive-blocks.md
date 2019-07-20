@@ -15,7 +15,8 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
 ---
 
-# Thank You, WordCamp Boston
+### a round of applause for
+# WordCamp Boston
 
 ???
 
@@ -27,7 +28,7 @@ So, I challenge you all. What do you have to share? Everybody in the room knows 
 
 ---
 
-### _let's talk_
+### let's talk
 # Responsive Design
 
 ???
@@ -373,16 +374,6 @@ In this way we layer classes on a container as they expand, emulating how we sty
 In our stylesheets we can then take advantage of these classes in the same way we would have used element or container query CSS rules: we can style based on the size of the container, not the page. Now if we write a rule that applies to medium-width containers, it will apply whether your block is displaying fullscreen on a phablet or in a narrow column on an ultra-widescreen display.
 
 ---
-<!-- .slide: class="full-height" data-background="images/responsive-components-calendar-demo.gif" data-background-size="cover" -->
-
-<small>**Responsive Components Demo Site**<br><br>[philipwalton.github.io/responsive-components](https://philipwalton.github.io/responsive-components/)<br>&nbsp;</small>
-<!-- .element: class="whitebg" style="display: inline-block; padding: 1em !important;" -->
-
-???
-
-Philip Walton's Responsive Components demo site shows how this very small amount of code can be used to layer classes into an element that let us style it fluidly, regardless of how large it appears, without using a single traditiona media query.
-
----
 
 ### `<div data-responsive-container>`
 
@@ -401,6 +392,16 @@ It wouldn't be performant to observe every element on the page, and if we did th
 Neither components nor WordPress themes are one-size-fits-all, so if we don't want to use the default set of "breakpoints" on a given container, we can specify a set of container-specific overrides.
 
 By assigning a JSON string to the `data-responsive-container` attribute, our JS code can read in component-specific styles and apply exactly the breakpoints and classes that best fit your block or widget.
+
+---
+<!-- .slide: class="full-height" data-background="images/responsive-components-calendar-demo.gif" data-background-size="cover" -->
+
+<small>**Responsive Components Demo Site**<br><br>[philipwalton.github.io/responsive-components](https://philipwalton.github.io/responsive-components/)<br>&nbsp;</small>
+<!-- .element: class="whitebg" style="display: inline-block; padding: 1em !important;" -->
+
+???
+
+Philip Walton's Responsive Components demo site shows how this very small amount of code can be used to layer classes into an element that let us style it fluidly, regardless of how large it appears, without using a single traditiona media query.
 
 ---
 
@@ -470,11 +471,10 @@ or if we're generating our HTML using React and JSX. Any element with `data-resp
         ob_start();
         echo sprintf(
             '<div class=fancy-block" data-responsive-container="%s">',
-            // responsive_container_breakpoints() calls esc_attr internally.
-            responsive_container_breakpoints( [
+            esc_attr( wp_json_encode( [
                 'fancy-block--2-column' => 600,
                 'fancy-block--3-column' => 900,
-            ] )
+            ] ) )
         );
         // ...block markup
         return ob_get_clean();
@@ -486,8 +486,6 @@ Custom container breakpoints in PHP
 ???
 
 As described before, we can provide a JSON object as the value for our data attribute to use a custom set of container breakpoints for a specific element.
-
-I've provided a `responsive_container_breakpoints` helper, which JSON-encodes & escapes a PHP array of classname-size pairs.
 
 ---
 
@@ -514,6 +512,10 @@ Custom container breakpoints in React
 If we're writing a block in JavaScript, React will handle the escaping for us so we can just pass our object to JSON.stringify.
 
 ---
+
+## Demo Time
+
+---
 <!-- .slide: class="full-height" data-background="images/caniuse-resizeobserver.png" data-background-size="contain" -->
 
 ???
@@ -522,17 +524,19 @@ Hopefully I've got you interested in using this technique in your own projects, 
 
 But I suspect some of you are wondering about browser support and performance.
 
-At present ResizeObserver is only available in Chrome and Opera. We do ship a polyfill as part of our JS bundle, so if you use this plugin 
+At present ResizeObserver is only available in Chrome and Opera. We do ship a polyfill as part of our JS bundle, so if you use this plugin you should get the same behavior everywhere. As RO rolls out further we'll be able to conditionally include this polyfill, and the JS we use will get leaner and leaner with time.
 
 ---
 
-## Fallbacks
+## Performance <span class="amp">&amp;</span> Fallbacks
 
 ???
 
-CSS is good because it's fairly conservative
+You're also hopefully wondering about performance, and JS fallbacks
 
 This has a CSS fallback
+
+CSS is good because it's fairly conservative
 
 ---
 
@@ -545,7 +549,8 @@ plugin roadmap
 ---
 
 
-# <span class="montserrat">Thank You,</span> <small style="font-size: 0.55em">WC Boston!</small>
+# Thank You, WordCamp Boston!
+<!-- .element: style="font-size: 2em;" -->
 
 <hr>
 
@@ -559,7 +564,7 @@ Slides: [talks.kadamwhite.com/responsive-blocks](http://talks.kadamwhite.com/res
 K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
-<img src="../wceu/images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
+<img src="../../2018/wceu/images/hm-logo.png" style="margin-top: 0; height: 2em;" alt="Human Made Logo" />
 
 ???
 
