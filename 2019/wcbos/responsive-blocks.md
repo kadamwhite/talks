@@ -1,4 +1,4 @@
-# Responsive Blocks
+## Real-World Responsive Blocks
 <!-- .element: class="montserrat" -->
 
 <hr>
@@ -252,7 +252,9 @@ Unfortunately this is slow, and won't catch layout changes that aren't triggered
 
 ???
 
-The solution we're going to use is a new JavaScript interface called ResizeObserver. As the name suggests, ResizeObserver lets us efficiently react to element size changes.
+The solution we're going to use is a new JavaScript interface called ResizeObserver.
+
+As the name suggests, this object lets us efficiently react to element size changes.
 
 ---
 <!-- .slide: class="full-height" data-background="images/philip-walton-at-cssconf.png" data-background-size="cover" -->
@@ -265,6 +267,53 @@ The solution we're going to use is a new JavaScript interface called ResizeObser
 I should preface by saying that the rest of this talk, and the plugin I've released to implement this solution, is based on an excellent presentation by Philip Walton from last year's CSSConf EU.
 
 Philip is an engineer on Google's Chrome & Web Platform techniques, and has popularized a ResizeObserver-based approach to responsive components that I find to be the most compelling and practical solution we have to styling components based on their size on page.
+
+---
+
+```js
+    // Only run if ResizeObserver is supported.
+    if ( 'ResizeObserver' in self ) {
+
+        const ro = new ResizeObserver( entries => {
+            // React to size changes of nodes in entries
+        } );
+```
+
+???
+
+So, how does it work? We create a new ResizeObserver, and pass a callback function. This function will be run when the observer initializes, and any time the node being observed changes size.
+
+---
+
+```
+    const selector = '[data-responsive-container]';
+    const containers = document.querySelectorAll( selector );
+    [ ...containers ].forEach( element => ro.observe( element ) );
+```
+
+???
+
+Next, we select one or more DOM nodes... in this case nodes with a particular data attribute... and tell our observer to listen for changes on these nodes.
+
+---
+
+```js
+    const breakpoints = { 'container-sm': 420, 'container-md': 640, 'container-lg': 768, 'container-xl': 960 };
+
+    entries.forEach( entry => {
+        Object.keys( breakpoints ).forEach( breakpoint => {
+            const width = breakpoints[ breakpoint ];
+            entry.target.classList.toggle(
+                breakpoint,
+                entry.contentRect.width >= width
+            );
+        });
+    } );
+```
+
+???
+
+Returning to the callback we pass into the resize observer, any time the object changes size, we can react to that and add or remove a class to indicate how big it is.
 
 ---
 
@@ -296,9 +345,7 @@ Philip is an engineer on Google's Chrome & Web Platform techniques, and has popu
 
 ???
 
-So let's see how that solution works. Well, ResizeObserver lets us observe how large an element appears on the page. If we observe a container, we can use JavaScript to add classes to that container based on how big it is.
-
-We'll do this in a way that mirrors how we use media queries, layering additional classes on as the component expands.
+In this way we layer classes on a container as they expand, emulating how we style elements with min-width media queries.
 
 ---
 
@@ -324,6 +371,16 @@ We'll do this in a way that mirrors how we use media queries, layering additiona
 ???
 
 In our stylesheets we can then take advantage of these classes in the same way we would have used element or container query CSS rules: we can style based on the size of the container, not the page. Now if we write a rule that applies to medium-width containers, it will apply whether your block is displaying fullscreen on a phablet or in a narrow column on an ultra-widescreen display.
+
+---
+<!-- .slide: class="full-height" data-background="images/responsive-components-calendar-demo.gif" data-background-size="cover" -->
+
+<small>**Responsive Components Demo Site**<br><br>[philipwalton.github.io/responsive-components](https://philipwalton.github.io/responsive-components/)<br>&nbsp;</small>
+<!-- .element: class="whitebg" style="display: inline-block; padding: 1em !important;" -->
+
+???
+
+Philip Walton's Responsive Components demo site shows how this very small amount of code can be used to layer classes into an element that let us style it fluidly, regardless of how large it appears, without using a single traditiona media query.
 
 ---
 
@@ -469,8 +526,41 @@ At present ResizeObserver is only available in Chrome and Opera. We do ship a po
 
 ---
 
-Conceptual closing
+## Fallbacks
+
+???
+
+CSS is good because it's fairly conservative
+
+This has a CSS fallback
 
 ---
 
-Thank you
+## Beyond v1
+
+???
+
+plugin roadmap
+
+---
+
+
+# <span class="montserrat">Thank You,</span> <small style="font-size: 0.55em">WC Boston!</small>
+
+<hr>
+
+Try the Plugin: [wordpress.org/plugins/responsive-containers](https://wordpress.org/plugins/responsive-containers/)
+
+Code & Issues: [github.com/kadamwhite/responsive-containers](https://github.com/kadamwhite/responsive-containers)
+
+Slides: [talks.kadamwhite.com/responsive-blocks](http://talks.kadamwhite.com/responsive-blocks)
+
+
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+
+
+<img src="../wceu/images/hm-logo.png" style="margin-top: 0; height: 3em;" alt="Human Made Logo" />
+
+???
+
+Thank you for having me, WordCamp!
