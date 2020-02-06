@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The Past & Future of the WordPress REST API</title>
+
+    <meta name="description" content="A retrospective on the development and evolution of the WordPress REST API, delivered at Asia in February 2020">
+    <meta name="author" content="K.Adam White">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/talks/js/reveal.js-3.5.0/css/reveal.css">
+	<!--<link rel="stylesheet" href="/talks/js/reveal.js-3.5.0/css/theme/serif.css">-->
+	<link rel="stylesheet" href="/talks/css/kaw-dark.css" id="theme">
+	<link rel="stylesheet" href="custom.css" id="theme-overrides">
+
+	<!-- For syntax highlighting -->
+	<!-- <link rel="stylesheet" href="/talks/css/syntax/xcode.css"> -->
+	<link rel="stylesheet" href="/talks/js/highlight/styles/xcode.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .reveal section img {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    </style>
+</head>
+
+<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="/talks/2020/wcasia/slides.md"
+						 data-separator="^---"
+						 data-separator-vertical="^--"
+						 data-separator-notes="^\?\?\?">
+				</section>
+		</div>
+
+		<script src="/talks/js/reveal.js-3.5.0/lib/js/head.min.js"></script>
+		<script src="/talks/js/reveal.js-3.5.0/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '/talks/js/reveal.js-3.5.0/plugin/markdown/marked.js' },
+					{ src: '/talks/js/reveal.js-3.5.0/plugin/markdown/markdown.js' },
+					{ src: '/talks/js/reveal.js-3.5.0/plugin/notes/notes.js', async: true },
+					{ src: '/talks/js/reveal.js-3.5.0/plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
