@@ -1,6 +1,6 @@
-## The Past & Future of the
+### The Past <span class="amp">&</span> Future of the
 <!-- .element: class="montserrat" -->
-# WordPress REST API
+## WordPress REST API
 <!-- .element: class="montserrat" -->
 
 <hr>
@@ -9,12 +9,6 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
 
 <img src="../../2018/wceu/images/hm-logo.png" style="margin-top: 0; height: 2em;" alt="Human Made Logo" />
-
----
-
-> ...to me, it means "I can talk to WordPress, too."
-
-<small>*~ Ashley Kolodziej, LoopConf 2018*</small>
 
 ---
 
@@ -39,17 +33,54 @@ Traditional Site
 
 ???
 
-Traditional Site
+API
 
 ---
 
-## REST transfers object representations
+## _Gutenberg_
+### DATA
+### PHP
+### MySQL
 
-## XML-RPC calls methods
+???
+
+Modern Applications
+
+---
+
+## The REST API enables how we use WordPress today
+
+---
+
+## REST API as a Compatibility Layer
+
+---
+
+## WordPress as Data
+
+---
+
+## A Brief History of WordPress HTTP APIs
+
+---
+
+## xmlrpc.php
+
+---
+
+### REST transfers object representations
+
+### XML-RPC calls methods
 
 ---
 
 ## XML _vs_ JSON
+
+---
+
+# `json-api`
+
+2009
 
 ---
 
@@ -69,22 +100,18 @@ is an architectural style, not a standard
 
 ---
 
-# `json-api`
+<!-- .slide: data-background="url('images/dotcom-api-its-alive.png')" -->
 
-2009
+https://developer.wordpress.com/2012/04/05/rest-api/
+<!-- .element: class="whitebg" -->
 
 ---
 <!-- .slide: data-background="url('images/jetpack-api.png')" -->
 
 https://developer.wordpress.com/2012/10/26/using-the-rest-api-with-wordpress-org-self-hosted-sites-via-jetpack/
+<!-- .element: class="whitebg" -->
 
----
-
-<!-- .slide: data-background="url('images/dotcom-api-its-alive.png')" -->
-
-https://developer.wordpress.com/2012/04/05/rest-api/
-
----
+--
 
 <!-- .slide: data-background="url('images/dotcom-api-v1-1.png')" -->
 
@@ -92,113 +119,23 @@ https://developer.wordpress.com/2015/01/06/rest-api-v1-1/
 
 ---
 
-# Since Merge
+# WP-API
 
 ---
 
-# Burnout
+https://make.wordpress.org/core/2013/06/17/json-rest-api/
+
+> I’m working on a JSON-based REST API for core. I started on this with an initial proof-of-concept back at the end of last year, and I’m now working on expanding this out into a larger project. The code is being written as a plugin for testing, with the goal of having it integrated into core in some form post-GSOC.
+
+<small>_~ Ryan McCue, 2013_</small>
+<small>https://make.wordpress.org/core/2013/06/17/json-rest-api/</small>
 
 ---
-
-# Focus
-
----
-
-The REST API as a common utility and shared resource
-
-A community effort
-
----
-
-https://make.wordpress.org/core/2017/08/23/rest-api-roadmap/
-
-ROADMAP
-
----
-
-https://make.wordpress.org/core/2017/01/04/focus-tech-and-design-leads/
-
-FOCUS ANNOUNCEMENT
-
----
-
-https://make.wordpress.org/core/2016/10/19/wordpress-rest-api-success-metrics/
-
-API SUCCESS METRICS
-
----
-
-https://make.wordpress.org/core/2016/10/13/merge-proposal-discussion-rest-api-content-endpoints/
-
----
-
-https://make.wordpress.org/core/2016/10/08/rest-api-merge-proposal-part-2-content-api/
-
----
-
-# &hellip;GraphQL?
-
----
-
-# Data Modeling
-
----
-
-`register_rest_field()`
-
----
-
-# Performance
-
-Ongoing!
-
----
-
-## Gutenberg Support
-
-- New endpoints
-- New functionality
-- Challenges to old assumptions
-
----
-
-## Persistent
-# Misunderstandings
-
----
-
-## The REST API is a set of endpoints
-
-It is also the infrastructure needed to create new, custom endpoints
-
----
-
-## "The REST API makes all my site data public"
-
-The API only exposes data which is public on an average WordPress site.
-
----
-
-## ` 'show_in_rest' => true,`
-
----
-<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-architecture.svg')" data-state="semi-solid-bg" -->
-
-### WP as _Component_
-<!-- .element: class="whitebg" -->
-
----
-
-<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-wp-data-flow.svg')" data-state="solid-bg" -->
-
-???
-
-So Bocoup's been using WordPress in our client projects for three years, specifically because of the REST API. We work on complex applications composed of many parts and services, and the REST API makes WordPress something we can use as a strategic component, not a monolithic platform.
-
-Something we can use exclusively for its strengths, such as its maturity as a content editing tool. *We* here know it isn't perfect, but writers don't want to learn Markdown, and they shouldn't have to!
 <!-- .slide: class="center" -->
 
-# <em><span style="font-size: 2em">4.7</span></em>
+# 4.6
+
+(Mention Day of REST events, or WP hack days?)
 
 ??? And that's where we were at the end of the summer last year. Bocoup, and many other companies, were building complex, highly-customized applications and websites using the REST API. There was a lot of interest, but the content endpoints that make it broadly useful weren't yet part of core.
 
@@ -207,25 +144,40 @@ We pitched the API for 4.6, but it wasn't ready. So at the start of the 4.7 cycl
 ---
 <!-- .slide: class="center" -->
 
+# <em><span style="font-size: 2em">4.7</span></em>
+
 <div style="text-align: left;">
-<h3>&#x2611; Meta Handling</h3>
-<h3>&#x2611; Password-Protected Posts</h3>
-<h3>&#x2611; Site Settings endpoint</h3>
-<h3>&#x2611; Improved consistency &amp; examples</h3>
+<h5>&#x2611; Meta Handling</h5>
+<h5>&#x2611; Password-Protected Posts</h5>
+<h5>&#x2611; Site Settings endpoint</h5>
+<h5>&#x2611; Improved consistency &amp; examples</h5>
 </div>
 
 ??? We had a hit-list of technical issues: meta handling, password-protected posts.
 
-By October, we had an API that was technically ready; hundreds of contributors, support from Helen & Aaron. We'd come up with solutions to almost all our known technical challenges. And then, the merge almost didn't happen.
+By October, we had an API that was technically ready; hundreds of contributors, support from Helen & Aaron. We'd come up with solutions to almost all our known technical challenges.
 
-Because Helen asked us a question that should have been simple.
+
+---
+
+TK: add screenshot of and/or quote from merge proposal
+
+https://make.wordpress.org/core/2016/10/08/rest-api-merge-proposal-part-2-content-api/
+
+Oct 8, 2016
+
+https://make.wordpress.org/core/2016/10/13/merge-proposal-discussion-rest-api-content-endpoints/
 
 ---
 <!-- .slide: class="center" -->
 
 # Who Is This For?
 
-??? She asked us, Who is this for? Why does it belong in core?
+???
+the merge almost didn't happen.
+
+Because Helen asked us a question that should have been simple.
+She asked us, Who is this for? Why does it belong in core?
 
 We answered, "for everybody!"
 
@@ -254,8 +206,6 @@ Software : APIs :: Sculpture : Stuff
 
 While I appreciate what Ryan said yesterday about dev UX, we can's compromise our philosophy, and WP is a product that exists for the people that use it.
 
-(upgrade now)
-
 ---
 
 ## Conditional Merge
@@ -268,6 +218,27 @@ While I appreciate what Ryan said yesterday about dev UX, we can's compromise ou
 - Metric #4: Core development and feature projects
 
 ??? In the end we did get the go-ahead to merge the API into core, but it was conditional. We've got to broaden our usage and demonstrate the power of the REST API at scale.
+
+---
+
+> 6 core features or patches than can utilize the API, as well as 1 feature project, within three major releases.
+
+## `¯\_(ツ)_/¯`
+
+---
+<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-architecture.svg')" data-state="semi-solid-bg" -->
+
+### WP as _Component_
+<!-- .element: class="whitebg" -->
+
+---
+<!-- .slide: data-background="url('../../2016/wp-node-feelingrestful/images/2014-project-wp-data-flow.svg')" data-state="solid-bg" -->
+
+???
+
+So I've been using WordPress in our client projects for three years, specifically because of the REST API. We work on complex applications composed of many parts and services, and the REST API makes WordPress something we can use as a strategic component, not a monolithic platform.
+
+Something we can use exclusively for its strengths, such as its maturity as a content editing tool. *We* here know it isn't perfect, but writers don't want to learn Markdown, and they shouldn't have to!
 
 ---
 
@@ -313,11 +284,78 @@ This will drive both the sorts of custom work we've seen already, and continue t
 
 ??? And not only do the classes in 4.7 provide access to native WordPress data types: those classes also make it much easier than before to model custom data.
 
-This has been a narrative-heavy talk, want some code?
+---
+
+# Since Merge
 
 ---
 
-## Start
+# Focus
+
+https://make.wordpress.org/core/2017/01/04/focus-tech-and-design-leads/
+
+FOCUS ANNOUNCEMENT
+
+---
+
+https://make.wordpress.org/core/2017/08/23/rest-api-roadmap/
+
+ROADMAP
+
+---
+
+# Burnout
+
+---
+
+## Enhancements
+
+---
+
+# Data Modeling
+
+---
+
+`register_rest_field()`
+
+---
+
+# Performance
+
+Ongoing!
+
+---
+
+## Gutenberg Support
+
+- New endpoints
+- New functionality
+- Challenges to old assumptions
+
+---
+
+## Persistent
+# Misunderstandings
+
+---
+
+## The REST API is a set of endpoints
+
+It is also the infrastructure needed to create new, custom endpoints
+
+---
+
+## "The REST API makes all my site data public"
+
+The API only exposes data which is public on an average WordPress site.
+
+---
+
+#### ` 'show_in_rest' => true,`
+
+---
+
+## Room for Improvement
 
 ---
 
@@ -332,6 +370,28 @@ This has been a narrative-heavy talk, want some code?
 The API team doesn't have the bandwidth to develop new endpoints
 
 We also lack comprehensive documentation around best practices, so there is no guidance for teams which create their own
+
+---
+
+## Going Forward
+
+The REST API as a common utility and shared resource
+
+A community effort
+
+---
+
+# &hellip;GraphQL?
+
+---
+
+Many APIs
+
+---
+
+> ...to me, it means "I can talk to WordPress, too."
+
+<small>*~ Ashley Kolodziej, LoopConf 2018*</small>
 
 ---
 
