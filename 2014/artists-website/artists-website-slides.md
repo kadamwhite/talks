@@ -3,7 +3,7 @@
 
 *March 2014 &bull; Somerville Open Studios*
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 

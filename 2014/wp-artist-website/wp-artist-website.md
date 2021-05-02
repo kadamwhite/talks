@@ -3,7 +3,7 @@
 
 *March 2014 &bull; Boston WordPress Meetup*
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 ---
 

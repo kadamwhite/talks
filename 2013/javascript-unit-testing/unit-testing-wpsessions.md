@@ -2,7 +2,7 @@
 
 WP Sessions, November 2013
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 Open Web Engineer at [Bocoup](http://bocoup.com/)
 

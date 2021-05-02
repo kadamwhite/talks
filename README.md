@@ -1,4 +1,4 @@
-# Talks by [K.Adam White](http://www.kadamwhite.com)
+# Talks by [K. Adam White](http://www.kadamwhite.com)
 
 ## Introduction
 

@@ -3,7 +3,7 @@
 
 *April 2015, Boston Node.js Meetup*
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [@bocoup](http://bocoup.com)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite) &bull; [@bocoup](http://bocoup.com)
 
 
 

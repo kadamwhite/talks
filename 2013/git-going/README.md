@@ -12,7 +12,7 @@ We'll go over the basics of managing your code with Git, both from the command-l
 
 ## Speaker Bio
 
-K.Adam White is an engineer at [Bocoup](http://www.bocoup.com/), the Open Web company of [rooster sticker](http://community.bocoup.com/bob/) fame, where he writes JavaScript web applications for Bocoup's clients using open-source web technologies. He is a co-organizer of the Boston WordPress meetup group.
+K. Adam White is an engineer at [Bocoup](http://www.bocoup.com/), the Open Web company of [rooster sticker](http://community.bocoup.com/bob/) fame, where he writes JavaScript web applications for Bocoup's clients using open-source web technologies. He is a co-organizer of the Boston WordPress meetup group.
 
 ## Further Reading
 

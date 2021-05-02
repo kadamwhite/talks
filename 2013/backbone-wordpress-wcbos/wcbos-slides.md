@@ -2,7 +2,7 @@
 
 WordCamp Boston, October 2013
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 Engineer at [Bocoup](http://bocoup.com/)
 

@@ -2,7 +2,7 @@
 
 Boston WordPress Meetup, April 2013
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 
@@ -699,7 +699,7 @@ And tons, tons more on WP Tuts+, WordCamp.tv, and myriad blogs across the vastne
 
 # Thank You
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 Slides: [http://kadamwhite.github.io/talks/2013/git-going/](http://kadamwhite.github.io/talks/2013/git-going/)
 

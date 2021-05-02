@@ -3,7 +3,7 @@
 
 *June 2014 &bull; WordCamp Chicago*
 
-K.Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
+K. Adam White &bull; [@kadamwhite](https://twitter.com/kadamwhite)
 
 
 
