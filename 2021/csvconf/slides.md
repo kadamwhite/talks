@@ -33,8 +33,22 @@ Current lead maintainer is [@TimothyBJacobs](https://twitter.com/timothybjacobs?
 
 ---
 
+#### what has changed
+## since 2016?
+
+---
+
+- It got merged into WordPress!
+- New Endpoints
+- Search
+- Filtering & Performance
+- Capabilities
+- Authentication
+
+---
+
 #### what have we learned
-## since 2016
+## since 2016?
 
 --
 
@@ -213,9 +227,25 @@ The Final Lesson
 <!-- .element: class="italic" -->
 ## considered harmful
 
+???
+
+- Could use more maintainers, but not alone in that
+  - Shout-out to Timothy, jonny, alain, felix, george, etc
+- words matter
+- mixed signals from Leadership
+  - I don't think matt was a good steward
+
 ---
 
-### was it worth it?
+## Goals:
+
+- Components own their own endpoints
+- API team serves as documentation & standards body
+
+---
+
+# the best part?
+<!-- .element: class="italic" -->
 
 ---
 
@@ -224,11 +254,15 @@ The Final Lesson
 <small>*~ [Ashley Kolodziej](https://twitter.com/ashleykolodziej), Boston University, [LoopConf 2018](https://www.youtube.com/watch?v=lUslM1aXjpo)*</small>
 
 ---
-<!-- .slide: class="align-top align-right" -->
+<!-- .slide: class="align-top align-left" -->
 
 ### <br>thanks-for-having-me.csv
 
-Slides: [talks.kadamwhite.com/2021/csvconf](https://kadamwhite.github.io/talks/2021/csvconf)
+- Slides: [kadamwhite.github.io/talks/2021/csvconf](https://kadamwhite.github.io/talks/2021/csvconf)
+- API Handbook: [developer.wordpress.org/rest-api](https://developer.wordpress.org/rest-api)
+- Us: [humanmade.com](https://humanmade.com)
+
+&nbsp;
 
 # Questions?
 <!-- .element: class="italic" -->
