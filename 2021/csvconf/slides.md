@@ -16,22 +16,23 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 <!-- .slide: data-background-image="/talks/2021/csvconf/images/gh-contrib-graph.png" data-background-position="top" -->
 
 ---
-
-## Hi, I'm KAdam!
+<!-- .slide: class="align-left" -->
+## Hi, I&rsquo;m KAdam!
 <!-- .element: class="italic" -->
 
  &nbsp; | &nbsp;
  ------------ | ------------
 **2014–2016** | WP-API plugin contributor/advocate
 **2016** ✨ | csv,conf,v2 speaker 👋
-**Late 2016** | PM for merge effort
+**Late 2016** | Coordinated merge effort
 **2017–2019** | REST API lead maintainer
 
 &nbsp;
 
-Current lead maintainer is [@TimothyBJacobs](https://twitter.com/timothybjacobs?lang=en)
+Current lead maintainer<br> is[@TimothyBJacobs](https://twitter.com/timothybjacobs?lang=en)
 
 ---
+<!-- .slide: class="align-left" -->
 
 #### what has changed
 ## since 2016?
@@ -45,6 +46,7 @@ Current lead maintainer is [@TimothyBJacobs](https://twitter.com/timothybjacobs?
 - But most of all,
 
 ---
+<!-- .slide: class="align-left" -->
 
 # Gutenberg
 <!-- .element: class="italic" -->
@@ -53,14 +55,18 @@ Current lead maintainer is [@TimothyBJacobs](https://twitter.com/timothybjacobs?
 <!-- .slide: class="align-top" data-background-position="top" data-background-size="cover" data-background-image="/talks/2021/csvconf/images/gutenberg.png" -->
 
 ---
+<!-- .slide: class="align-left" -->
 
 #### what have we _learned_
 ## since 2016?
 
----
-Lesson:
+???
 
-<hr class="short">
+About the API, or about data
+
+---
+<!-- .slide: class="align-left" -->
+When proposing a change,
 
 # know why
 <!-- .element: class="italic" -->
@@ -90,29 +96,32 @@ Though, both to honor the day -- may the fourth be with you -- and to be more tr
 <!-- .slide: data-background-color="black" data-background-size="contain" data-background-repeat="no-repeat" data-background-image="/talks/2021/csvconf/images/return-of-the-jedi-celebration.png" -->
 
 ---
+<!-- .slide: class="align-left" -->
 
-# &ldquo;who is this for?&rdquo;
+## &ldquo;who is this for?&rdquo;
 <!-- .element: class="italic" -->
 
 --
 
 > If this doesn’t end up in core, we’ll start rolling our own API for stuff. Others will too. Interoperability won’t be there&hellip;
-> 
+>
 > <small>~ [@joostdevalk](https://wordpress.slack.com/archives/core-restapi/p1476306524006688), Oct 12, 2016</small>
 
 ---
+<!-- .slide: class="align-top" -->
 
-A core REST API gives plugin developers
-
+&nbsp;
 # interoperability
 <!-- .element: class="italic" -->
+
+A strong foundation for plugin interaction
 
 ???
 
 The most convincing argument was from plugin developers, who advocated for the API quite heavily throughout 2016. The writing was on the wall about needing data access from JS, and if WP core didn't provide an opinion about how to model core content, each plugin would have to roll their own. Without a central authority, we'd end up with a big mess.
 
 ---
-
+<!-- .slide: class="align-left" -->
 ### Conditional Merge
 
 **_and [metrics for success](https://make.wordpress.org/core/2016/10/19/wordpress-rest-api-success-metrics/)_**
@@ -128,7 +137,7 @@ We hadn't demonstrated what benefit this would have that would justify putting i
 
 In the end we did get the go-ahead to merge the API into core, but it was conditional. We've got to broaden our usage and demonstrate the power of the REST API at scale.
 
----
+--
 
 ### One feature project within
 <!-- .element: class="italic" -->
@@ -142,12 +151,16 @@ In the end we did get the go-ahead to merge the API into core, but it was condit
 - got by on a technicality with G
 
 ---
-
+<!-- .slide: class="align-left" -->
 ## should we have waited?
 <!-- .element: class="italic" -->
 
----
+???
 
+This raised the Q
+
+---
+<!-- .slide: class="align-left" -->
 An API contract is a
 
 # standard
@@ -160,14 +173,21 @@ This isn't a surprise to many here, I'm sure, but what we were doing was proposi
 Broader use than if we'd waited for G
 
 ---
-Lesson:
+<!-- .slide: class="align-left" -->
+Does your data API plan for
 
-<hr class="short">
+# versioning
+<!-- .element: class="italic" -->
+
+---
+<!-- .slide: class="align-left" -->
+how granular are users&rsquo;
 
 # capabilities
 <!-- .element: class="italic" -->
 
 ---
+<!-- .slide: class="align-left" -->
 
 ## who can _access_ the data?
 <!-- .element: class="italic" -->
@@ -178,9 +198,9 @@ Lesson:
 
 In WP this can be modified at runtime with the map_meta_cap and user_can filters
 
----
-
-adapted Hyper Schema's `targetSchema`
+--
+<!-- .slide: class="align-left" -->
+adapted Hyper Schema&rsquo;s `targetSchema`
 ```json
 {
   "rel": "https://api.w.org/action-publish",
@@ -199,12 +219,14 @@ adapted Hyper Schema's `targetSchema`
 ```
 
 ---
-`apiResource._links`
+<!-- .slide: class="align-left" -->
+adapted Hyper Schema&rsquo;s `targetSchema`,<br>exposed as `apiResource._links`
 ![_links property on a WP object](/talks/2021/csvconf/images/_links.png)
 
 ---
+<!-- .slide: class="align-left" -->
 
-## Data is only as good as what you can do with it
+## Data&rsquo;s only as<br>good as what you<br>can do with it
 
 ???
 
@@ -212,15 +234,14 @@ adapted Hyper Schema's `targetSchema`
 - Can't leave access as an afterthought
 
 ---
-Lesson:
-
-<hr class="short">
+<!-- .slide: class="align-left" -->
+We dragged our heels on providing options for
 
 # authentication
 <!-- .element: class="italic" -->
 
 ---
-
+<!-- .slide: class="align-left" -->
 At time of merge&hellip;
 
 ## _Core:_ Cookie &amp; Nonce
@@ -230,7 +251,7 @@ At time of merge&hellip;
 <!-- .element: class="italic" -->
 
 ---
-
+<!-- .slide: class="align-left" -->
 ## _insufficient_ docs
 <!-- .element: class="italic" -->
 
@@ -238,14 +259,14 @@ At time of merge&hellip;
 <!-- .element: class="italic" -->
 
 ---
-
-This one's on me, as the component lead:
+<!-- .slide: class="align-left" -->
+This one&rsquo;s on me, as the component lead:
 
 ## I let &ldquo;perfect&rdquo; be<br>the enemy of &ldquo;good&rdquo;
 <!-- .element: class="italic" -->
 
 ---
-
+<!-- .slide: class="align-left" -->
 ## WordPress 5.6 "Simone"
 <!-- .element: class="italic" -->
 
@@ -254,22 +275,14 @@ Application Passwords added
 ### December 2020
 
 ---
-Hindsight:
-
-<hr class="short">
-
-# versioning
-<!-- .element: class="italic" -->
-
----
+<!-- .slide: class="align-left" -->
 One Final Lesson
-
-<hr class="short">
 
 # burnout
 <!-- .element: class="italic" -->
 
 ---
+<!-- .slide: class="align-left" -->
 
 ## heroic underdogs
 <!-- .element: class="italic" -->
@@ -284,6 +297,7 @@ One Final Lesson
   - I don't think matt was a good steward
 
 ---
+<!-- .slide: class="align-left" -->
 
 ## signals from project leadership carry weight
 <!-- .element: class="italic" -->
@@ -296,26 +310,41 @@ One Final Lesson
 - API team serves as documentation & standards body
 
 ---
+<!-- .slide: class="align-left" -->
 
-# the best part?
+## Empower contributors
+<!-- .element: class="italic" -->
+## Recognize burnout
+<!-- .element: class="italic" -->
+## Bigger than us
 <!-- .element: class="italic" -->
 
 ---
+<!-- .slide: class="align-left" -->
+
+# worth it?
+<!-- .element: class="italic" -->
+
+---
+
+<!-- .slide: class="align-left" -->
+## Curb Cut Effect
 
 > ...to me, [the REST API] means &ldquo;I can talk to WordPress, too.&rdquo;
 
 <small>*~ [Ashley Kolodziej](https://twitter.com/ashleykolodziej), Boston University, [LoopConf 2018](https://www.youtube.com/watch?v=lUslM1aXjpo)*</small>
 
 ---
+<!-- .slide: class="align-top align-left" -->
 
 ## summary
 <!-- .element: class="italic" -->
 
 - Know why the data standard matters
+- Plan for versioning from Day 1
 - Understand the nuances of permissions & access
 - Provide a documented authentication solution
-- Plan for versioning from Day 1
-- It&rsquo;s never &ldquo;us _vs_ them&rdquo;; FOSS is a community effort
+- It&rsquo;s never &ldquo;us _vs_ them&rdquo;:<br>FOSS is a community effort
 - Curb cutting effect
 
 ---

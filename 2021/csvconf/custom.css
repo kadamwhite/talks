@@ -63,6 +63,17 @@
 .align-left {
   text-align: left;
 }
+.align-left table {
+  margin-left: -0.5em;
+}
+.align-left hr,
+.align-left blockquote {
+  margin-left: 0;
+}
+
+hr.short {
+  width: 25%;
+}
 
 .align-top {
   top: 0 !important;
