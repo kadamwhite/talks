@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		
+		<title>WordPress as Data, 5 Years In</title>
+
+		<meta name="description" content="A retrospective on the development and evolution of the WordPress REST API, delivered at csv,conf in May 2021">
+		<meta name="author" content="K. Adam White">
+
+		<link rel="stylesheet" href="/talks/js/reveal.js-4.1.0/dist/reset.css">
+		<link rel="stylesheet" href="/talks/js/reveal.js-4.1.0/dist/reveal.css">
+		<link rel="stylesheet" href="/talks/js/reveal.js-4.1.0/dist/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="/talks/2021/csvconf/custom.css" id="theme-overrides">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="/talks/js/reveal.js-4.1.0/plugin/highlight/xcode.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="/talks/2021/csvconf/slides.md"
+						 data-separator="^---"
+						 data-transition="fade"
+						 data-separator-vertical="^--"
+						 data-separator-notes="^\?\?\?">
+				</section>
+			</div>
+		</div>
+
+		<script src="/talks/js/reveal.js-4.1.0/dist/reveal.js"></script>
+		<script src="/talks/js/reveal.js-4.1.0/plugin/notes/notes.js"></script>
+		<script src="/talks/js/reveal.js-4.1.0/plugin/markdown/markdown.js"></script>
+		<script src="/talks/js/reveal.js-4.1.0/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				controls: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

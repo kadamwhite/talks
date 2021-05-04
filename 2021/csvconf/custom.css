@@ -1,0 +1,106 @@
+:root {
+  --altis-blue: #4667de;
+  --brand-dark-blue: #152a4e;
+  --brand-off-white: #f3f5f9;
+  --brand-darker-blue: #0f1a3c;
+  --brand-green: #3fcf8e;
+  --brand-blue-green: #a3ede6;
+  --brand-flamingo: #ed7b9d;
+
+  /* --main-font: #{$mainFont};
+  --main-font-size: #{$mainFontSize};
+  --main-color: #{$mainColor};
+  --block-margin: #{$blockMargin};
+  --heading-margin: #{$headingMargin};
+  --heading-font: #{$headingFont};
+  --heading-color: #{$headingColor};
+  --heading-line-height: #{$headingLineHeight};
+  --heading-letter-spacing: #{$headingLetterSpacing};
+  --heading-text-transform: #{$headingTextTransform};
+  --heading-text-shadow: #{$headingTextShadow};
+  --heading-font-weight: #{$headingFontWeight};
+  --heading1-text-shadow: #{$heading1TextShadow};
+  --heading1-size: #{$heading1Size};
+  --heading2-size: #{$heading2Size};
+  --heading3-size: #{$heading3Size};
+  --heading4-size: #{$heading4Size};
+  --code-font: #{$codeFont};
+  --link-color: #{$linkColor};
+  --link-color-hover: #{$linkColorHover};
+  --selection-background-color: #{$selectionBackgroundColor};
+  --selection-color: #{$selectionColor}; */
+}
+
+.reveal-viewport {
+  background-color: var( --brand-darker-blue );
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  text-transform: none;
+}
+
+.weight-normal {
+  font-weight: normal !important;
+}
+.bold {
+  font-weight: bold !important;
+}
+
+.reveal a {
+  color: var( --brand-blue-green );
+}
+.reveal a:hover {
+  color: var( --brand-green );
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-top {
+  top: 0 !important;
+}
+
+.meme {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+  color: white !important;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+}
+
+.fanwood {
+  font-family: "Fanwood Text",  serif !important;
+}
+
+.italic {
+  font-family: "Fanwood Text",  serif !important;
+  font-style: italic !important;
+  font-weight: normal !important;
+}
+.italic em {
+  font-style: normal;
+}
+
+.reveal {
+  color: #d7e6e6; /* adapted native reveal color; the other is too low-contrast */
+}
+
+blockquote {
+  font-family: "Fanwood text";
+  font-size: 1.25em;
+  text-align: left;
+  padding: 5px 1em !important;
+}
+
+.reveal blockquote em {
+  font-style: normal;
+}
