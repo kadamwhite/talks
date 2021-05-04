@@ -29,7 +29,7 @@ K. Adam White &bull; [@KAdamWhite](https://twitter.com/kadamwhite)
 
 &nbsp;
 
-Current lead maintainer<br> is[@TimothyBJacobs](https://twitter.com/timothybjacobs?lang=en)
+Current lead maintainer<br> is [@TimothyBJacobs](https://twitter.com/timothybjacobs?lang=en)
 
 ---
 <!-- .slide: class="align-left" -->
@@ -354,6 +354,7 @@ One Final Lesson
 
 - Slides: [kadamwhite.github.io/talks/2021/csvconf](https://kadamwhite.github.io/talks/2021/csvconf)
 - API Handbook: [developer.wordpress.org/rest-api](https://developer.wordpress.org/rest-api)
+- Contribute: [make.wordpress.org](https://make.wordpress.org)
 - Us: [humanmade.com](https://humanmade.com)
 
 &nbsp;
